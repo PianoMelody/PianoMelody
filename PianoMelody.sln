@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PianoMelody.Models", "PianoMelody.Models\PianoMelody.Models.csproj", "{D9DB586C-E5DC-4950-9890-1054200E74D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PianoMelody.Data", "PianoMelody.Data\PianoMelody.Data.csproj", "{4C3CFCCA-661F-48DC-B716-8B8172F2404C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PianoMelody.I18N", "PianoMelody.I18N\PianoMelody.I18N.csproj", "{2AB19D6A-0BE6-4951-9C32-117218ED84A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PianoMelody.Web", "PianoMelody.Web\PianoMelody.Web.csproj", "{8BA3214D-A61E-4752-9403-AD2BDD8579DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9DB586C-E5DC-4950-9890-1054200E74D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9DB586C-E5DC-4950-9890-1054200E74D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9DB586C-E5DC-4950-9890-1054200E74D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9DB586C-E5DC-4950-9890-1054200E74D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C3CFCCA-661F-48DC-B716-8B8172F2404C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C3CFCCA-661F-48DC-B716-8B8172F2404C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C3CFCCA-661F-48DC-B716-8B8172F2404C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C3CFCCA-661F-48DC-B716-8B8172F2404C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB19D6A-0BE6-4951-9C32-117218ED84A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB19D6A-0BE6-4951-9C32-117218ED84A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB19D6A-0BE6-4951-9C32-117218ED84A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB19D6A-0BE6-4951-9C32-117218ED84A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA3214D-A61E-4752-9403-AD2BDD8579DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA3214D-A61E-4752-9403-AD2BDD8579DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA3214D-A61E-4752-9403-AD2BDD8579DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA3214D-A61E-4752-9403-AD2BDD8579DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

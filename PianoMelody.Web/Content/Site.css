@@ -1,0 +1,14 @@
+﻿html {
+    overflow-y: scroll;
+}
+
+body {
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 400px;
+}
