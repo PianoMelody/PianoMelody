@@ -1,15 +1,16 @@
 ﻿namespace PianoMelody.Web.ViewModels
 {
     using System.ComponentModel.DataAnnotations;
+    using PianoMelody.I18N;
 
     public class RegistrationViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Resources))]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Resources))]
         [StringLength(100, MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

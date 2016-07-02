@@ -7,6 +7,7 @@ namespace PianoMelody.Data
     using PianoMelody.Models;
 
     using Microsoft.AspNet.Identity.EntityFramework;
+    using System;
 
     public class PianoMelodyContext : IdentityDbContext<User>, IPianoMelodyContext
     {
@@ -17,6 +18,8 @@ namespace PianoMelody.Data
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<PianoMelodyContext, Configuration>());
 #endif
         }
+
+        public IDbSet<Resources> Resources { get; set; }
 
         public static PianoMelodyContext Create()
         {

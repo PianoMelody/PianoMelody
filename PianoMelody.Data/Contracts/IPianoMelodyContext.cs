@@ -7,5 +7,7 @@
     public interface IPianoMelodyContext
     {
         IDbSet<User> Users { get; set; }
+
+        IDbSet<Resources> Resources { get; set; }
     }
 }

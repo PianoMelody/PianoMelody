@@ -6,6 +6,8 @@
     {
         IRepository<User> Users { get; }
 
-        void SaveChanges();
+        IRepository<Resources> Resources { get; }
+
+        int SaveChanges();
     }
 }

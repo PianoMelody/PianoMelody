@@ -1,4 +1,5 @@
-﻿@model PianoMelody.Web.ViewModels.RegistrationViewModel
+﻿@using PianoMelody.I18N
+@model PianoMelody.Web.ViewModels.RegistrationViewModel
 @{
     ViewBag.Title = "Register";
     ViewBag.Keyword = "";
@@ -19,28 +20,28 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="panel-body">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Resources.Email })
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="panel-body">
                         <div class="form-group">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Resources.Password })
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="panel-body">
                         <div class="form-group">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "ConfirmPassword" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = Resources.ConfirmPassword })
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-4 col-lg-offset-4">
-                    <input type="submit" class="btn btn-info btn-block" value="Register"/>
+                    <input type="submit" class="btn btn-info btn-block" value="@Resources.AddAdministrator"/>
                 </div>
             </div>
         }

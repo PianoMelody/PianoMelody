@@ -11,8 +11,8 @@
     using Microsoft.Owin.Security;
     using ViewModels;
     using Extensions;
+
     [Authorize]
-    [ValidateInput(false)]
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;

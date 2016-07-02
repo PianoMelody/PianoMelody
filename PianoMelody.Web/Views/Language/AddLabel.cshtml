@@ -1,0 +1,20 @@
+﻿@model PianoMelody.Web.ViewModels.LabelViewModel
+
+@{
+    ViewBag.Title = "AddLabel";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div class="row">
+            @Html.AntiForgeryToken()
+            @Html.Partial("_Label", Model)
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -24,6 +24,14 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
+        public IRepository<Resources> Resources
+        {
+            get
+            {
+                return this.GetRepository<Resources>();
+            }
+        }
+
         public IRepository<User> Users
         {
             get
@@ -32,9 +40,9 @@
             }
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            this.context.SaveChanges();
+            return this.context.SaveChanges();
         }
 
         private IRepository<T> GetRepository<T>() where T : class

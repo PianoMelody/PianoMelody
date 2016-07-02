@@ -202,6 +202,9 @@
     <Compile Include="Contracts\IMapFrom.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="ViewModels\LabelViewModel.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Extensions\I18NExtension.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -221,6 +224,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bg.png" />
+    <Content Include="Images\ru.png" />
+    <Content Include="Images\us.png" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -254,6 +260,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Language\_Label.cshtml" />
+    <Content Include="Views\Language\AddLabel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PianoMelody.Data\PianoMelody.Data.csproj">

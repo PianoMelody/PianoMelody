@@ -6,6 +6,7 @@
     using PianoMelody.Data.Contracts;
     using PianoMelody.Web.Extensions;
 
+    [I18N]
     public class BaseController : Controller
     {
         public BaseController()

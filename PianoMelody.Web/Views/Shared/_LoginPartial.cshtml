@@ -1,4 +1,5 @@
-﻿@if (Request.IsAuthenticated)
+﻿@using PianoMelody.I18N
+@if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
@@ -8,15 +9,15 @@
             @if (User.IsInRole("Admin"))
             {
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Resources.Administration</a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Add administrator", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                        <li>@Html.ActionLink("Change password", "ChangePassword", "Profile")</li>
+                        <li>@Html.ActionLink(Resources.AddAdministrator, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                        <li>@Html.ActionLink(Resources.ChangePassword, "ChangePassword", "Profile")</li>
                     </ul>
                 </li>
             }
             <li>
-                <a href="javascript:document.getElementById('logoutForm').submit()">Log Off</a>
+                <a href="javascript:document.getElementById('logoutForm').submit()">@Resources.LogOff</a>
             </li>
         </ul>
     }
