@@ -5,12 +5,12 @@
 
     public class ChangePasswordViewModel
     {
-        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Resources))]
+        [Required]
         [DataType(DataType.Password)]
         [Display(Name = "CurrentPassword")]
         public string OldPassword { get; set; }
 
-        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Resources))]
+        [Required]
         [StringLength(100, MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "NewPassword")]

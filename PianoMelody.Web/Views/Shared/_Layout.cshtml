@@ -24,7 +24,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(Resources.Home, "Index", "Home", new { area = "" }, new { })</li>
+                    @Html.Partial("_SwitchLanguage")
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

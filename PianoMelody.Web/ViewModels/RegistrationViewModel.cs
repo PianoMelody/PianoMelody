@@ -5,12 +5,12 @@
 
     public class RegistrationViewModel
     {
-        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Resources))]
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Resources))]
+        [Required]
         [StringLength(100, MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

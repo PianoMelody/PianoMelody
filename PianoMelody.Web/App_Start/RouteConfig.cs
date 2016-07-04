@@ -10,7 +10,7 @@
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Login",
+                name: "Admin",
                 url: "admin",
                 defaults: new
                 {
@@ -23,10 +23,20 @@
                 url: "{language}/{controller}/{action}/{id}",
                 defaults: new
                 {
+                    language = "bg",
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional,
-                    language = "bg"
+                });
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new
+                {
+                    controller = "Home",
+                    action = "Index",
+                    id = UrlParameter.Optional
                 });
         }
     }

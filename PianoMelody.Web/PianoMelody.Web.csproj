@@ -262,6 +262,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Language\_Label.cshtml" />
     <Content Include="Views\Language\AddLabel.cshtml" />
+    <Content Include="Views\Shared\_SwitchLanguage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PianoMelody.Data\PianoMelody.Data.csproj">
