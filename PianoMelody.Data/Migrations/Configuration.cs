@@ -3,7 +3,7 @@ namespace PianoMelody.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    using PianoMelody.Models;
+    using Models;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;

@@ -3,6 +3,7 @@
     using System.Net;
     using System.Net.Mail;
 
+    // TODO: Get existing email and password
     public class EmailService
     {
         private readonly string host = "smtp.abv.bg";

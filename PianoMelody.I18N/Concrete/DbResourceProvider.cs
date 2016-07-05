@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using Resources.Abstract;
-using Resources.Entities;
-
-namespace Resources.Concrete
+﻿namespace PianoMelody.I18N.Concrete
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data.SqlClient;
+
+    using Abstract;
+    using Entities;
+
     public class DbResourceProvider : BaseResourceProvider
     {
         // Database connection string        

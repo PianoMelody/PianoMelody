@@ -1,24 +1,26 @@
 ﻿namespace PianoMelody.Web.ViewModels
 {
     using System.ComponentModel.DataAnnotations;
-    using PianoMelody.I18N;
+
+    using I18N;
 
     public class RegistrationViewModel
     {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrInvalidEmail")]
+        [Display(Name = "_Email", ResourceType = typeof(Resources))]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, MinimumLength = 6)]
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrLenghtValidation",
+            MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "_Password", ResourceType = typeof(Resources))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "ConfirmPassword")]
-        [Compare("Password")]
+        [Display(Name = "_ConfirmPassword", ResourceType = typeof(Resources))]
+        [Compare("Password", ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_PasswordValidation")]
         public string ConfirmPassword { get; set; }
     }
 }

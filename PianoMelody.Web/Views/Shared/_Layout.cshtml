@@ -1,6 +1,5 @@
-﻿@using PianoMelody.I18N
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="@CultureHelper.GetCurrentNeutralCulture()" dir="@(CultureHelper.IsRightToLeft() ? "rtl" : "ltr")">
 <head>
     <title>@ViewBag.Title - @Resources.Logo</title>
     <meta charset="utf-8" lang="bg" />

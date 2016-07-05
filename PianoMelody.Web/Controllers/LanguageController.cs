@@ -1,9 +1,11 @@
-﻿using PianoMelody.Web.Extensions;
-using PianoMelody.Web.ViewModels;
-using System.Web.Mvc;
-
-namespace PianoMelody.Web.Controllers
+﻿namespace PianoMelody.Web.Controllers
 {
+    using System.Web.Mvc;
+
+    using Extensions;
+    using I18N;
+    using ViewModels;
+
     [Authorize]
     public class LanguageController : BaseController
     {
@@ -28,6 +30,7 @@ namespace PianoMelody.Web.Controllers
 
         // POST: Language/AddLabel
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddLabel(LabelViewModel lvm)
         {
             if (!this.ModelState.IsValid)
@@ -36,13 +39,13 @@ namespace PianoMelody.Web.Controllers
                 return this.View();
             }
 
-            this.Data.Resources.Add(new Models.Resources { Culture = "bg-bg", Name = lvm.Name, Value = lvm.BgValue });
-            this.Data.Resources.Add(new Models.Resources { Culture = "en-us", Name = lvm.Name, Value = lvm.EnValue });
-            this.Data.Resources.Add(new Models.Resources { Culture = "ru-ru", Name = lvm.Name, Value = lvm.RuValue });
+            this.Data.Resources.Add(new Models.Resources { Culture = "en", Name = lvm.Name, Value = lvm.EnValue });
+            this.Data.Resources.Add(new Models.Resources { Culture = "ru", Name = lvm.Name, Value = lvm.RuValue });
+            this.Data.Resources.Add(new Models.Resources { Culture = "bg", Name = lvm.Name, Value = lvm.BgValue });
 
             this.Data.SaveChanges();
 
-            this.AddNotification("Label created", NotificationType.SUCCESS);
+            this.AddNotification(Resources._LabelCreated, NotificationType.SUCCESS);
             return this.RedirectToAction("AddLabel");
         }
     }

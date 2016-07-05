@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using Resources.Abstract;
-using Resources.Entities;
-
-namespace Resources.Utility
+﻿namespace PianoMelody.I18N.Utility
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+
+    using Abstract;
+    using Entities;
+
     public class ResourceBuilder
     {
         /// <summary>
@@ -35,14 +36,9 @@ namespace Resources.Utility
 
             #region Templates
             const string header =
-@"using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Resources.Abstract;
-using Resources.Concrete;
+@"using System.Globalization;
+using {0}.Abstract;
+using {0}.Concrete;
     
 namespace {0} {{
         public class {1} {{

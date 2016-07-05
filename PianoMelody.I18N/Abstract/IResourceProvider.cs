@@ -1,4 +1,4 @@
-﻿namespace Resources.Abstract
+﻿namespace PianoMelody.I18N.Abstract
 {
     public interface IResourceProvider
     {

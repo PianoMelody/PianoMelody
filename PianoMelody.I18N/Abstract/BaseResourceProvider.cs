@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Resources.Entities;
-
-namespace Resources.Abstract
+﻿namespace PianoMelody.I18N.Abstract
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Entities;
+
     public abstract class BaseResourceProvider: IResourceProvider
     {
         // Cache list of resources

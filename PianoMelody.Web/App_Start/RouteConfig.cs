@@ -1,5 +1,6 @@
 ﻿namespace PianoMelody.Web
 {
+    using Helpers;
     using System.Web.Mvc;
     using System.Web.Routing;
 
@@ -11,23 +12,26 @@
 
             routes.MapRoute(
                 name: "Admin",
-                url: "admin",
+                url: "{culture}/admin",
                 defaults: new
                 {
+                    culture = CultureHelper.GetDefaultCulture(),
                     controller = "Account",
                     action = "Login"
-                });
+                }
+            );
 
             routes.MapRoute(
                 name: "DefaultLocalized",
-                url: "{language}/{controller}/{action}/{id}",
+                url: "{culture}/{controller}/{action}/{id}",
                 defaults: new
                 {
-                    language = "bg",
+                    culture = CultureHelper.GetDefaultCulture(),
                     controller = "Home",
                     action = "Index",
-                    id = UrlParameter.Optional,
-                });
+                    id = UrlParameter.Optional
+                }
+            );
 
             routes.MapRoute(
                 name: "Default",
@@ -37,7 +41,8 @@
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional
-                });
+                }
+            );
         }
     }
 }

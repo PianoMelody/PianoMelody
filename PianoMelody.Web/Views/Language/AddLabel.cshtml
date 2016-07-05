@@ -1,7 +1,7 @@
 ﻿@model PianoMelody.Web.ViewModels.LabelViewModel
 
 @{
-    ViewBag.Title = "AddLabel";
+    ViewBag.Title = Resources._AddLabel;
 }
 
 @using (Html.BeginForm())
@@ -12,7 +12,7 @@
             @Html.Partial("_Label", Model)
             <div class="col-lg-3">
                 <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="@Resources._Save" class="btn btn-default" />
                 </div>
             </div>
         </div>

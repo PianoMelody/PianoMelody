@@ -2,8 +2,8 @@
 {
     using System;
 
-    using PianoMelody.Data;
-    using PianoMelody.Models;
+    using Data;
+    using Models;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;

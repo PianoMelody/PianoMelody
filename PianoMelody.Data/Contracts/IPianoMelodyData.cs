@@ -1,6 +1,6 @@
 ﻿namespace PianoMelody.Data.Contracts
 {
-    using PianoMelody.Models;
+    using Models;
 
     public interface IPianoMelodyData
     {

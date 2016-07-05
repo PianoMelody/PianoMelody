@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Xml.Linq;
-using Resources.Abstract;
-using Resources.Entities;
-
-namespace Resources.Concrete
+﻿namespace PianoMelody.I18N.Concrete
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Xml.Linq;
+
+    using Abstract;
+    using Entities;
+
     public class XmlResourceProvider: BaseResourceProvider
     {
         // File path

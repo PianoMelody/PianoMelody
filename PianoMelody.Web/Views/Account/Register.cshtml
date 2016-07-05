@@ -1,7 +1,6 @@
-﻿@using PianoMelody.I18N
-@model PianoMelody.Web.ViewModels.RegistrationViewModel
+﻿@model PianoMelody.Web.ViewModels.RegistrationViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = Resources._AddAdministrator;
     ViewBag.Keyword = "";
     ViewBag.Description = "";
 }
@@ -12,36 +11,34 @@
         {
             @Html.AntiForgeryToken()
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-12">
-                    @Html.ValidationSummary("", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="panel-body">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Resources.Email })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Resources._Email })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="panel-body">
                         <div class="form-group">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Resources.Password })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Resources._Password })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="panel-body">
                         <div class="form-group">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = Resources.ConfirmPassword })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = Resources._ConfirmPassword })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-4 col-lg-offset-4">
-                    <input type="submit" class="btn btn-info btn-block" value="@Resources.AddAdministrator"/>
+                    <input type="submit" class="btn btn-info btn-block" value="@Resources._AddAdministrator" />
                 </div>
             </div>
         }

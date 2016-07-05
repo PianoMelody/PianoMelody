@@ -4,11 +4,11 @@
     using System.Web;
     using System.Web.Mvc;
 
-    using PianoMelody.Web.Extensions;
+    using Extensions;
+    using ViewModels;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
-    using ViewModels;
 
     [Authorize]
     public class ProfileController : BaseController
@@ -77,7 +77,7 @@
                 await
                 this.UserManager.ChangePasswordAsync(
                     this.User.Identity.GetUserId(),
-                    model.OldPassword,
+                    model.CurrentPassword,
                     model.NewPassword);
             if (result.Succeeded)
             {

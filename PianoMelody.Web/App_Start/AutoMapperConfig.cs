@@ -7,7 +7,7 @@
 
     using AutoMapper;
 
-    using PianoMelody.Web.Contracts;
+    using Contracts;
 
     public static class AutoMapperConfig
     {

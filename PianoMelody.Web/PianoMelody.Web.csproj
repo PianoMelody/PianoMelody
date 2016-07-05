@@ -202,9 +202,9 @@
     <Compile Include="Contracts\IMapFrom.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="ViewModels\LabelViewModel.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
-    <Compile Include="Extensions\I18NExtension.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />

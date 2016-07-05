@@ -5,17 +5,17 @@
 }
 
 <li>
-    <a class="btn btn-default" href='@Url.Action(@action, @controller, new { language = "bg" })'>
-        <img src='@Url.Content("~/Images/bg.png")' />
-    </a>
-</li>
-<li>
-    <a class="btn btn-default" href='@Url.Action(@action, @controller, new { language = "en" })'>
+    <a class="btn btn-default" href='@Url.Action(@action, @controller, new { culture = "en" })'>
         <img src='@Url.Content("~/Images/us.png")' />
     </a>
 </li>
 <li>
-    <a class="btn btn-default" href='@Url.Action(@action, @controller, new { language = "ru" })'>
+    <a class="btn btn-default" href='@Url.Action(@action, @controller, new { culture = "ru" })'>
         <img src='@Url.Content("~/Images/ru.png")' />
+    </a>
+</li>
+<li>
+    <a class="btn btn-default" href='@Url.Action(@action, @controller, new { culture = "bg" })'>
+        <img src='@Url.Content("~/Images/bg.png")' />
     </a>
 </li>

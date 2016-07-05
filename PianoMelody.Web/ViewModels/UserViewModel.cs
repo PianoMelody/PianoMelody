@@ -1,8 +1,7 @@
 ﻿namespace PianoMelody.Web.ViewModels
 {
-
-    using PianoMelody.Models;
-    using PianoMelody.Web.Contracts;
+    using Contracts;
+    using Models;
 
     public class UserViewModel : IMapFrom<User>
     {

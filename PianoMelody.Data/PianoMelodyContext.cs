@@ -2,12 +2,11 @@ namespace PianoMelody.Data
 {
     using System.Data.Entity;
 
-    using PianoMelody.Data.Contracts;
-    using PianoMelody.Data.Migrations;
-    using PianoMelody.Models;
+    using Contracts;
+    using Migrations;
+    using Models;
 
     using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
 
     public class PianoMelodyContext : IdentityDbContext<User>, IPianoMelodyContext
     {

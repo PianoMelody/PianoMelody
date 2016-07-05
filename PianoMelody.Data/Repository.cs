@@ -3,7 +3,7 @@
     using System.Data.Entity;
     using System.Linq;
 
-    using PianoMelody.Data.Contracts;
+    using Contracts;
 
     public class Repository<T> : IRepository<T>
         where T : class

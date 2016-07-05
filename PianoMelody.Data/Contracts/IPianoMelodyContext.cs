@@ -2,7 +2,7 @@
 {
     using System.Data.Entity;
 
-    using PianoMelody.Models;
+    using Models;
 
     public interface IPianoMelodyContext
     {

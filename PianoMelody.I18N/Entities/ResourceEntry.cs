@@ -1,6 +1,5 @@
-﻿namespace Resources.Entities
+﻿namespace PianoMelody.I18N.Entities
 {
-
     public class ResourceEntry
     {
         public ResourceEntry()

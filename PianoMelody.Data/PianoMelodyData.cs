@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Data.Entity;
 
-    using PianoMelody.Data.Contracts;
-    using PianoMelody.Models;
+    using Contracts;
+    using Models;
 
     public class PianoMelodyData : IPianoMelodyData
     {

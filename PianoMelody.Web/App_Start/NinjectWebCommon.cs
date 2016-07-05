@@ -6,9 +6,8 @@ namespace PianoMelody.Web.App_Start
     using System;
     using System.Web;
 
-    using PianoMelody.Data;
-    using PianoMelody.Data.Contracts;
-    using PianoMelody.Web.Contracts;
+    using Data;
+    using Data.Contracts;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 

@@ -1,17 +1,18 @@
 ﻿namespace PianoMelody.Web.ViewModels
 {
     using System.ComponentModel.DataAnnotations;
-    using PianoMelody.I18N;
+
+    using I18N;
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
+        [Display(Name = "_Email", ResourceType = typeof(Resources))]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "_Password", ResourceType = typeof(Resources))]
         public string Password { get; set; }
     }
 }
