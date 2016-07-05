@@ -78,6 +78,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PianoMelody.I18N\PianoMelody.I18N.csproj">
+      <Project>{2AB19D6A-0BE6-4951-9C32-117218ED84A0}</Project>
+      <Name>PianoMelody.I18N</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PianoMelody.Models\PianoMelody.Models.csproj">
       <Project>{d9db586c-e5dc-4950-9890-1054200e74d0}</Project>
       <Name>PianoMelody.Models</Name>
