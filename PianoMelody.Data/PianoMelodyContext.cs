@@ -18,7 +18,21 @@ namespace PianoMelody.Data
 #endif
         }
 
+        public IDbSet<ArticleGroup> ArticleGroups { get; set; }
+
+        public IDbSet<Article> Articles { get; set; }
+
+        public IDbSet<Manufacturer> Manufacturers { get; set; }
+
+        public IDbSet<Multimedia> Multimedia { get; set; }
+
+        public IDbSet<News> News { get; set; }
+
+        public IDbSet<Reference> References { get; set; }
+
         public IDbSet<Resources> Resources { get; set; }
+
+        public IDbSet<Service> Services { get; set; }
 
         public static PianoMelodyContext Create()
         {

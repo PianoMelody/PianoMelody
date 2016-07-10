@@ -63,6 +63,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumetations\MultimediaType.cs" />
+    <Compile Include="Multimedia.cs" />
+    <Compile Include="Reference.cs" />
+    <Compile Include="News.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="Manufacturer.cs" />
+    <Compile Include="Article.cs" />
+    <Compile Include="ArticleGroup.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

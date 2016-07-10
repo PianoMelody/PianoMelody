@@ -9,5 +9,19 @@
         IDbSet<User> Users { get; set; }
 
         IDbSet<Resources> Resources { get; set; }
+
+        IDbSet<ArticleGroup> ArticleGroups { get; set; }
+
+        IDbSet<Article> Articles { get; set; }
+
+        IDbSet<Service> Services { get; set; }
+
+        IDbSet<News> News { get; set; }
+
+        IDbSet<Reference> References { get; set; }
+
+        IDbSet<Manufacturer> Manufacturers { get; set; }
+
+        IDbSet<Multimedia> Multimedia { get; set; }
     }
 }

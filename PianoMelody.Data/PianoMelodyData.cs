@@ -24,11 +24,67 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
+        public IRepository<ArticleGroup> ArticleGroups
+        {
+            get
+            {
+                return this.GetRepository<ArticleGroup>();
+            }
+        }
+
+        public IRepository<Article> Articles
+        {
+            get
+            {
+                return this.GetRepository<Article>();
+            }
+        }
+
+        public IRepository<Manufacturer> Manufacturers
+        {
+            get
+            {
+                return this.GetRepository<Manufacturer>();
+            }
+        }
+
+        public IRepository<Multimedia> Multimedia
+        {
+            get
+            {
+                return this.GetRepository<Multimedia>();
+            }
+        }
+
+        public IRepository<News> News
+        {
+            get
+            {
+                return this.GetRepository<News>();
+            }
+        }
+
+        public IRepository<Reference> References
+        {
+            get
+            {
+                return this.GetRepository<Reference>();
+            }
+        }
+
         public IRepository<Resources> Resources
         {
             get
             {
                 return this.GetRepository<Resources>();
+            }
+        }
+
+        public IRepository<Service> Services
+        {
+            get
+            {
+                return this.GetRepository<Service>();
             }
         }
 
