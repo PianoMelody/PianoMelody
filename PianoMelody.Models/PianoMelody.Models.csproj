@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumetations\MultimediaType.cs" />
-    <Compile Include="KeyValue.cs" />
     <Compile Include="Multimedia.cs" />
     <Compile Include="Reference.cs" />
     <Compile Include="News.cs" />

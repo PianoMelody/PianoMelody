@@ -1,12 +1,11 @@
 ﻿using AutoMapper.QueryableExtensions;
-using Newtonsoft.Json;
 using OrangeJetpack.Localization;
 using PianoMelody.Models;
 using PianoMelody.Web.BindingModels;
 using PianoMelody.Web.ViewModels;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using PianoMelody.Web.Utilities;
 
 namespace PianoMelody.Web.Controllers
 {
@@ -42,28 +41,12 @@ namespace PianoMelody.Web.Controllers
                     return RedirectToAction("Index");
                 }
 
-                var enTitle = new KeyValue() { k = "en", v = newsBindingModel.EnTitle };
-                var ruTitle = new KeyValue() { k = "ru", v = newsBindingModel.RuTitle };
-                var bgTitle = new KeyValue() { k = "bg", v = newsBindingModel.BgTitle };
-
-                var title = new List<KeyValue> { enTitle, ruTitle, bgTitle };
-
-                var jsonTitle = JsonConvert.SerializeObject(title);
-
-                var enContent = new KeyValue() { k = "en", v = newsBindingModel.EnContent };
-                var ruContent = new KeyValue() { k = "ru", v = newsBindingModel.RuContent };
-                var bgContent = new KeyValue() { k = "bg", v = newsBindingModel.BgContent };
-
-                var content = new List<KeyValue> { enContent, ruContent, bgContent };
-
-                var jsonContent = JsonConvert.SerializeObject(content);
-
                 var multimedia = this.Data.Multimedia.GetAll().FirstOrDefault();
 
                 var news = new News()
                 {
-                    Title = jsonTitle,
-                    Content = jsonContent,
+                    Title = JsonGenerator.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle),
+                    Content = JsonGenerator.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent),
                     Multimedia = multimedia
                 };
 

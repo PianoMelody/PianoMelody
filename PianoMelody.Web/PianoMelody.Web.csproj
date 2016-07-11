@@ -209,6 +209,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Utilities\JsonGenerator.cs" />
     <Compile Include="ViewModels\LabelViewModel.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

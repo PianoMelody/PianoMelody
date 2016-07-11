@@ -1,4 +1,6 @@
-﻿namespace PianoMelody.Web.BindingModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PianoMelody.Web.BindingModels
 {
     public class NewsBindingModel
     {
@@ -8,10 +10,13 @@
 
         public string BgTitle { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string EnContent { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string RuContent { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string BgContent { get; set; }
     }
 }
