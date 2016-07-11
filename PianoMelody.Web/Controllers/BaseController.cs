@@ -22,6 +22,8 @@
 
         public IPianoMelodyData Data { get; set; }
 
+        public string CurrentCulture { get { return CultureHelper.GetCurrentCulture().Substring(0, 2); } }
+
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
             string cultureName = RouteData.Values["culture"] as string;

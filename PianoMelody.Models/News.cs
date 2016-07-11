@@ -7,7 +7,7 @@ namespace PianoMelody.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(64)]
+        [MaxLength(256)]
         public string Title { get; set; }
 
         public string Content { get; set; }

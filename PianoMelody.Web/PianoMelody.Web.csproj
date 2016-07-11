@@ -77,6 +77,10 @@
       <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OrangeJetpack.Localization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OrangeJetpack.Localization.1.5.0\lib\net45\OrangeJetpack.Localization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleMvcSitemap, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleMvcSitemap.2.3.1\lib\net45\SimpleMvcSitemap.dll</HintPath>
       <Private>True</Private>
@@ -198,14 +202,17 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BindingModels\NewsBindingModel.cs" />
     <Compile Include="Contracts\ICustomMappings.cs" />
     <Compile Include="Contracts\IMapFrom.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="ViewModels\LabelViewModel.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -263,6 +270,9 @@
     <Content Include="Views\Language\_Label.cshtml" />
     <Content Include="Views\Language\AddLabel.cshtml" />
     <Content Include="Views\Shared\_SwitchLanguage.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\LocalizedContent.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PianoMelody.Data\PianoMelody.Data.csproj">
