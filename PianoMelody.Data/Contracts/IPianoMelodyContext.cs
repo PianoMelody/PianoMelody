@@ -18,6 +18,8 @@
 
         IDbSet<News> News { get; set; }
 
+        IDbSet<Information> Informations { get; set; }
+
         IDbSet<Reference> References { get; set; }
 
         IDbSet<Manufacturer> Manufacturers { get; set; }

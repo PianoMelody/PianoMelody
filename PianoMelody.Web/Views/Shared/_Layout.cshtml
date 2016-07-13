@@ -23,9 +23,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @Html.Partial("_SwitchLanguage")
                     <li>
-                        @Html.ActionLink("---", "Index", "News")
+                        @Html.ActionLink(Resources.News, "Index", "News")
                     </li>
                 </ul>
                 @Html.Partial("_LoginPartial")

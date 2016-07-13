@@ -8,18 +8,39 @@
   <Resources Name="_Administration" Culture="bg" Value="Администрация" />
   <Resources Name="_Administration" Culture="en" Value="Administration" />
   <Resources Name="_Administration" Culture="ru" Value="Администрация" />
+  <Resources Name="_BgContent" Culture="bg" Value="BG Съдържание" />
+  <Resources Name="_BgContent" Culture="en" Value="BG Content" />
+  <Resources Name="_BgContent" Culture="ru" Value="BG Съдържание" />
+  <Resources Name="_BgTitle" Culture="bg" Value="BG Заглавие" />
+  <Resources Name="_BgTitle" Culture="en" Value="BG Title" />
+  <Resources Name="_BgTitle" Culture="ru" Value="BG Заглавие" />
   <Resources Name="_ChangePassword" Culture="bg" Value="Смени паролата" />
   <Resources Name="_ChangePassword" Culture="en" Value="Change password" />
   <Resources Name="_ChangePassword" Culture="ru" Value="Смени паролата" />
   <Resources Name="_ConfirmPassword" Culture="bg" Value="Повторете паролата" />
   <Resources Name="_ConfirmPassword" Culture="en" Value="Confirma password" />
   <Resources Name="_ConfirmPassword" Culture="ru" Value="Повторете паролата" />
+  <Resources Name="_CreateNew" Culture="bg" Value="Създай" />
+  <Resources Name="_CreateNew" Culture="en" Value="Create" />
+  <Resources Name="_CreateNew" Culture="ru" Value="Създай" />
   <Resources Name="_CurrentPassword" Culture="bg" Value="Текуща парола" />
   <Resources Name="_CurrentPassword" Culture="en" Value="Current password" />
   <Resources Name="_CurrentPassword" Culture="ru" Value="Текуща парола" />
+  <Resources Name="_Delete" Culture="bg" Value="Изтрий" />
+  <Resources Name="_Delete" Culture="en" Value="Delete" />
+  <Resources Name="_Delete" Culture="ru" Value="Изтрий" />
+  <Resources Name="_Edit" Culture="bg" Value="Редактирай" />
+  <Resources Name="_Edit" Culture="en" Value="Edit" />
+  <Resources Name="_Edit" Culture="ru" Value="Редактирай" />
   <Resources Name="_Email" Culture="bg" Value="Електронна поща" />
   <Resources Name="_Email" Culture="en" Value="Email" />
   <Resources Name="_Email" Culture="ru" Value="Електронна поща" />
+  <Resources Name="_EnContent" Culture="bg" Value="EN Съдържание" />
+  <Resources Name="_EnContent" Culture="en" Value="EN Content" />
+  <Resources Name="_EnContent" Culture="ru" Value="EN Съдържание" />
+  <Resources Name="_EnTitle" Culture="bg" Value="EN Заглавие" />
+  <Resources Name="_EnTitle" Culture="en" Value="EN Title" />
+  <Resources Name="_EnTitle" Culture="ru" Value="EN Заглавие" />
   <Resources Name="_ErrInvalidEmail" Culture="bg" Value="Полето {0} е невалидно" />
   <Resources Name="_ErrInvalidEmail" Culture="en" Value="The {0} field is not valid email address" />
   <Resources Name="_ErrInvalidEmail" Culture="ru" Value="Полето {0} е невалидно" />
@@ -56,6 +77,12 @@
   <Resources Name="_PasswordValidation" Culture="bg" Value="Паролите не съвпадат" />
   <Resources Name="_PasswordValidation" Culture="en" Value="The passwords do not match" />
   <Resources Name="_PasswordValidation" Culture="ru" Value="Паролите не съвпадат" />
+  <Resources Name="_RuContent" Culture="bg" Value="RU Съдържание" />
+  <Resources Name="_RuContent" Culture="en" Value="RU Content" />
+  <Resources Name="_RuContent" Culture="ru" Value="RU Съдържание" />
+  <Resources Name="_RuTitle" Culture="bg" Value="RU Заглавие" />
+  <Resources Name="_RuTitle" Culture="en" Value="RU Title" />
+  <Resources Name="_RuTitle" Culture="ru" Value="RU Заглавие" />
   <Resources Name="_Save" Culture="bg" Value="Запиши" />
   <Resources Name="_Save" Culture="en" Value="Save" />
   <Resources Name="_Save" Culture="ru" Value="Запиши" />
@@ -65,4 +92,7 @@
   <Resources Name="Logo" Culture="bg" Value="Пиано" />
   <Resources Name="Logo" Culture="en" Value="Piano" />
   <Resources Name="Logo" Culture="ru" Value="Пиано" />
+  <Resources Name="News" Culture="bg" Value="Новини" />
+  <Resources Name="News" Culture="en" Value="News" />
+  <Resources Name="News" Culture="ru" Value="Новини" />
 </AllResources>

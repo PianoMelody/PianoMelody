@@ -28,6 +28,20 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>BG Content</summary>
+        public static string _BgContent {
+               get {
+                   return (string) resourceProvider.GetResource("_BgContent", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>BG Title</summary>
+        public static string _BgTitle {
+               get {
+                   return (string) resourceProvider.GetResource("_BgTitle", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Change password</summary>
         public static string _ChangePassword {
                get {
@@ -42,6 +56,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Create</summary>
+        public static string _CreateNew {
+               get {
+                   return (string) resourceProvider.GetResource("_CreateNew", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Current password</summary>
         public static string _CurrentPassword {
                get {
@@ -49,10 +70,38 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Delete</summary>
+        public static string _Delete {
+               get {
+                   return (string) resourceProvider.GetResource("_Delete", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Edit</summary>
+        public static string _Edit {
+               get {
+                   return (string) resourceProvider.GetResource("_Edit", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Email</summary>
         public static string _Email {
                get {
                    return (string) resourceProvider.GetResource("_Email", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>EN Content</summary>
+        public static string _EnContent {
+               get {
+                   return (string) resourceProvider.GetResource("_EnContent", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>EN Title</summary>
+        public static string _EnTitle {
+               get {
+                   return (string) resourceProvider.GetResource("_EnTitle", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -140,6 +189,20 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>RU Content</summary>
+        public static string _RuContent {
+               get {
+                   return (string) resourceProvider.GetResource("_RuContent", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>RU Title</summary>
+        public static string _RuTitle {
+               get {
+                   return (string) resourceProvider.GetResource("_RuTitle", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Save</summary>
         public static string _Save {
                get {
@@ -158,6 +221,13 @@ namespace PianoMelody.I18N {
         public static string Logo {
                get {
                    return (string) resourceProvider.GetResource("Logo", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>News</summary>
+        public static string News {
+               get {
+                   return (string) resourceProvider.GetResource("News", CultureInfo.CurrentUICulture.Name);
                }
             }
 

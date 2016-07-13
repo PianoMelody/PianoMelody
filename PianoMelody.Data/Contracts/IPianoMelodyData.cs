@@ -16,6 +16,8 @@
 
         IRepository<News> News { get; }
 
+        IRepository<Information> Informations { get; }
+
         IRepository<Reference> References { get; }
 
         IRepository<Manufacturer> Manufacturers { get; }

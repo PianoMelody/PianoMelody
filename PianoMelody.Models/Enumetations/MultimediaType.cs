@@ -2,8 +2,8 @@
 {
     public enum MultimediaType
     {
-        Image = 0,
+        GalleryElement = 0,
 
-        Video = 1
+        SingleElement = 1
     }
 }

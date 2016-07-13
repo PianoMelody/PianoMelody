@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace PianoMelody.Models
 {
@@ -6,6 +7,8 @@ namespace PianoMelody.Models
     {
         [Key]
         public int Id { get; set; }
+
+        public DateTime Created { get; set; }
 
         [MaxLength(256)]
         public string Title { get; set; }

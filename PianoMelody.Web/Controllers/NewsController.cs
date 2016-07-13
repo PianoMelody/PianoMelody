@@ -6,6 +6,7 @@ using PianoMelody.Web.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
 using PianoMelody.Web.Utilities;
+using System;
 
 namespace PianoMelody.Web.Controllers
 {
@@ -45,6 +46,7 @@ namespace PianoMelody.Web.Controllers
 
                 var news = new News()
                 {
+                    Created = DateTime.Now,
                     Title = JsonGenerator.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle),
                     Content = JsonGenerator.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent),
                     Multimedia = multimedia

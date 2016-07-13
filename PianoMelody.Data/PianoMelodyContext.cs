@@ -7,6 +7,7 @@ namespace PianoMelody.Data
     using Models;
 
     using Microsoft.AspNet.Identity.EntityFramework;
+    using System;
 
     public class PianoMelodyContext : IdentityDbContext<User>, IPianoMelodyContext
     {
@@ -21,6 +22,8 @@ namespace PianoMelody.Data
         public IDbSet<ArticleGroup> ArticleGroups { get; set; }
 
         public IDbSet<Article> Articles { get; set; }
+
+        public IDbSet<Information> Informations { get; set; }
 
         public IDbSet<Manufacturer> Manufacturers { get; set; }
 

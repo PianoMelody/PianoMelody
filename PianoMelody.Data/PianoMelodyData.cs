@@ -40,6 +40,14 @@
             }
         }
 
+        public IRepository<Information> Informations
+        {
+            get
+            {
+                return this.GetRepository<Information>();
+            }
+        }
+
         public IRepository<Manufacturer> Manufacturers
         {
             get
