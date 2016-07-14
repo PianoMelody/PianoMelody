@@ -2,7 +2,7 @@
 using PianoMelody.Models;
 using PianoMelody.Web.Contracts;
 
-namespace PianoMelody.Web.ViewModels
+namespace PianoMelody.Web.Models.ViewModels
 {
     public class NewsViewModel : IMapFrom<News>, ILocalizable
     {

@@ -7,7 +7,7 @@
     using Data;
     using Data.Contracts;
     using Helpers;
-
+    using System.Web;
     public class BaseController : Controller
     {
         public BaseController()
@@ -20,7 +20,16 @@
             this.Data = data;
         }
 
-        public IPianoMelodyData Data { get; set; }
+        protected IPianoMelodyData Data { get; set; }
+
+        protected string GetBaseUrl()
+        {
+            var request = System.Web.HttpContext.Current.Request;
+            var appUrl = HttpRuntime.AppDomainAppVirtualPath;
+
+            var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, appUrl);
+            return baseUrl;
+        }
 
         public string CurrentCulture { get { return CultureHelper.GetCurrentCulture().Substring(0, 2); } }
 

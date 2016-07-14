@@ -12,3 +12,8 @@ body {
     padding-right: 15px;
     min-height: 400px;
 }
+
+.news-image {
+    width: auto;
+    height: 250px;
+}

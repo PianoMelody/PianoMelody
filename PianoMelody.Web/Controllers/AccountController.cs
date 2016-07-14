@@ -5,13 +5,13 @@
     using System.Web.Mvc;
 
     using Extensions;
-    using Models;
-    using ViewModels;
+    using Models.ViewModels;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
+    using PianoMelody.Models;
 
     [Authorize]
     public class AccountController : BaseController

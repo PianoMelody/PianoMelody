@@ -12,7 +12,7 @@ namespace PianoMelody.Models
         public DateTime Created { get; set; }
 
         [MaxLength(64)]
-        public string Path { get; set; }
+        public string Url { get; set; }
 
         public string Content { get; set; }
 

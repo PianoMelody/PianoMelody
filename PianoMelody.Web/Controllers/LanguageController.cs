@@ -4,7 +4,7 @@
 
     using Extensions;
     using I18N;
-    using ViewModels;
+    using Models.ViewModels;
 
     [Authorize]
     public class LanguageController : BaseController
@@ -39,9 +39,9 @@
                 return this.View();
             }
 
-            this.Data.Resources.Add(new Models.Resources { Culture = "en", Name = lvm.Name, Value = lvm.EnValue });
-            this.Data.Resources.Add(new Models.Resources { Culture = "ru", Name = lvm.Name, Value = lvm.RuValue });
-            this.Data.Resources.Add(new Models.Resources { Culture = "bg", Name = lvm.Name, Value = lvm.BgValue });
+            this.Data.Resources.Add(new PianoMelody.Models.Resources { Culture = "en", Name = lvm.Name, Value = lvm.EnValue });
+            this.Data.Resources.Add(new PianoMelody.Models.Resources { Culture = "ru", Name = lvm.Name, Value = lvm.RuValue });
+            this.Data.Resources.Add(new PianoMelody.Models.Resources { Culture = "bg", Name = lvm.Name, Value = lvm.BgValue });
 
             this.Data.SaveChanges();
 

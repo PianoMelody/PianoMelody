@@ -1,13 +1,13 @@
-﻿@model PianoMelody.Web.BindingModels.NewsBindingModel
+﻿@model PianoMelody.Web.Models.BindingModels.NewsBindingModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = Resources._CreateNew + " " + Resources.News;
 }
 
 <h2>@Resources._CreateNew @Resources.News</h2>
 <hr/>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -58,6 +58,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BgContent, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BgContent, "", new { @class = "text-danger" })
+            </div>
+        </div>     
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Multimedia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="Multimedia" id="file" />
+                @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
             </div>
         </div>
 

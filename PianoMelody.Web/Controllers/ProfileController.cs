@@ -5,7 +5,7 @@
     using System.Web.Mvc;
 
     using Extensions;
-    using ViewModels;
+    using Models.ViewModels;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PianoMelody.Web.ViewModels.NewsViewModel>
+﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.NewsViewModel>
 
 @{
     ViewBag.Title = Resources.News;
@@ -18,7 +18,10 @@
             @Html.DisplayFor(modelItem => item.Title)
         </div>
         <div class="panel-body">
-            @Html.DisplayFor(modelItem => item.Content)
+            <img src="@item.Multimedia.Url" class="news-image" alt="" />
+            <p>
+                @Html.DisplayFor(modelItem => item.Content)
+            </p>
         </div>
 
         @if (User.IsInRole("Admin"))

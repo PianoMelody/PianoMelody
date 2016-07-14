@@ -1,12 +1,13 @@
 ﻿using AutoMapper.QueryableExtensions;
 using OrangeJetpack.Localization;
 using PianoMelody.Models;
-using PianoMelody.Web.BindingModels;
-using PianoMelody.Web.ViewModels;
+using PianoMelody.Web.Models.BindingModels;
+using PianoMelody.Web.Models.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
-using PianoMelody.Web.Utilities;
 using System;
+using PianoMelody.Web.Extensions;
+using PianoMelody.Web.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
@@ -39,26 +40,29 @@ namespace PianoMelody.Web.Controllers
             {
                 if (!this.ModelState.IsValid)
                 {
-                    return RedirectToAction("Index");
+                    return this.View();
                 }
 
-                var multimedia = this.Data.Multimedia.GetAll().FirstOrDefault();
+                var multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
+                this.Data.Multimedia.Add(multimedia);
 
                 var news = new News()
                 {
                     Created = DateTime.Now,
-                    Title = JsonGenerator.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle),
-                    Content = JsonGenerator.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent),
+                    Title = JsonHelper.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle),
+                    Content = JsonHelper.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent),
                     Multimedia = multimedia
                 };
 
                 this.Data.News.Add(news);
+
                 this.Data.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                this.AddNotification(ex.Message, NotificationType.ERROR);
                 return View();
             }
         }
