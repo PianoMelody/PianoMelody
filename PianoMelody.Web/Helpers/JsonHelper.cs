@@ -17,5 +17,17 @@ namespace PianoMelody.Web.Helpers
                     }
                 );
         }
+
+        public static List<LocObject> Deserialize(string json)
+        {
+            return JsonConvert.DeserializeObject<List<LocObject>>(json);
+        }
+    }
+
+    public class LocObject
+    {
+        public string k { get; set; }
+
+        public string v { get; set; }
     }
 }

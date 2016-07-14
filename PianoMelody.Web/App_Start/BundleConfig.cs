@@ -27,8 +27,12 @@
                     "~/Scripts/respond.min.js"));
 
             bundles.Add(
-                new ScriptBundle("~/bundles/scripts").Include(
-                    "~/Scripts/scripts.js"));
+                new ScriptBundle("~/bundles/shared").Include(
+                    "~/Scripts/Custom/shared.js"));
+
+            bundles.Add(
+                new ScriptBundle("~/bundles/image-preview").Include(
+                    "~/Scripts/Custom/image-preview.js"));
 
             bundles.Add(
                 new StyleBundle("~/Content/css").Include(

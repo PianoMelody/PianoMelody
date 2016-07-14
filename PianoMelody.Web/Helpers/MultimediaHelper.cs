@@ -2,6 +2,7 @@
 using PianoMelody.Models.Enumetations;
 using System;
 using System.IO;
+using System.Linq;
 using System.Web;
 
 namespace PianoMelody.Web.Helpers
@@ -30,6 +31,13 @@ namespace PianoMelody.Web.Helpers
             };
 
             return multimedia;
+        }
+
+        public static void DeleteSingle(HttpServerUtilityBase server, Multimedia file)
+        {
+            var fileName = file.Url.Split('/').Last();
+            var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
+            File.Delete(filePath);
         }
     }
 }

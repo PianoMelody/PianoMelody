@@ -62,7 +62,6 @@ namespace PianoMelody.Web.Controllers
             }
             catch (Exception ex)
             {
-                this.AddNotification(ex.Message, NotificationType.ERROR);
                 return View();
             }
         }
@@ -70,16 +69,56 @@ namespace PianoMelody.Web.Controllers
         // GET: News/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
+            if (currentNews == null)
+            {
+                this.AddNotification("Cannot find news", NotificationType.ERROR);
+                return this.RedirectToAction("Index");
+            }
+
+            var titleLocs = JsonHelper.Deserialize(currentNews.Title);
+            var contentLocs = JsonHelper.Deserialize(currentNews.Content);
+
+            var editModel = new NewsBindingModel()
+            {
+                EnTitle = titleLocs[0].v,
+                RuTitle = titleLocs[1].v,
+                BgTitle = titleLocs[2].v,
+                EnContent = contentLocs[0].v,
+                RuContent = contentLocs[1].v,
+                BgContent = contentLocs[2].v,
+                Url = currentNews.Multimedia.Url
+            };
+
+            return View(editModel);
         }
 
         // POST: News/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, NewsBindingModel newsBindingModel)
         {
             try
             {
-                // TODO: Add update logic here
+                if (!this.ModelState.IsValid)
+                {
+                    return this.View();
+                }
+
+                var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
+                if (currentNews == null)
+                {
+                    this.AddNotification("Cannot find news", NotificationType.ERROR);
+                    return this.View();
+                }
+
+                MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
+                this.Data.Multimedia.Delete(currentNews.Multimedia);
+
+                currentNews.Multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
+                currentNews.Title = JsonHelper.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle);
+                currentNews.Content = JsonHelper.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent);
+
+                this.Data.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -97,7 +136,7 @@ namespace PianoMelody.Web.Controllers
 
         // POST: News/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, NewsBindingModel collection)
         {
             try
             {
