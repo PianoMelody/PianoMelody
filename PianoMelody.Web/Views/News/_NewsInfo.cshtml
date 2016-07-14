@@ -1,0 +1,11 @@
+﻿@model PianoMelody.Web.Models.ViewModels.NewsViewModel
+
+<div class="panel-heading">
+    @Html.DisplayFor(modelItem => Model.Title)
+</div>
+<div class="panel-body">
+    <img src="@Model.Multimedia.Url" class="news-image" alt="" />
+    <p>
+        @Html.DisplayFor(modelItem => Model.Content)
+    </p>
+</div>

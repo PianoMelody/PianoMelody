@@ -28,6 +28,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Are you sure you want to delete this?</summary>
+        public static string _AreYouSure {
+               get {
+                   return (string) resourceProvider.GetResource("_AreYouSure", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>BG Content</summary>
         public static string _BgContent {
                get {
@@ -39,6 +46,13 @@ namespace PianoMelody.I18N {
         public static string _BgTitle {
                get {
                    return (string) resourceProvider.GetResource("_BgTitle", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Cancel</summary>
+        public static string _Cancel {
+               get {
+                   return (string) resourceProvider.GetResource("_Cancel", CultureInfo.CurrentUICulture.Name);
                }
             }
             

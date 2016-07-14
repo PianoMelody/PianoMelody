@@ -13,27 +13,21 @@ namespace PianoMelody.Web.Controllers
 {
     public class NewsController : BaseController
     {
-        // GET: News
         public ActionResult Index()
         {
-            var model = this.Data.News.GetAll().ProjectTo<NewsViewModel>().ToList().Localize(this.CurrentCulture, i => i.Title, i => i.Content);
+            var model = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
+                                               .ToList()
+                                               .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
             return View(model);
         }
 
-        // GET: News/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: News/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: News/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(NewsBindingModel newsBindingModel)
         {
             try
@@ -66,7 +60,6 @@ namespace PianoMelody.Web.Controllers
             }
         }
 
-        // GET: News/Edit/5
         public ActionResult Edit(int id)
         {
             var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
@@ -93,8 +86,8 @@ namespace PianoMelody.Web.Controllers
             return View(editModel);
         }
 
-        // POST: News/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, NewsBindingModel newsBindingModel)
         {
             try
@@ -128,20 +121,45 @@ namespace PianoMelody.Web.Controllers
             }
         }
 
-        // GET: News/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var deleteModel = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
+                                                     .FirstOrDefault(n => n.Id == id)
+                                                     .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
+            if (deleteModel == null)
+            {
+                this.AddNotification("Cannot find news", NotificationType.ERROR);
+                return this.RedirectToAction("Index");
+            }
+
+            return View(deleteModel);
         }
 
-        // POST: News/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, NewsBindingModel collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, NewsViewModel collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                if (!this.ModelState.IsValid)
+                {
+                    return this.View();
+                }
 
+                var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
+                if (currentNews == null)
+                {
+                    this.AddNotification("Cannot find news", NotificationType.ERROR);
+                    return this.View();
+                }
+
+                MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
+
+                this.Data.Multimedia.Delete(currentNews.Multimedia);
+                this.Data.News.Delete(currentNews);
+
+                this.Data.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
             catch

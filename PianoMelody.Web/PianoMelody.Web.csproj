@@ -234,6 +234,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\bg.png" />
+    <Content Include="Images\no_image.jpg" />
     <Content Include="Images\ru.png" />
     <Content Include="Images\us.png" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -277,6 +278,8 @@
     <Content Include="Views\Shared\EditorTemplates\LocalizedContent.cshtml" />
     <Content Include="Views\News\Create.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\_NewsInfo.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PianoMelody.Data\PianoMelody.Data.csproj">

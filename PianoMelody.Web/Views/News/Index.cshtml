@@ -7,28 +7,21 @@
 @if (User.IsInRole("Admin"))
 {
     <p>
-        @Html.ActionLink(Resources._CreateNew, "Create")
+        @Html.ActionLink(Resources._CreateNew, "Create", new { }, new { @class = "btn btn-primary" })
     </p>
+    <hr />
 }
 
 @foreach (var item in Model)
 {
     <article class="panel panel-default">
-        <div class="panel-heading">
-            @Html.DisplayFor(modelItem => item.Title)
-        </div>
-        <div class="panel-body">
-            <img src="@item.Multimedia.Url" class="news-image" alt="" />
-            <p>
-                @Html.DisplayFor(modelItem => item.Content)
-            </p>
-        </div>
+        @Html.Partial("_NewsInfo", item)
 
         @if (User.IsInRole("Admin"))
         {
         <div class="panel-footer">
-            @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }) |
-            @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id })
+            @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id }, new { @class= "btn btn-danger" }) 
         </div>
         }
     </article>

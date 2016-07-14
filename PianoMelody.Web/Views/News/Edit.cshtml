@@ -1,6 +1,7 @@
 ﻿@model PianoMelody.Web.Models.BindingModels.NewsBindingModel
 @{
     ViewBag.Title = Resources._Edit + " " + Resources.News;
+    var url = Model.Url != null ? Model.Url : "~/Images/no_image.jpg";
 }
 <h2>@Resources._Edit @Resources.News</h2>
 <hr />
@@ -51,24 +52,19 @@
                 @Html.ValidationMessageFor(model => model.BgContent, "", new { @class = "text-danger" })
             </div>
         </div>
-        
-        @if (Model.Url != null)
-        {
-            <div class="row">
-                <div class="col-md-10 col-md-offset-2">
-                    <img id="image-preview" src="@Model.Url" class="news-image" />
-                </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-2">
+                <img id="image-preview" src="@url" class="news-image" />
             </div>
-        }
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Multimedia, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-
                 <label class="btn btn-default btn-file">
                     Browse <input type="file" name="Multimedia" id="file" style="display: none;">
                 </label>
-
                 @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -78,7 +74,7 @@
             </div>
         </div>
     </div>
-}
+    }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/image-preview")
