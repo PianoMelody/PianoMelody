@@ -15,7 +15,8 @@ namespace PianoMelody.Web.Helpers
 
             if (fileBase.ContentLength > 0)
             {
-                fileName = Path.GetFileName(fileBase.FileName);
+                var realName = Path.GetFileName(fileBase.FileName);
+                fileName = Guid.NewGuid().ToString() + Path.GetExtension(realName);
                 var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
                 fileBase.SaveAs(filePath);
             }

@@ -8,6 +8,8 @@
     using Data.Contracts;
     using Helpers;
     using System.Web;
+    using NLog;
+
     public class BaseController : Controller
     {
         public BaseController()
@@ -32,6 +34,8 @@
         }
 
         public string CurrentCulture { get { return CultureHelper.GetCurrentCulture().Substring(0, 2); } }
+
+        protected Logger Logger { get { return LogManager.GetCurrentClassLogger(); } }
 
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {

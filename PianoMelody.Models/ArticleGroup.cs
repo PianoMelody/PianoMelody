@@ -15,7 +15,7 @@ namespace PianoMelody.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(64)]
+        [MaxLength(512)]
         public string Name { get; set; }
 
         public virtual ICollection<Article> Articles

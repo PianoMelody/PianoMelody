@@ -52,8 +52,9 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                this.Logger.Error(ex, "Create news");
                 return View();
             }
         }
