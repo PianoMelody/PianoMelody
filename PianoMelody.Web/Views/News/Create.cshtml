@@ -1,10 +1,10 @@
 ﻿@model PianoMelody.Web.Models.BindingModels.NewsBindingModel
 
 @{
-    ViewBag.Title = Resources._CreateNew + " " + Resources.News;
+    ViewBag.Title = Resources._CreateNew + " " + Resources._News;
 }
 
-<h2>@Resources._CreateNew @Resources.News</h2>
+<h2>@Resources._CreateNew @Resources._News</h2>
 <hr />
 
 @using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))

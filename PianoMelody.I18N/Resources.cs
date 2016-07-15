@@ -189,6 +189,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>News</summary>
+        public static string _News {
+               get {
+                   return (string) resourceProvider.GetResource("_News", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Password</summary>
         public static string _Password {
                get {
@@ -200,6 +207,13 @@ namespace PianoMelody.I18N {
         public static string _PasswordValidation {
                get {
                    return (string) resourceProvider.GetResource("_PasswordValidation", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Reference</summary>
+        public static string _Reference {
+               get {
+                   return (string) resourceProvider.GetResource("_Reference", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -242,6 +256,13 @@ namespace PianoMelody.I18N {
         public static string News {
                get {
                    return (string) resourceProvider.GetResource("News", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>References</summary>
+        public static string References {
+               get {
+                   return (string) resourceProvider.GetResource("References", CultureInfo.CurrentUICulture.Name);
                }
             }
 

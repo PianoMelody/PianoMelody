@@ -1,9 +1,9 @@
 ﻿@model PianoMelody.Web.Models.BindingModels.NewsBindingModel
 @{
-    ViewBag.Title = Resources._Edit + " " + Resources.News;
+    ViewBag.Title = Resources._Edit + " " + Resources._News;
     var url = Model.Url != null ? Model.Url : "~/Images/no_image.jpg";
 }
-<h2>@Resources._Edit @Resources.News</h2>
+<h2>@Resources._Edit @Resources._News</h2>
 <hr />
 @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

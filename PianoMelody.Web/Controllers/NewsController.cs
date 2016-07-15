@@ -6,7 +6,6 @@ using PianoMelody.Web.Models.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
 using System;
-using PianoMelody.Web.Extensions;
 using PianoMelody.Web.Helpers;
 
 namespace PianoMelody.Web.Controllers
@@ -15,10 +14,9 @@ namespace PianoMelody.Web.Controllers
     {
         public ActionResult Index()
         {
-            var model = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
-                                               .ToList()
-                                               .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
-            return View(model);
+            var news = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
+                                              .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
+            return View(news);
         }
 
         public ActionResult Create()
@@ -54,7 +52,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch
             {
                 return View();
             }
@@ -65,14 +63,13 @@ namespace PianoMelody.Web.Controllers
             var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
             if (currentNews == null)
             {
-                this.AddNotification("Cannot find news", NotificationType.ERROR);
                 return this.RedirectToAction("Index");
             }
 
             var titleLocs = JsonHelper.Deserialize(currentNews.Title);
             var contentLocs = JsonHelper.Deserialize(currentNews.Content);
 
-            var editModel = new NewsBindingModel()
+            var editNews = new NewsBindingModel()
             {
                 EnTitle = titleLocs[0].v,
                 RuTitle = titleLocs[1].v,
@@ -83,7 +80,7 @@ namespace PianoMelody.Web.Controllers
                 Url = currentNews.Multimedia.Url
             };
 
-            return View(editModel);
+            return View(editNews);
         }
 
         [HttpPost]
@@ -100,7 +97,6 @@ namespace PianoMelody.Web.Controllers
                 var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
                 if (currentNews == null)
                 {
-                    this.AddNotification("Cannot find news", NotificationType.ERROR);
                     return this.View();
                 }
 
@@ -123,21 +119,20 @@ namespace PianoMelody.Web.Controllers
 
         public ActionResult Delete(int id)
         {
-            var deleteModel = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
-                                                     .FirstOrDefault(n => n.Id == id)
-                                                     .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
-            if (deleteModel == null)
+            var deleteNews = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
+                                                    .FirstOrDefault(n => n.Id == id)
+                                                    .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
+            if (deleteNews == null)
             {
-                this.AddNotification("Cannot find news", NotificationType.ERROR);
                 return this.RedirectToAction("Index");
             }
 
-            return View(deleteModel);
+            return View(deleteNews);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, NewsViewModel collection)
+        public ActionResult Delete(int id, NewsViewModel newsViewModel)
         {
             try
             {
@@ -149,7 +144,6 @@ namespace PianoMelody.Web.Controllers
                 var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
                 if (currentNews == null)
                 {
-                    this.AddNotification("Cannot find news", NotificationType.ERROR);
                     return this.View();
                 }
 

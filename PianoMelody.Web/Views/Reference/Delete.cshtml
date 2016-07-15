@@ -1,0 +1,27 @@
+﻿@model PianoMelody.Web.Models.ViewModels.ReferenceViewModel
+
+@{
+    ViewBag.Title = Resources._Delete;
+}
+
+<h3>@Resources._AreYouSure</h3>
+<hr />
+
+<article class="panel panel-default">
+    @Html.Partial("_NewsInfo", Model)
+
+     @if (User.IsInRole("Admin"))
+     {
+         <div class="panel-footer">
+             @using (Html.BeginForm())
+             {
+                 @Html.AntiForgeryToken()
+
+                 <div class="form-actions no-color">
+                     <input type="submit" value="@Resources._Delete" class="btn btn-danger" />
+                     @Html.ActionLink(Resources._Cancel, "Index", new { }, new { @class = "btn btn-default" })
+                 </div>
+             }
+         </div>
+     }
+</article>
