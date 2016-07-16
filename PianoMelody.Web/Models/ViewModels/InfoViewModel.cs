@@ -5,7 +5,7 @@ using System;
 
 namespace PianoMelody.Web.Models.ViewModels
 {
-    public class ReferenceViewModel : IMapFrom<Reference>, ILocalizable
+    public class InfoViewModel : IMapFrom<Information>, ILocalizable
     {
         public int Id { get; set; }
 

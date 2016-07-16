@@ -1,15 +1,18 @@
-﻿@model PianoMelody.Web.Models.BindingModels.NewsBindingModel
+﻿@model PianoMelody.Web.Models.BindingModels.InfoBindingModel
+
 @{
-    ViewBag.Title = Resources._Edit + " " + Resources._News;
-    var url = Model != null ? Model.Url != null ? Model.Url : "~/Images/no_image.jpg" : "~/Images/no_image.jpg";
+    ViewBag.Title = Resources._CreateNew + " " + Resources.Info;
 }
-<h2>@Resources._Edit @Resources._News</h2>
+
+<h2>@Resources._CreateNew @Resources.Info</h2>
 <hr />
-@using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+@using (Html.BeginForm("Create", "Info", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
+
         <div class="form-group">
             @Html.LabelFor(model => model.EnTitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -17,6 +20,7 @@
                 @Html.ValidationMessageFor(model => model.EnTitle, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.RuTitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -24,6 +28,7 @@
                 @Html.ValidationMessageFor(model => model.RuTitle, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.BgTitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -31,6 +36,7 @@
                 @Html.ValidationMessageFor(model => model.BgTitle, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.EnContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -38,6 +44,7 @@
                 @Html.ValidationMessageFor(model => model.EnContent, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.RuContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -45,6 +52,7 @@
                 @Html.ValidationMessageFor(model => model.RuContent, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.BgContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -55,7 +63,7 @@
 
         <div class="row">
             <div class="col-md-10 col-md-offset-2">
-                <img id="image-preview" src="@url" class="news-image" />
+                <img id="image-preview" src="~/Images/no_image.jpg" class="news-image" />
             </div>
         </div>
 
@@ -68,13 +76,15 @@
                 @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Resources._Edit" class="btn btn-default" />
+                <input type="submit" value="@Resources._CreateNew" class="btn btn-default" />
             </div>
         </div>
     </div>
-    }
+}
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/image-preview")

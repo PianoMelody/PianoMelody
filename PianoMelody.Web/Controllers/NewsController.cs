@@ -15,7 +15,8 @@ namespace PianoMelody.Web.Controllers
         public ActionResult Index()
         {
             var news = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
-                                              .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
+                                              .OrderByDescending(n => n.Created)
+                                              .Localize(this.CurrentCulture, n => n.Title, n => n.Content);
             return View(news);
         }
 
@@ -101,10 +102,14 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
-                this.Data.Multimedia.Delete(currentNews.Multimedia);
+                if (newsBindingModel.Multimedia != null)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
+                    this.Data.Multimedia.Delete(currentNews.Multimedia);
 
-                currentNews.Multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
+                    currentNews.Multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
+                }
+                
                 currentNews.Title = JsonHelper.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle);
                 currentNews.Content = JsonHelper.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent);
 
@@ -122,7 +127,7 @@ namespace PianoMelody.Web.Controllers
         {
             var deleteNews = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
                                                     .FirstOrDefault(n => n.Id == id)
-                                                    .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
+                                                    .Localize(this.CurrentCulture, n => n.Title, n => n.Content);
             if (deleteNews == null)
             {
                 return this.RedirectToAction("Index");

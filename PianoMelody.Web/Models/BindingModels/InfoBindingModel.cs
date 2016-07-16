@@ -4,7 +4,7 @@ using System.Web;
 
 namespace PianoMelody.Web.Models.BindingModels
 {
-    public class ReferenceBindingModel
+    public class InfoBindingModel
     {
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
         [Display(Name = "_EnTitle", ResourceType = typeof(Resources))]

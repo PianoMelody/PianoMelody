@@ -15,7 +15,8 @@ namespace PianoMelody.Web.Controllers
         public ActionResult Index()
         {
             var references = this.Data.References.GetAll().ProjectTo<ReferenceViewModel>()
-                                                          .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
+                                                          .OrderByDescending(r => r.Created)
+                                                          .Localize(this.CurrentCulture, r => r.Title, r => r.Content);
             return View(references);
         }
 
@@ -60,7 +61,7 @@ namespace PianoMelody.Web.Controllers
 
         public ActionResult Edit(int id)
         {
-            var currentReference = this.Data.References.GetAll().FirstOrDefault(n => n.Id == id);
+            var currentReference = this.Data.References.GetAll().FirstOrDefault(r => r.Id == id);
             if (currentReference == null)
             {
                 return this.RedirectToAction("Index");
@@ -94,16 +95,20 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                var currentReference = this.Data.References.GetAll().FirstOrDefault(n => n.Id == id);
+                var currentReference = this.Data.References.GetAll().FirstOrDefault(r => r.Id == id);
                 if (currentReference == null)
                 {
                     return this.View();
                 }
 
-                MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
-                this.Data.Multimedia.Delete(currentReference.Multimedia);
+                if (referenceBindingModel.Multimedia != null)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
+                    this.Data.Multimedia.Delete(currentReference.Multimedia);
 
-                currentReference.Multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
+                    currentReference.Multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
+                }
+
                 currentReference.Title = JsonHelper.Serialize(referenceBindingModel.EnTitle, referenceBindingModel.RuTitle, referenceBindingModel.BgTitle);
                 currentReference.Content = JsonHelper.Serialize(referenceBindingModel.EnContent, referenceBindingModel.RuContent, referenceBindingModel.BgContent);
 
@@ -120,8 +125,8 @@ namespace PianoMelody.Web.Controllers
         public ActionResult Delete(int id)
         {
             var deleteReference = this.Data.References.GetAll().ProjectTo<ReferenceViewModel>()
-                                                               .FirstOrDefault(n => n.Id == id)
-                                                               .Localize(this.CurrentCulture, i => i.Title, i => i.Content);
+                                                               .FirstOrDefault(r => r.Id == id)
+                                                               .Localize(this.CurrentCulture, r => r.Title, r => r.Content);
             if (deleteReference == null)
             {
                 return this.RedirectToAction("Index");
@@ -141,7 +146,7 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                var currentReference = this.Data.References.GetAll().FirstOrDefault(n => n.Id == id);
+                var currentReference = this.Data.References.GetAll().FirstOrDefault(r => r.Id == id);
                 if (currentReference == null)
                 {
                     return this.View();

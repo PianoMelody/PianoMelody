@@ -245,6 +245,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Useful information</summary>
+        public static string Info {
+               get {
+                   return (string) resourceProvider.GetResource("Info", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Piano</summary>
         public static string Logo {
                get {

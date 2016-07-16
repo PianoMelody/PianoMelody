@@ -1,14 +1,14 @@
-﻿@model PianoMelody.Web.Models.ViewModels.NewsViewModel
+﻿@model PianoMelody.Web.Models.ViewModels.InfoViewModel
 
 @{
-    ViewBag.Title = Resources._Delete + " " + Resources._News;
+    ViewBag.Title = Resources._Delete + " " + Resources.Info;
 }
 
 <h3>@Resources._AreYouSure</h3>
 <hr />
 
 <article class="panel panel-default">
-    @Html.Partial("_NewsInfo", Model)
+    @Html.Partial("_Info", Model)
 
      @if (User.IsInRole("Admin"))
      {

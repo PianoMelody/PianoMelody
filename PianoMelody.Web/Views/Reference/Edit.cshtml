@@ -1,7 +1,7 @@
 ﻿@model PianoMelody.Web.Models.BindingModels.ReferenceBindingModel
 @{
     ViewBag.Title = Resources._Edit + " " + Resources._Reference;
-    var url = Model.Url != null ? Model.Url : "~/Images/no_image.jpg";
+    var url = Model != null ? Model.Url != null ? Model.Url : "~/Images/no_image.jpg" : "~/Images/no_image.jpg";
 }
 <h2>@Resources._Edit @Resources._Reference</h2>
 <hr />

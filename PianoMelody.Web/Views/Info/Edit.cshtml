@@ -1,11 +1,11 @@
-﻿@model PianoMelody.Web.Models.BindingModels.NewsBindingModel
+﻿@model PianoMelody.Web.Models.BindingModels.InfoBindingModel
 @{
-    ViewBag.Title = Resources._Edit + " " + Resources._News;
+    ViewBag.Title = Resources._Edit + " " + Resources.Info;
     var url = Model != null ? Model.Url != null ? Model.Url : "~/Images/no_image.jpg" : "~/Images/no_image.jpg";
 }
-<h2>@Resources._Edit @Resources._News</h2>
+<h2>@Resources._Edit @Resources.Info</h2>
 <hr />
-@using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Info", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
