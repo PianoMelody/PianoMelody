@@ -11,9 +11,18 @@
   <Resources Name="_AreYouSure" Culture="bg" Value="Сигурни ли сте, че искате да изтриете това?" />
   <Resources Name="_AreYouSure" Culture="en" Value="Are you sure you want to delete this?" />
   <Resources Name="_AreYouSure" Culture="ru" Value="Сигурни ли сте, че искате да изтриете това?" />
+  <Resources Name="_ArticleGroup" Culture="bg" Value="Артикулна група" />
+  <Resources Name="_ArticleGroup" Culture="en" Value="Article group" />
+  <Resources Name="_ArticleGroup" Culture="ru" Value="Артикулна група" />
+  <Resources Name="_ArticleGroups" Culture="bg" Value="Артикулни групи" />
+  <Resources Name="_ArticleGroups" Culture="en" Value="Article groups" />
+  <Resources Name="_ArticleGroups" Culture="ru" Value="Артикулни групи" />
   <Resources Name="_BgContent" Culture="bg" Value="BG Съдържание" />
   <Resources Name="_BgContent" Culture="en" Value="BG Content" />
   <Resources Name="_BgContent" Culture="ru" Value="BG Съдържание" />
+  <Resources Name="_BgName" Culture="bg" Value="BG Име" />
+  <Resources Name="_BgName" Culture="en" Value="BG Name" />
+  <Resources Name="_BgName" Culture="ru" Value="BG Име" />
   <Resources Name="_BgTitle" Culture="bg" Value="BG Заглавие" />
   <Resources Name="_BgTitle" Culture="en" Value="BG Title" />
   <Resources Name="_BgTitle" Culture="ru" Value="BG Заглавие" />
@@ -44,6 +53,9 @@
   <Resources Name="_EnContent" Culture="bg" Value="EN Съдържание" />
   <Resources Name="_EnContent" Culture="en" Value="EN Content" />
   <Resources Name="_EnContent" Culture="ru" Value="EN Съдържание" />
+  <Resources Name="_EnName" Culture="bg" Value="EN Име" />
+  <Resources Name="_EnName" Culture="en" Value="EN Name" />
+  <Resources Name="_EnName" Culture="ru" Value="EN Име" />
   <Resources Name="_EnTitle" Culture="bg" Value="EN Заглавие" />
   <Resources Name="_EnTitle" Culture="en" Value="EN Title" />
   <Resources Name="_EnTitle" Culture="ru" Value="EN Заглавие" />
@@ -71,6 +83,9 @@
   <Resources Name="_LogOff" Culture="bg" Value="Изход" />
   <Resources Name="_LogOff" Culture="en" Value="Log Off" />
   <Resources Name="_LogOff" Culture="ru" Value="Изход" />
+  <Resources Name="_Manufacturer" Culture="bg" Value="Производител" />
+  <Resources Name="_Manufacturer" Culture="en" Value="Manufacturer" />
+  <Resources Name="_Manufacturer" Culture="ru" Value="Производител" />
   <Resources Name="_Name" Culture="bg" Value="Име" />
   <Resources Name="_Name" Culture="en" Value="Name" />
   <Resources Name="_Name" Culture="ru" Value="Име" />
@@ -92,12 +107,18 @@
   <Resources Name="_RuContent" Culture="bg" Value="RU Съдържание" />
   <Resources Name="_RuContent" Culture="en" Value="RU Content" />
   <Resources Name="_RuContent" Culture="ru" Value="RU Съдържание" />
+  <Resources Name="_RuName" Culture="bg" Value="RU Име" />
+  <Resources Name="_RuName" Culture="en" Value="RU Name" />
+  <Resources Name="_RuName" Culture="ru" Value="RU Име" />
   <Resources Name="_RuTitle" Culture="bg" Value="RU Заглавие" />
   <Resources Name="_RuTitle" Culture="en" Value="RU Title" />
   <Resources Name="_RuTitle" Culture="ru" Value="RU Заглавие" />
   <Resources Name="_Save" Culture="bg" Value="Запиши" />
   <Resources Name="_Save" Culture="en" Value="Save" />
   <Resources Name="_Save" Culture="ru" Value="Запиши" />
+  <Resources Name="_UrlAddress" Culture="bg" Value="Url адрес" />
+  <Resources Name="_UrlAddress" Culture="en" Value="Url address" />
+  <Resources Name="_UrlAddress" Culture="ru" Value="Url адрес" />
   <Resources Name="Home" Culture="bg" Value="Начало" />
   <Resources Name="Home" Culture="en" Value="Home" />
   <Resources Name="Home" Culture="ru" Value="Начало" />
@@ -107,6 +128,9 @@
   <Resources Name="Logo" Culture="bg" Value="Пиано" />
   <Resources Name="Logo" Culture="en" Value="Piano" />
   <Resources Name="Logo" Culture="ru" Value="Пиано" />
+  <Resources Name="Manufacturers" Culture="bg" Value="Производители" />
+  <Resources Name="Manufacturers" Culture="en" Value="Manufacturers" />
+  <Resources Name="Manufacturers" Culture="ru" Value="Производители" />
   <Resources Name="News" Culture="bg" Value="Новини" />
   <Resources Name="News" Culture="en" Value="News" />
   <Resources Name="News" Culture="ru" Value="Новини" />

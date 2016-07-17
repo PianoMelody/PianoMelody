@@ -37,7 +37,10 @@ namespace PianoMelody.Web.Controllers
                 }
 
                 var multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
-                this.Data.Multimedia.Add(multimedia);
+                if (multimedia != null)
+                {
+                    this.Data.Multimedia.Add(multimedia);
+                }
 
                 var news = new News()
                 {
@@ -79,8 +82,12 @@ namespace PianoMelody.Web.Controllers
                 EnContent = contentLocs[0].v,
                 RuContent = contentLocs[1].v,
                 BgContent = contentLocs[2].v,
-                Url = currentNews.Multimedia.Url
             };
+
+            if (currentNews.Multimedia != null)
+            {
+                editNews.Url = currentNews.Multimedia.Url;
+            }
 
             return View(editNews);
         }
@@ -106,10 +113,9 @@ namespace PianoMelody.Web.Controllers
                 {
                     MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
                     this.Data.Multimedia.Delete(currentNews.Multimedia);
-
-                    currentNews.Multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
                 }
-                
+
+                currentNews.Multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
                 currentNews.Title = JsonHelper.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle);
                 currentNews.Content = JsonHelper.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent);
 
@@ -153,9 +159,12 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
+                if (currentNews.Multimedia != null)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
+                    this.Data.Multimedia.Delete(currentNews.Multimedia);
+                }
 
-                this.Data.Multimedia.Delete(currentNews.Multimedia);
                 this.Data.News.Delete(currentNews);
 
                 this.Data.SaveChanges();

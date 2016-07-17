@@ -1,7 +1,11 @@
 ﻿@model PianoMelody.Web.Models.BindingModels.InfoBindingModel
 @{
     ViewBag.Title = Resources._Edit + " " + Resources.Info;
-    var url = Model != null ? Model.Url != null ? Model.Url : "~/Images/no_image.jpg" : "~/Images/no_image.jpg";
+    var url = "/Images/no_image.jpg";
+    if (Model != null && Model.Url != null)
+    {
+        url = Model.Url;
+    }
 }
 <h2>@Resources._Edit @Resources.Info</h2>
 <hr />

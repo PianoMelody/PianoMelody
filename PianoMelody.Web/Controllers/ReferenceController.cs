@@ -37,7 +37,10 @@ namespace PianoMelody.Web.Controllers
                 }
 
                 var multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
-                this.Data.Multimedia.Add(multimedia);
+                if (multimedia != null)
+                {
+                    this.Data.Multimedia.Add(multimedia);
+                }
 
                 var reference = new Reference()
                 {
@@ -77,9 +80,13 @@ namespace PianoMelody.Web.Controllers
                 BgTitle = titleLocs[2].v,
                 EnContent = contentLocs[0].v,
                 RuContent = contentLocs[1].v,
-                BgContent = contentLocs[2].v,
-                Url = currentReference.Multimedia.Url
+                BgContent = contentLocs[2].v
             };
+
+            if (currentReference.Multimedia != null)
+            {
+                editReference.Url = currentReference.Multimedia.Url;
+            }
 
             return View(editReference);
         }
@@ -105,10 +112,9 @@ namespace PianoMelody.Web.Controllers
                 {
                     MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
                     this.Data.Multimedia.Delete(currentReference.Multimedia);
-
-                    currentReference.Multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
                 }
 
+                currentReference.Multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
                 currentReference.Title = JsonHelper.Serialize(referenceBindingModel.EnTitle, referenceBindingModel.RuTitle, referenceBindingModel.BgTitle);
                 currentReference.Content = JsonHelper.Serialize(referenceBindingModel.EnContent, referenceBindingModel.RuContent, referenceBindingModel.BgContent);
 
@@ -137,7 +143,7 @@ namespace PianoMelody.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, ReferenceViewModel collection)
+        public ActionResult Delete(int id, ReferenceViewModel referenceViewModel)
         {
             try
             {
@@ -152,9 +158,12 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
+                if (currentReference.Multimedia != null)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
+                    this.Data.Multimedia.Delete(currentReference.Multimedia);
+                }
 
-                this.Data.Multimedia.Delete(currentReference.Multimedia);
                 this.Data.References.Delete(currentReference);
 
                 this.Data.SaveChanges();

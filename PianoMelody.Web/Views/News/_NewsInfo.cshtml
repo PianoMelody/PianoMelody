@@ -1,10 +1,18 @@
 ﻿@model PianoMelody.Web.Models.ViewModels.NewsViewModel
 
+@{
+    var url = "/Images/no_image.jpg";
+    if (Model != null && Model.Multimedia != null)
+    {
+        url = Model.Multimedia.Url;
+    }
+}
+
 <div class="panel-heading">
     @Html.DisplayFor(modelItem => Model.Title)
 </div>
 <div class="panel-body">
-    <img src="@Model.Multimedia.Url" class="news-image" alt="" />
+    <img src="@url" class="news-image" alt="" />
     <p>
         @Html.DisplayFor(modelItem => Model.Content)
     </p>

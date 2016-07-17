@@ -37,7 +37,10 @@ namespace PianoMelody.Web.Controllers
                 }
 
                 var multimedia = MultimediaHelper.CreateSingle(this.Server, infoBindingModel.Multimedia, this.GetBaseUrl());
-                this.Data.Multimedia.Add(multimedia);
+                if (multimedia != null)
+                {
+                    this.Data.Multimedia.Add(multimedia);
+                }
 
                 var info = new Information()
                 {
@@ -77,9 +80,13 @@ namespace PianoMelody.Web.Controllers
                 BgTitle = titleLocs[2].v,
                 EnContent = contentLocs[0].v,
                 RuContent = contentLocs[1].v,
-                BgContent = contentLocs[2].v,
-                Url = currentInfo.Multimedia.Url
+                BgContent = contentLocs[2].v
             };
+
+            if (currentInfo.Multimedia != null)
+            {
+                editInfo.Url = currentInfo.Multimedia.Url;
+            }
 
             return View(editInfo);
         }
@@ -105,10 +112,9 @@ namespace PianoMelody.Web.Controllers
                 {
                     MultimediaHelper.DeleteSingle(this.Server, currentInfo.Multimedia);
                     this.Data.Multimedia.Delete(currentInfo.Multimedia);
-
-                    currentInfo.Multimedia = MultimediaHelper.CreateSingle(this.Server, infoBindingModel.Multimedia, this.GetBaseUrl());
                 }
-                
+
+                currentInfo.Multimedia = MultimediaHelper.CreateSingle(this.Server, infoBindingModel.Multimedia, this.GetBaseUrl());
                 currentInfo.Title = JsonHelper.Serialize(infoBindingModel.EnTitle, infoBindingModel.RuTitle, infoBindingModel.BgTitle);
                 currentInfo.Content = JsonHelper.Serialize(infoBindingModel.EnContent, infoBindingModel.RuContent, infoBindingModel.BgContent);
 
@@ -152,9 +158,12 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                MultimediaHelper.DeleteSingle(this.Server, currentInfo.Multimedia);
+                if (currentInfo.Multimedia != null)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentInfo.Multimedia);
+                    this.Data.Multimedia.Delete(currentInfo.Multimedia);
+                }
 
-                this.Data.Multimedia.Delete(currentInfo.Multimedia);
                 this.Data.Informations.Delete(currentInfo);
 
                 this.Data.SaveChanges();

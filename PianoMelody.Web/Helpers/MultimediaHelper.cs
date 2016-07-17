@@ -13,25 +13,26 @@ namespace PianoMelody.Web.Helpers
         {
             string fileName = string.Empty;
 
-            if (fileBase.ContentLength > 0)
+            if (fileBase != null && fileBase.ContentLength > 0)
             {
                 var realName = Path.GetFileName(fileBase.FileName);
                 fileName = Guid.NewGuid().ToString() + Path.GetExtension(realName);
                 var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
                 fileBase.SaveAs(filePath);
+                var url = baseUrl + "Multimedia/" + fileName;
+
+                var multimedia = new Multimedia()
+                {
+                    Type = MultimediaType.SingleElement,
+                    Created = DateTime.Now,
+                    Url = url,
+                    Content = string.Empty
+                };
+
+                return multimedia;
             }
 
-            var url = baseUrl + "Multimedia/" + fileName;
-
-            var multimedia = new Multimedia()
-            {
-                Type = MultimediaType.SingleElement,
-                Created = DateTime.Now,
-                Url = url,
-                Content = string.Empty
-            };
-
-            return multimedia;
+            return null;
         }
 
         public static void DeleteSingle(HttpServerUtilityBase server, Multimedia file)

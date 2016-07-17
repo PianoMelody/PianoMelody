@@ -1,4 +1,4 @@
-﻿@model PianoMelody.Web.Models.ViewModels.NewsViewModel
+﻿@model PianoMelody.Web.Models.ViewModels.ManufacturerViewModel
 
 @{
     var url = "/Images/no_image.jpg";
@@ -9,11 +9,11 @@
 }
 
 <div class="panel-heading">
-    @Html.DisplayFor(modelItem => Model.Title)
+    @Html.DisplayFor(modelItem => Model.Name)
 </div>
 <div class="panel-body">
     <img src="@url" class="news-image" alt="" />
     <p>
-        @Html.DisplayFor(modelItem => Model.Content)
+        <a href="@Model.UrlAddress" target="_blank" rel="nofollow">@Model.UrlAddress</a>
     </p>
 </div>

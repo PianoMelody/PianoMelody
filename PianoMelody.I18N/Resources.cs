@@ -203,6 +203,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Manufacturer</summary>
+        public static string _Manufacturer {
+               get {
+                   return (string) resourceProvider.GetResource("_Manufacturer", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Name</summary>
         public static string _Name {
                get {
@@ -273,6 +280,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Url address</summary>
+        public static string _UrlAddress {
+               get {
+                   return (string) resourceProvider.GetResource("_UrlAddress", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Home</summary>
         public static string Home {
                get {
@@ -291,6 +305,13 @@ namespace PianoMelody.I18N {
         public static string Logo {
                get {
                    return (string) resourceProvider.GetResource("Logo", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Manufacturers</summary>
+        public static string Manufacturers {
+               get {
+                   return (string) resourceProvider.GetResource("Manufacturers", CultureInfo.CurrentUICulture.Name);
                }
             }
             
