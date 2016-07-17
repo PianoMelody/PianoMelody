@@ -1,0 +1,43 @@
+﻿@model PianoMelody.Web.Models.ViewModels.LabelViewModel
+
+<div class="col-lg-3">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">@Resources._Key</span>
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = Resources._Name } })
+        </div>
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="col-lg-3">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><img src="~/Images/us.png" /></span>
+            @Html.EditorFor(model => model.EnValue, new { htmlAttributes = new { @class = "form-control", placeholder = "en " + Resources._Label } })
+        </div>
+        @Html.ValidationMessageFor(model => model.EnValue, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="col-lg-3">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><img src="~/Images/ru.png" /></span>
+            @Html.EditorFor(model => model.RuValue, new { htmlAttributes = new { @class = "form-control", placeholder = "ru " + Resources._Label } })
+        </div>
+        @Html.ValidationMessageFor(model => model.RuValue, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="col-lg-3">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><img src="~/Images/bg.png" /></span>
+            @Html.EditorFor(model => model.BgValue, new { htmlAttributes = new { @class = "form-control", placeholder = "bg " + Resources._Label } })
+        </div>
+        @Html.ValidationMessageFor(model => model.BgValue, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+
