@@ -206,8 +206,10 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\ArticleGroupController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\ReferenceController.cs" />
+    <Compile Include="Models\BindingModels\ArticleGroupBindingModel.cs" />
     <Compile Include="Models\BindingModels\InfoBindingModel.cs" />
     <Compile Include="Models\BindingModels\ReferenceBindingModel.cs" />
     <Compile Include="Models\BindingModels\NewsBindingModel.cs" />
@@ -219,6 +221,7 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\MultimediaHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
+    <Compile Include="Models\ViewModels\ArticleGroupViewModel.cs" />
     <Compile Include="Models\ViewModels\LabelViewModel.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
@@ -306,6 +309,10 @@
     <Content Include="Views\Info\Delete.cshtml" />
     <Content Include="Views\Info\Edit.cshtml" />
     <Content Include="Views\Info\Index.cshtml" />
+    <Content Include="Views\ArticleGroup\Index.cshtml" />
+    <Content Include="Views\ArticleGroup\Create.cshtml" />
+    <Content Include="Views\ArticleGroup\Edit.cshtml" />
+    <Content Include="Views\ArticleGroup\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PianoMelody.Data\PianoMelody.Data.csproj">

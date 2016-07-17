@@ -62,7 +62,7 @@ namespace PianoMelody.Web.Controllers
 
         public ActionResult Edit(int id)
         {
-            var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
+            var currentNews = this.Data.News.Find(id);
             if (currentNews == null)
             {
                 return this.RedirectToAction("Index");
@@ -96,7 +96,7 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
+                var currentNews = this.Data.News.Find(id);
                 if (currentNews == null)
                 {
                     return this.View();
@@ -147,7 +147,7 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                var currentNews = this.Data.News.GetAll().FirstOrDefault(n => n.Id == id);
+                var currentNews = this.Data.News.Find(id);
                 if (currentNews == null)
                 {
                     return this.View();

@@ -35,10 +35,31 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Article group</summary>
+        public static string _ArticleGroup {
+               get {
+                   return (string) resourceProvider.GetResource("_ArticleGroup", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Article groups</summary>
+        public static string _ArticleGroups {
+               get {
+                   return (string) resourceProvider.GetResource("_ArticleGroups", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>BG Content</summary>
         public static string _BgContent {
                get {
                    return (string) resourceProvider.GetResource("_BgContent", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>BG Name</summary>
+        public static string _BgName {
+               get {
+                   return (string) resourceProvider.GetResource("_BgName", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -109,6 +130,13 @@ namespace PianoMelody.I18N {
         public static string _EnContent {
                get {
                    return (string) resourceProvider.GetResource("_EnContent", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>EN Name</summary>
+        public static string _EnName {
+               get {
+                   return (string) resourceProvider.GetResource("_EnName", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -221,6 +249,13 @@ namespace PianoMelody.I18N {
         public static string _RuContent {
                get {
                    return (string) resourceProvider.GetResource("_RuContent", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>RU Name</summary>
+        public static string _RuName {
+               get {
+                   return (string) resourceProvider.GetResource("_RuName", CultureInfo.CurrentUICulture.Name);
                }
             }
             

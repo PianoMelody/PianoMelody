@@ -1,0 +1,26 @@
+﻿@model PianoMelody.Web.Models.ViewModels.ArticleGroupViewModel
+
+@{
+    ViewBag.Title = Resources._Delete + " " + Resources._ArticleGroup;
+}
+
+<h3>@Resources._AreYouSure</h3>
+<hr />
+
+@if (User.IsInRole("Admin"))
+{
+    <article class="panel panel-default">
+        <div class="panel-body">
+            <p>@Html.DisplayFor(modelItem => Model.Name)</p>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value="@Resources._Delete" class="btn btn-danger" />
+                    @Html.ActionLink(Resources._Cancel, "Index", new { }, new { @class = "btn btn-default" })
+                </div>
+            }
+        </div>
+    </article>
+}
