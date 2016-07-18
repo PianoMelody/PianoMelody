@@ -1,0 +1,16 @@
+﻿@model PianoMelody.Web.Models.ViewModels.GalleryViewModel
+
+@{
+    var url = "/Images/no_image.jpg";
+    if (Model != null)
+    {
+        url = Model.Url;
+    }
+}
+
+<div class="panel-body">
+    <img src="@url" class="news-image" alt="" />
+    <p>
+        @Html.DisplayFor(modelItem => Model.Content)
+    </p>
+</div>

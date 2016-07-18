@@ -9,7 +9,14 @@ namespace PianoMelody.Web.Helpers
 {
     public static class MultimediaHelper
     {
-        public static Multimedia CreateSingle(HttpServerUtilityBase server, HttpPostedFileBase fileBase, string baseUrl)
+        public static Multimedia CreateSingle
+        (
+            HttpServerUtilityBase server, 
+            HttpPostedFileBase fileBase, 
+            string baseUrl, 
+            MultimediaType type = MultimediaType.SingleElement, 
+            string content = ""
+        )
         {
             string fileName = string.Empty;
 
@@ -23,10 +30,10 @@ namespace PianoMelody.Web.Helpers
 
                 var multimedia = new Multimedia()
                 {
-                    Type = MultimediaType.SingleElement,
+                    Type = type,
                     Created = DateTime.Now,
                     Url = url,
-                    Content = string.Empty
+                    Content = content
                 };
 
                 return multimedia;

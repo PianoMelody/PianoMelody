@@ -77,6 +77,9 @@
   <Resources Name="_ErrRequired" Culture="bg" Value="Полето е задължително" />
   <Resources Name="_ErrRequired" Culture="en" Value="The field is required" />
   <Resources Name="_ErrRequired" Culture="ru" Value="Полето е задължително" />
+  <Resources Name="_GalleryImage" Culture="bg" Value="Снимка за галерията" />
+  <Resources Name="_GalleryImage" Culture="en" Value="Gallery image" />
+  <Resources Name="_GalleryImage" Culture="ru" Value="Снимка за галерията" />
   <Resources Name="_Key" Culture="bg" Value="Ключ" />
   <Resources Name="_Key" Culture="en" Value="Key" />
   <Resources Name="_Key" Culture="ru" Value="Ключ" />
@@ -134,6 +137,18 @@
   <Resources Name="_UrlAddress" Culture="bg" Value="Url адрес" />
   <Resources Name="_UrlAddress" Culture="en" Value="Url address" />
   <Resources Name="_UrlAddress" Culture="ru" Value="Url адрес" />
+  <Resources Name="About" Culture="bg" Value="За нас" />
+  <Resources Name="About" Culture="en" Value="About us" />
+  <Resources Name="About" Culture="ru" Value="За нас" />
+  <Resources Name="Articles" Culture="bg" Value="Артикули" />
+  <Resources Name="Articles" Culture="en" Value="Articles" />
+  <Resources Name="Articles" Culture="ru" Value="Артикули" />
+  <Resources Name="Contacts" Culture="bg" Value="Контакти" />
+  <Resources Name="Contacts" Culture="en" Value="Contacts" />
+  <Resources Name="Contacts" Culture="ru" Value="Контакти" />
+  <Resources Name="Gallery" Culture="bg" Value="Галерия" />
+  <Resources Name="Gallery" Culture="en" Value="Gallery" />
+  <Resources Name="Gallery" Culture="ru" Value="Галерия" />
   <Resources Name="Home" Culture="bg" Value="Начало" />
   <Resources Name="Home" Culture="en" Value="Home" />
   <Resources Name="Home" Culture="ru" Value="Начало" />

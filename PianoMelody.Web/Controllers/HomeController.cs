@@ -15,6 +15,20 @@
             return this.View();
         }
 
+        // GET /About
+        [HttpGet]
+        public ActionResult About()
+        {
+            return this.View();
+        }
+
+        // GET /About
+        [HttpGet]
+        public ActionResult Contact()
+        {
+            return this.View();
+        }
+
         // GET /Sitemap
         public ActionResult Sitemap()
         {
