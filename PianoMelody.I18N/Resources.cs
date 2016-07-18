@@ -189,6 +189,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Please select image</summary>
+        public static string _ErrSelectImage {
+               get {
+                   return (string) resourceProvider.GetResource("_ErrSelectImage", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Gallery image</summary>
         public static string _GalleryImage {
                get {

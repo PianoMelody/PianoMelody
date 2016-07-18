@@ -77,6 +77,9 @@
   <Resources Name="_ErrRequired" Culture="bg" Value="Полето е задължително" />
   <Resources Name="_ErrRequired" Culture="en" Value="The field is required" />
   <Resources Name="_ErrRequired" Culture="ru" Value="Полето е задължително" />
+  <Resources Name="_ErrSelectImage" Culture="bg" Value="Моля изберете снимка" />
+  <Resources Name="_ErrSelectImage" Culture="en" Value="Please select image" />
+  <Resources Name="_ErrSelectImage" Culture="ru" Value="Моля изберете снимка" />
   <Resources Name="_GalleryImage" Culture="bg" Value="Снимка за галерията" />
   <Resources Name="_GalleryImage" Culture="en" Value="Gallery image" />
   <Resources Name="_GalleryImage" Culture="ru" Value="Снимка за галерията" />

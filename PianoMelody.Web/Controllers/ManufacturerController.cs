@@ -104,11 +104,15 @@ namespace PianoMelody.Web.Controllers
 
                 if (manufacturerBindingModel.Multimedia != null)
                 {
-                    MultimediaHelper.DeleteSingle(this.Server, currentManufacturer.Multimedia);
-                    this.Data.Multimedia.Delete(currentManufacturer.Multimedia);
+                    if (currentManufacturer.Multimedia != null)
+                    {
+                        MultimediaHelper.DeleteSingle(this.Server, currentManufacturer.Multimedia);
+                        this.Data.Multimedia.Delete(currentManufacturer.Multimedia);
+                    }
+
+                    currentManufacturer.Multimedia = MultimediaHelper.CreateSingle(this.Server, manufacturerBindingModel.Multimedia, this.GetBaseUrl());
                 }
 
-                currentManufacturer.Multimedia = MultimediaHelper.CreateSingle(this.Server, manufacturerBindingModel.Multimedia, this.GetBaseUrl());
                 currentManufacturer.Name = JsonHelper.Serialize(manufacturerBindingModel.EnName, manufacturerBindingModel.RuName, manufacturerBindingModel.BgName);
                 currentManufacturer.UrlAddress = manufacturerBindingModel.UrlAddress;
 

@@ -111,11 +111,15 @@ namespace PianoMelody.Web.Controllers
 
                 if (newsBindingModel.Multimedia != null)
                 {
-                    MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
-                    this.Data.Multimedia.Delete(currentNews.Multimedia);
+                    if (currentNews.Multimedia != null)
+                    {
+                        MultimediaHelper.DeleteSingle(this.Server, currentNews.Multimedia);
+                        this.Data.Multimedia.Delete(currentNews.Multimedia);
+                    }
+
+                    currentNews.Multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
                 }
 
-                currentNews.Multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
                 currentNews.Title = JsonHelper.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle);
                 currentNews.Content = JsonHelper.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent);
 

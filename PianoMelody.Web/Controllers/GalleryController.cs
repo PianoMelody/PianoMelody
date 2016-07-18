@@ -1,14 +1,13 @@
 ﻿using AutoMapper.QueryableExtensions;
 using OrangeJetpack.Localization;
-using PianoMelody.Models;
 using PianoMelody.Web.Models.BindingModels;
 using PianoMelody.Web.Models.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
-using System;
 using PianoMelody.Web.Helpers;
 using PianoMelody.Models.Enumetations;
 using PianoMelody.Web.Extensions;
+using PianoMelody.I18N;
 
 namespace PianoMelody.Web.Controllers
 {
@@ -52,7 +51,7 @@ namespace PianoMelody.Web.Controllers
 
                 if (multimedia == null)
                 {
-                    this.AddNotification("Image cannot be empty", NotificationType.ERROR);
+                    this.AddNotification(Resources._ErrSelectImage, NotificationType.ERROR);
                     return this.View();
                 }
 
