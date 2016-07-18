@@ -20,6 +20,9 @@
   <Resources Name="_BgContent" Culture="bg" Value="BG Съдържание" />
   <Resources Name="_BgContent" Culture="en" Value="BG Content" />
   <Resources Name="_BgContent" Culture="ru" Value="BG Съдържание" />
+  <Resources Name="_BgDescription" Culture="bg" Value="BG Описание" />
+  <Resources Name="_BgDescription" Culture="en" Value="BG Description" />
+  <Resources Name="_BgDescription" Culture="ru" Value="BG Описание" />
   <Resources Name="_BgName" Culture="bg" Value="BG Име" />
   <Resources Name="_BgName" Culture="en" Value="BG Name" />
   <Resources Name="_BgName" Culture="ru" Value="BG Име" />
@@ -53,6 +56,9 @@
   <Resources Name="_EnContent" Culture="bg" Value="EN Съдържание" />
   <Resources Name="_EnContent" Culture="en" Value="EN Content" />
   <Resources Name="_EnContent" Culture="ru" Value="EN Съдържание" />
+  <Resources Name="_EnDescription" Culture="bg" Value="EN Описание" />
+  <Resources Name="_EnDescription" Culture="en" Value="EN Description" />
+  <Resources Name="_EnDescription" Culture="ru" Value="EN Описание" />
   <Resources Name="_EnName" Culture="bg" Value="EN Име" />
   <Resources Name="_EnName" Culture="en" Value="EN Name" />
   <Resources Name="_EnName" Culture="ru" Value="EN Име" />
@@ -62,6 +68,9 @@
   <Resources Name="_ErrInvalidEmail" Culture="bg" Value="Полето {0} е невалидно" />
   <Resources Name="_ErrInvalidEmail" Culture="en" Value="The {0} field is not valid email address" />
   <Resources Name="_ErrInvalidEmail" Culture="ru" Value="Полето {0} е невалидно" />
+  <Resources Name="_ErrInvalidPrice" Culture="bg" Value="Невалидна цена" />
+  <Resources Name="_ErrInvalidPrice" Culture="en" Value="Invalid price" />
+  <Resources Name="_ErrInvalidPrice" Culture="ru" Value="Невалидна цена" />
   <Resources Name="_ErrLenghtValidation" Culture="bg" Value="Полето {0} трябва да бъде с дължина поне {2} символа" />
   <Resources Name="_ErrLenghtValidation" Culture="en" Value="The {0} field must be at least {2} characters long" />
   <Resources Name="_ErrLenghtValidation" Culture="ru" Value="Полето {0} трябва да бъде с дължина поне {2} символа" />
@@ -107,6 +116,9 @@
   <Resources Name="_RuContent" Culture="bg" Value="RU Съдържание" />
   <Resources Name="_RuContent" Culture="en" Value="RU Content" />
   <Resources Name="_RuContent" Culture="ru" Value="RU Съдържание" />
+  <Resources Name="_RuDescription" Culture="bg" Value="RU Описание" />
+  <Resources Name="_RuDescription" Culture="en" Value="RU Description" />
+  <Resources Name="_RuDescription" Culture="ru" Value="RU Описание" />
   <Resources Name="_RuName" Culture="bg" Value="RU Име" />
   <Resources Name="_RuName" Culture="en" Value="RU Name" />
   <Resources Name="_RuName" Culture="ru" Value="RU Име" />
@@ -116,6 +128,9 @@
   <Resources Name="_Save" Culture="bg" Value="Запиши" />
   <Resources Name="_Save" Culture="en" Value="Save" />
   <Resources Name="_Save" Culture="ru" Value="Запиши" />
+  <Resources Name="_Service" Culture="bg" Value="Услуга" />
+  <Resources Name="_Service" Culture="en" Value="Service" />
+  <Resources Name="_Service" Culture="ru" Value="Услуга" />
   <Resources Name="_UrlAddress" Culture="bg" Value="Url адрес" />
   <Resources Name="_UrlAddress" Culture="en" Value="Url address" />
   <Resources Name="_UrlAddress" Culture="ru" Value="Url адрес" />
@@ -134,7 +149,13 @@
   <Resources Name="News" Culture="bg" Value="Новини" />
   <Resources Name="News" Culture="en" Value="News" />
   <Resources Name="News" Culture="ru" Value="Новини" />
+  <Resources Name="Price" Culture="bg" Value="Цена" />
+  <Resources Name="Price" Culture="en" Value="Price" />
+  <Resources Name="Price" Culture="ru" Value="Цена" />
   <Resources Name="References" Culture="bg" Value="Референции" />
   <Resources Name="References" Culture="en" Value="References" />
   <Resources Name="References" Culture="ru" Value="Референции" />
+  <Resources Name="Services" Culture="bg" Value="Услуги" />
+  <Resources Name="Services" Culture="en" Value="Services" />
+  <Resources Name="Services" Culture="ru" Value="Услуги" />
 </AllResources>

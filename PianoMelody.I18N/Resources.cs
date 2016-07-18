@@ -56,6 +56,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>BG Description</summary>
+        public static string _BgDescription {
+               get {
+                   return (string) resourceProvider.GetResource("_BgDescription", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>BG Name</summary>
         public static string _BgName {
                get {
@@ -133,6 +140,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>EN Description</summary>
+        public static string _EnDescription {
+               get {
+                   return (string) resourceProvider.GetResource("_EnDescription", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>EN Name</summary>
         public static string _EnName {
                get {
@@ -151,6 +165,13 @@ namespace PianoMelody.I18N {
         public static string _ErrInvalidEmail {
                get {
                    return (string) resourceProvider.GetResource("_ErrInvalidEmail", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Invalid price</summary>
+        public static string _ErrInvalidPrice {
+               get {
+                   return (string) resourceProvider.GetResource("_ErrInvalidPrice", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -259,6 +280,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>RU Description</summary>
+        public static string _RuDescription {
+               get {
+                   return (string) resourceProvider.GetResource("_RuDescription", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>RU Name</summary>
         public static string _RuName {
                get {
@@ -277,6 +305,13 @@ namespace PianoMelody.I18N {
         public static string _Save {
                get {
                    return (string) resourceProvider.GetResource("_Save", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Service</summary>
+        public static string _Service {
+               get {
+                   return (string) resourceProvider.GetResource("_Service", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -322,10 +357,24 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Price</summary>
+        public static string Price {
+               get {
+                   return (string) resourceProvider.GetResource("Price", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>References</summary>
         public static string References {
                get {
                    return (string) resourceProvider.GetResource("References", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Services</summary>
+        public static string Services {
+               get {
+                   return (string) resourceProvider.GetResource("Services", CultureInfo.CurrentUICulture.Name);
                }
             }
 

@@ -1,0 +1,13 @@
+﻿@model PianoMelody.Web.Models.ViewModels.ServiceViewModel
+
+<div class="panel-heading">
+    @Html.DisplayFor(modelItem => Model.Name)
+</div>
+<div class="panel-body">
+    <p>
+        @Html.DisplayFor(modelItem => Model.Description)
+    </p>
+    <p>
+        @Resources.Price: @Html.DisplayFor(modelItem => Model.Price)
+    </p>
+</div>

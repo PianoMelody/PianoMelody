@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.ServiceViewModel>
+
+@{
+    ViewBag.Title = Resources.Services;
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink(Resources._CreateNew, "Create", new { }, new { @class = "btn btn-primary" })
+    </p>
+    <hr />
+}
+
+@foreach (var item in Model)
+{
+    <article class="panel panel-default">
+        @Html.Partial("_ServiceInfo", item)
+
+        @if (User.IsInRole("Admin"))
+        {
+        <div class="panel-footer">
+            @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id }, new { @class= "btn btn-danger" }) 
+        </div>
+        }
+    </article>
+}
