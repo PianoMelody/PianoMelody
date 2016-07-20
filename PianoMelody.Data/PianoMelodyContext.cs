@@ -14,9 +14,9 @@ namespace PianoMelody.Data
         public PianoMelodyContext()
             : base("name=PianoMelodyContext")
         {
-#if DEBUG
+//#if DEBUG
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<PianoMelodyContext, Configuration>());
-#endif
+//#endif
         }
 
         public IDbSet<ArticleGroup> ArticleGroups { get; set; }

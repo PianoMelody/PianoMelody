@@ -15,10 +15,8 @@ namespace PianoMelody.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(512)]
         public string Name { get; set; }
 
-        [MaxLength(128)]
         public string UrlAddress { get; set; }
 
         public virtual Multimedia Multimedia { get; set; }

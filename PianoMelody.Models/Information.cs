@@ -10,7 +10,6 @@ namespace PianoMelody.Models
 
         public DateTime Created { get; set; }
 
-        [MaxLength(512)]
         public string Title { get; set; }
 
         public string Content { get; set; }
