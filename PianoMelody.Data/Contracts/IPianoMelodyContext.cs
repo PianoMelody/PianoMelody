@@ -12,7 +12,7 @@
 
         IDbSet<ArticleGroup> ArticleGroups { get; set; }
 
-        IDbSet<Article> Articles { get; set; }
+        IDbSet<Product> Products { get; set; }
 
         IDbSet<Service> Services { get; set; }
 

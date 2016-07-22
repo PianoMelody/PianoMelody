@@ -32,11 +32,11 @@
             }
         }
 
-        public IRepository<Article> Articles
+        public IRepository<Product> Products
         {
             get
             {
-                return this.GetRepository<Article>();
+                return this.GetRepository<Product>();
             }
         }
 

@@ -4,6 +4,7 @@ using PianoMelody.Models;
 using PianoMelody.Web.Helpers;
 using PianoMelody.Web.Models.BindingModels;
 using PianoMelody.Web.Models.ViewModels;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -44,7 +45,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -91,7 +92,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -131,7 +132,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

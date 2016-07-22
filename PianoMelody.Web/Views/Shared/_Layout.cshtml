@@ -23,7 +23,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(Resources.Articles, "Index", "Article")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@Resources.Products <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" id="products-menu">
+                            @{ Html.RenderAction("Menu", "Product"); }
+                        </ul>
+                    </li>
+
                     <li>@Html.ActionLink(Resources.Services, "Index", "Service")</li>
                     <li>@Html.ActionLink(Resources.News, "Index", "News")</li>
                     <li>@Html.ActionLink(Resources.References, "Index", "Reference")</li>
@@ -53,6 +59,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/products-menu")
     @RenderSection("scripts", required: false)
 </body>
 </html>

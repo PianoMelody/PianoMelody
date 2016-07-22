@@ -17,3 +17,15 @@ body {
     width: auto;
     height: 200px;
 }
+
+.multiple-image {
+    display: inline-block;
+    margin: 5px;
+    width: auto;
+    height: 100px;
+}
+
+.btn-inline {
+    float: left;
+    margin-right: 5px;
+}

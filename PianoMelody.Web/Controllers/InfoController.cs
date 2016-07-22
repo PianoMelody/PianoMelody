@@ -56,7 +56,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -126,7 +126,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -174,7 +174,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

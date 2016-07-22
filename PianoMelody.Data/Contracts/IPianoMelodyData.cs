@@ -10,7 +10,7 @@
 
         IRepository<ArticleGroup> ArticleGroups { get; }
 
-        IRepository<Article> Articles { get; }
+        IRepository<Product> Products { get; }
 
         IRepository<Service> Services { get; }
 

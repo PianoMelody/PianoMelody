@@ -91,6 +91,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Condition</summary>
+        public static string _Condition {
+               get {
+                   return (string) resourceProvider.GetResource("_Condition", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Confirma password</summary>
         public static string _ConfirmPassword {
                get {
@@ -116,6 +123,13 @@ namespace PianoMelody.I18N {
         public static string _Delete {
                get {
                    return (string) resourceProvider.GetResource("_Delete", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Description</summary>
+        public static string _Description {
+               get {
+                   return (string) resourceProvider.GetResource("_Description", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -203,6 +217,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>New</summary>
+        public static string _IsNew {
+               get {
+                   return (string) resourceProvider.GetResource("_IsNew", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Key</summary>
         public static string _Key {
                get {
@@ -252,6 +273,20 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Negotiable</summary>
+        public static string _Negotiable {
+               get {
+                   return (string) resourceProvider.GetResource("_Negotiable", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>New</summary>
+        public static string _New {
+               get {
+                   return (string) resourceProvider.GetResource("_New", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>New password</summary>
         public static string _NewPassword {
                get {
@@ -277,6 +312,27 @@ namespace PianoMelody.I18N {
         public static string _PasswordValidation {
                get {
                    return (string) resourceProvider.GetResource("_PasswordValidation", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Photo</summary>
+        public static string _Photo {
+               get {
+                   return (string) resourceProvider.GetResource("_Photo", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Photos</summary>
+        public static string _Photos {
+               get {
+                   return (string) resourceProvider.GetResource("_Photos", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Product</summary>
+        public static string _Product {
+               get {
+                   return (string) resourceProvider.GetResource("_Product", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -322,10 +378,24 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Second hand</summary>
+        public static string _SecondHand {
+               get {
+                   return (string) resourceProvider.GetResource("_SecondHand", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Service</summary>
         public static string _Service {
                get {
                    return (string) resourceProvider.GetResource("_Service", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Type</summary>
+        public static string _Type {
+               get {
+                   return (string) resourceProvider.GetResource("_Type", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -336,6 +406,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Without choice</summary>
+        public static string _WithoutChoice {
+               get {
+                   return (string) resourceProvider.GetResource("_WithoutChoice", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>About us</summary>
         public static string About {
                get {
@@ -343,10 +420,10 @@ namespace PianoMelody.I18N {
                }
             }
             
-        /// <summary>Articles</summary>
-        public static string Articles {
+        /// <summary>All</summary>
+        public static string All {
                get {
-                   return (string) resourceProvider.GetResource("Articles", CultureInfo.CurrentUICulture.Name);
+                   return (string) resourceProvider.GetResource("All", CultureInfo.CurrentUICulture.Name);
                }
             }
             
@@ -403,6 +480,13 @@ namespace PianoMelody.I18N {
         public static string Price {
                get {
                    return (string) resourceProvider.GetResource("Price", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Products</summary>
+        public static string Products {
+               get {
+                   return (string) resourceProvider.GetResource("Products", CultureInfo.CurrentUICulture.Name);
                }
             }
             

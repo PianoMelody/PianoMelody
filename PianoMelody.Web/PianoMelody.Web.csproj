@@ -206,6 +206,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ArticleGroupController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Models\BindingModels\ArticleGroupBindingModel.cs" />
     <Compile Include="Models\BindingModels\InfoBindingModel.cs" />
     <Compile Include="Models\BindingModels\GalleryBindingModel.cs" />
+    <Compile Include="Models\BindingModels\ProductBindingModel.cs" />
     <Compile Include="Models\BindingModels\ServiceBindingModel.cs" />
     <Compile Include="Models\BindingModels\ReferenceBindingModel.cs" />
     <Compile Include="Models\BindingModels\NewsBindingModel.cs" />
@@ -234,6 +236,7 @@
     <Compile Include="Models\ViewModels\InfoViewModel.cs" />
     <Compile Include="Models\ViewModels\ManufacturerViewModel.cs" />
     <Compile Include="Models\ViewModels\GalleryViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProductViewModel.cs" />
     <Compile Include="Models\ViewModels\ServiceViewModel.cs" />
     <Compile Include="Models\ViewModels\ReferenceViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsViewModel.cs" />
@@ -266,6 +269,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\Custom\image-preview.js" />
+    <Content Include="Scripts\Custom\images-preview.js" />
     <Content Include="Scripts\jquery-2.2.1.min.js" />
     <Content Include="NLog.config" />
     <None Include="NLog.xsd">
@@ -339,6 +343,12 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Product\_ProductInfo.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PianoMelody.Data\PianoMelody.Data.csproj">

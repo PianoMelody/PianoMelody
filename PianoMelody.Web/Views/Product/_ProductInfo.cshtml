@@ -1,0 +1,47 @@
+﻿@model PianoMelody.Web.Models.ViewModels.ProductViewModel
+
+<div class="panel-heading">
+    @Model.Name
+</div>
+<div class="panel-body">
+    <dl class="dl-horizontal">
+        @if (Model.Price != null)
+        {
+            <dt>@Resources.Price:</dt>
+            <dd>@Model.Price</dd>
+        }
+        else
+        {
+            <dt>@Resources.Price:</dt>
+            <dd>@Resources._Negotiable</dd>
+        }
+
+        <dt>@Resources._Manufacturer:</dt>
+        <dd>@Model.ManufacturerName</dd>
+
+        <dt>@Resources._Type:</dt>
+        <dd>@Model.ArticleGroupName</dd>
+
+        @if (Model.IsNew)
+        {
+            <dt>@Resources._Condition:</dt>
+            <dd>@Resources._New</dd>
+        }
+        else
+        {
+            <dt>@Resources._Condition:</dt>
+            <dd>@Resources._SecondHand</dd>
+        }
+
+        <dt>@Resources._Description:</dt>
+        <dd>@Model.Description</dd>
+    </dl>
+
+    @if (Model.Multimedias != null)
+    {
+        foreach (var multimedia in Model.Multimedias)
+        {
+            <img src="@multimedia.Url" class="multiple-image" />
+        }
+    }
+</div>

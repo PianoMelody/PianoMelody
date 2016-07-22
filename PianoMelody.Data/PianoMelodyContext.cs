@@ -21,7 +21,7 @@ namespace PianoMelody.Data
 
         public IDbSet<ArticleGroup> ArticleGroups { get; set; }
 
-        public IDbSet<Article> Articles { get; set; }
+        public IDbSet<Product> Products { get; set; }
 
         public IDbSet<Information> Informations { get; set; }
 

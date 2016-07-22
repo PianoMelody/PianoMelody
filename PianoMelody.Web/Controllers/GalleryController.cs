@@ -8,6 +8,7 @@ using PianoMelody.Web.Helpers;
 using PianoMelody.Models.Enumetations;
 using PianoMelody.Web.Extensions;
 using PianoMelody.I18N;
+using System;
 
 namespace PianoMelody.Web.Controllers
 {
@@ -60,7 +61,7 @@ namespace PianoMelody.Web.Controllers
                 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -126,7 +127,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -168,7 +169,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
