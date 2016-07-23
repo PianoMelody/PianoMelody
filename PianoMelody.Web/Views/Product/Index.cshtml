@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.ProductViewModel>
+﻿@model PianoMelody.Web.Models.ViewModels.ProductsWithPager
 
 @{
     ViewBag.Title = Resources.Products;
@@ -12,7 +12,7 @@
     <hr />
 }
 
-@foreach (var item in Model)
+@foreach (var item in Model.Products)
 {
     <article class="panel panel-default">
         @Html.Partial("_ProductInfo", item)
@@ -26,6 +26,7 @@
 
                 <button type="submit" class="btn btn-success btn-inline">
                     <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                    @item.Position
                 </button>
             }
 
@@ -35,6 +36,7 @@
 
                 <button type="submit" class="btn btn-warning btn-inline">
                     <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    @item.Position
                 </button>
             }
 
@@ -44,3 +46,6 @@
         }
     </article>
 }
+<div class="row">
+    @Html.Partial("_Pager", Model.Pager)
+</div>

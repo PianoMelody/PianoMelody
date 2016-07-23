@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.ReferenceViewModel>
+﻿@model PianoMelody.Web.Models.ViewModels.ReferencesWithPager
 
 @{
     ViewBag.Title = Resources.References;
@@ -12,7 +12,7 @@
     <hr />
 }
 
-@foreach (var item in Model)
+@foreach (var item in Model.References)
 {
     <article class="panel panel-default">
         @Html.Partial("_ReferenceInfo", item)
@@ -26,3 +26,6 @@
         }
     </article>
 }
+<div class="row">
+    @Html.Partial("_Pager", Model.Pager)
+</div>

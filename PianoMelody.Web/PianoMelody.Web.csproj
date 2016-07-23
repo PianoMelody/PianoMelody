@@ -213,6 +213,7 @@
     <Compile Include="Controllers\ManufacturerController.cs" />
     <Compile Include="Controllers\ReferenceController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Helpers\Pager.cs" />
     <Compile Include="Models\BindingModels\ManufacturerBindingModel.cs" />
     <Compile Include="Models\BindingModels\ArticleGroupBindingModel.cs" />
     <Compile Include="Models\BindingModels\InfoBindingModel.cs" />
@@ -349,6 +350,7 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Menu.cshtml" />
+    <Content Include="Views\Shared\_Pager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PianoMelody.Data\PianoMelody.Data.csproj">

@@ -7,17 +7,31 @@ using System.Linq;
 using System.Web.Mvc;
 using System;
 using PianoMelody.Web.Helpers;
+using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
     public class NewsController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var news = this.Data.News.GetAll().ProjectTo<NewsViewModel>()
-                                              .OrderByDescending(n => n.Created)
-                                              .Localize(this.CurrentCulture, n => n.Title, n => n.Content);
-            return View(news);
+            if (page < 1)
+            {
+                return this.RedirectToAction("Index");
+            }
+
+            var model = new NewsWithPager();
+            var pager = new Pager(this.Data.News.GetAll().Count(), page);
+            model.Pager = pager;
+
+            var news = this.Data.News.GetAll()
+                                     .OrderByDescending(n => n.Created)
+                                     .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                     .Take(pager.PageSize)
+                                     .ProjectTo<NewsViewModel>()
+                                     .Localize(this.CurrentCulture, n => n.Title, n => n.Content);
+            model.News = news;
+            return View(model);
         }
 
         public ActionResult Create()

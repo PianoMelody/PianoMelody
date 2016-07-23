@@ -9,30 +9,51 @@ using PianoMelody.Web.Helpers;
 using System.Web.UI.WebControls;
 using System;
 using System.Collections.Generic;
+using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
     public class ProductController : BaseController
     {
-        public ActionResult Index(int? group)
+        public ActionResult Index(int? group, int page = 1)
         {
+            if (page < 1)
+            {
+                return this.RedirectToAction("Index");
+            }
+
+            var model = new ProductsWithPager();
             IEnumerable<ProductViewModel> products = null;
 
             if (group != null)
             {
-                products = this.Data.Products.GetAll().Where(a => a.ArtilceGroup.Id == group)
-                                                      .OrderBy(a => a.Position)
-                                                      .ProjectTo<ProductViewModel>()
-                                                      .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
+                var pager = new Pager(this.Data.Products.GetAll().Where(a => a.ArtilceGroup.Id == group).Count(), page);
+                model.Pager = pager;
+
+                products = this.Data.Products.GetAll()
+                                             .Where(a => a.ArtilceGroup.Id == group)
+                                             .OrderBy(a => a.Position)
+                                             .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                             .Take(pager.PageSize)
+                                             .ProjectTo<ProductViewModel>()
+                                             .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
             }
             else
             {
-                products = this.Data.Products.GetAll().OrderBy(a => a.Position)
-                                                      .ProjectTo<ProductViewModel>()
-                                                      .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
+                var pager = new Pager(this.Data.Products.GetAll().Count(), page);
+                model.Pager = pager;
+
+                products = this.Data.Products.GetAll()
+                                             .OrderBy(a => a.Position)
+                                             .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                             .Take(pager.PageSize)
+                                             .ProjectTo<ProductViewModel>()
+                                             .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
             }
-                
-            return View(products);
+
+            model.Products = products;
+
+            return View(model);
         }
 
         [ChildActionOnly]

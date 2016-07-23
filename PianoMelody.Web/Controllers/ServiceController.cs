@@ -7,16 +7,31 @@ using System.Linq;
 using System.Web.Mvc;
 using System;
 using PianoMelody.Web.Helpers;
+using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
     public class ServiceController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var services = this.Data.Services.GetAll().ProjectTo<ServiceViewModel>()
-                                                      .Localize(this.CurrentCulture, s => s.Name, s => s.Description);
-            return View(services);
+            if (page < 1)
+            {
+                return this.RedirectToAction("Index");
+            }
+
+            var model = new ServicesWithPager();
+            var pager = new Pager(this.Data.Services.GetAll().Count(), page);
+            model.Pager = pager;
+
+            var services = this.Data.Services.GetAll()
+                                             .OrderBy(s => s.Id)
+                                             .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                             .Take(pager.PageSize)
+                                             .ProjectTo<ServiceViewModel>()
+                                             .Localize(this.CurrentCulture, s => s.Name, s => s.Description);
+            model.Services = services;
+            return View(model);
         }
 
         public ActionResult Create()

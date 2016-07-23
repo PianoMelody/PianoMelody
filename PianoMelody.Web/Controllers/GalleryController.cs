@@ -9,18 +9,32 @@ using PianoMelody.Models.Enumetations;
 using PianoMelody.Web.Extensions;
 using PianoMelody.I18N;
 using System;
+using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
     public class GalleryController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var gallery = this.Data.Multimedia.GetAll().Where(g => g.Type == MultimediaType.GalleryElement)
-                                                       .OrderByDescending(g => g.Created)
-                                                       .ProjectTo<GalleryViewModel>()
-                                                       .Localize(this.CurrentCulture, g => g.Content);
-            return View(gallery);
+            if (page < 1)
+            {
+                return this.RedirectToAction("Index");
+            }
+
+            var model = new GalleryWithPager();
+            var pager = new Pager(this.Data.Multimedia.GetAll().Where(g => g.Type == MultimediaType.GalleryElement).Count(), page);
+            model.Pager = pager;
+
+            var gallery = this.Data.Multimedia.GetAll()
+                                              .Where(g => g.Type == MultimediaType.GalleryElement)
+                                              .OrderByDescending(g => g.Created)
+                                              .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                              .Take(pager.PageSize)
+                                              .ProjectTo<GalleryViewModel>()
+                                              .Localize(this.CurrentCulture, g => g.Content);
+            model.Gallery = gallery;
+            return View(model);
         }
 
         public ActionResult Create()

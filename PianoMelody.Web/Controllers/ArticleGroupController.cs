@@ -1,5 +1,6 @@
 ﻿using AutoMapper.QueryableExtensions;
 using OrangeJetpack.Localization;
+using PianoMelody.Helpers;
 using PianoMelody.Models;
 using PianoMelody.Web.Helpers;
 using PianoMelody.Web.Models.BindingModels;
@@ -12,12 +13,25 @@ namespace PianoMelody.Web.Controllers
 {
     public class ArticleGroupController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var articleGroups = this.Data.ArticleGroups.GetAll().ProjectTo<ArticleGroupViewModel>()
-                                                                .Localize(this.CurrentCulture, ag => ag.Name);
+            if (page < 1)
+            {
+                return this.RedirectToAction("Index");
+            }
 
-            return View(articleGroups);
+            var model = new ArticleGroupsWithPager();
+            var pager = new Pager(this.Data.ArticleGroups.GetAll().Count(), page);
+            model.Pager = pager;
+
+            var articleGroups = this.Data.ArticleGroups.GetAll()
+                                                       .OrderBy(ag => ag.Id)
+                                                       .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                                       .Take(pager.PageSize)
+                                                       .ProjectTo<ArticleGroupViewModel>()
+                                                       .Localize(this.CurrentCulture, ag => ag.Name);
+            model.ArticleGroups = articleGroups;
+            return View(model);
         }
 
         public ActionResult Create()

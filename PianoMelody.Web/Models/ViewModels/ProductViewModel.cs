@@ -3,12 +3,15 @@ using PianoMelody.Models;
 using PianoMelody.Web.Contracts;
 using System.Collections.Generic;
 using AutoMapper;
+using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Models.ViewModels
 {
     public class ProductViewModel : IMapFrom<Product>, ICustomMappings, ILocalizable
     {
         public int Id { get; set; }
+
+        public int Position { get; set; }
 
         [Localized]
         public string Name { get; set; }
@@ -38,5 +41,12 @@ namespace PianoMelody.Web.Models.ViewModels
                              p => p.ManufacturerName,
                              opt => opt.MapFrom(p => p.Manufacturer.Name));
         }
+    }
+
+    public class ProductsWithPager
+    {
+        public IEnumerable<ProductViewModel> Products { get; set; }
+
+        public Pager Pager { get; set; }
     }
 }

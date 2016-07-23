@@ -1,6 +1,8 @@
 ﻿using OrangeJetpack.Localization;
+using PianoMelody.Helpers;
 using PianoMelody.Models;
 using PianoMelody.Web.Contracts;
+using System.Collections.Generic;
 
 namespace PianoMelody.Web.Models.ViewModels
 {
@@ -14,5 +16,12 @@ namespace PianoMelody.Web.Models.ViewModels
         public string UrlAddress { get; set; }
 
         public Multimedia Multimedia { get; set; }
+    }
+
+    public class ManufacturersWithPager
+    {
+        public IEnumerable<ManufacturerViewModel> Manufacturers { get; set; }
+
+        public Pager Pager { get; set; }
     }
 }

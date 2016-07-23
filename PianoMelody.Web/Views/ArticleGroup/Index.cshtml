@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.ArticleGroupViewModel>
+﻿@model PianoMelody.Web.Models.ViewModels.ArticleGroupsWithPager
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
     <hr />
 }
 
-@foreach (var item in Model)
+@foreach (var item in Model.ArticleGroups)
 {
     <article class="panel panel-default">
         @if (User.IsInRole("Admin"))
@@ -25,3 +25,6 @@
         }
     </article>
 }
+<div class="row">
+    @Html.Partial("_Pager", Model.Pager)
+</div>
