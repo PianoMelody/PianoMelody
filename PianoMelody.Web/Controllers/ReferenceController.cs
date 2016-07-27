@@ -7,17 +7,31 @@ using System.Linq;
 using System.Web.Mvc;
 using System;
 using PianoMelody.Web.Helpers;
+using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
     public class ReferenceController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var references = this.Data.References.GetAll().ProjectTo<ReferenceViewModel>()
-                                                          .OrderByDescending(r => r.Created)
-                                                          .Localize(this.CurrentCulture, r => r.Title, r => r.Content);
-            return View(references);
+            if (page < 1)
+            {
+                return this.RedirectToAction("Index");
+            }
+
+            var model = new ReferencesWithPager();
+            var pager = new Pager(this.Data.References.GetAll().Count(), page);
+            model.Pager = pager;
+
+            var references = this.Data.References.GetAll()
+                                                 .OrderByDescending(r => r.Created)
+                                                 .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                                 .Take(pager.PageSize)
+                                                 .ProjectTo<ReferenceViewModel>()
+                                                 .Localize(this.CurrentCulture, r => r.Title, r => r.Content);
+            model.References = references;
+            return View(model);
         }
 
         public ActionResult Create()
@@ -56,7 +70,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -126,7 +140,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -174,7 +188,7 @@ namespace PianoMelody.Web.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

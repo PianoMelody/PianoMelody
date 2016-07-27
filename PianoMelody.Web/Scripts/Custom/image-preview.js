@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    function readURL(input) {
+    function previewImage(input) {
 
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -14,7 +14,7 @@
     }
 
     $("#file").change(function () {
-        readURL(this);
+        previewImage(this);
     });
 
 });

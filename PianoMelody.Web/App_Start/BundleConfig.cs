@@ -35,6 +35,10 @@
                     "~/Scripts/Custom/image-preview.js"));
 
             bundles.Add(
+                new ScriptBundle("~/bundles/images-preview").Include(
+                    "~/Scripts/Custom/images-preview.js"));
+
+            bundles.Add(
                 new StyleBundle("~/Content/css").Include(
                     "~/Content/bootstrap.min.css",
                     "~/Content/site.css"));

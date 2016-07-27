@@ -1,7 +1,9 @@
 ﻿using OrangeJetpack.Localization;
+using PianoMelody.Helpers;
 using PianoMelody.Models;
 using PianoMelody.Web.Contracts;
 using System;
+using System.Collections.Generic;
 
 namespace PianoMelody.Web.Models.ViewModels
 {
@@ -18,5 +20,12 @@ namespace PianoMelody.Web.Models.ViewModels
         public string Content { get; set; }
 
         public Multimedia Multimedia { get; set; }
+    }
+
+    public class NewsWithPager
+    {
+        public IEnumerable<NewsViewModel> News { get; set; }
+
+        public Pager Pager { get; set; }
     }
 }

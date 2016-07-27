@@ -14,14 +14,14 @@ namespace PianoMelody.Data
         public PianoMelodyContext()
             : base("name=PianoMelodyContext")
         {
-#if DEBUG
+//#if DEBUG
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<PianoMelodyContext, Configuration>());
-#endif
+//#endif
         }
 
         public IDbSet<ArticleGroup> ArticleGroups { get; set; }
 
-        public IDbSet<Article> Articles { get; set; }
+        public IDbSet<Product> Products { get; set; }
 
         public IDbSet<Information> Informations { get; set; }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.ManufacturerViewModel>
+﻿@model PianoMelody.Web.Models.ViewModels.ManufacturersWithPager
 
 @{
     ViewBag.Title = Resources.Manufacturers;
@@ -12,7 +12,7 @@
     <hr />
 }
 
-@foreach (var item in Model)
+@foreach (var item in Model.Manufacturers)
 {
     <article class="panel panel-default">
         @Html.Partial("_ManufacturerInfo", item)
@@ -26,3 +26,6 @@
         }
     </article>
 }
+<div class="row">
+    @Html.Partial("_Pager", Model.Pager)
+</div>

@@ -35,6 +35,9 @@
   <Resources Name="_ChangePassword" Culture="bg" Value="Смени паролата" />
   <Resources Name="_ChangePassword" Culture="en" Value="Change password" />
   <Resources Name="_ChangePassword" Culture="ru" Value="Смени паролата" />
+  <Resources Name="_Condition" Culture="bg" Value="Състояние" />
+  <Resources Name="_Condition" Culture="en" Value="Condition" />
+  <Resources Name="_Condition" Culture="ru" Value="Състояние" />
   <Resources Name="_ConfirmPassword" Culture="bg" Value="Повторете паролата" />
   <Resources Name="_ConfirmPassword" Culture="en" Value="Confirma password" />
   <Resources Name="_ConfirmPassword" Culture="ru" Value="Повторете паролата" />
@@ -47,6 +50,9 @@
   <Resources Name="_Delete" Culture="bg" Value="Изтрий" />
   <Resources Name="_Delete" Culture="en" Value="Delete" />
   <Resources Name="_Delete" Culture="ru" Value="Изтрий" />
+  <Resources Name="_Description" Culture="bg" Value="Описание" />
+  <Resources Name="_Description" Culture="en" Value="Description" />
+  <Resources Name="_Description" Culture="ru" Value="Описание" />
   <Resources Name="_Edit" Culture="bg" Value="Редактирай" />
   <Resources Name="_Edit" Culture="en" Value="Edit" />
   <Resources Name="_Edit" Culture="ru" Value="Редактирай" />
@@ -83,6 +89,9 @@
   <Resources Name="_GalleryImage" Culture="bg" Value="Снимка за галерията" />
   <Resources Name="_GalleryImage" Culture="en" Value="Gallery image" />
   <Resources Name="_GalleryImage" Culture="ru" Value="Снимка за галерията" />
+  <Resources Name="_IsNew" Culture="bg" Value="Нов" />
+  <Resources Name="_IsNew" Culture="en" Value="New" />
+  <Resources Name="_IsNew" Culture="ru" Value="Нов" />
   <Resources Name="_Key" Culture="bg" Value="Ключ" />
   <Resources Name="_Key" Culture="en" Value="Key" />
   <Resources Name="_Key" Culture="ru" Value="Ключ" />
@@ -104,6 +113,12 @@
   <Resources Name="_Name" Culture="bg" Value="Име" />
   <Resources Name="_Name" Culture="en" Value="Name" />
   <Resources Name="_Name" Culture="ru" Value="Име" />
+  <Resources Name="_Negotiable" Culture="bg" Value="По договаряне" />
+  <Resources Name="_Negotiable" Culture="en" Value="Negotiable" />
+  <Resources Name="_Negotiable" Culture="ru" Value="По договаряне" />
+  <Resources Name="_New" Culture="bg" Value="Ново" />
+  <Resources Name="_New" Culture="en" Value="New" />
+  <Resources Name="_New" Culture="ru" Value="Ново" />
   <Resources Name="_NewPassword" Culture="bg" Value="Нова парола" />
   <Resources Name="_NewPassword" Culture="en" Value="New password" />
   <Resources Name="_NewPassword" Culture="ru" Value="Нова парола" />
@@ -116,6 +131,15 @@
   <Resources Name="_PasswordValidation" Culture="bg" Value="Паролите не съвпадат" />
   <Resources Name="_PasswordValidation" Culture="en" Value="The passwords do not match" />
   <Resources Name="_PasswordValidation" Culture="ru" Value="Паролите не съвпадат" />
+  <Resources Name="_Photo" Culture="bg" Value="Снимка" />
+  <Resources Name="_Photo" Culture="en" Value="Photo" />
+  <Resources Name="_Photo" Culture="ru" Value=" Снимка" />
+  <Resources Name="_Photos" Culture="bg" Value="Снимки" />
+  <Resources Name="_Photos" Culture="en" Value="Photos" />
+  <Resources Name="_Photos" Culture="ru" Value="Снимки" />
+  <Resources Name="_Product" Culture="bg" Value="Продукт" />
+  <Resources Name="_Product" Culture="en" Value="Product" />
+  <Resources Name="_Product" Culture="ru" Value="Продуцт" />
   <Resources Name="_Reference" Culture="bg" Value="Референция" />
   <Resources Name="_Reference" Culture="en" Value="Reference" />
   <Resources Name="_Reference" Culture="ru" Value="Референция" />
@@ -134,18 +158,27 @@
   <Resources Name="_Save" Culture="bg" Value="Запиши" />
   <Resources Name="_Save" Culture="en" Value="Save" />
   <Resources Name="_Save" Culture="ru" Value="Запиши" />
+  <Resources Name="_SecondHand" Culture="bg" Value="Втора употреба" />
+  <Resources Name="_SecondHand" Culture="en" Value="Second hand" />
+  <Resources Name="_SecondHand" Culture="ru" Value="Втора употреба" />
   <Resources Name="_Service" Culture="bg" Value="Услуга" />
   <Resources Name="_Service" Culture="en" Value="Service" />
   <Resources Name="_Service" Culture="ru" Value="Услуга" />
+  <Resources Name="_Type" Culture="bg" Value="Вид" />
+  <Resources Name="_Type" Culture="en" Value="Type" />
+  <Resources Name="_Type" Culture="ru" Value="Вид" />
   <Resources Name="_UrlAddress" Culture="bg" Value="Url адрес" />
   <Resources Name="_UrlAddress" Culture="en" Value="Url address" />
   <Resources Name="_UrlAddress" Culture="ru" Value="Url адрес" />
+  <Resources Name="_WithoutChoice" Culture="bg" Value="Без избор" />
+  <Resources Name="_WithoutChoice" Culture="en" Value="Without choice" />
+  <Resources Name="_WithoutChoice" Culture="ru" Value="Без избор" />
   <Resources Name="About" Culture="bg" Value="За нас" />
   <Resources Name="About" Culture="en" Value="About us" />
   <Resources Name="About" Culture="ru" Value="За нас" />
-  <Resources Name="Articles" Culture="bg" Value="Артикули" />
-  <Resources Name="Articles" Culture="en" Value="Articles" />
-  <Resources Name="Articles" Culture="ru" Value="Артикули" />
+  <Resources Name="All" Culture="bg" Value="Всички" />
+  <Resources Name="All" Culture="en" Value="All" />
+  <Resources Name="All" Culture="ru" Value="Всички" />
   <Resources Name="Contacts" Culture="bg" Value="Контакти" />
   <Resources Name="Contacts" Culture="en" Value="Contacts" />
   <Resources Name="Contacts" Culture="ru" Value="Контакти" />
@@ -170,6 +203,9 @@
   <Resources Name="Price" Culture="bg" Value="Цена" />
   <Resources Name="Price" Culture="en" Value="Price" />
   <Resources Name="Price" Culture="ru" Value="Цена" />
+  <Resources Name="Products" Culture="bg" Value="Продукти" />
+  <Resources Name="Products" Culture="en" Value="Products" />
+  <Resources Name="Products" Culture="ru" Value="Продукти" />
   <Resources Name="References" Culture="bg" Value="Референции" />
   <Resources Name="References" Culture="en" Value="References" />
   <Resources Name="References" Culture="ru" Value="Референции" />

@@ -11,11 +11,14 @@ namespace PianoMelody.Models
 
         public DateTime Created { get; set; }
 
-        [MaxLength(128)]
         public string Url { get; set; }
 
         public string Content { get; set; }
 
         public MultimediaType Type { get; set; }
+
+        public int? ProductId { get; set; }
+
+        public virtual Product Product { get; set; }
     }
 }

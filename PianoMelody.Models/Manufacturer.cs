@@ -5,34 +5,32 @@ namespace PianoMelody.Models
 {
     public class Manufacturer
     {
-        private ICollection<Article> articles;
+        private ICollection<Product> products;
 
         public Manufacturer()
         {
-            this.articles = new HashSet<Article>();
+            this.products = new HashSet<Product>();
         }
 
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(512)]
         public string Name { get; set; }
 
-        [MaxLength(128)]
         public string UrlAddress { get; set; }
 
         public virtual Multimedia Multimedia { get; set; }
 
-        public virtual ICollection<Article> Articles
+        public virtual ICollection<Product> Products
         {
             get
             {
-                return this.articles;
+                return this.products;
             }
 
             set
             {
-                this.articles = value;
+                this.products = value;
             }
         }
     }

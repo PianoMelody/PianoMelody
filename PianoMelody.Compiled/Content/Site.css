@@ -18,6 +18,18 @@ body {
     height: 200px;
 }
 
+.multiple-image {
+    display: inline-block;
+    margin: 5px;
+    width: auto;
+    height: 100px;
+}
+
+.btn-inline {
+    float: left;
+    margin-right: 5px;
+}
+
 /**/
 
 #myCarousel {
@@ -35,7 +47,7 @@ h3 {
     text-shadow: 2px 2px #000;
 }
 
-.carousel-caption{
+.carousel-caption {
     margin-bottom: 10%;
     font-size: 2em;
     text-shadow: 2px 2px #000;

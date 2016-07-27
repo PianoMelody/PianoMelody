@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.ArticleGroupViewModel>
+
+@{
+    Layout = null;
+}
+
+@{
+    if (Model != null)
+    {
+        foreach (var articleGroup in Model)
+        {
+            <li>@Html.ActionLink(articleGroup.Name, "Index", "Product", new { group = articleGroup.Id }, new { })</li>
+        }
+
+        <li>@Html.ActionLink(Resources.All, "Index", "Product")</li>
+    }
+}

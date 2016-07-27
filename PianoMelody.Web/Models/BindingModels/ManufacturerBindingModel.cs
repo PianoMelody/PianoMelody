@@ -22,6 +22,7 @@ namespace PianoMelody.Web.Models.BindingModels
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
         public string UrlAddress { get; set; }
 
+        [Display(Name = "_Photo", ResourceType = typeof(Resources))]
         public HttpPostedFileBase Multimedia { get; set; }
 
         public string Url { get; set; }
