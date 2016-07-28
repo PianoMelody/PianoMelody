@@ -9,7 +9,7 @@
         {
             bundles.Add(
                 new ScriptBundle("~/bundles/jquery").Include(
-                    "~/Scripts/jquery-2.2.1.min.js"));
+                    "~/Scripts/jquery-3.1.0.min.js"));
 
             bundles.Add(
                 new ScriptBundle("~/bundles/jqueryval").Include(
