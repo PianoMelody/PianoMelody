@@ -4,6 +4,8 @@
     {
         GalleryElement = 0,
 
-        SingleElement = 1
+        SingleElement = 1,
+
+        CarouselElement = 2
     }
 }

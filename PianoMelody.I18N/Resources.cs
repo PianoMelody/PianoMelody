@@ -84,6 +84,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Carousel</summary>
+        public static string _Carousel {
+               get {
+                   return (string) resourceProvider.GetResource("_Carousel", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Change password</summary>
         public static string _ChangePassword {
                get {

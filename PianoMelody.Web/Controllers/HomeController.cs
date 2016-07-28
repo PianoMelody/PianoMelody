@@ -5,6 +5,11 @@
     using System.Web.Mvc;
 
     using SimpleMvcSitemap;
+    using System.Linq;
+    using PianoMelody.Models.Enumetations;
+    using Models.ViewModels;
+    using AutoMapper.QueryableExtensions;
+    using OrangeJetpack.Localization;
 
     public class HomeController : BaseController
     {
@@ -12,7 +17,14 @@
         [HttpGet]
         public ActionResult Index()
         {
-            return this.View();
+            var homeViewModel = new HomeViewModel();
+            homeViewModel.Carousel = this.Data.Multimedia.GetAll()
+                                                         .Where(m => m.Type == MultimediaType.CarouselElement)
+                                                         .ProjectTo<CarouselViewModel>()
+                                                         .Localize(this.CurrentCulture, c => c.Content)
+                                                         .ToArray();
+
+            return this.View(homeViewModel);
         }
 
         // GET /About

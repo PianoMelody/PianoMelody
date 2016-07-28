@@ -32,6 +32,9 @@
   <Resources Name="_Cancel" Culture="bg" Value="Отказ" />
   <Resources Name="_Cancel" Culture="en" Value="Cancel" />
   <Resources Name="_Cancel" Culture="ru" Value="Отказ" />
+  <Resources Name="_Carousel" Culture="bg" Value="Слайд елементи" />
+  <Resources Name="_Carousel" Culture="en" Value="Carousel" />
+  <Resources Name="_Carousel" Culture="ru" Value="Слайд елементи" />
   <Resources Name="_ChangePassword" Culture="bg" Value="Смени паролата" />
   <Resources Name="_ChangePassword" Culture="en" Value="Change password" />
   <Resources Name="_ChangePassword" Culture="ru" Value="Смени паролата" />

@@ -1,13 +1,13 @@
-﻿@model PianoMelody.Web.Models.BindingModels.GalleryBindingModel
+﻿@model PianoMelody.Web.Models.BindingModels.CarouselBindingModel
 
 @{
-    ViewBag.Title = Resources._CreateNew + " " + Resources._GalleryImage;
+    ViewBag.Title = Resources._CreateNew + " " + Resources._Carousel;
 }
 
-<h2>@Resources._CreateNew @Resources._GalleryImage</h2>
+<h2>@Resources._CreateNew @Resources._Carousel</h2>
 <hr />
 
-@using (Html.BeginForm("Create", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Carousel", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

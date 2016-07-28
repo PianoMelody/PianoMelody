@@ -1,18 +1,20 @@
-﻿@model PianoMelody.Web.Models.BindingModels.GalleryBindingModel
-
+﻿@model PianoMelody.Web.Models.BindingModels.CarouselBindingModel
 @{
-    ViewBag.Title = Resources._CreateNew + " " + Resources._GalleryImage;
+    ViewBag.Title = Resources._Edit + " " + Resources._Carousel;
+    var url = "/Images/no_image.jpg";
+    if (Model != null && Model.Url != null)
+    {
+        url = Model.Url;
+    }
 }
-
-<h2>@Resources._CreateNew @Resources._GalleryImage</h2>
+<h2>@Resources._Edit @Resources._Carousel</h2>
 <hr />
-
-@using (Html.BeginForm("Create", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Carousel", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.EnContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -20,7 +22,6 @@
                 @Html.ValidationMessageFor(model => model.EnContent, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.RuContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -28,7 +29,6 @@
                 @Html.ValidationMessageFor(model => model.RuContent, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.BgContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -39,7 +39,7 @@
 
         <div class="row">
             <div class="col-md-10 col-md-offset-2">
-                <img id="image-preview" src="~/Images/no_image.jpg" class="news-image" />
+                <img id="image-preview" src="@url" class="news-image" />
             </div>
         </div>
 
@@ -52,15 +52,13 @@
                 @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Resources._CreateNew" class="btn btn-default" />
+                <input type="submit" value="@Resources._Edit" class="btn btn-default" />
             </div>
         </div>
     </div>
-}
-
+    }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/image-preview")

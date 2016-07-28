@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.CarouselViewModel>
+
+@{
+    ViewBag.Title = Resources._Carousel;
+}
+
+@if (User.IsInRole("Admin") && Model.Count() < 5)
+{
+    <p>
+        @Html.ActionLink(Resources._CreateNew, "Create", new { }, new { @class = "btn btn-primary" })
+    </p>
+    <hr />
+}
+
+@foreach (var item in Model)
+{
+    <article class="panel panel-default col-lg-6">
+        @Html.Partial("_Carousel", item)
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="panel-footer">
+                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+            </div>
+        }
+    </article>
+}
