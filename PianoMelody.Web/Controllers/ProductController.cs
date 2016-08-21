@@ -314,6 +314,7 @@ namespace PianoMelody.Web.Controllers
         private void LoadDropdownLists()
         {
             ViewBag.ArticleGroups = this.Data.ArticleGroups.GetAll()
+                                                           .OrderBy(ag => ag.Name)
                                                            .ProjectTo<ArticleGroupViewModel>()
                                                            .Localize(this.CurrentCulture, ag => ag.Name)
                                                            .Select(ag => new SelectListItem
@@ -324,6 +325,7 @@ namespace PianoMelody.Web.Controllers
                                                            .ToList();
 
             ViewBag.Manufacturers = this.Data.Manufacturers.GetAll()
+                                                           .OrderBy(m => m.Name)
                                                            .ProjectTo<ManufacturerViewModel>()
                                                            .Localize(this.CurrentCulture, m => m.Name)
                                                            .Select(m => new SelectListItem

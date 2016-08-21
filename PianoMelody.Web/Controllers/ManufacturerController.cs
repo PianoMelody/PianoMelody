@@ -25,7 +25,7 @@ namespace PianoMelody.Web.Controllers
             model.Pager = pager;
 
             var manufacturers = this.Data.Manufacturers.GetAll()
-                                                       .OrderBy(m => m.Id)
+                                                       .OrderBy(m => m.Name)
                                                        .Skip((pager.CurrentPage - 1) * pager.PageSize)
                                                        .Take(pager.PageSize)                                      
                                                        .ProjectTo<ManufacturerViewModel>()
