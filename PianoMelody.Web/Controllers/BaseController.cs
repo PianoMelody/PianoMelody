@@ -8,7 +8,6 @@
     using Data.Contracts;
     using Helpers;
     using System.Web;
-    using NLog;
 
     public class BaseController : Controller
     {
@@ -26,16 +25,15 @@
 
         protected string GetBaseUrl()
         {
-            var request = System.Web.HttpContext.Current.Request;
-            var appUrl = HttpRuntime.AppDomainAppVirtualPath;
+            //var request = System.Web.HttpContext.Current.Request;
+            //var appUrl = HttpRuntime.AppDomainAppVirtualPath;
 
-            var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, appUrl);
+            //var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, appUrl);
+            var baseUrl = "/";
             return baseUrl;
         }
 
         public string CurrentCulture { get { return CultureHelper.GetCurrentCulture().Substring(0, 2); } }
-
-        protected Logger Logger { get { return LogManager.GetCurrentClassLogger(); } }
 
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {

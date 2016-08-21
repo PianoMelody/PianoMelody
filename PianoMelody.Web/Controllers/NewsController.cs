@@ -72,7 +72,6 @@ namespace PianoMelody.Web.Controllers
             }
             catch (Exception ex)
             {
-                this.Logger.Error(ex, "Create news");
                 return View();
             }
         }

@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
-
-    using SimpleMvcSitemap;
     using System.Linq;
     using PianoMelody.Models.Enumetations;
     using Models.ViewModels;
@@ -39,22 +37,6 @@
         public ActionResult Contact()
         {
             return this.View();
-        }
-
-        // GET /Sitemap
-        public ActionResult Sitemap()
-        {
-            List<SitemapNode> nodes = new List<SitemapNode>
-                {
-                    new SitemapNode(this.Url.Action("Index", "Home"))
-                        {
-                            ChangeFrequency = ChangeFrequency.Weekly,
-                            LastModificationDate = DateTime.UtcNow,
-                            Priority = 1.0m
-                        },
-                };
-
-            return new SitemapProvider().CreateSitemap(this.HttpContext, nodes);
         }
     }
 }
