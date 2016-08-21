@@ -12,20 +12,18 @@
     <hr />
 }
 
-@foreach (var item in Model.Gallery)
-{
-    <article class="panel panel-default col-lg-6">
+<div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+    @foreach (var item in Model.Gallery)
+    {
         @Html.Partial("_Gallery", item)
-
-        @if (User.IsInRole("Admin"))
-        {
-        <div class="panel-footer">
-            @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
-            @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id }, new { @class= "btn btn-danger" }) 
-        </div>
-        }
-    </article>
-}
+    }
+</div>
 <div class="row">
     @Html.Partial("_Pager", Model.Pager)
+    @Html.Partial("_PhotoSwipeRoot")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/photoswipe")
+    @Scripts.Render("~/bundles/load-gallery")
+}

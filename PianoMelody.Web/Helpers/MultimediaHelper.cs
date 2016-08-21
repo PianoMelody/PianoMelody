@@ -41,6 +41,7 @@ namespace PianoMelody.Web.Helpers
                     Type = type,
                     Created = DateTime.Now,
                     Url = url,
+                    DataSize = GetDataSize(filePath),
                     Content = content
                 };
 
@@ -90,6 +91,7 @@ namespace PianoMelody.Web.Helpers
                         Type = type,
                         Created = DateTime.Now,
                         Url = url,
+                        DataSize = GetDataSize(filePath),
                         Content = content
                     };
 
@@ -110,6 +112,18 @@ namespace PianoMelody.Web.Helpers
                 var thumbPath = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
                 File.Delete(thumbPath);
             }
+        }
+
+        private static string GetDataSize(string filePath)
+        {
+            string dataSize = string.Empty;
+
+            using (Image imgPhoto = Image.FromFile(filePath))
+            {
+                dataSize = string.Format("{0}x{1}", imgPhoto.Width, imgPhoto.Height);
+            }
+
+            return dataSize;
         }
 
         private static void CreateThumbnail(HttpServerUtilityBase server, string filePath, int width, int height)

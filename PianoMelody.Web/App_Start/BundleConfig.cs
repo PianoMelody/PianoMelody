@@ -39,8 +39,20 @@
                     "~/Scripts/Custom/images-preview.js"));
 
             bundles.Add(
+                new ScriptBundle("~/bundles/photoswipe").Include(
+                    "~/Scripts/photoswipe/photoswipe.min.js",
+                    "~/Scripts/photoswipe/photoswipe-ui-default.min.js"));
+
+            bundles.Add(
+                new ScriptBundle("~/bundles/load-gallery").Include(
+                    "~/Scripts/Custom/photoswipe-function.js",
+                    "~/Scripts/Custom/load-gallery.js"));
+
+            bundles.Add(
                 new StyleBundle("~/Content/css").Include(
                     "~/Content/bootstrap.min.css",
+                    "~/Content/photoswipe/photoswipe.css",
+                    "~/Content/photoswipe/default-skin/default-skin.css",
                     "~/Content/site.css"));
         }
     }

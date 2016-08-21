@@ -17,6 +17,8 @@ namespace PianoMelody.Web.Models.ViewModels
         public string Content { get; set; }
 
         public string Url { get; set; }
+
+        public string DataSize { get; set; }
     }
 
     public class GalleryWithPager

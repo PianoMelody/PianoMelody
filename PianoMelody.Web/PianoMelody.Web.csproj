@@ -246,6 +246,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\photoswipe\default-skin\default-skin.css" />
+    <Content Include="Content\photoswipe\default-skin\default-skin.png" />
+    <Content Include="Content\photoswipe\default-skin\default-skin.svg" />
+    <Content Include="Content\photoswipe\default-skin\preloader.gif" />
+    <Content Include="Content\photoswipe\photoswipe.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -269,6 +274,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\Custom\load-gallery.js" />
+    <Content Include="Scripts\Custom\photoswipe-function.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.js" />
@@ -280,6 +287,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\photoswipe\photoswipe-ui-default.js" />
+    <Content Include="Scripts\photoswipe\photoswipe-ui-default.min.js" />
+    <Content Include="Scripts\photoswipe\photoswipe.js" />
+    <Content Include="Scripts\photoswipe\photoswipe.min.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -354,6 +365,7 @@
     <Content Include="Views\Carousel\Edit.cshtml" />
     <Content Include="Views\Carousel\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\LocalizedContent.cshtml" />
+    <Content Include="Views\Shared\_PhotoSwipeRoot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PianoMelody.Data\PianoMelody.Data.csproj">

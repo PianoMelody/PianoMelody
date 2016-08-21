@@ -13,6 +13,8 @@ namespace PianoMelody.Models
 
         public string Url { get; set; }
 
+        public string DataSize { get; set; }
+
         public string Content { get; set; }
 
         public MultimediaType Type { get; set; }
