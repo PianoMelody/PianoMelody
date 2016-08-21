@@ -2,6 +2,9 @@
 using PianoMelody.Models.Enumetations;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -25,8 +28,12 @@ namespace PianoMelody.Web.Helpers
             {
                 var realName = Path.GetFileName(fileBase.FileName);
                 fileName = Guid.NewGuid().ToString() + Path.GetExtension(realName);
-                var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
+                var path = "~/Multimedia";
+                var filePath = Path.Combine(server.MapPath(path), fileName);
                 fileBase.SaveAs(filePath);
+
+                CreateThumbnail(server, filePath, 200, 150);
+
                 var url = baseUrl + "Multimedia/" + fileName;
 
                 var multimedia = new Multimedia()
@@ -48,6 +55,8 @@ namespace PianoMelody.Web.Helpers
             var fileName = multimedia.Url.Split('/').Last();
             var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
             File.Delete(filePath);
+            var thumbPath = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
+            File.Delete(thumbPath);
         }
 
         public static ICollection<Multimedia> CreateMultiple
@@ -71,6 +80,9 @@ namespace PianoMelody.Web.Helpers
                     fileName = Guid.NewGuid().ToString() + Path.GetExtension(realName);
                     var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
                     fileBase.SaveAs(filePath);
+
+                    CreateThumbnail(server, filePath, 200, 150);
+
                     var url = baseUrl + "Multimedia/" + fileName;
 
                     var multimedia = new Multimedia()
@@ -88,13 +100,72 @@ namespace PianoMelody.Web.Helpers
             return result.Count > 0 ? result : null;
         }
 
-        internal static void DeleteMultiple(HttpServerUtilityBase server, ICollection<Multimedia> multimedias)
+        public static void DeleteMultiple(HttpServerUtilityBase server, ICollection<Multimedia> multimedias)
         {
             foreach (var multimedia in multimedias)
             {
                 var fileName = multimedia.Url.Split('/').Last();
                 var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
                 File.Delete(filePath);
+                var thumbPath = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
+                File.Delete(thumbPath);
+            }
+        }
+
+        private static void CreateThumbnail(HttpServerUtilityBase server, string filePath, int width, int height)
+        {
+            using (Image imgPhoto = Image.FromFile(filePath))
+            {
+                int sourceWidth = imgPhoto.Width;
+                int sourceHeight = imgPhoto.Height;
+                int sourceX = 0;
+                int sourceY = 0;
+                int destX = 0;
+                int destY = 0;
+
+                float nPercent = 0;
+                float nPercentW = 0;
+                float nPercentH = 0;
+
+                nPercentW = (width / (float)sourceWidth);
+                nPercentH = (height / (float)sourceHeight);
+                if (nPercentH < nPercentW)
+                {
+                    nPercent = nPercentH;
+                    destX = Convert.ToInt16((width -
+                                  (sourceWidth * nPercent)) / 2);
+                }
+                else
+                {
+                    nPercent = nPercentW;
+                    destY = Convert.ToInt16((height -
+                                  (sourceHeight * nPercent)) / 2);
+                }
+
+                int destWidth = (int)(sourceWidth * nPercent);
+                int destHeight = (int)(sourceHeight * nPercent);
+
+                Bitmap bmPhoto = new Bitmap(width, height,
+                                  PixelFormat.Format24bppRgb);
+                bmPhoto.SetResolution(imgPhoto.HorizontalResolution,
+                                 imgPhoto.VerticalResolution);
+
+                Graphics grPhoto = Graphics.FromImage(bmPhoto);
+                grPhoto.Clear(Color.White);
+                grPhoto.InterpolationMode =
+                        InterpolationMode.HighQualityBicubic;
+
+                grPhoto.DrawImage(imgPhoto,
+                    new Rectangle(destX, destY, destWidth, destHeight),
+                    new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
+                    GraphicsUnit.Pixel);
+
+                grPhoto.Dispose();
+
+                var fileName = filePath.Split('\\').Last();
+                var path = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
+                bmPhoto.Save(path);
+                bmPhoto.Dispose();
             }
         }
     }

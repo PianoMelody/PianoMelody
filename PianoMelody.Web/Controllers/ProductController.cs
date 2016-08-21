@@ -204,9 +204,11 @@ namespace PianoMelody.Web.Controllers
 
         public ActionResult Delete(int id)
         {
-            var deleteProduct = this.Data.Products.GetAll().ProjectTo<ProductViewModel>()
-                                                           .FirstOrDefault(s => s.Id == id)
-                                                           .Localize(this.CurrentCulture, s => s.Name, s => s.Description);
+            var deleteProduct = this.Data.Products.GetAll()
+                                                  .ProjectTo<ProductViewModel>()
+                                                  .FirstOrDefault(a => a.Id == id)
+                                                  .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
+
             if (deleteProduct == null)
             {
                 return this.RedirectToAction("Index");

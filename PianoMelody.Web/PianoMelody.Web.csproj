@@ -254,6 +254,7 @@
     <Content Include="Images\ru.png" />
     <Content Include="Images\en.png" />
     <Content Include="Multimedia\readme.txt" />
+    <Content Include="Multimedia\thumbs\readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Custom\image-preview.js" />
