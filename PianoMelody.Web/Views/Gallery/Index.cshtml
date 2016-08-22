@@ -1,4 +1,4 @@
-﻿@model PianoMelody.Web.Models.ViewModels.GalleryWithPager
+﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.GalleryViewModel>
 
 @{
     ViewBag.Title = Resources.Gallery;
@@ -13,13 +13,12 @@
 }
 
 <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-    @foreach (var item in Model.Gallery)
+    @foreach (var item in Model)
     {
         @Html.Partial("_Gallery", item)
     }
 </div>
 <div class="row">
-    @Html.Partial("_Pager", Model.Pager)
     @Html.Partial("_PhotoSwipeRoot")
 </div>
 

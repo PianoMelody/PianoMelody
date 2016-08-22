@@ -20,11 +20,4 @@ namespace PianoMelody.Web.Models.ViewModels
 
         public string DataSize { get; set; }
     }
-
-    public class GalleryWithPager
-    {
-        public IEnumerable<GalleryViewModel> Gallery { get; set; }
-
-        public Pager Pager { get; set; }
-    }
 }
