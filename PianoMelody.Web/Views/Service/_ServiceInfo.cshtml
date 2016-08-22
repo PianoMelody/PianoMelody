@@ -7,7 +7,10 @@
     <p>
         @Html.DisplayFor(modelItem => Model.Description)
     </p>
-    <p>
-        @Resources.Price: @Html.DisplayFor(modelItem => Model.Price)
-    </p>
+    @if (Model.Price != null)
+    {
+        <p>
+            @Resources.Price: @Html.DisplayFor(modelItem => Model.Price)
+        </p>
+    }
 </div>

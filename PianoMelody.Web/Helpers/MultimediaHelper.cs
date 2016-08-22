@@ -2,6 +2,7 @@
 using PianoMelody.Models.Enumetations;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -13,6 +14,9 @@ namespace PianoMelody.Web.Helpers
 {
     public static class MultimediaHelper
     {
+        private static int thumbWidth = int.Parse(ConfigurationManager.AppSettings["thumbWidth"]);
+        private static int thumbHeight = int.Parse(ConfigurationManager.AppSettings["thumbHeight"]);
+
         public static Multimedia CreateSingle
         (
             HttpServerUtilityBase server, 
@@ -32,7 +36,7 @@ namespace PianoMelody.Web.Helpers
                 var filePath = Path.Combine(server.MapPath(path), fileName);
                 fileBase.SaveAs(filePath);
 
-                CreateThumbnail(server, filePath, 200, 150);
+                CreateThumbnail(server, filePath, thumbWidth, thumbHeight);
 
                 var url = baseUrl + "Multimedia/" + fileName;
 
@@ -82,7 +86,7 @@ namespace PianoMelody.Web.Helpers
                     var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
                     fileBase.SaveAs(filePath);
 
-                    CreateThumbnail(server, filePath, 200, 150);
+                    CreateThumbnail(server, filePath, thumbWidth, thumbHeight);
 
                     var url = baseUrl + "Multimedia/" + fileName;
 
