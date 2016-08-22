@@ -98,6 +98,13 @@ namespace PianoMelody.I18N {
                }
             }
             
+        /// <summary>Clear</summary>
+        public static string _Clear {
+               get {
+                   return (string) resourceProvider.GetResource("_Clear", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
         /// <summary>Condition</summary>
         public static string _Condition {
                get {
@@ -214,6 +221,13 @@ namespace PianoMelody.I18N {
         public static string _ErrSelectImage {
                get {
                    return (string) resourceProvider.GetResource("_ErrSelectImage", CultureInfo.CurrentUICulture.Name);
+               }
+            }
+            
+        /// <summary>Filter</summary>
+        public static string _Filter {
+               get {
+                   return (string) resourceProvider.GetResource("_Filter", CultureInfo.CurrentUICulture.Name);
                }
             }
             

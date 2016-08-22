@@ -15,44 +15,44 @@ namespace PianoMelody.Web.Controllers
 {
     public class ProductController : BaseController
     {
-        public ActionResult Index(int? group, int page = 1)
+        public ActionResult Index(int? group, int? manufacturer, int? condition, int page = 1)
         {
+            this.LoadFilterLists();
+
             if (page < 1)
             {
                 return this.RedirectToAction("Index");
             }
 
             var model = new ProductsWithPager();
-            IEnumerable<ProductViewModel> products = null;
+            var products = this.Data.Products.GetAll();
 
             if (group != null)
             {
-                var pager = new Pager(this.Data.Products.GetAll().Where(a => a.ArtilceGroup.Id == group).Count(), page);
-                model.Pager = pager;
-
-                products = this.Data.Products.GetAll()
-                                             .Where(a => a.ArtilceGroup.Id == group)
-                                             .OrderBy(a => a.Position)
-                                             .Skip((pager.CurrentPage - 1) * pager.PageSize)
-                                             .Take(pager.PageSize)
-                                             .ProjectTo<ProductViewModel>()
-                                             .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
+                products = products.Where(p => p.ArtilceGroup.Id == group);
             }
-            else
+
+            if (manufacturer != null)
             {
-                var pager = new Pager(this.Data.Products.GetAll().Count(), page);
-                model.Pager = pager;
-
-                products = this.Data.Products.GetAll()
-                                             .OrderBy(a => a.Position)
-                                             .Skip((pager.CurrentPage - 1) * pager.PageSize)
-                                             .Take(pager.PageSize)
-                                             .ProjectTo<ProductViewModel>()
-                                             .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
+                products = products.Where(p => p.Manufacturer.Id == manufacturer);
             }
 
-            model.Products = products;
+            if (condition != null)
+            {
+                bool isNew = condition != 0;
+                products = products.Where(p => p.IsNew == isNew);
+            }
 
+            var pager = new Pager(products.Count(), page);
+            model.Pager = pager;
+
+            var productsView = products.OrderBy(a => a.Position)
+                                       .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                       .Take(pager.PageSize)
+                                       .ProjectTo<ProductViewModel>()
+                                       .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
+
+            model.Products = productsView;
             return View(model);
         }
 
@@ -98,10 +98,13 @@ namespace PianoMelody.Web.Controllers
                 this.Data.Products.Add(product);
 
                 var multimedias = MultimediaHelper.CreateMultiple(this.Server, productBindingModel.Multimedias, this.GetBaseUrl());
-                foreach (var multimedia in multimedias)
+                if (multimedias != null)
                 {
-                    multimedia.ProductId = product.Id;
-                    this.Data.Multimedia.Add(multimedia);
+                    foreach (var multimedia in multimedias)
+                    {
+                        multimedia.ProductId = product.Id;
+                        this.Data.Multimedia.Add(multimedia);
+                    }
                 }
 
                 this.Data.SaveChanges();
@@ -336,6 +339,38 @@ namespace PianoMelody.Web.Controllers
                                                                Value = m.Id.ToString()
                                                            })
                                                            .ToList();
+        }
+
+        /// <summary>
+        /// Load Manufacturers and Condition filter lists
+        /// </summary>
+        private void LoadFilterLists()
+        {
+            ViewBag.Manufacturers = this.Data.Manufacturers.GetAll()
+                                                           .Where(m => m.Products.Count > 0)
+                                                           .OrderBy(m => m.Name)
+                                                           .ProjectTo<ManufacturerViewModel>()
+                                                           .Localize(this.CurrentCulture, m => m.Name)
+                                                           .Select(m => new SelectListItem
+                                                           {
+                                                               Text = m.Name,
+                                                               Value = m.Id.ToString()
+                                                           })
+                                                           .ToList();
+
+            ViewBag.Condition = new List<SelectListItem>
+                                    {
+                                        new SelectListItem
+                                        {
+                                            Text = I18N.Resources._New,
+                                            Value = 1.ToString()
+                                        },
+                                        new SelectListItem
+                                        {
+                                            Text = I18N.Resources._SecondHand,
+                                            Value = 0.ToString()
+                                        }
+                                    };
         }
     }
 }

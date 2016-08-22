@@ -42,10 +42,11 @@
                 context.SaveChanges();
             }
 
-            if (!context.Resources.Any())
-            {
-                this.SeedResources(context);
-            }
+            //// Resources are inserted from dbAdmin.sql
+            //if (!context.Resources.Any())
+            //{
+            //    this.SeedResources(context);
+            //}
         }
 
         private void SeedResources(PianoMelodyContext context)
