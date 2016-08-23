@@ -1,11 +1,14 @@
 ﻿@{
-    var routeValues = this.ViewContext.RouteData.Values;
-    var controller = routeValues["controller"] as string;
-    var action = routeValues["action"] as string;
-    string id = string.Empty;
-    if (routeValues.ContainsKey("id"))
+    string CurrentUrl = Request.RawUrl.ToString();
+    string EnUrl = "/en";
+    string BgUrl = "";
+    string RuUrl = "/ru";
+
+    if (CurrentUrl.Length >= 3)
     {
-        id = routeValues["id"] as string;
+        EnUrl = "/en" + CurrentUrl.Substring(3);
+        BgUrl = "/bg" + CurrentUrl.Substring(3);
+        RuUrl = "/ru" + CurrentUrl.Substring(3);
     }
 
     string languageImage = "/Images/" + CultureHelper.GetCurrentNeutralCulture() + ".png";
@@ -16,17 +19,17 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="@languageImage" /> <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
             <li>
-                <a href='@Url.Action(@action, @controller, new { culture = "bg", id = id })'>
+                <a href='@BgUrl'>
                     <img src='@Url.Content("~/Images/bg.png")' /> Български
                 </a>
             </li>
             <li>
-                <a href='@Url.Action(@action, @controller, new { culture = "en", id = id })'>
+                <a href='@EnUrl'>
                     <img src='@Url.Content("~/Images/en.png")' /> English
                 </a>
             </li>
             <li>
-                <a href='@Url.Action(@action, @controller, new { culture = "ru", id = id })'>
+                <a href='@RuUrl'>
                     <img src='@Url.Content("~/Images/ru.png")' /> Русский
                 </a>
             </li>

@@ -36,6 +36,7 @@ namespace PianoMelody.Web.Models.BindingModels
         public string BgDescription { get; set; }
 
         [Display(Name = "Price", ResourceType = typeof(Resources))]
+        [RegularExpression(@"^\d+.\d{0,2}$")]
         public decimal? Price { get; set; }
 
         [Display(Name = "_IsNew", ResourceType = typeof(Resources))]
