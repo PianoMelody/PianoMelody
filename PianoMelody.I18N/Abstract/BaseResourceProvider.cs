@@ -14,6 +14,7 @@
 
         public BaseResourceProvider() {
             Cache = true; // By default, enable caching for performance
+            resources = null; // Used for cache refresh
         }
 
         protected bool Cache { get; set; } // Cache resources ?

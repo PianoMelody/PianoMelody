@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.ResourceViewModel>
+
+@{
+    ViewBag.Title = "Language";
+}
+
+@foreach (var item in Model)
+{
+    <article class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                @Html.DisplayFor(modelItem => item.Name)
+            </p>
+            @Html.ActionLink(Resources._Edit, "Edit", new { name = item.Name }, new { @class = "btn btn-primary" })
+        </div>
+    </article>
+}

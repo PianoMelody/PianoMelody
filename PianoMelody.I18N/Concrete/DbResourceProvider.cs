@@ -13,7 +13,7 @@
         // Database connection string        
         private static string connectionString = null;
 
-        public DbResourceProvider()
+        public DbResourceProvider() : base()
         {
             connectionString = ConfigurationManager.ConnectionStrings["PianoMelodyContext"].ConnectionString;
         }

@@ -40,22 +40,30 @@
 using {0}.Abstract;
 using {0}.Concrete;
     
-namespace {0} {{
-        public class {1} {{
-            private static IResourceProvider resourceProvider = new {2}();
-
+namespace {0} 
+{{
+    public class {1} 
+    {{
+        private static IResourceProvider resourceProvider = new {2}();
+        
+        public static void Refresh()
+        {{
+            resourceProvider = new {2}();
+        }}
     {3}
-        }}        
+    }}        
 }}"; // {0}: namespace {1}:class name   {2}:provider class name   {3}: body  
 
             const string property =
 @"
         {1}
-        public static {2} {0} {{
-               get {{
-                   return ({2}) resourceProvider.GetResource(""{0}"", CultureInfo.CurrentUICulture.Name);
-               }}
-            }}"; // {0}: key
+        public static {2} {0} 
+        {{
+            get 
+            {{
+                return ({2}) resourceProvider.GetResource(""{0}"", CultureInfo.CurrentUICulture.Name);
+            }}
+        }}"; // {0}: key
             #endregion
 
 

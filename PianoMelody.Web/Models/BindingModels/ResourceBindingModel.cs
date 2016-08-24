@@ -1,10 +1,10 @@
-﻿namespace PianoMelody.Web.Models.ViewModels
+﻿namespace PianoMelody.Web.Models.BindingModels
 {
     using System.ComponentModel.DataAnnotations;
 
     using I18N;
 
-    public class LabelViewModel
+    public class ResourcesBindingModel
     {
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
         public string Name { get; set; }

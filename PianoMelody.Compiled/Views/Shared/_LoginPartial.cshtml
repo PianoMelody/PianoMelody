@@ -13,10 +13,11 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li>@Html.ActionLink(Resources._Dict, "Index", "Language")</li>
                     <li>@Html.ActionLink(Resources._AddAdministrator, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                     <li>@Html.ActionLink(Resources._ChangePassword, "ChangePassword", "Profile")</li>
                     <li>@Html.ActionLink(Resources._ArticleGroups, "Index", "ArticleGroup")</li>
-                    <li>@Html.ActionLink(Resources.Manufacturers, "Index", "Manufacturer")</li>
+                    <li>@Html.ActionLink(Resources._Manufacturers, "Index", "Manufacturer")</li>
                     <li>@Html.ActionLink(Resources._Carousel, "Index", "Carousel")</li>
                 </ul>
             </li>
