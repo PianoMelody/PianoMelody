@@ -12,5 +12,7 @@ namespace PianoMelody.Models
         public string Description { get; set; }
 
         public decimal? Price { get; set; }
+
+        public virtual Multimedia Multimedia { get; set; }
     }
 }

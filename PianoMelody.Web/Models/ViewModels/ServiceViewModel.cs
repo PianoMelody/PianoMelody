@@ -17,6 +17,8 @@ namespace PianoMelody.Web.Models.ViewModels
         public string Description { get; set; }
 
         public decimal? Price { get; set; }
+
+        public Multimedia Multimedia { get; set; }
     }
 
     public class ServicesWithPager

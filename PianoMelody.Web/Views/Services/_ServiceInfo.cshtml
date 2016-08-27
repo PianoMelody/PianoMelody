@@ -1,5 +1,19 @@
 ﻿@model PianoMelody.Web.Models.ViewModels.ServiceViewModel
 
+@{
+    var url = "/Images/no_image.jpg";
+    var thumb = url;
+    var dataSize = "375x200";
+
+    if (Model != null && Model.Multimedia != null)
+    {
+        url = Model.Multimedia.Url;
+        var thumbElements = url.Split('/');
+        thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
+        dataSize = Model.Multimedia.DataSize;
+    }
+}
+
 <div class="panel-heading">
     @Html.DisplayFor(modelItem => Model.Name)
 </div>
@@ -13,4 +27,12 @@
             @Resources.Price: @Html.DisplayFor(modelItem => Model.Price)
         </p>
     }
+
+    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+        <figure class="col-lg-3" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="@url" itemprop="contentUrl" data-size="@dataSize">
+                <img src="@thumb" itemprop="thumbnail" alt="" />
+            </a>
+        </figure>
+    </div>
 </div>

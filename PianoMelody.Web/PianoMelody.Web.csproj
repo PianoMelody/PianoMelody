@@ -267,7 +267,6 @@
     <Content Include="Multimedia\00abb683-3c17-47d7-903d-a698bb4f29e2.jpg" />
     <Content Include="Multimedia\011760ed-6454-4c48-a493-16eef612f264.jpg" />
     <Content Include="Multimedia\02512566-cf91-4f70-9d0e-2110aba092d1.jpg" />
-    <Content Include="Multimedia\0292fed8-cd06-4fe9-93e6-7d2b787d25e5.jpg" />
     <Content Include="Multimedia\03cda2b4-3584-4667-9ddc-3c48678363b7.jpg" />
     <Content Include="Multimedia\04749814-e0dc-44f7-8c64-39bd227816d6.jpg" />
     <Content Include="Multimedia\0611888c-7912-4f57-beaa-76bd86f4f286.jpg" />
@@ -285,7 +284,6 @@
     <Content Include="Multimedia\13c6a997-f96b-40d5-b0b8-83acaeb26010.jpg" />
     <Content Include="Multimedia\1c250d94-9afd-499c-a3df-89518a4b1878.jpg" />
     <Content Include="Multimedia\20a904c8-c54f-45a4-a272-1f4abedb2b73.jpg" />
-    <Content Include="Multimedia\2191bdbb-79a0-4dc5-b91a-adda8a8e083f.jpg" />
     <Content Include="Multimedia\21d43f6e-6f30-44b1-9543-0b191a3ccff7.jpg" />
     <Content Include="Multimedia\2583406c-29f4-4143-9e18-acdc640bad93.jpg" />
     <Content Include="Multimedia\2583a3a8-739a-4e22-a8f6-876b20b9a47e.jpg" />
@@ -312,7 +310,6 @@
     <Content Include="Multimedia\54c1eb7e-0457-46e0-a752-43d5021ad959.jpg" />
     <Content Include="Multimedia\5849b04b-e176-4917-8772-1feaf4d42c21.jpg" />
     <Content Include="Multimedia\596a9daa-fe86-4c57-9fb4-722ab3cea993.jpg" />
-    <Content Include="Multimedia\5a092f76-7e0e-41d0-832b-5d44d480d918.jpg" />
     <Content Include="Multimedia\5ae5ef09-346a-4188-8112-df7fe69d2a8b.jpg" />
     <Content Include="Multimedia\5c9ea852-38ed-4fd6-bfa5-fd9e84b144a2.jpg" />
     <Content Include="Multimedia\5d0dabcd-5030-4445-a645-43c8e35daaf6.jpg" />
@@ -444,7 +441,6 @@
     <Content Include="Multimedia\fed778ca-9149-4e82-b42a-4618e6559f9d.jpg" />
     <Content Include="Multimedia\readme.txt" />
     <Content Include="Multimedia\thumbs\02512566-cf91-4f70-9d0e-2110aba092d1.jpg" />
-    <Content Include="Multimedia\thumbs\0292fed8-cd06-4fe9-93e6-7d2b787d25e5.jpg" />
     <Content Include="Multimedia\thumbs\0690a50a-8166-4481-8cd9-16258f8776b5.jpg" />
     <Content Include="Multimedia\thumbs\0790a416-144a-4b04-b2cd-ccf219cb25f5.jpg" />
     <Content Include="Multimedia\thumbs\07b29b5f-5f09-4968-b5b1-c06953edb601.jpg" />
@@ -455,7 +451,6 @@
     <Content Include="Multimedia\thumbs\139ee973-b960-4ce8-a38e-80de541e48ab.jpg" />
     <Content Include="Multimedia\thumbs\13c6a997-f96b-40d5-b0b8-83acaeb26010.jpg" />
     <Content Include="Multimedia\thumbs\1c250d94-9afd-499c-a3df-89518a4b1878.jpg" />
-    <Content Include="Multimedia\thumbs\2191bdbb-79a0-4dc5-b91a-adda8a8e083f.jpg" />
     <Content Include="Multimedia\thumbs\2a05d32e-ee66-4d55-9cd3-4a39ce12c08b.jpg" />
     <Content Include="Multimedia\thumbs\2a68d8d4-d929-4eec-a790-5f6b3adfdacc.jpg" />
     <Content Include="Multimedia\thumbs\2c7e3be4-bb82-4198-afb1-fe1b7ac2216d.jpg" />
@@ -465,7 +460,6 @@
     <Content Include="Multimedia\thumbs\3e6198a9-07c6-437a-af2e-dd3aa4401975.jpg" />
     <Content Include="Multimedia\thumbs\3e765a06-5e0b-43be-aa33-b151759bd830.jpg" />
     <Content Include="Multimedia\thumbs\54c1eb7e-0457-46e0-a752-43d5021ad959.jpg" />
-    <Content Include="Multimedia\thumbs\5a092f76-7e0e-41d0-832b-5d44d480d918.jpg" />
     <Content Include="Multimedia\thumbs\5ae5ef09-346a-4188-8112-df7fe69d2a8b.jpg" />
     <Content Include="Multimedia\thumbs\5c9ea852-38ed-4fd6-bfa5-fd9e84b144a2.jpg" />
     <Content Include="Multimedia\thumbs\5d0dabcd-5030-4445-a645-43c8e35daaf6.jpg" />

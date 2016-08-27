@@ -8,12 +8,14 @@
         @if (Model.Price != null)
         {
             <dt>@Resources.Price:</dt>
-            <dd>@Model.Price</dd>
-        }
-        else
-        {
-            <dt>@Resources.Price:</dt>
-            <dd>@Resources._Negotiable</dd>
+            if (Model.PromoPrice != null)
+            {
+                <dd><strike>@Model.Price</strike> @Model.PromoPrice</dd>
+            }
+            else
+            {
+                <dd>@Model.Price</dd>
+            }
         }
 
         <dt>@Resources._Manufacturer:</dt>

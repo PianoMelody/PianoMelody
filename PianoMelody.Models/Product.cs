@@ -23,6 +23,8 @@ namespace PianoMelody.Models
 
         public decimal? Price { get; set; }
 
+        public decimal? PromoPrice { get; set; }
+
         public bool IsNew { get; set; }
 
         public int? ArticleGroupId { get; set; }

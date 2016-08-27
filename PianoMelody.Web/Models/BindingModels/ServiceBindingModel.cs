@@ -1,5 +1,6 @@
 ﻿using PianoMelody.I18N;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace PianoMelody.Web.Models.BindingModels
 {
@@ -34,5 +35,10 @@ namespace PianoMelody.Web.Models.BindingModels
 
         [Display(Name = "Price", ResourceType = typeof(Resources))]
         public decimal? Price { get; set; }
+
+        [Display(Name = "_Photo", ResourceType = typeof(Resources))]
+        public HttpPostedFileBase Multimedia { get; set; }
+
+        public string Url { get; set; }
     }
 }

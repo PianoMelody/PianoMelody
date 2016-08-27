@@ -90,6 +90,7 @@ namespace PianoMelody.Web.Controllers
                     Name = JsonHelper.Serialize(productBindingModel.EnName, productBindingModel.RuName, productBindingModel.BgName),
                     Description = JsonHelper.Serialize(productBindingModel.EnDescription, productBindingModel.RuDescription, productBindingModel.BgDescription),
                     Price = productBindingModel.Price,
+                    PromoPrice = productBindingModel.PromoPrice,
                     IsNew = productBindingModel.IsNew,
                     ArticleGroupId = productBindingModel.ArticleGroupId,
                     ManufacturerId = productBindingModel.ManufacturerId
@@ -138,6 +139,7 @@ namespace PianoMelody.Web.Controllers
                 RuDescription = descriptionLocs[1].v,
                 BgDescription = descriptionLocs[2].v,
                 Price = currentProduct.Price,
+                PromoPrice = currentProduct.PromoPrice,
                 IsNew = currentProduct.IsNew,
                 ArticleGroupId = currentProduct.ArticleGroupId,
                 ManufacturerId = currentProduct.ManufacturerId,
@@ -169,6 +171,7 @@ namespace PianoMelody.Web.Controllers
                 currentProduct.Name = JsonHelper.Serialize(productBindingModel.EnName, productBindingModel.RuName, productBindingModel.BgName);
                 currentProduct.Description = JsonHelper.Serialize(productBindingModel.EnDescription, productBindingModel.RuDescription, productBindingModel.BgDescription);
                 currentProduct.Price = productBindingModel.Price;
+                currentProduct.PromoPrice = productBindingModel.PromoPrice;
                 currentProduct.IsNew = productBindingModel.IsNew;
                 currentProduct.ArticleGroupId = productBindingModel.ArticleGroupId;
                 currentProduct.ManufacturerId = productBindingModel.ManufacturerId;

@@ -21,6 +21,8 @@ namespace PianoMelody.Web.Models.ViewModels
 
         public decimal? Price { get; set; }
 
+        public decimal? PromoPrice { get; set; }
+
         public bool IsNew { get; set; }
 
         [Localized]

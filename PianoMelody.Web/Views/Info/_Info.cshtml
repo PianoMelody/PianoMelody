@@ -2,9 +2,15 @@
 
 @{
     var url = "/Images/no_image.jpg";
+    var thumb = url;
+    var dataSize = "375x200";
+
     if (Model != null && Model.Multimedia != null)
     {
         url = Model.Multimedia.Url;
+        var thumbElements = url.Split('/');
+        thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
+        dataSize = Model.Multimedia.DataSize;
     }
 }
 
@@ -12,8 +18,15 @@
     @Html.DisplayFor(modelItem => Model.Title)
 </div>
 <div class="panel-body">
-    <img src="@url" class="news-image" alt="" />
     <p>
         @Html.DisplayFor(modelItem => Model.Content)
     </p>
+
+    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+        <figure class="col-lg-3" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="@url" itemprop="contentUrl" data-size="@dataSize">
+                <img src="@thumb" itemprop="thumbnail" alt="" />
+            </a>
+        </figure>
+    </div>
 </div>

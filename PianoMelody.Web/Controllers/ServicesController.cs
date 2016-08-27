@@ -50,11 +50,18 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
+                var multimedia = MultimediaHelper.CreateSingle(this.Server, serviceBindingModel.Multimedia, this.GetBaseUrl());
+                if (multimedia != null)
+                {
+                    this.Data.Multimedia.Add(multimedia);
+                }
+
                 var service = new Service()
                 {
                     Name = JsonHelper.Serialize(serviceBindingModel.EnName, serviceBindingModel.RuName, serviceBindingModel.BgName),
                     Description = JsonHelper.Serialize(serviceBindingModel.EnDescription, serviceBindingModel.RuDescription, serviceBindingModel.BgDescription),
-                    Price = serviceBindingModel.Price
+                    Price = serviceBindingModel.Price,
+                    Multimedia = multimedia
                 };
 
                 this.Data.Services.Add(service);
@@ -91,6 +98,11 @@ namespace PianoMelody.Web.Controllers
                 Price = currentService.Price
             };
 
+            if (currentService.Multimedia != null)
+            {
+                editService.Url = currentService.Multimedia.Url;
+            }
+
             return View(editService);
         }
 
@@ -109,6 +121,17 @@ namespace PianoMelody.Web.Controllers
                 if (currentService == null)
                 {
                     return this.View();
+                }
+
+                if (serviceBindingModel.Multimedia != null)
+                {
+                    if (currentService.Multimedia != null)
+                    {
+                        MultimediaHelper.DeleteSingle(this.Server, currentService.Multimedia);
+                        this.Data.Multimedia.Delete(currentService.Multimedia);
+                    }
+
+                    currentService.Multimedia = MultimediaHelper.CreateSingle(this.Server, serviceBindingModel.Multimedia, this.GetBaseUrl());
                 }
 
                 currentService.Name = JsonHelper.Serialize(serviceBindingModel.EnName, serviceBindingModel.RuName, serviceBindingModel.BgName);
@@ -153,6 +176,12 @@ namespace PianoMelody.Web.Controllers
                 if (currentService == null)
                 {
                     return this.View();
+                }
+
+                if (currentService.Multimedia != null)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentService.Multimedia);
+                    this.Data.Multimedia.Delete(currentService.Multimedia);
                 }
 
                 this.Data.Services.Delete(currentService);

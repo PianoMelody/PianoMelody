@@ -490,6 +490,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Promotion</summary>
+        public static string _PromoPrice 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_PromoPrice", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Reference</summary>
         public static string _Reference 
         {
