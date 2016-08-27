@@ -1,20 +1,21 @@
 ﻿namespace PianoMelody.Web.Helpers
 {
+    using System.Configuration;
     using System.Net;
     using System.Net.Mail;
 
     // TODO: Get existing email and password
     public class EmailHelper
     {
-        private readonly string host = "smtp.abv.bg";
+        private readonly string host = "smtp.piano.bg";
 
         private readonly int port = 587; // 465, 587;
 
         private readonly bool ssl = true;
 
-        private readonly string user = "melodia.ltd@abv.bg";
+        private readonly string user = ConfigurationManager.AppSettings["user"];
 
-        private readonly string pass = "123456";
+        private readonly string pass = ConfigurationManager.AppSettings["pass"];
 
         public string Recipient { get; set; }
 
