@@ -5,6 +5,8 @@
 body {
     padding-top: 100px;
     padding-bottom: 20px;
+    font-size: 16px;
+    font-family: 'Pattaya', sans-serif;
 }
 
 .body-content {
@@ -53,20 +55,44 @@ body {
     bottom: 5%;
 }
 
+h3 {
+    margin-bottom: 50px;
+}
+
+h4 {
+    margin-top: 30px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 20px;
+}
+
+.float-left {
+    float: left;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+.about-li > li {
+    list-style-type: none;
+}
+
 /*menu*/
 /*.menu-line {*/
     /*display: flex;*/
     /*flex-direction: row;*/
     /*justify-content: space-around;*/
 /*}*/
-
-.nav li > a {
+.navbar li > a {
     font-size: 1.2em;
     padding: 15px 20px;
 }
 
-.dropdown-menu > li > a {
+.navbar .dropdown-menu > li > a,
+.navbar .dropdown-menu > li > a:focus {
     padding: 10px;
+    font-size: 15px;c                                                                                                                                                                                                                                                                      +
 }
 
 .collapse {
