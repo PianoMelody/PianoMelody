@@ -400,6 +400,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Message</summary>
+        public static string _Message 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_Message", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Name</summary>
         public static string _Name 
         {
@@ -460,6 +469,15 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("_PasswordValidation", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Phone</summary>
+        public static string _Phone 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_Phone", CultureInfo.CurrentUICulture.Name);
             }
         }
             
@@ -559,6 +577,15 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("_SecondHand", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Send</summary>
+        public static string _Send 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_Send", CultureInfo.CurrentUICulture.Name);
             }
         }
             

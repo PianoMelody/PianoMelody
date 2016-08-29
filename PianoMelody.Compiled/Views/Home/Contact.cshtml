@@ -1,5 +1,64 @@
-﻿@{
+﻿@model PianoMelody.Web.Models.BindingModels.EmailBindingModel
+
+@{
     ViewBag.Title = Resources.Contacts;
     ViewBag.Keyword = "";
     ViewBag.Description = "";
+}
+
+<div class="row">
+    <div class="col-lg-8">
+        @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@Resources._Send" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-lg-4">
+        <p>Ул."Св. Иван Рилски" № 14 Гр. София 1606. </p>
+        <p>Магазинът се намира в непосредствена близост до петте кьошета , между бул."Скобелев" и бул."Христо Ботев". За идващите с автомобил, ул. "Св.Ив.Рилски" е еднопосочна и е отворена от към бул. "Хр.Ботев". Паркирането е платено, зоната е ЗЕЛЕНА. Но Клиентите ни получават безплатен талон за паркиране в ЗЕЛЕНА ЗОНА от магазина ни. За идващите с обществен транспорт: Спирка "Бул.Прага". Тролей № 1, 2, 5 , 8, и 9. Трамвай № 6 и 7. Автобус № 260. Най-близката метро станция е НДК.</p>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

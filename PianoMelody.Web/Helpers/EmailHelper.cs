@@ -7,11 +7,11 @@
     // TODO: Get existing email and password
     public class EmailHelper
     {
-        private readonly string host = "smtp.piano.bg";
+        private readonly string host = "mail.piano.bg";
 
         private readonly int port = 587; // 465, 587;
 
-        private readonly bool ssl = true;
+        private readonly bool ssl = false;
 
         private readonly string user = ConfigurationManager.AppSettings["user"];
 
