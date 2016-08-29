@@ -51,7 +51,7 @@ artifacts/
 *.meta
 *.obj
 *.pch
-*.pdb
+# *.pdb
 *.pgc
 *.pgd
 *.rsp
@@ -251,3 +251,4 @@ paket-files/
 .idea/
 *.sln.iml
 /PianoMelody.Web/Web.Release.config
+/PianoMelody.Compiled/bin/*.pdb
