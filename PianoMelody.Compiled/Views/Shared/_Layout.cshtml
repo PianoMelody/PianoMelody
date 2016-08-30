@@ -56,10 +56,13 @@
             @Html.Partial("_SwitchLanguage")
         </div>
         <div class="col-lg-4">
-            <p class="pull-right">&copy; @DateTime.Now.Year - @Resources.Logo</p>
             @if (User.IsInRole("Admin"))
             {
                 @Html.Partial("_LoginPartial")
+            }
+            else
+            {
+                <p class="pull-right">&copy; @DateTime.Now.Year - @Resources.Logo</p>
             }
         </div>
     </footer>
