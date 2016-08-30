@@ -96,7 +96,7 @@ h4 {
 .navbar .dropdown-menu > li > a,
 .navbar .dropdown-menu > li > a:focus {
     padding: 10px;
-    font-size: 15px;c                                                                                                                                                                                                                                                                      +
+    font-size: 15px;                                                                                                                                                                                                                                                                    +
 }
 
 .collapse {
@@ -105,6 +105,11 @@ h4 {
 
 .products-line {
     background-color: red;
+}
+
+.gallery-photo{
+    float: left;
+    padding: 10px;
 }
 
 @media (min-width: 1200px) {
