@@ -7,7 +7,7 @@
 <h2>@Resources._CreateNew @Resources._Service</h2>
 <hr />
 
-@using (Html.BeginForm("Create", "Services", FormMethod.Post, new { }))
+@using (Html.BeginForm("Create", "Services", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -69,6 +69,22 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-10 col-md-offset-2">
+                <img id="image-preview" src="~/Images/no_image.jpg" class="news-image" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Multimedia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <label class="btn btn-default btn-file">
+                    Browse <input type="file" name="Multimedia" id="file" style="display: none;">
+                </label>
+                @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="@Resources._CreateNew" class="btn btn-default" />
@@ -79,4 +95,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/image-preview")
 }
