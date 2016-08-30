@@ -50,10 +50,16 @@
 
     <footer class="container">
         <hr />
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <p>&copy; @DateTime.Now.Year - @Resources.Logo</p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4 text-center">
+            <a href="https://www.facebook.com/" rel="alternate" target="_blank"><img src="~/Images/facebook.png" class="social-icon" /></a>
+            <a href="https://plus.google.com/" rel="alternate" target="_blank"><img src="~/Images/google-plus.png" class="social-icon" /></a>
+            <a href="https://twitter.com/" rel="alternate" target="_blank"><img src="~/Images/twitter.png" class="social-icon" /></a>
+            <a id="viber"><img src="~/Images/viber.png" class="social-icon" /></a>
+        </div>
+        <div class="col-lg-4">
             @Html.Partial("_LoginPartial")
         </div>
     </footer>
@@ -61,5 +67,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        var buttonID = "viber";
+        var text = "";
+        document.getElementById(buttonID).setAttribute('href', "viber://forward?text=" + encodeURIComponent(text + " " + window.location.href));
+    </script>
 </body>
 </html>

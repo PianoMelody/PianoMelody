@@ -261,9 +261,15 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\bg.png" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\google-plus.png" />
+    <Content Include="Images\IMG_0037.jpg" />
     <Content Include="Images\no_image.jpg" />
+    <Content Include="Images\RIM 5.2009 078.jpg" />
     <Content Include="Images\ru.png" />
     <Content Include="Images\en.png" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Images\viber.png" />
     <Content Include="Multimedia\001b4e98-e533-4da8-9bbe-af2a169d8e1f.jpg" />
     <Content Include="Multimedia\00abb683-3c17-47d7-903d-a698bb4f29e2.jpg" />
     <Content Include="Multimedia\011760ed-6454-4c48-a493-16eef612f264.jpg" />

@@ -112,6 +112,11 @@ h4 {
     padding: 10px;
 }
 
+.social-icon{
+    width: 32px;
+    height: auto;
+}
+
 @media (min-width: 1200px) {
   .container {
     width: 1200px;
