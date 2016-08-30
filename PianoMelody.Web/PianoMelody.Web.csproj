@@ -252,6 +252,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\menu.css" />
     <Content Include="Content\photoswipe\default-skin\default-skin.css" />
     <Content Include="Content\photoswipe\default-skin\default-skin.png" />
     <Content Include="Content\photoswipe\default-skin\default-skin.svg" />
@@ -265,6 +266,7 @@
     <Content Include="Images\google-plus.png" />
     <Content Include="Images\IMG_0037.jpg" />
     <Content Include="Images\no_image.jpg" />
+    <Content Include="Images\pinterest.png" />
     <Content Include="Images\RIM 5.2009 078.jpg" />
     <Content Include="Images\ru.png" />
     <Content Include="Images\en.png" />

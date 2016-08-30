@@ -14,10 +14,9 @@
     string languageImage = "/Images/" + CultureHelper.GetCurrentNeutralCulture() + ".png";
 }
 
-<ul class="nav navbar-nav navbar-right">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="@languageImage" /> <span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
+<div class="row">
+    <div class="col-lg-12">
+        <ul class="nav navbar-nav navbar-right">
             <li>
                 <a href='@BgUrl'>
                     <img src='@Url.Content("~/Images/bg.png")' /> Български
@@ -34,5 +33,5 @@
                 </a>
             </li>
         </ul>
-    </li>
-</ul>
+    </div>
+</div>

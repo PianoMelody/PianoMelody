@@ -50,6 +50,7 @@
 
             bundles.Add(
                 new StyleBundle("~/Content/css").Include(
+                    "~/Content/menu.css",
                     "~/Content/bootstrap.min.css",
                     "~/Content/photoswipe/photoswipe.css",
                     "~/Content/photoswipe/default-skin/default-skin.css",

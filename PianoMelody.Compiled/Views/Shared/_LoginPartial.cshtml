@@ -5,29 +5,27 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-        @if (User.IsInRole("Admin"))
-        {
-            <li class="dropup">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @Resources._Administration
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li>@Html.ActionLink(Resources._Dict, "Index", "Language")</li>
-                    <li>@Html.ActionLink(Resources._AddAdministrator, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                    <li>@Html.ActionLink(Resources._ChangePassword, "ChangePassword", "Profile")</li>
-                    <li>@Html.ActionLink(Resources._ArticleGroups, "Index", "ArticleGroup")</li>
-                    <li>@Html.ActionLink(Resources._Manufacturers, "Index", "Manufacturer")</li>
-                    <li>@Html.ActionLink(Resources._Carousel, "Index", "Carousel")</li>
-                </ul>
-            </li>
+        <li class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @Resources._Administration
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li>@Html.ActionLink(Resources._Dict, "Index", "Language")</li>
+                <li>@Html.ActionLink(Resources._AddAdministrator, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink(Resources._ChangePassword, "ChangePassword", "Profile")</li>
+                <li>@Html.ActionLink(Resources._ArticleGroups, "Index", "ArticleGroup")</li>
+                <li>@Html.ActionLink(Resources._Manufacturers, "Index", "Manufacturer")</li>
+                <li>@Html.ActionLink(Resources._Carousel, "Index", "Carousel")</li>
+            </ul>
+        </li>
 
-            <li>
-                <div>
-                    <a class="btn btn-default" href="javascript:document.getElementById('logoutForm').submit()">@Resources._LogOff</a>
-                </div>
-            </li>
-        }
+        <li>
+            <div>
+                <a class="btn btn-default" href="javascript:document.getElementById('logoutForm').submit()">@Resources._LogOff</a>
+            </div>
+        </li>
+
     </ul>
 }
 
