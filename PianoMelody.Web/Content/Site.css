@@ -10,27 +10,11 @@ body {
     font-family: 'Marmelad', sans-serif;
 }
 
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    min-width: 380px;
-}
-
-.news-image {
-    width: auto;
-    height: 200px;
-}
-
 .multiple-image {
     display: inline-block;
     margin: 5px;
     width: auto;
     height: 100px;
-}
-
-.btn-inline {
-    /*float: left;*/
-    /*margin-right: 5px;*/
 }
 
 /*carousel*/
@@ -122,10 +106,4 @@ h4 {
 .social-icon {
     width: 32px;
     height: auto;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    width: 1200px;
-  }
 }
