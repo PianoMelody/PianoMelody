@@ -6,7 +6,6 @@ body {
     padding-top: 100px;
     padding-bottom: 20px;
     font-size: 16px;
-    /*font-family: 'Pattaya', sans-serif;*/
     font-family: 'Marmelad', sans-serif;
 }
 
@@ -15,11 +14,6 @@ body {
     margin: 5px;
     width: auto;
     height: 100px;
-}
-
-.btn-inline {
-    /*float: left;*/
-    /*margin-right: 5px;*/
 }
 
 /*carousel*/
@@ -74,12 +68,6 @@ h4 {
     list-style-type: none;
 }
 
-/*menu*/
-/*.menu-line {*/
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*justify-content: space-around;*/
-/*}*/
 .navbar li > a {
     font-size: 1.2em;
     padding: 15px 20px;
@@ -92,7 +80,7 @@ h4 {
 .navbar .dropdown-menu > li > a,
 .navbar .dropdown-menu > li > a:focus {
     padding: 10px;
-    font-size: 15px;                                                                                                                                                                                                                                                                    +
+    font-size: 15px;
 }
 
 .collapse {
@@ -111,4 +99,23 @@ h4 {
 .social-icon {
     width: 32px;
     height: auto;
+}
+
+.bold {
+    text-shadow:
+            1px 0 0 #000,
+            0 1px 0 #000;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+.margin-left-20 {
+    margin-left: 20px;
+}
+
+iframe {
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
