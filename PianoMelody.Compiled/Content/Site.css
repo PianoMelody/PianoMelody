@@ -6,7 +6,8 @@ body {
     padding-top: 100px;
     padding-bottom: 20px;
     font-size: 16px;
-    font-family: 'Pattaya', sans-serif;
+    /*font-family: 'Pattaya', sans-serif;*/
+    font-family: 'Marmelad', sans-serif;
 }
 
 .body-content {
@@ -53,6 +54,12 @@ body {
     text-shadow: 2px 2px #000;
     position: absolute;
     bottom: 5%;
+}
+
+h3,
+h4,
+nav {
+    font-family: 'Philosopher', sans-serif;
 }
 
 h3 {
