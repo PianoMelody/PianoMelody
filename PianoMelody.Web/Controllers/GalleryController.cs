@@ -7,8 +7,8 @@ using System.Web.Mvc;
 using PianoMelody.Web.Helpers;
 using PianoMelody.Models.Enumetations;
 using PianoMelody.Web.Extensions;
-using PianoMelody.I18N;
 using System;
+using PianoMelody.Models;
 
 namespace PianoMelody.Web.Controllers
 {
@@ -17,7 +17,7 @@ namespace PianoMelody.Web.Controllers
         public ActionResult Index()
         {
             var gallery = this.Data.Multimedia.GetAll()
-                                              .Where(g => g.Type == MultimediaType.GalleryElement)
+                                              .Where(g => g.Type == MultimediaType.PhotoElement || g.Type == MultimediaType.VideoElement)
                                               .OrderByDescending(g => g.Created)
                                               .ProjectTo<GalleryViewModel>()
                                               .Localize(this.CurrentCulture, g => g.Content);
@@ -42,18 +42,33 @@ namespace PianoMelody.Web.Controllers
 
                 var content = JsonHelper.Serialize(galleryBindingModel.EnContent, galleryBindingModel.RuContent, galleryBindingModel.BgContent);
 
-                var multimedia = MultimediaHelper.CreateSingle
+                Multimedia multimedia = null;
+
+                if (galleryBindingModel.Multimedia != null)
+                {
+                    multimedia = MultimediaHelper.CreateSingle
                     (
-                        this.Server, 
-                        galleryBindingModel.Multimedia, 
-                        this.GetBaseUrl(), 
-                        MultimediaType.GalleryElement,
+                        this.Server,
+                        galleryBindingModel.Multimedia,
+                        this.GetBaseUrl(),
+                        MultimediaType.PhotoElement,
                         content
                     );
+                }
+                else if (galleryBindingModel.Url != null)
+                {
+                    multimedia = new Multimedia
+                    {
+                        Created = DateTime.Now,
+                        Type = MultimediaType.VideoElement,
+                        Content = content,
+                        Url = galleryBindingModel.Url
+                    };
+                }
 
                 if (multimedia == null)
                 {
-                    this.AddNotification(Resources._ErrSelectImage, NotificationType.ERROR);
+                    this.AddNotification(I18N.Resources._ErrSelectMultimedia, NotificationType.ERROR);
                     return this.View();
                 }
 
@@ -80,6 +95,7 @@ namespace PianoMelody.Web.Controllers
 
             var editGalleryElement = new GalleryBindingModel()
             {
+                Type = currentGalleryElement.Type,
                 EnContent = contentLocs[0].v,
                 RuContent = contentLocs[1].v,
                 BgContent = contentLocs[2].v,
@@ -108,20 +124,27 @@ namespace PianoMelody.Web.Controllers
 
                 currentGalleryElement.Content = JsonHelper.Serialize(galleryBindingModel.EnContent, galleryBindingModel.RuContent, galleryBindingModel.BgContent);
 
-                if (galleryBindingModel.Multimedia != null)
+                if (galleryBindingModel.Type == MultimediaType.PhotoElement)
                 {
-                    MultimediaHelper.DeleteSingle(this.Server, currentGalleryElement);
+                    if (galleryBindingModel.Multimedia != null)
+                    {
+                        MultimediaHelper.DeleteSingle(this.Server, currentGalleryElement);
 
-                    var multimedia = MultimediaHelper.CreateSingle
-                        (
-                            this.Server,
-                            galleryBindingModel.Multimedia,
-                            this.GetBaseUrl(),
-                            MultimediaType.GalleryElement,
-                            currentGalleryElement.Content
-                        );
+                        var multimedia = MultimediaHelper.CreateSingle
+                            (
+                                this.Server,
+                                galleryBindingModel.Multimedia,
+                                this.GetBaseUrl(),
+                                MultimediaType.PhotoElement,
+                                currentGalleryElement.Content
+                            );
 
-                    currentGalleryElement.Url = multimedia.Url;
+                        currentGalleryElement.Url = multimedia.Url;
+                    }
+                }
+                else if (galleryBindingModel.Type == MultimediaType.VideoElement)
+                {
+                    currentGalleryElement.Url = galleryBindingModel.Url;
                 }
 
                 this.Data.SaveChanges();
@@ -164,7 +187,11 @@ namespace PianoMelody.Web.Controllers
                     return this.View();
                 }
 
-                MultimediaHelper.DeleteSingle(this.Server, currentGalleryElement);
+                if (currentGalleryElement.Type == MultimediaType.PhotoElement)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentGalleryElement);
+                }
+
                 this.Data.Multimedia.Delete(currentGalleryElement);
                 this.Data.SaveChanges();
 

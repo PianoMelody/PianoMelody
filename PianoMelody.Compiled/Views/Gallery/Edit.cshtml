@@ -1,4 +1,5 @@
-﻿@model PianoMelody.Web.Models.BindingModels.GalleryBindingModel
+﻿@using PianoMelody.Models.Enumetations
+@model PianoMelody.Web.Models.BindingModels.GalleryBindingModel
 @{
     ViewBag.Title = Resources._Edit + " " + Resources._GalleryImage;
     var url = "/Images/no_image.jpg";
@@ -14,7 +15,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.EnContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -37,28 +38,45 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-10 col-md-offset-2">
-                <img id="image-preview" src="@url" class="news-image" />
+        @if (Model.Type == MultimediaType.PhotoElement)
+        {
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2">
+                    <img id="image-preview" src="@url" class="news-image" />
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Multimedia, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <label class="btn btn-default btn-file">
-                    Browse <input type="file" name="Multimedia" id="file" style="display: none;">
-                </label>
-                @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Multimedia, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <label class="btn btn-default btn-file">
+                        Browse <input type="file" name="Multimedia" id="file" style="display: none;">
+                    </label>
+                    @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
+        }
+
+        @if (Model.Type == MultimediaType.VideoElement)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        @Html.HiddenFor(model => model.Type)
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="@Resources._Edit" class="btn btn-default" />
             </div>
         </div>
     </div>
-    }
+}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/image-preview")

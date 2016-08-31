@@ -1,15 +1,16 @@
 ﻿using OrangeJetpack.Localization;
-using PianoMelody.Helpers;
 using PianoMelody.Models;
+using PianoMelody.Models.Enumetations;
 using PianoMelody.Web.Contracts;
 using System;
-using System.Collections.Generic;
 
 namespace PianoMelody.Web.Models.ViewModels
 {
     public class GalleryViewModel : IMapFrom<Multimedia>, ILocalizable
     {
         public int Id { get; set; }
+
+        public MultimediaType Type { get; set; }
 
         public DateTime Created { get; set; }
 

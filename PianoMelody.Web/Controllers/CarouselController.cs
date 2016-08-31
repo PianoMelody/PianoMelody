@@ -57,7 +57,7 @@ namespace PianoMelody.Web.Controllers
 
                 if (multimedia == null)
                 {
-                    this.AddNotification(Resources._ErrSelectImage, NotificationType.ERROR);
+                    this.AddNotification(Resources._ErrSelectMultimedia, NotificationType.ERROR);
                     return this.View();
                 }
 

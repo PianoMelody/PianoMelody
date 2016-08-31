@@ -64,13 +64,13 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "PT Sans", sans-serif;
-  color: #33414a;
-  background-color: #f2f2f2;
+  /*font-family: "PT Sans", sans-serif;*/
+  /*color: #33414a;*/
+  /*background-color: #f2f2f2;*/
 }
 
 a {
-  color: #7e4d7e;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -86,7 +86,7 @@ header {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #33414a;
+  background-color: #000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Force Hardware Acceleration */
@@ -182,7 +182,7 @@ header::before {
   -webkit-transition: background-color 0.3s 0.3s;
   -moz-transition: background-color 0.3s 0.3s;
   transition: background-color 0.3s 0.3s;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 .cd-nav-trigger span::before, .cd-nav-trigger span::after {
   /* upper and lower lines of the menu icon */
@@ -190,7 +190,7 @@ header::before {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #fff;
   /* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -259,8 +259,8 @@ header::before {
   display: block;
   font-size: 1.8rem;
   padding: .9em 2em .9em 1em;
-  border-bottom: 1px solid #33414a;
-  color: #ffffff;
+  border-bottom: 1px solid #000;
+  color: #fff;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
   -moz-transition: -moz-transform 0.3s, opacity 0.3s;
   transition: transform 0.3s, opacity 0.3s;
@@ -313,7 +313,7 @@ header::before {
   display: inline-block;
   height: 2px;
   width: 10px;
-  background: #485c68;
+  background: #000;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -355,6 +355,13 @@ header::before {
 .cd-main-nav .placeholder {
   /* never visible or clickable- it is used to take up the same space as the .cd-subnav-trigger */
   display: none;
+}
+.cd-subnav-trigger span {
+  color: #fff;
+}
+.cd-subnav-trigger span:hover {
+  color: #ccc;
+  opacity: .6;
 }
 @media only screen and (min-width: 1024px) {
   .cd-main-nav {
@@ -413,7 +420,7 @@ header::before {
   .cd-main-nav .cd-subnav-trigger::before, .cd-main-nav .cd-subnav-trigger::after {
     top: 22px;
     right: 17px;
-    background-color: #ffffff;
+    background-color: #fff;
     /* change transform-origin to rotate the arrow */
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
@@ -433,7 +440,7 @@ header::before {
   }
   .cd-main-nav li ul {
     height: 80px;
-    background-color: #7e4d7e;
+    background-color: #777;
     /* padding left = logo size + logo left position*/
     padding: 0 5% 0 calc(5% + 124px);
     -webkit-transform: translateY(-80px);
@@ -510,6 +517,14 @@ header::before {
     -o-transform: rotate(135deg);
     transform: rotate(135deg);
   }
+}
+
+.cd-main-nav li a:hover {
+  color: #ccc;
+}
+
+.cd-main-nav li a:active {
+  color: #fff;
 }
 
 .cd-main-content::before {

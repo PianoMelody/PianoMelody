@@ -1,4 +1,5 @@
 ﻿using PianoMelody.I18N;
+using PianoMelody.Models.Enumetations;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
@@ -6,6 +7,8 @@ namespace PianoMelody.Web.Models.BindingModels
 {
     public class GalleryBindingModel
     {
+        public MultimediaType Type { get; set; }
+
         [DataType(DataType.MultilineText)]
         [Display(Name = "_EnContent", ResourceType = typeof(Resources))]
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]

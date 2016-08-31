@@ -1,4 +1,5 @@
-﻿@model PianoMelody.Web.Models.ViewModels.GalleryViewModel
+﻿@using PianoMelody.Models.Enumetations
+@model PianoMelody.Web.Models.ViewModels.GalleryViewModel
 
 @{
     ViewBag.Title = Resources._Delete + " " + Resources._GalleryImage;
@@ -8,20 +9,30 @@
 <hr />
 
 <article class="panel panel-default">
-    @Html.Partial("_Gallery", Model)
+    @if (Model.Type == MultimediaType.PhotoElement)
+    {
+        <div class="panel-body">
+            @Html.Partial("_Photo", Model)
+        </div>
+    }
 
-     @if (User.IsInRole("Admin"))
-     {
-         <div class="panel-footer">
-             @using (Html.BeginForm())
-             {
-                 @Html.AntiForgeryToken()
+    @if (Model.Type == MultimediaType.VideoElement)
+    {
+        @Html.Partial("_Video", Model)
+    }
 
-                 <div class="form-actions no-color">
-                     <input type="submit" value="@Resources._Delete" class="btn btn-danger" />
-                     @Html.ActionLink(Resources._Cancel, "Index", new { }, new { @class = "btn btn-default" })
-                 </div>
-             }
-         </div>
-     }
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="panel-footer">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="@Resources._Delete" class="btn btn-danger" />
+                    @Html.ActionLink(Resources._Cancel, "Index", new { }, new { @class = "btn btn-default" })
+                </div>
+            }
+        </div>
+    }
 </article>

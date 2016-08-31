@@ -1,10 +1,24 @@
-﻿@model PianoMelody.Web.Models.BindingModels.GalleryBindingModel
+﻿@using PianoMelody.Models.Enumetations
+@model PianoMelody.Web.Models.BindingModels.GalleryBindingModel
 
 @{
-    ViewBag.Title = Resources._CreateNew + " " + Resources._GalleryImage;
+    ViewBag.Title = Resources._CreateNew;
+    ViewBag.MultimediaType = new List<SelectListItem>()
+    {
+        new SelectListItem
+        {
+            Text = MultimediaType.PhotoElement.ToString(),
+            Value = ((int)MultimediaType.PhotoElement).ToString()
+        },
+        new SelectListItem
+        {
+            Text = MultimediaType.VideoElement.ToString(),
+            Value = ((int)MultimediaType.VideoElement).ToString()
+        },
+    };
 }
 
-<h2>@Resources._CreateNew @Resources._GalleryImage</h2>
+<h2>@Resources._CreateNew</h2>
 <hr />
 
 @using (Html.BeginForm("Create", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -12,6 +26,12 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
+
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                @Html.DropDownList("type", (IEnumerable<SelectListItem>)ViewBag.MultimediaType, "Multimedia Type", new { @id = "type", @class = "form-control" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.EnContent, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -37,25 +57,37 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-10 col-md-offset-2">
-                <img id="image-preview" src="~/Images/no_image.jpg" class="news-image" />
+        <div id="create-photo" class="hidden">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2">
+                    <img id="image-preview" src="~/Images/no_image.jpg" class="news-image" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Multimedia, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <label class="btn btn-default btn-file">
+                        Browse <input type="file" name="Multimedia" id="file" style="display: none;">
+                    </label>
+                    @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Multimedia, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <label class="btn btn-default btn-file">
-                    Browse <input type="file" name="Multimedia" id="file" style="display: none;">
-                </label>
-                @Html.ValidationMessageFor(model => model.Multimedia, "", new { @class = "text-danger" })
+        <div id="create-video" class="hidden">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Resources._CreateNew" class="btn btn-default" />
+                <input id="create-multimedia" type="submit" value="@Resources._CreateNew" class="btn btn-default" disabled />
             </div>
         </div>
     </div>
@@ -64,4 +96,23 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/image-preview")
+    <script>
+        $("#type").change(function () {
+            if (this.value === '0') {
+                $("#create-photo").attr('class', 'show');
+                $("#create-video").attr('class', 'hidden');
+                $("#create-multimedia").attr("disabled", false);
+            }
+            else if (this.value === '3') {
+                $("#create-photo").attr('class', 'hidden');
+                $("#create-video").attr('class', 'show');
+                $("#create-multimedia").attr("disabled", false);
+            }
+            else {
+                $("#create-photo").attr('class', 'hidden');
+                $("#create-video").attr('class', 'hidden');
+                $("#create-multimedia").attr("disabled", true);
+            }
+        });
+    </script>
 }

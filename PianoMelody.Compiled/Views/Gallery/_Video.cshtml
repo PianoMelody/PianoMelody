@@ -1,0 +1,25 @@
+﻿@model PianoMelody.Web.Models.ViewModels.GalleryViewModel
+
+@{
+    var action = this.ViewContext.RouteData.Values["action"].ToString();
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Model.Content
+    </div>
+    <div class="panel-body">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="@Model.Url" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    @if (User.IsInRole("Admin") && action == "Index")
+    {
+        <div class="panel-footer">
+            <div class="btn-admin">
+                @Html.ActionLink(Resources._Edit, "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Resources._Delete, "Delete", new { id = Model.Id }, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    }
+</div>

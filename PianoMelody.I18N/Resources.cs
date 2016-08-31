@@ -292,12 +292,12 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Please select image</summary>
-        public static string _ErrSelectImage 
+        /// <summary>Please select multimedia</summary>
+        public static string _ErrSelectMultimedia 
         {
             get 
             {
-                return (string) resourceProvider.GetResource("_ErrSelectImage", CultureInfo.CurrentUICulture.Name);
+                return (string) resourceProvider.GetResource("_ErrSelectMultimedia", CultureInfo.CurrentUICulture.Name);
             }
         }
             
@@ -613,6 +613,24 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("_UrlAddress", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Video</summary>
+        public static string _Video 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_Video", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Video Url</summary>
+        public static string _VideoUrl 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_VideoUrl", CultureInfo.CurrentUICulture.Name);
             }
         }
             
