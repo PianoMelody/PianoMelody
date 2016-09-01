@@ -44,7 +44,7 @@
         @if (User.IsInRole("Admin"))
                 {
             <div class="panel-footer">
-                @using (Html.BeginForm("Up", "Product", new { id = item.Id }, FormMethod.Post))
+                @using (Html.BeginForm("Up", "Products", new { id = item.Id }, FormMethod.Post))
                     {
                     @Html.AntiForgeryToken()
 
@@ -54,7 +54,7 @@
                     </button>
                 }
 
-                @using (Html.BeginForm("Down", "Product", new { id = item.Id }, FormMethod.Post))
+                @using (Html.BeginForm("Down", "Products", new { id = item.Id }, FormMethod.Post))
                     {
                     @Html.AntiForgeryToken()
 

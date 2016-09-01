@@ -44,9 +44,9 @@
                     "~/Scripts/photoswipe/photoswipe-ui-default.min.js"));
 
             bundles.Add(
-                new ScriptBundle("~/bundles/photoswipe").Include(
-                    "~/Scripts/photoswipe/photoswipe.min.js",
-                    "~/Scripts/photoswipe/photoswipe-ui-default.min.js"));
+                new ScriptBundle("~/bundles/load-gallery").Include(
+                    "~/Scripts/Custom/photoswipe-function.js",
+                    "~/Scripts/Custom/load-gallery.js"));
 
             bundles.Add(
                 new ScriptBundle("~/bundles/owl-carousel").Include(

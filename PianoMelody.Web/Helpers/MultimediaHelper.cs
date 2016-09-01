@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -14,15 +12,14 @@ namespace PianoMelody.Web.Helpers
 {
     public static class MultimediaHelper
     {
-        private static int thumbWidth = int.Parse(ConfigurationManager.AppSettings["thumbWidth"]);
         private static int thumbHeight = int.Parse(ConfigurationManager.AppSettings["thumbHeight"]);
 
         public static Multimedia CreateSingle
         (
-            HttpServerUtilityBase server, 
-            HttpPostedFileBase fileBase, 
-            string baseUrl, 
-            MultimediaType type = MultimediaType.SingleElement, 
+            HttpServerUtilityBase server,
+            HttpPostedFileBase fileBase,
+            string baseUrl,
+            MultimediaType type = MultimediaType.SingleElement,
             string content = ""
         )
         {
@@ -36,7 +33,7 @@ namespace PianoMelody.Web.Helpers
                 var filePath = Path.Combine(server.MapPath(path), fileName);
                 fileBase.SaveAs(filePath);
 
-                CreateThumbnail(server, filePath, thumbWidth, thumbHeight);
+                CreateThumbnail(server, filePath, thumbHeight);
 
                 var url = baseUrl + "Multimedia/" + fileName;
 
@@ -86,7 +83,7 @@ namespace PianoMelody.Web.Helpers
                     var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
                     fileBase.SaveAs(filePath);
 
-                    CreateThumbnail(server, filePath, thumbWidth, thumbHeight);
+                    CreateThumbnail(server, filePath, thumbHeight);
 
                     var url = baseUrl + "Multimedia/" + fileName;
 
@@ -130,61 +127,22 @@ namespace PianoMelody.Web.Helpers
             return dataSize;
         }
 
-        private static void CreateThumbnail(HttpServerUtilityBase server, string filePath, int width, int height)
+        private static void CreateThumbnail(HttpServerUtilityBase server, string filePath, int height)
         {
-            using (Image imgPhoto = Image.FromFile(filePath))
-            {
-                int sourceWidth = imgPhoto.Width;
-                int sourceHeight = imgPhoto.Height;
-                int sourceX = 0;
-                int sourceY = 0;
-                int destX = 0;
-                int destY = 0;
+            Image imgPhoto = Image.FromFile(filePath);
 
-                float nPercent = 0;
-                float nPercentW = 0;
-                float nPercentH = 0;
+            int sourceWidth = imgPhoto.Width;
+            int sourceHeight = imgPhoto.Height;
 
-                nPercentW = (width / (float)sourceWidth);
-                nPercentH = (height / (float)sourceHeight);
-                if (nPercentH < nPercentW)
-                {
-                    nPercent = nPercentH;
-                    destX = Convert.ToInt16((width -
-                                  (sourceWidth * nPercent)) / 2);
-                }
-                else
-                {
-                    nPercent = nPercentW;
-                    destY = Convert.ToInt16((height -
-                                  (sourceHeight * nPercent)) / 2);
-                }
+            int calcWidth = sourceWidth * height / sourceHeight;
+            
+            imgPhoto = imgPhoto.GetThumbnailImage(calcWidth, height, () => false, IntPtr.Zero);
 
-                int destWidth = (int)(sourceWidth * nPercent);
-                int destHeight = (int)(sourceHeight * nPercent);
+            var fileName = filePath.Split('\\').Last();
+            var path = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
 
-                Bitmap bmPhoto = new Bitmap(width, height,
-                                  PixelFormat.Format24bppRgb);
-                bmPhoto.SetResolution(imgPhoto.HorizontalResolution,
-                                 imgPhoto.VerticalResolution);
-
-                Graphics grPhoto = Graphics.FromImage(bmPhoto);
-                grPhoto.Clear(Color.White);
-                grPhoto.InterpolationMode =
-                        InterpolationMode.HighQualityBicubic;
-
-                grPhoto.DrawImage(imgPhoto,
-                    new Rectangle(destX, destY, destWidth, destHeight),
-                    new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
-                    GraphicsUnit.Pixel);
-
-                grPhoto.Dispose();
-
-                var fileName = filePath.Split('\\').Last();
-                var path = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
-                bmPhoto.Save(path);
-                bmPhoto.Dispose();
-            }
+            imgPhoto.Save(path);
+            imgPhoto.Dispose();
         }
     }
 }
