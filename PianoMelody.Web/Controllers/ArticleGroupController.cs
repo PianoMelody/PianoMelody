@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace PianoMelody.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ArticleGroupController : BaseController
     {
         public ActionResult Index(int page = 1)

@@ -7,7 +7,6 @@
     using Data;
     using Data.Contracts;
     using Helpers;
-    using System.Web;
 
     public class BaseController : Controller
     {

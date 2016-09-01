@@ -11,6 +11,7 @@ using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ManufacturerController : BaseController
     {
         public ActionResult Index(int page = 1)

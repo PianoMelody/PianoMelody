@@ -7,7 +7,7 @@
 @if (User.IsInRole("Admin"))
 {
     <p>
-        @Html.ActionLink(Resources._CreateNew, "Create", new { }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(Resources._CreateNew, "Create", new { returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
     </p>
     <hr />
 }
@@ -44,7 +44,7 @@
         @if (User.IsInRole("Admin"))
                 {
             <div class="panel-footer">
-                @using (Html.BeginForm("Up", "Products", new { id = item.Id }, FormMethod.Post))
+                @using (Html.BeginForm("Up", "Products", new { id = item.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
                     {
                     @Html.AntiForgeryToken()
 
@@ -54,7 +54,7 @@
                     </button>
                 }
 
-                @using (Html.BeginForm("Down", "Products", new { id = item.Id }, FormMethod.Post))
+                @using (Html.BeginForm("Down", "Products", new { id = item.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
                     {
                     @Html.AntiForgeryToken()
 
@@ -64,8 +64,8 @@
                     </button>
                 }
 
-                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
             </div>
         }
     </article>

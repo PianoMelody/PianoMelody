@@ -13,7 +13,7 @@
      @if (User.IsInRole("Admin"))
      {
          <div class="panel-footer">
-             @using (Html.BeginForm())
+             @using (Html.BeginForm("Delete", "Products", new { returnUrl = this.Request.QueryString["returnUrl"] }, FormMethod.Post))
              {
                  @Html.AntiForgeryToken()
 

@@ -11,8 +11,10 @@ using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class InfoController : BaseController
     {
+        [AllowAnonymous]
         public ActionResult Index(int page = 1)
         {
             if (page < 1)

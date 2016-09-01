@@ -25,6 +25,28 @@
                                                          .Localize(this.CurrentCulture, c => c.Content)
                                                          .ToArray();
 
+            homeViewModel.PromoProducts = this.Data.Products.GetAll()
+                                                            .Where(p => p.PromoPrice != null)
+                                                            .OrderBy(p => p.Position)
+                                                            .Take(3)
+                                                            .ProjectTo<ProductViewModel>()
+                                                            .Localize(this.CurrentCulture, p => p.Name, p => p.Description, p => p.ArticleGroupName, p => p.ManufacturerName)
+                                                            .ToArray();
+
+            homeViewModel.LastNews = this.Data.News.GetAll()
+                                                   .OrderByDescending(n => n.Created)
+                                                   .Take(2)
+                                                   .ProjectTo<NewsViewModel>()
+                                                   .Localize(this.CurrentCulture, n => n.Title, n => n.Content)
+                                                   .ToArray();
+
+            homeViewModel.RandomReferences = this.Data.References.GetAll()
+                                                                 .OrderByDescending(r => r.Created)
+                                                                 .RandomElements(r => r.Multimedia != null)
+                                                                 .ProjectTo<ReferenceViewModel>()
+                                                                 .Localize(this.CurrentCulture, r => r.Title, r => r.Content)
+                                                                 .ToArray();
+
             homeViewModel.Manufacturers = this.Data.Manufacturers.GetAll()
                                                                  .Where(m => m.Multimedia != null)
                                                                  .ProjectTo<ManufacturerViewModel>()

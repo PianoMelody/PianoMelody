@@ -10,7 +10,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
 
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ProfileController : BaseController
     {
         private ApplicationSignInManager _signInManager;

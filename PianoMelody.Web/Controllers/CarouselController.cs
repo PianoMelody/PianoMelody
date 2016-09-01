@@ -12,6 +12,7 @@ using System;
 
 namespace PianoMelody.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CarouselController : BaseController
     {
         public ActionResult Index()

@@ -13,7 +13,7 @@
 
     using PianoMelody.Models;
 
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;

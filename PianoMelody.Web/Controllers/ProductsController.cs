@@ -13,11 +13,13 @@ using PianoMelody.Helpers;
 
 namespace PianoMelody.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : BaseController
     {
+        [AllowAnonymous]
         public ActionResult Index(int? group, int? manufacturer, int? condition, int page = 1)
         {
-            this.LoadFilterLists();
+            this.LoadFilterLists(group, condition);
 
             if (page < 1)
             {
@@ -57,6 +59,7 @@ namespace PianoMelody.Web.Controllers
         }
 
         [ChildActionOnly]
+        [AllowAnonymous]
         public ActionResult Menu()
         {
             var articleGroups = this.Data.ArticleGroups.GetAll().ProjectTo<ArticleGroupViewModel>()
@@ -65,7 +68,7 @@ namespace PianoMelody.Web.Controllers
             return this.View(articleGroups);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(string returnUrl)
         {
             this.LoadDropdownLists();
             return View();
@@ -74,7 +77,7 @@ namespace PianoMelody.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProductBindingModel productBindingModel)
+        public ActionResult Create(string returnUrl, ProductBindingModel productBindingModel)
         {
             try
             {
@@ -110,7 +113,7 @@ namespace PianoMelody.Web.Controllers
 
                 this.Data.SaveChanges();
 
-                return RedirectToAction("Index");
+                return Redirect(returnUrl);
             }
             catch (Exception ex)
             {
@@ -119,7 +122,7 @@ namespace PianoMelody.Web.Controllers
             }
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string returnUrl)
         {
             var currentProduct = this.Data.Products.Find(id);
             if (currentProduct == null)
@@ -151,7 +154,7 @@ namespace PianoMelody.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ProductBindingModel productBindingModel)
+        public ActionResult Edit(int id, string returnUrl, ProductBindingModel productBindingModel)
         {
             try
             {
@@ -199,7 +202,7 @@ namespace PianoMelody.Web.Controllers
 
                 this.Data.SaveChanges();
 
-                return RedirectToAction("Index");
+                return Redirect(returnUrl);
             }
             catch (Exception ex)
             {
@@ -208,7 +211,7 @@ namespace PianoMelody.Web.Controllers
             }
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string returnUrl)
         {
             var deleteProduct = this.Data.Products.GetAll()
                                                   .ProjectTo<ProductViewModel>()
@@ -225,7 +228,7 @@ namespace PianoMelody.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, ProductViewModel productViewModel)
+        public ActionResult Delete(int id, string returnUrl, ProductViewModel productViewModel)
         {
             try
             {
@@ -254,7 +257,7 @@ namespace PianoMelody.Web.Controllers
 
                 this.RePositionProducts();
 
-                return RedirectToAction("Index");
+                return Redirect(returnUrl);
             }
             catch (Exception ex)
             {
@@ -264,7 +267,7 @@ namespace PianoMelody.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Up(int id)
+        public ActionResult Up(int id, string returnUrl)
         {
             var upProduct = this.Data.Products.Find(id);
             if (upProduct != null)
@@ -280,12 +283,12 @@ namespace PianoMelody.Web.Controllers
                 }
             }
 
-            return this.RedirectToAction("Index");
+            return this.Redirect(returnUrl);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Down(int id)
+        public ActionResult Down(int id, string returnUrl)
         {
             var downProduct = this.Data.Products.Find(id);
             if (downProduct != null)
@@ -301,7 +304,7 @@ namespace PianoMelody.Web.Controllers
                 }
             }
 
-            return this.RedirectToAction("Index");
+            return this.Redirect(returnUrl);
         }
 
         private void RePositionProducts()
@@ -347,19 +350,30 @@ namespace PianoMelody.Web.Controllers
         /// <summary>
         /// Load Manufacturers and Condition filter lists
         /// </summary>
-        private void LoadFilterLists()
+        private void LoadFilterLists(int? group, int? condition)
         {
-            ViewBag.Manufacturers = this.Data.Manufacturers.GetAll()
-                                                           .Where(m => m.Products.Count > 0)
-                                                           .OrderBy(m => m.Name)
-                                                           .ProjectTo<ManufacturerViewModel>()
-                                                           .Localize(this.CurrentCulture, m => m.Name)
-                                                           .Select(m => new SelectListItem
-                                                           {
-                                                               Text = m.Name,
-                                                               Value = m.Id.ToString()
-                                                           })
-                                                           .ToList();
+            var manufacturers = this.Data.Manufacturers.GetAll().Where(m => m.Products.Count > 0);
+
+            if (group != null)
+            {
+                manufacturers = manufacturers.Where(m => m.Products.Any(p => p.ArticleGroupId == group));
+            }
+
+            if (condition != null)
+            {
+                bool isNew = condition != 0;
+                manufacturers = manufacturers.Where(m => m.Products.Any(p => p.IsNew == isNew));
+            }
+
+            ViewBag.Manufacturers = manufacturers.OrderBy(m => m.Name)
+                                                 .ProjectTo<ManufacturerViewModel>()
+                                                 .Localize(this.CurrentCulture, m => m.Name)
+                                                 .Select(m => new SelectListItem
+                                                 {
+                                                     Text = m.Name,
+                                                     Value = m.Id.ToString()
+                                                 })
+                                                 .ToList();
 
             ViewBag.Condition = new List<SelectListItem>
                                     {

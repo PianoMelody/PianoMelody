@@ -10,11 +10,11 @@
             <dt>@Resources.Price:</dt>
             if (Model.PromoPrice != null)
             {
-                <dd><strike>@Model.Price</strike> @Model.PromoPrice</dd>
+                <dd><strike class="text-danger">@Model.Price BGN</strike> @Model.PromoPrice BGN</dd>
             }
             else
             {
-                <dd>@Model.Price</dd>
+                <dd>@Model.Price BGN</dd>
             }
         }
 

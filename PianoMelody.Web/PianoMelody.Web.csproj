@@ -201,6 +201,7 @@
     <Compile Include="Controllers\ManufacturerController.cs" />
     <Compile Include="Controllers\ReferencesController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\Pager.cs" />
     <Compile Include="Models\BindingModels\CarouselBindingModel.cs" />
     <Compile Include="Models\BindingModels\EmailBindingModel.cs" />

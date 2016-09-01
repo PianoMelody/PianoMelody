@@ -18,21 +18,27 @@
     @Html.DisplayFor(modelItem => Model.Name)
 </div>
 <div class="panel-body">
-    <p>
-        @Html.DisplayFor(modelItem => Model.Description)
-    </p>
-    @if (Model.Price != null)
-    {
-        <p>
-            @Resources.Price: @Html.DisplayFor(modelItem => Model.Price)
-        </p>
-    }
+    <div class="row">
+        <div class="col-lg-8">
+            @if (Model.Price != null)
+            {
+                <p>
+                    @Resources.Price: @Html.DisplayFor(modelItem => Model.Price) BGN
+                </p>
+            }
 
-    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-        <figure class="col-lg-3" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="@url" itemprop="contentUrl" data-size="@dataSize">
-                <img src="@thumb" itemprop="thumbnail" alt="" />
-            </a>
-        </figure>
+            <p>
+                @Html.DisplayFor(modelItem => Model.Description)
+            </p>
+        </div>
+        <div class="col-lg-4">
+            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                <figure class="col-lg-3" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                    <a href="@url" itemprop="contentUrl" data-size="@dataSize">
+                        <img src="@thumb" itemprop="thumbnail" alt="" />
+                    </a>
+                </figure>
+            </div>
+        </div>
     </div>
 </div>

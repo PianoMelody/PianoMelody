@@ -6,6 +6,13 @@ namespace PianoMelody.Web.Models.ViewModels
     {
         public CarouselViewModel[] Carousel { get; set; }
 
+        public ProductViewModel[] PromoProducts { get; set; }
+
+        public NewsViewModel[] LastNews { get; set; }
+
+        public ReferenceViewModel[] RandomReferences { get; set; }
+
         public IEnumerable<ManufacturerViewModel> Manufacturers { get; set; }
+
     }
 }

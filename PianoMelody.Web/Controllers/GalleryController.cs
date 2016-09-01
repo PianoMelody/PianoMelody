@@ -12,8 +12,10 @@ using PianoMelody.Models;
 
 namespace PianoMelody.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class GalleryController : BaseController
     {
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var gallery = this.Data.Multimedia.GetAll()
