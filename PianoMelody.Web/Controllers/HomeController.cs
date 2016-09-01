@@ -25,6 +25,11 @@
                                                          .Localize(this.CurrentCulture, c => c.Content)
                                                          .ToArray();
 
+            homeViewModel.Manufacturers = this.Data.Manufacturers.GetAll()
+                                                                 .Where(m => m.Multimedia != null)
+                                                                 .ProjectTo<ManufacturerViewModel>()
+                                                                 .Localize(this.CurrentCulture, m => m.Name);
+
             return this.View(homeViewModel);
         }
 

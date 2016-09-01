@@ -5,55 +5,108 @@
     ViewBag.Description = "";
 }
 
-<div id="myCarousel" class="carousel slide" class="col-lg-12" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators" class="col-lg-12">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" class="col-lg-12">
-        <div class="item active">
-            <img src="@Model.Carousel[0].Url" alt="pic 1">
-            <div class="carousel-caption">
-                <p>@Model.Carousel[0].Content</p>
+@Styles.Render("~/Content/owl")
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="@Model.Carousel[0].Url" alt="@Model.Carousel[0].Content">
+                    <div class="carousel-caption">
+                        <p>@Model.Carousel[0].Content</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="@Model.Carousel[1].Url" alt="@Model.Carousel[1].Content">
+                    <div class="carousel-caption">
+                        <p>@Model.Carousel[1].Content</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="@Model.Carousel[2].Url" alt="@Model.Carousel[2].Content">
+                    <div class="carousel-caption">
+                        <p>@Model.Carousel[2].Content</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="@Model.Carousel[3].Url" alt="@Model.Carousel[3].Content">
+                    <div class="carousel-caption">
+                        <p>@Model.Carousel[3].Content</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="@Model.Carousel[4].Url" alt="@Model.Carousel[4].Content">
+                    <div class="carousel-caption">
+                        <p>@Model.Carousel[4].Content</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="item">
-            <img src="@Model.Carousel[1].Url" alt="pic 2">
-            <div class="carousel-caption">
-                <p>@Model.Carousel[1].Content</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="@Model.Carousel[2].Url" alt="pic 3">
-            <div class="carousel-caption">
-                <p>@Model.Carousel[2].Content</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="@Model.Carousel[3].Url" alt="pic 4">
-            <div class="carousel-caption">
-                <p>@Model.Carousel[3].Content</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="@Model.Carousel[4].Url" alt="pic 5">
-            <div class="carousel-caption">
-                <p>@Model.Carousel[4].Content</p>
-            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
+
+<div class="row">
+    <div id="manufacturers" class="owl-carousel col-lg-12">
+        @foreach (var manufacturer in Model.Manufacturers)
+        {
+            <div>
+                <a href="@manufacturer.UrlAddress" rel="alternate" target="_blank">
+                    <img src="@manufacturer.Multimedia.Url" alt="@manufacturer.Name" class="manufacturer-logo" />
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/owl-carousel")
+    <script>
+        $(document).ready(function () {
+            $("#manufacturers").owlCarousel({
+
+                // Most important owl features
+                items: 10,
+                itemsCustom: false,
+                itemsDesktop: [1199, 8],
+                itemsDesktopSmall: [980, 6],
+                itemsTablet: [768, 4],
+                itemsTabletSmall: false,
+                itemsMobile: [479, 2],
+                singleItem: false,
+                itemsScaleUp: false,
+
+                //Basic Speeds
+                slideSpeed: 200,
+                paginationSpeed: 800,
+                rewindSpeed: 1000,
+
+                //Autoplay
+                autoPlay: true,
+                stopOnHover: true,
+
+                //Pagination
+                pagination: false,
+                paginationNumbers: false,
+            });
+        });
+    </script>
+}

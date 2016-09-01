@@ -120,3 +120,7 @@ iframe {
     /*float: right;*/
     margin-bottom: 30px;
 }
+
+.manufacturer-logo{
+    width: 100px;
+}

@@ -253,6 +253,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\menu.css" />
+    <Content Include="Content\OwlCarousel\AjaxLoader.gif" />
+    <Content Include="Content\OwlCarousel\grabbing.png" />
+    <Content Include="Content\OwlCarousel\owl.carousel.css" />
+    <Content Include="Content\OwlCarousel\owl.theme.css" />
+    <Content Include="Content\OwlCarousel\owl.transitions.css" />
     <Content Include="Content\photoswipe\default-skin\default-skin.css" />
     <Content Include="Content\photoswipe\default-skin\default-skin.png" />
     <Content Include="Content\photoswipe\default-skin\default-skin.svg" />
@@ -644,6 +649,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\owl.carousel.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\photoswipe\photoswipe-ui-default.js" />
     <Content Include="Scripts\photoswipe\photoswipe-ui-default.min.js" />
     <Content Include="Scripts\photoswipe\photoswipe.js" />
