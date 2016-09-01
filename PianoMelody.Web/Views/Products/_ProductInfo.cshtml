@@ -48,7 +48,7 @@
                 var thumbElements = multimedia.Url.Split('/');
                 var thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
 
-                <figure class="col-lg-3" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                     <a href="@multimedia.Url" itemprop="contentUrl" data-size="@multimedia.DataSize">
                         <img src="@thumb" itemprop="thumbnail" alt="@multimedia.Content" />
                     </a>

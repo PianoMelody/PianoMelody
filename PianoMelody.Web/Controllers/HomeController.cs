@@ -42,7 +42,7 @@
 
             homeViewModel.RandomReferences = this.Data.References.GetAll()
                                                                  .OrderByDescending(r => r.Created)
-                                                                 .RandomElements(r => r.Multimedia != null)
+                                                                 .RandomElements(r => r.Multimedia != null, 2)
                                                                  .ProjectTo<ReferenceViewModel>()
                                                                  .Localize(this.CurrentCulture, r => r.Title, r => r.Content)
                                                                  .ToArray();
