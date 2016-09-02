@@ -11,6 +11,7 @@
     using System.Text;
     using Extensions;
     using System.Configuration;
+    using I18N;
 
     public class HomeController : BaseController
     {
@@ -64,8 +65,13 @@
 
         // GET /Contact
         [HttpGet]
-        public ActionResult Contact()
+        public ActionResult Contact(string about)
         {
+            if (about != null)
+            {
+                return this.View(new EmailBindingModel {  Message = string.Format("{0} {1} - ", Resources._AskAbout, about) });
+            }
+
             return this.View();
         }
 

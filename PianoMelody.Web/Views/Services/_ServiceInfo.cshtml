@@ -3,7 +3,7 @@
 @{
     var url = "/Images/no_image.jpg";
     var thumb = url;
-    var dataSize = "522x400";
+    var dataSize = "770x400";
 
     if (Model != null && Model.Multimedia != null)
     {
@@ -29,6 +29,10 @@
 
             <p>
                 @Html.DisplayFor(modelItem => Model.Description)
+            </p>
+
+            <p>
+                @Html.ActionLink(Resources._AskAbout, "Contact", "Home", null, null, "contact-form", new { about = Model.Name }, new { @class = "btn btn-default" })
             </p>
         </div>
         <div class="col-lg-4">

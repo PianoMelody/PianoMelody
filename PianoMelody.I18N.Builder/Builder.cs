@@ -27,20 +27,21 @@
             var path = Directory.GetCurrentDirectory().Replace("I18N.Builder\\bin\\Debug", "Web\\Multimedia\\");
             DirectoryInfo dir = new DirectoryInfo(path);
 
+            int newWidth = 300;
+
             foreach (var file in dir.GetFiles().Where(f => !f.ToString().EndsWith(".txt")))
             {
                 var filePath = path + file;
-                var height = 150;
 
                 Image imgPhoto = Image.FromFile(filePath);
 
                 int sourceWidth = imgPhoto.Width;
                 int sourceHeight = imgPhoto.Height;
 
-                int calcWidth = sourceWidth * height / sourceHeight;
+                int calcHeight = sourceHeight * newWidth / sourceWidth;
 
-                imgPhoto = imgPhoto.GetThumbnailImage(calcWidth, height, () => false, IntPtr.Zero);
-                
+                imgPhoto = imgPhoto.GetThumbnailImage(newWidth, calcHeight, () => false, IntPtr.Zero);
+
                 imgPhoto.Save(path + "thumbs\\" + file);
                 imgPhoto.Dispose();
             }

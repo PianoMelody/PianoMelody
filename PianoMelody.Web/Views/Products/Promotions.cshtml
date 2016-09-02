@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PianoMelody.Web.Models.ViewModels.ProductViewModel>
+
+@{
+    ViewBag.Title = Resources.Promotions;
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink(Resources._CreateNew, "Create", new { returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+    </p>
+    <hr />
+}
+
+@foreach (var item in Model)
+{
+    <article class="panel panel-default">
+        @Html.Partial("_ProductInfo", item)
+
+        @if (User.IsInRole("Admin"))
+                {
+            <div class="panel-footer">
+                @using (Html.BeginForm("Up", "Products", new { id = item.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+                    {
+                    @Html.AntiForgeryToken()
+
+                    <button type="submit" class="btn btn-success btn-inline">
+                        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                        @item.Position
+                    </button>
+                }
+
+                @using (Html.BeginForm("Down", "Products", new { id = item.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+                    {
+                    @Html.AntiForgeryToken()
+
+                    <button type="submit" class="btn btn-warning btn-inline">
+                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        @item.Position
+                    </button>
+                }
+
+                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
+            </div>
+        }
+    </article>
+}
+
+<div class="row">
+    @Html.Partial("_PhotoSwipeRoot")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/photoswipe")
+    @Scripts.Render("~/bundles/load-gallery")
+}

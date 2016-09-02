@@ -1,5 +1,10 @@
 ﻿@model PianoMelody.Web.Models.ViewModels.ProductViewModel
 
+@{ 
+    var controller = this.ViewContext.RouteData.Values["controller"] as string;
+    var action = this.ViewContext.RouteData.Values["action"] as string;
+}
+
 <div class="panel-heading">
     @Model.Name
 </div>
@@ -39,6 +44,10 @@
         <dd>@Model.Description</dd>
     </dl>
 
+    <p>
+        @Html.ActionLink(Resources._AskAbout, "Contact", "Home", null, null, "contact-form", new { about = Model.Name }, new { @class = "btn btn-default" })
+    </p>
+
     @if (Model.Multimedias != null)
     {
         <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
@@ -48,12 +57,17 @@
                 var thumbElements = multimedia.Url.Split('/');
                 var thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
 
-                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <figure class="col-lg-3" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                     <a href="@multimedia.Url" itemprop="contentUrl" data-size="@multimedia.DataSize">
                         <img src="@thumb" itemprop="thumbnail" alt="@multimedia.Content" />
                     </a>
                     <figcaption itemprop="caption description">@multimedia.Content</figcaption>
                 </figure>
+
+                if (controller == "Home" && action == "Index")
+                {
+                    break;
+                }
             }
         </div>
     }

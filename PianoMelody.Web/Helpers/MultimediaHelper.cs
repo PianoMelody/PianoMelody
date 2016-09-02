@@ -12,7 +12,7 @@ namespace PianoMelody.Web.Helpers
 {
     public static class MultimediaHelper
     {
-        private static int thumbHeight = int.Parse(ConfigurationManager.AppSettings["thumbHeight"]);
+        private static int thumbWidth = int.Parse(ConfigurationManager.AppSettings["thumbWidth"]);
 
         public static Multimedia CreateSingle
         (
@@ -33,7 +33,7 @@ namespace PianoMelody.Web.Helpers
                 var filePath = Path.Combine(server.MapPath(path), fileName);
                 fileBase.SaveAs(filePath);
 
-                CreateThumbnail(server, filePath, thumbHeight);
+                CreateThumbnail(server, filePath, thumbWidth);
 
                 var url = baseUrl + "Multimedia/" + fileName;
 
@@ -83,7 +83,7 @@ namespace PianoMelody.Web.Helpers
                     var filePath = Path.Combine(server.MapPath("~/Multimedia"), fileName);
                     fileBase.SaveAs(filePath);
 
-                    CreateThumbnail(server, filePath, thumbHeight);
+                    CreateThumbnail(server, filePath, thumbWidth);
 
                     var url = baseUrl + "Multimedia/" + fileName;
 
@@ -127,19 +127,18 @@ namespace PianoMelody.Web.Helpers
             return dataSize;
         }
 
-        private static void CreateThumbnail(HttpServerUtilityBase server, string filePath, int height)
+        private static void CreateThumbnail(HttpServerUtilityBase server, string filePath, int width)
         {
             Image imgPhoto = Image.FromFile(filePath);
 
             int sourceWidth = imgPhoto.Width;
             int sourceHeight = imgPhoto.Height;
-
-            int calcWidth = sourceWidth * height / sourceHeight;
+            int calcHeight = sourceHeight * width / sourceWidth;
             
-            imgPhoto = imgPhoto.GetThumbnailImage(calcWidth, height, () => false, IntPtr.Zero);
+            imgPhoto = imgPhoto.GetThumbnailImage(width, calcHeight, () => false, IntPtr.Zero);
 
-            var fileName = filePath.Split('\\').Last();
-            var path = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
+            string fileName = filePath.Split('\\').Last();
+            string path = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
 
             imgPhoto.Save(path);
             imgPhoto.Dispose();

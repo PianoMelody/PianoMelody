@@ -74,6 +74,16 @@ namespace PianoMelody.Web.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult Promotions()
+        {
+            var productsView = this.Data.Products.GetAll().Where(p => p.PromoPrice != null)
+                                                          .OrderBy(a => a.Position)
+                                                          .ProjectTo<ProductViewModel>()
+                                                          .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
+
+            return View(productsView);
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

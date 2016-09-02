@@ -67,6 +67,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Ask about</summary>
+        public static string _AskAbout 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_AskAbout", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>BG Content</summary>
         public static string _BgContent 
         {
@@ -730,6 +739,15 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("Products", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Promotions</summary>
+        public static string Promotions 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("Promotions", CultureInfo.CurrentUICulture.Name);
             }
         }
             

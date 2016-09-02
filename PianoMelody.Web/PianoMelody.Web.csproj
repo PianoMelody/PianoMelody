@@ -679,6 +679,7 @@
     <Content Include="Views\Language\Edit.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Gallery\_Video.cshtml" />
+    <Content Include="Views\Products\Promotions.cshtml" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

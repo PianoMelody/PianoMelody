@@ -28,7 +28,11 @@
                     <a href="#0" class="cd-subnav-trigger"><span>@Resources.Products</span></a>
                     <ul>
                         <li class="go-back"><a href="#0">Menu</a></li>
-                        @{ Html.RenderAction("Menu", "Products"); }
+                        <li>@Html.ActionLink(Resources.Promotions, "Promotions", "Products")</li>
+                        @{ 
+                            Html.RenderAction("Menu", "Products"); 
+                        }
+                        <li>@Html.ActionLink(Resources.All, "Index", "Products")</li>
                         <li><a href="#0" class="placeholder">Placeholder</a></li>
                     </ul>
                 </li>

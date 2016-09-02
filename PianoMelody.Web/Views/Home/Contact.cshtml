@@ -22,7 +22,7 @@
             <p>Телефон/факс: <span class="bold">02 852 47 86</span></p>
 
 
-        <h3 class="padding-top-50">Форма за контакт</h3>
+        <h3 id="contact-form" class="padding-top-50">Форма за контакт</h3>
         @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
