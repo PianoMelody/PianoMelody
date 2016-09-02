@@ -4,12 +4,16 @@
     ViewBag.Description = "";
 }
 
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        @Html.ActionLink(Resources._Edit, "Edit", new { html = "_EditAbout", returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-    </p>
-    <hr />
-}
+<div class="row">
+    <div class="col-lg-12">
+        @if (User.IsInRole("Admin"))
+        {
+            <p>
+                @Html.ActionLink(Resources._Edit, "Edit", new { html = "_EditAbout", returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+            </p>
+            <hr />
+        }
 
-@Html.Raw(Resources._EditAbout)
+        @Html.Raw(Resources._EditAbout)
+    </div>
+</div>
