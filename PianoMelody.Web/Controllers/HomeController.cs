@@ -75,6 +75,55 @@
             return this.View();
         }
 
+        // GET /EditAbout
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit(string html, string returnUrl)
+        {
+            var htmls = this.Data.Resources.GetAll().Where(r => r.Name == html).ToArray();
+            var enAbout = htmls.FirstOrDefault(l => l.Culture == "en");
+            var ruAbout = htmls.FirstOrDefault(l => l.Culture == "ru");
+            var bgAbout = htmls.FirstOrDefault(l => l.Culture == "bg");
+
+            var rbm = new ResourcesBindingModel()
+            {
+                Name = html,
+                EnValue = enAbout.Value,
+                RuValue = ruAbout.Value,
+                BgValue = bgAbout.Value
+            };
+
+            return this.View(rbm);
+        }
+
+        // GET /EditAbout
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+        public ActionResult Edit(string html, string returnUrl, ResourcesBindingModel rbm)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var htmls = this.Data.Resources.GetAll().Where(r => r.Name == html).ToArray();
+            var enAbout = htmls.FirstOrDefault(l => l.Culture == "en");
+            var ruAbout = htmls.FirstOrDefault(l => l.Culture == "ru");
+            var bgAbout = htmls.FirstOrDefault(l => l.Culture == "bg");
+
+            enAbout.Value = rbm.EnValue;
+            ruAbout.Value = rbm.RuValue;
+            bgAbout.Value = rbm.BgValue;
+
+            this.Data.SaveChanges();
+
+            Resources.Refresh();
+
+            return this.Redirect(returnUrl);
+        }
+
         // GET /SendEmail
         [HttpPost]
         [ValidateAntiForgeryToken]

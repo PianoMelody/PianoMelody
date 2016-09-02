@@ -31,6 +31,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Address</summary>
+        public static string _Address 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_Address", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Administration</summary>
         public static string _Administration 
         {
@@ -166,6 +175,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Contact form</summary>
+        public static string _ContactForm 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_ContactForm", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Create</summary>
         public static string _CreateNew 
         {
@@ -217,6 +235,33 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("_Edit", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        
+        public static string _EditAbout 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_EditAbout", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        
+        public static string _EditAddress 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_EditAddress", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        
+        public static string _EditContact 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_EditContact", CultureInfo.CurrentUICulture.Name);
             }
         }
             

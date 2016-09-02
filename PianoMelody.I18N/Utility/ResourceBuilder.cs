@@ -77,9 +77,14 @@ namespace {0}
                   }
 
                 sbKeys.Append(new String(' ', 12)); // indentation
-                  sbKeys.AppendFormat(property, key, 
-                      summaryCulture == null ? string.Empty: string.Format("/// <summary>{0}</summary>", resource.Value), 
-                      resource.Type);
+
+                string summary = string.Empty;
+                if (!resource.Value.Contains("<"))
+                {
+                    summary = string.Format("/// <summary>{0}</summary>", resource.Value);
+                }
+
+                sbKeys.AppendFormat(property, key, summaryCulture == null ? string.Empty : summary, resource.Type);
                 sbKeys.AppendLine();
             }
 
