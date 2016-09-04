@@ -10,7 +10,7 @@
                 @Resources._Administration
                 <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <ul class="dropdown-menu float-right" aria-labelledby="dropdownMenu2">
                 <li>@Html.ActionLink(Resources._Dict, "Index", "Language")</li>
                 <li>@Html.ActionLink(Resources._AddAdministrator, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                 <li>@Html.ActionLink(Resources._ChangePassword, "ChangePassword", "Profile")</li>

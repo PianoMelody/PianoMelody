@@ -385,7 +385,7 @@ header::before {
     padding: .8em;
     line-height: 1;
     font-size: 1.6rem;
-    border-bottom: none;
+    /*border-bottom: none;*/
     /* Prevent .cd-subnav-trigger flicker is Safari */
     -webkit-transform: translateZ(0);
     -moz-transform: translateZ(0);

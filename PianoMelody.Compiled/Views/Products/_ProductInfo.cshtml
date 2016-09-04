@@ -5,7 +5,7 @@
     var action = this.ViewContext.RouteData.Values["action"] as string;
 }
 
-<div class="panel-heading">
+<div class="panel-heading piano-keys">
     @Model.Name
 </div>
 <div class="panel-body">
@@ -50,14 +50,14 @@
 
     @if (Model.Multimedias != null)
     {
-        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+        <div class="my-gallery products" itemscope itemtype="http://schema.org/ImageGallery">
 
             @foreach (var multimedia in Model.Multimedias)
             {
                 var thumbElements = multimedia.Url.Split('/');
                 var thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
 
-                <figure class="col-lg-3" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <figure class="col-lg-3 padding-left-0" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                     <a href="@multimedia.Url" itemprop="contentUrl" data-size="@multimedia.DataSize">
                         <img src="@thumb" itemprop="thumbnail" alt="@multimedia.Content" />
                     </a>

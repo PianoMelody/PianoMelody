@@ -14,7 +14,7 @@
 
 @foreach (var item in Model.References)
 {
-    <article class="panel panel-default">
+    <article class="panel panel-default block">
         @Html.Partial("_ReferenceInfo", item)
 
         @if (User.IsInRole("Admin"))
