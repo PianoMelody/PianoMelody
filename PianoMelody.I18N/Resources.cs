@@ -184,6 +184,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Date created</summary>
+        public static string _Created 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_Created", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Create</summary>
         public static string _CreateNew 
         {

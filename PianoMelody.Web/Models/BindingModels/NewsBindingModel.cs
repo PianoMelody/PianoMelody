@@ -1,4 +1,5 @@
 ﻿using PianoMelody.I18N;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
@@ -6,6 +7,12 @@ namespace PianoMelody.Web.Models.BindingModels
 {
     public class NewsBindingModel
     {
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
+        [Display(Name = "_Created", ResourceType = typeof(Resources))]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime Created { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
         [Display(Name = "_EnTitle", ResourceType = typeof(Resources))]
         public string EnTitle { get; set; }

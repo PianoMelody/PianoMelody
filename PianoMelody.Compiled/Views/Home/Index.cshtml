@@ -103,7 +103,18 @@
                     {
                         <div class="col-lg-4 padding-right-0">
                             <div class="panel panel-default" onclick="$('@string.Format("#reference-{0}", news.Id)').appendTo('body').modal('show')">
-                                @Html.Partial("~/Views/News/_NewsInfo.cshtml", news)
+                                <div class="panel-heading">
+                                    @news.Created.ToShortDateString() - @news.Title
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <p class="ellipsis">
+                                                @news.Content
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

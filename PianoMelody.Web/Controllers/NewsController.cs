@@ -91,6 +91,7 @@ namespace PianoMelody.Web.Controllers
 
             var editNews = new NewsBindingModel()
             {
+                Created = currentNews.Created,
                 EnTitle = titleLocs[0].v,
                 RuTitle = titleLocs[1].v,
                 BgTitle = titleLocs[2].v,
@@ -135,6 +136,7 @@ namespace PianoMelody.Web.Controllers
                     currentNews.Multimedia = MultimediaHelper.CreateSingle(this.Server, newsBindingModel.Multimedia, this.GetBaseUrl());
                 }
 
+                currentNews.Created = newsBindingModel.Created;
                 currentNews.Title = JsonHelper.Serialize(newsBindingModel.EnTitle, newsBindingModel.RuTitle, newsBindingModel.BgTitle);
                 currentNews.Content = JsonHelper.Serialize(newsBindingModel.EnContent, newsBindingModel.RuContent, newsBindingModel.BgContent);
 
