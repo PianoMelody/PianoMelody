@@ -1101,12 +1101,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #008cba;
+  /*color: #008cba;*/
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #008cba;
+  /*color: #008cba;*/
   text-decoration: underline;
 }
 a:focus {
@@ -3094,7 +3094,7 @@ fieldset[disabled] a.btn {
 .open > .dropdown-toggle.btn-default.focus {
   color: #333333;
   background-color: #bcbcbc;
-  border-color: #8c8c8c;
+  border-color: #8c8c8c
 }
 .btn-default:active,
 .btn-default.active,
@@ -3150,8 +3150,8 @@ fieldset[disabled] .btn-default.focus {
 .btn-primary.active.focus,
 .open > .dropdown-toggle.btn-primary.focus {
   color: #ffffff;
-  background-color: #004b63;
-  border-color: #001921;
+  background-color: #666
+  border-color: #000;
 }
 .btn-primary:active,
 .btn-primary.active,

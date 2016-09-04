@@ -90,20 +90,56 @@
     </div>
 </div>
 
-@* Last 2 news *@
-<div class="row">
-    <div class="col-lg-12">
+@* Last 3 news *@
+<div class="row home">
+    <div class="col-lg-9">
         <div class="panel panel-default">
             <div class="panel-heading text-center">
-                <h3>Recent news</h3>
+                <a href="@Url.Action("Index", "News")"><h3>@Resources.News</h3></a>
             </div>
             <div class="panel-body">
                 <div class="row">
                     @foreach (var news in Model.LastNews)
                     {
-                        <div class="col-lg-6">
-                            <div class="panel panel-default">
+                        <div class="col-lg-4 padding-right-0">
+                            <div class="panel panel-default" onclick="$('@string.Format("#reference-{0}", news.Id)').appendTo('body').modal('show')">
                                 @Html.Partial("~/Views/News/_NewsInfo.cshtml", news)
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="@string.Format("reference-{0}", news.Id)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4 class="modal-title">@news.Title</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <p class="ellipsis">
+                                                    @news.Content
+                                                </p>
+
+                                                @{
+                                                    var url = "/Images/no_image.jpg";
+                                                    if (news != null && news.Multimedia != null)
+                                                    {
+                                                        url = news.Multimedia.Url;
+                                                    }
+                                                }
+
+                                                <img src="@url" alt="Alternate Text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     }
@@ -111,26 +147,59 @@
             </div>
         </div>
     </div>
-</div>
-
-@* Random reference *@
-<div class="row">
-    <div class="col-lg-12">
+    @* Random reference *@
+    <div class="col-lg-3 no-img">
         <div class="panel panel-default">
             <div class="panel-heading text-center">
-                <h3>Reference</h3>
+                <a href="@Url.Action("Index", "References")"><h3>@Resources.References</h3></a>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    @foreach (var reference in Model.RandomReferences)
-                    {
-                        <div class="col-lg-6">
-                            <div class="panel panel-default">
-                                @Html.Partial("~/Views/References/_ReferenceInfo.cshtml", reference)
+            <div class="panel-body padding-left-0">
+                @foreach (var reference in Model.RandomReferences)
+                {
+                    <div class="col-lg-12 height-120">
+                        <div class="panel panel-default width-100">
+                            <div class="panel-body">
+                                <p onclick="$('@string.Format("#reference-{0}", reference.Id)').appendTo('body').modal('show')">@reference.Title</p>
                             </div>
                         </div>
-                    }
-                </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="@string.Format("reference-{0}", reference.Id)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">@reference.Title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <p class="ellipsis">
+                                                @reference.Content
+                                            </p>
+
+                                            @{
+                                                var url = "/Images/no_image.jpg";
+                                                if (reference != null && reference.Multimedia != null)
+                                                {
+                                                    url = reference.Multimedia.Url;
+                                                }
+                                            }
+
+                                            <img src="@url" alt="Alternate Text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
@@ -140,9 +209,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading text-center">
-                <h3>Manufacturers</h3>
-            </div>
+
             <div class="panel-body">
                 <div id="manufacturers" class="owl-carousel">
                     @foreach (var manufacturer in Model.Manufacturers)

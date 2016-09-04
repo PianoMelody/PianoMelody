@@ -15,6 +15,7 @@
 }
 
 <div class="panel-heading">
+    @Model.Created.ToShortDateString() - 
     @Html.DisplayFor(modelItem => Model.Title)
 </div>
 <div class="panel-body">

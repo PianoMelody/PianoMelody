@@ -17,11 +17,11 @@
     }
 }
 
-<figure class="col-lg-6" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+<figure class="col-lg-4 photos" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <a class="gallery-photo" href="@original" itemprop="contentUrl" data-size="@dataSize">
         <img src="@thumb" itemprop="thumbnail" alt="@content" />
     </a>
-    <figcaption itemprop="caption description">@content</figcaption>
+    <p itemprop="caption description">@content</p>
     @if (User.IsInRole("Admin") && action == "Index")
     {
         <div class="btn-admin">

@@ -51,11 +51,11 @@
         <div class="container">
             <div class="col-lg-4 links">
                 <ul>
-                    <li><a href="#">За нас</a>
-                    <li><a href="#">Услуги</a>
-                    <li><a href="#">Полезна информация</a>
-                    <li><a href="#">Новини</a>
-                    <li><a href="#">Контакти</a>
+                    <li>@Html.ActionLink(Resources.About, "About", "Home")</li>
+                    <li>@Html.ActionLink(Resources.Services, "Index", "Services")</li>
+                    <li>@Html.ActionLink(Resources.Info, "Index", "Info")</li>
+                    <li>@Html.ActionLink(Resources.News, "Index", "News")</li>
+                    <li>@Html.ActionLink(Resources.Contacts, "Contact", "Home")</li>
                 </ul>
             </div>
             <div class="col-lg-4 social">

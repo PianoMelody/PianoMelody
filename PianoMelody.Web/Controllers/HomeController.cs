@@ -36,7 +36,7 @@
 
             homeViewModel.LastNews = this.Data.News.GetAll()
                                                    .OrderByDescending(n => n.Created)
-                                                   .Take(2)
+                                                   .Take(3)
                                                    .ProjectTo<NewsViewModel>()
                                                    .Localize(this.CurrentCulture, n => n.Title, n => n.Content)
                                                    .ToArray();
