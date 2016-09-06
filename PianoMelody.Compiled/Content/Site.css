@@ -49,87 +49,6 @@ body {
     bottom: 200px;
 }
 
-@media screen and (max-width: 1200px) {
-    .carousel-caption {
-        bottom: 90px;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .carousel-inner {
-        height: 398px;
-    }
-    .carousel-caption {
-        bottom: 10px;
-    }
-    .carousel-indicators {
-        bottom: 15px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .carousel-inner {
-        height: 366px;
-    }
-    .carousel-caption {
-        bottom: 20px;
-    }
-    .carousel-caption p {
-        font-size: 0.8em;
-    }
-    .carousel-indicators {
-        bottom: 10px;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .carousel-inner {
-        height: 334px;
-    }
-    .carousel-caption {
-        bottom: 15px;
-    }
-    .carousel-indicators {
-        bottom: 10px;
-    }
-}
-
-@media screen and (max-width: 620px) {
-    .carousel-inner {
-        height: 316px;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    .carousel-inner {
-        height: 272px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .carousel-inner {
-        height: 249px;
-    }
-    .carousel-caption p {
-        font-size: 0.7em;
-    }
-    .carousel-indicators {
-        bottom: 5px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .carousel-inner {
-        height: 238px;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    .carousel-caption p {
-        font-size: 0.6em;
-    }
-}
-
 h3,
 h4,
 nav {
@@ -192,7 +111,6 @@ h4 {
 
 .gallery-photo {
     float: left;
-    /*padding: 10px;*/
 }
 
 .social-icon {
@@ -282,14 +200,14 @@ figure > a {
 }
 
 .block .panel-heading {
-    height: 65px;
-    display: block;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.55;
+    /*height: 65px;*/
+    /*display: block;*/
+    /*display: -webkit-box;*/
+    /*-webkit-line-clamp: 2;*/
+    /*-webkit-box-orient: vertical;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    /*line-height: 1.55;*/
 }
 
 .block .my-gallery {
@@ -297,14 +215,14 @@ figure > a {
 }
 
 .ellipsis  {
-    display: block;
-    display: -webkit-box;
-    height: 164px;
-    -webkit-line-clamp: 7;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.5;
+    /*display: block;*/
+    /*display: -webkit-box;*/
+    /*height: 164px;*/
+    /*-webkit-line-clamp: 7;*/
+    /*-webkit-box-orient: vertical;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    /*line-height: 1.5;*/
 }
 
 /* scroll in news for mozilla and explorer
@@ -347,10 +265,6 @@ _:-moz-tree-row(hover), .ellipsis {
 
 .padding-right-0 {
     padding-right: 0;
-}
-
-.no-img img {
-    display: none;
 }
 
 .home .dl-horizontal {
@@ -492,4 +406,124 @@ footer .dropdown-menu a.active {
     max-width: 150px;
     margin-right: 10px;
     vertical-align: bottom;
+}
+
+@media screen and (max-width: 1200px) {
+    .carousel-caption {
+        bottom: 90px;
+    }
+    .height-315 {
+        height: auto;
+    }
+    .gallery .photos {
+        height: auto;
+    }
+    .gallery figure {
+        flex-wrap: nowrap;
+    }
+    .gallery figure > a {
+        width: 75%;
+    }
+    .gallery p {
+        margin: 10px 10px 5px 30px;
+    }
+    .gallery figure img {
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .carousel-inner {
+        height: 398px;
+    }
+    .carousel-caption {
+        bottom: 10px;
+    }
+    .carousel-indicators {
+        bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-inner {
+        height: 366px;
+    }
+    .carousel-caption {
+        bottom: 20px;
+    }
+    .carousel-caption p {
+        font-size: 0.8em;
+    }
+    .carousel-indicators {
+        bottom: 10px;
+    }
+    .block {
+        width: 100%;
+        height: auto;
+    }
+    .block .panel-heading {
+        height: auto;
+        display: block;
+        line-height: 1;
+    }
+    .padding-left-50 {
+        padding-left: 15px;
+    }
+    .photos img {
+        margin-left: 0;
+    }
+    .gallery figure > a {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .carousel-inner {
+        height: 334px;
+    }
+    .carousel-caption {
+        bottom: 15px;
+    }
+    .carousel-indicators {
+        bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .carousel-inner {
+        height: 316px;
+    }
+    .gallery p {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .carousel-inner {
+        height: 272px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .carousel-inner {
+        height: 249px;
+    }
+    .carousel-caption p {
+        font-size: 0.7em;
+    }
+    .carousel-indicators {
+        bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-inner {
+        height: 238px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .carousel-caption p {
+        font-size: 0.6em;
+    }
 }
