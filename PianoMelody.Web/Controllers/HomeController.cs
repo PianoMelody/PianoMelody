@@ -157,7 +157,7 @@
             //// Mailbox unavailable. The server response was: Access denied - Invalid HELO name (See RFC2821 4.1.1.1)
             //email.Send();
 
-            this.AddNotification("Enquery sent successfull", NotificationType.SUCCESS);
+            this.AddNotification("The request is sent successfully", NotificationType.SUCCESS);
             return this.RedirectToAction("Contact");
         }
     }

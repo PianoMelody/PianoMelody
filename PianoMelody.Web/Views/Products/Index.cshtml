@@ -17,19 +17,19 @@
         <div class="form-horizontal">
             @Html.Hidden("group", Request.QueryString["group"])
 
-            <div class="col-md-4">
+            <div class="col-md-4 bottom-space">
                 @Html.DropDownList("manufacturer", (IEnumerable<SelectListItem>)ViewBag.Manufacturers, Resources._Manufacturer, new { @class = "form-control" })
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 bottom-space">
                 @Html.DropDownList("condition", (IEnumerable<SelectListItem>)ViewBag.Condition, Resources._Condition, new { @class = "form-control" })
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2 bottom-space">
                 <input type="submit" value="@Resources._Filter" class="btn btn-primary form-control" />
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2 bottom-space">
                 @Html.ActionLink(Resources._Clear, "Index", new { }, new { @class = "btn btn-default form-control" })
             </div>
         </div>

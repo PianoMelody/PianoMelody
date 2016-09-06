@@ -7,6 +7,8 @@ body {
     padding-bottom: 20px;
     font-size: 16px;
     font-family: 'Marmelad', sans-serif;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 .panel-body {
@@ -408,6 +410,17 @@ footer .dropdown-menu a.active {
     vertical-align: bottom;
 }
 
+.copyright {
+    float: right;
+    margin-right: -15px;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+.bottom-space {
+    margin-bottom: 15px;
+}
+
 @media screen and (max-width: 1200px) {
     .carousel-caption {
         bottom: 90px;
@@ -449,12 +462,6 @@ footer .dropdown-menu a.active {
     .language {
         display: inline-block;
         width: 25%;
-    }
-    .copyright {
-        float: right;
-        margin-right: -15px;
-        color: #fff;
-        font-size: 0.9em;
     }
 }
 

@@ -33,7 +33,7 @@
     }
 </div>
 
-<div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+<div class="my-gallery gallery" itemscope itemtype="http://schema.org/ImageGallery">
     @foreach (var photo in Model.Where(m => m.Type == MultimediaType.PhotoElement))
     {
         @Html.Partial("_Photo", photo)
