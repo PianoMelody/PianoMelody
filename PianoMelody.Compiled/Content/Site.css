@@ -493,3 +493,26 @@ footer .dropdown-menu a.active {
     margin-right: 10px;
     vertical-align: bottom;
 }
+
+.copyright {
+    float: right;
+    margin-right: -15px;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+@media screen and (max-width: 768px) {
+    footer .links {
+        text-align: center;
+    }
+
+    .social {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .copyright {
+        float: left;
+        margin: 0;
+    }
+}

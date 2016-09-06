@@ -26,7 +26,11 @@ body {
 
 #myCarousel {
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
+}
+
+.carousel-inner {
+    height: 450px;
 }
 
 .carousel-inner > .item > img {
@@ -42,7 +46,88 @@ body {
     font-size: 2em;
     text-shadow: 2px 2px #000;
     position: absolute;
-    bottom: 5%;
+    bottom: 200px;
+}
+
+@media screen and (max-width: 1200px) {
+    .carousel-caption {
+        bottom: 90px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .carousel-inner {
+        height: 398px;
+    }
+    .carousel-caption {
+        bottom: 10px;
+    }
+    .carousel-indicators {
+        bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-inner {
+        height: 366px;
+    }
+    .carousel-caption {
+        bottom: 20px;
+    }
+    .carousel-caption p {
+        font-size: 0.8em;
+    }
+    .carousel-indicators {
+        bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .carousel-inner {
+        height: 334px;
+    }
+    .carousel-caption {
+        bottom: 15px;
+    }
+    .carousel-indicators {
+        bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .carousel-inner {
+        height: 316px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .carousel-inner {
+        height: 272px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .carousel-inner {
+        height: 249px;
+    }
+    .carousel-caption p {
+        font-size: 0.7em;
+    }
+    .carousel-indicators {
+        bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-inner {
+        height: 238px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .carousel-caption p {
+        font-size: 0.6em;
+    }
 }
 
 h3,
@@ -236,6 +321,22 @@ _:-moz-tree-row(hover), .ellipsis {
 
 */
 
+.home a {
+    color: #000;
+}
+
+.height-283 {
+    height: 283px;
+}
+
+.height-283 .panel-heading {
+    height: 87px;
+}
+
+.height-315 {
+    height: 315px;
+}
+
 .padding-left-0 {
     padding-left: 0;
 }
@@ -248,12 +349,22 @@ _:-moz-tree-row(hover), .ellipsis {
     padding-right: 0;
 }
 
-.no-img {
-    /*pa*/
-}
-
 .no-img img {
     display: none;
+}
+
+.home .dl-horizontal {
+    height: 310px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.home .products figure {
+    width: 100%;
+}
+
+.home .products figure img {
+    max-width: 320px;
 }
 
 .width-100 .row .col-lg-8 {
@@ -262,6 +373,15 @@ _:-moz-tree-row(hover), .ellipsis {
 
 .width-100 .row .col-lg-8 p {
     padding-right: 10px;
+}
+
+.home .width-100 .panel,
+.pointer {
+    cursor: pointer;
+}
+
+.margin-right-15 {
+    margin-right: 15px;
 }
 
 .height-120 {
@@ -285,20 +405,25 @@ footer .links ul li {
     padding-bottom: 5px;
 }
 
-.dropup button,
-.dropup button:hover,
-.dropup button:focus,
-.dropup button:active,
-.open > .dropdown-toggle.btn-default,
-.open > .dropdown-toggle.btn-default:hover,
-.open > .dropdown-toggle.btn-default:focus,
-.open > .dropdown-toggle.btn-default:active,
-.btn-default,
-.btn-default:hover,
-.btn-default:active:hover {
+footer .dropup button,
+footer .dropup button:hover,
+footer .dropup button:focus,
+footer .dropup button:active,
+footer .open > .dropdown-toggle.btn-default,
+footer .open > .dropdown-toggle.btn-default:hover,
+footer .open > .dropdown-toggle.btn-default:focus,
+footer .open > .dropdown-toggle.btn-default:active,
+footer .btn-default,
+footer .btn-default:hover,
+footer .btn-default:active:hover {
     background: none;
     border-color: #4c4c4c;
     color: #fff;
+}
+
+.btn-default,
+.btn-default:hover,
+.btn-default:active:hover {
     outline: none;
 }
 
@@ -321,19 +446,73 @@ footer .row {
     margin-right: 15px;
 }
 
+footer .dropdown-menu {
+    background: #000;
+}
+
+footer .dropdown-menu a:hover {
+    background-color: #4c4c4c;
+}
+
+footer .dropdown-menu a {
+    color: #ccc;
+}
+
+footer .dropdown-menu a.active {
+    color: #fff;
+    text-transform: uppercase;
+}
+
 .pull-right {
     color: #6f6f6f;
 }
 
-.owl-wrapper {
-    /*height: 90px;*/
+.modal-body .col-lg-8 {
+    width: 100%;
 }
 
-.owl-item {
-    /*height: 80px;*/
-    /*vertical-align: bottom;*/
+.modal-body .col-lg-8 img {
+    width: 100%;
 }
 
-.owl-item div {
-    /*vertical-align: bottom;*/
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.logo {
+    display: block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.manufacturer-logo {
+    margin-bottom: 20px;
+    max-width: 150px;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+
+.copyright {
+    float: right;
+    margin-right: -15px;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+@media screen and (max-width: 768px) {
+    footer .links {
+        text-align: center;
+    }
+
+    .social {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .copyright {
+        float: left;
+        margin: 0;
+    }
 }

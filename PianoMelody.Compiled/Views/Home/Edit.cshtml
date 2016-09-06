@@ -9,7 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <!-- TinyMCE Script Reference -->
-    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script>
         tinyMCE.init({
             // General options
@@ -20,10 +20,10 @@
               'advlist autolink lists link image charmap preview hr anchor pagebreak',
               'searchreplace wordcount visualblocks visualchars code fullscreen',
               'insertdatetime media nonbreaking save table contextmenu directionality',
-              'emoticons paste textcolor colorpicker textpattern imagetools'
+              'paste textcolor colorpicker textpattern imagetools'
             ],
             style_formats: [{ title: 'Bold with shadow', inline: 'span', styles: { 'text-shadow': '1px 0 0 #000, 0 1px 0 #000' } }],
-            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor emoticons',
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor',
             image_advtab: true
         });
     </script>

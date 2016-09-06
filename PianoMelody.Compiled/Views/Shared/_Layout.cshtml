@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <div class="cd-logo"><a href="@Url.Action("Index", "Home")"><img src="" alt="Melodia"></a></div>
+        <div class="cd-logo"><a href="@Url.Action("Index", "Home")"><img src="" alt="@Resources.Logo"></a></div>
         <nav class="cd-main-nav-wrapper">
             <ul class="cd-main-nav">
                 <li>@Html.ActionLink(Resources.Promotions, "Promotions", "Products")</li>
@@ -65,18 +65,18 @@
                 <a href="https://www.pinterest.com/pin/147563325269810817/" rel="alternate" target="_blank"><img src="~/Images/pinterest.png" class="social-icon" /></a>
                 <a id="viber"><img src="~/Images/viber.png" class="social-icon" /></a>
             </div>
-            <div class="col-lg-4 language">
+            <div class="col-lg-4 text-center language">
                 @Html.Partial("_SwitchLanguage")
 
                 <div class="row">
-                @if (User.IsInRole("Admin"))
-                {
-                    @Html.Partial("_LoginPartial")
-                }
-                else
-                {
-                    <p class="pull-right">&copy; @DateTime.Now.Year - @Resources.Logo</p>
-                }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.Partial("_LoginPartial")
+                    }
+                    else
+                    {
+                        <p class="copyright">&copy; @DateTime.Now.Year - @Resources.Logo</p>
+                    }
                 </div>
             </div>
         </div>
