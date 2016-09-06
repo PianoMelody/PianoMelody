@@ -430,6 +430,23 @@ footer .dropdown-menu a.active {
     .gallery figure img {
         height: auto;
     }
+    footer .links {
+        width: 30%;
+        display: inline-block;
+    }
+    .social {
+        width: 295px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 30px;
+        padding-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+    .language {
+        display: inline-block;
+        width: 25%;
+    }
     .copyright {
         float: right;
         margin-right: -15px;
@@ -447,6 +464,12 @@ footer .dropdown-menu a.active {
     }
     .carousel-indicators {
         bottom: 15px;
+    }
+    .social {
+        width: 300px;
+    }
+    .language {
+        width: 160px;
     }
 }
 
@@ -482,11 +505,21 @@ footer .dropdown-menu a.active {
         width: 100%;
     }
     footer .links {
-        text-align: center;
+        /*text-align: center;*/
+        padding-left: 25px;
     }
     .social {
-        padding-left: 0;
+        /*padding-left: 5px;*/
         text-align: center;
+    }
+    .language {
+        margin-left: 0;
+    }
+    footer .dropup .dropdown-toggle {
+        margin-left: 42px;
+    }
+    footer .dropup ~ li div a {
+        margin-left: -7px;
     }
     .copyright {
         float: left;
@@ -530,6 +563,10 @@ footer .dropdown-menu a.active {
     }
     .carousel-indicators {
         bottom: 5px;
+    }
+    .social {
+        width: 320px;
+        padding-left: 10px;
     }
 }
 
