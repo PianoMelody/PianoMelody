@@ -68,13 +68,13 @@
 <br />
 
 @* Up to 3 Promo products *@
-<div class="row">
+<div class="row home">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <a href="@Url.Action("Promotions", "Products")"><h3>@Resources.Promotions</h3></a>
             </div>
-            <div class="panel-body">
+            <div class="panel-body promo">
                 <div class="row">
                     @foreach (var product in Model.PromoProducts)
                     {
@@ -97,12 +97,12 @@
             <div class="panel-heading text-center">
                 <a href="@Url.Action("Index", "News")"><h3>@Resources.News</h3></a>
             </div>
-            <div class="panel-body">
-                <div class="row">
+            <div class="panel-body height-315">
+                <div class="row margin-right-15">
                     @foreach (var news in Model.LastNews)
                     {
-                        <div class="col-lg-4 padding-right-0">
-                            <div class="panel panel-default" onclick="$('@string.Format("#reference-{0}", news.Id)').appendTo('body').modal('show')">
+                        <div class="col-lg-4 padding-right-0 width-100">
+                            <div class="panel panel-default height-283" onclick="$('@string.Format("#reference-{0}", news.Id)').appendTo('body').modal('show')">
                                 <div class="panel-heading">
                                     @news.Created.ToShortDateString() - @news.Title
                                 </div>
@@ -164,12 +164,12 @@
             <div class="panel-heading text-center">
                 <a href="@Url.Action("Index", "References")"><h3>@Resources.References</h3></a>
             </div>
-            <div class="panel-body padding-left-0">
+            <div class="panel-body padding-left-0 height-315">
                 @foreach (var reference in Model.RandomReferences)
                 {
                     <div class="col-lg-12 height-120">
                         <div class="panel panel-default width-100">
-                            <div class="panel-body">
+                            <div class="panel-body pointer">
                                 <p onclick="$('@string.Format("#reference-{0}", reference.Id)').appendTo('body').modal('show')">@reference.Title</p>
                             </div>
                         </div>
@@ -225,8 +225,8 @@
                 <div id="manufacturers" class="owl-carousel">
                     @foreach (var manufacturer in Model.Manufacturers)
                     {
-                        <div>
-                            <a href="@manufacturer.UrlAddress" rel="alternate" target="_blank">
+                        <div><span class="helper"></span>
+                            <a class="logo" href="@manufacturer.UrlAddress" rel="alternate" target="_blank">
                                 <img src="@manufacturer.Multimedia.Url" alt="@manufacturer.Name" class="manufacturer-logo" />
                             </a>
                         </div>

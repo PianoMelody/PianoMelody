@@ -430,6 +430,12 @@ footer .dropdown-menu a.active {
     .gallery figure img {
         height: auto;
     }
+    .copyright {
+        float: right;
+        margin-right: -15px;
+        color: #fff;
+        font-size: 0.9em;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -474,6 +480,17 @@ footer .dropdown-menu a.active {
     }
     .gallery figure > a {
         width: 100%;
+    }
+    footer .links {
+        text-align: center;
+    }
+    .social {
+        padding-left: 0;
+        text-align: center;
+    }
+    .copyright {
+        float: left;
+        margin: 0;
     }
 }
 
