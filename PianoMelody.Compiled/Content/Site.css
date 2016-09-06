@@ -430,6 +430,9 @@ footer .dropdown-menu a.active {
     .gallery figure img {
         height: auto;
     }
+    .gallery-photo+p {
+        height: auto;
+    }
     footer .links {
         width: 30%;
         display: inline-block;
@@ -503,6 +506,9 @@ footer .dropdown-menu a.active {
     }
     .gallery figure > a {
         width: 100%;
+    }
+    .gallery p {
+        margin-top: 0;
     }
     footer .links {
         /*text-align: center;*/
