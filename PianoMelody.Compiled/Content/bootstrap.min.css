@@ -1458,7 +1458,8 @@ dd {
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
-    width: 160px;
+    /*width: 160px;*/
+    width: 120px;
     clear: left;
     text-align: right;
     overflow: hidden;
@@ -1466,7 +1467,8 @@ dd {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 180px;
+    /*margin-left: 180px;*/
+    margin-left: 130px;
   }
 }
 abbr[title],
@@ -6456,7 +6458,7 @@ button.close {
     padding-bottom: 30px;
   }
   .carousel-indicators {
-    bottom: 20px;
+    /*bottom: 20px;*/
   }
 }
 .clearfix:before,
