@@ -225,8 +225,8 @@
                 <div id="manufacturers" class="owl-carousel">
                     @foreach (var manufacturer in Model.Manufacturers)
                     {
-                        <div>
-                            <a href="@manufacturer.UrlAddress" rel="alternate" target="_blank">
+                        <div><span class="helper"></span>
+                            <a class="logo" href="@manufacturer.UrlAddress" rel="alternate" target="_blank">
                                 <img src="@manufacturer.Multimedia.Url" alt="@manufacturer.Name" class="manufacturer-logo" />
                             </a>
                         </div>

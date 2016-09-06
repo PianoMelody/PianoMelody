@@ -474,3 +474,22 @@ footer .dropdown-menu a.active {
 .modal-body .col-lg-8 img {
     width: 100%;
 }
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.logo {
+    display: block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.manufacturer-logo {
+    margin-bottom: 20px;
+    max-width: 150px;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
