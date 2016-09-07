@@ -129,19 +129,19 @@ namespace PianoMelody.Web.Helpers
 
         private static void CreateThumbnail(HttpServerUtilityBase server, string filePath, int width)
         {
-            Image imgPhoto = Image.FromFile(filePath);
+            using (Image imgPhoto = Image.FromFile(filePath))
+            {
+                int sourceWidth = imgPhoto.Width;
+                int sourceHeight = imgPhoto.Height;
+                int calcHeight = sourceHeight * width / sourceWidth;
 
-            int sourceWidth = imgPhoto.Width;
-            int sourceHeight = imgPhoto.Height;
-            int calcHeight = sourceHeight * width / sourceWidth;
-            
-            imgPhoto = imgPhoto.GetThumbnailImage(width, calcHeight, () => false, IntPtr.Zero);
-
-            string fileName = filePath.Split('\\').Last();
-            string path = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
-
-            imgPhoto.Save(path);
-            imgPhoto.Dispose();
+                using (Image thumbnail = imgPhoto.GetThumbnailImage(width, calcHeight, () => false, IntPtr.Zero))
+                {
+                    string fileName = filePath.Split('\\').Last();
+                    string path = Path.Combine(server.MapPath("~/Multimedia/thumbs"), fileName);
+                    thumbnail.Save(path);
+                }
+            }
         }
     }
 }

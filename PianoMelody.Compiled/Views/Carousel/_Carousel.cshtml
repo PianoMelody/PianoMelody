@@ -2,15 +2,19 @@
 
 @{
     var url = "/Images/no_image.jpg";
+    var thumb = url;
+
     if (Model != null)
     {
         url = Model.Url;
+        var thumbElements = url.Split('/');
+        thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
     }
 }
 
+<div class="panel-heading">
+    @Html.DisplayFor(modelItem => Model.Content)
+</div>
 <div class="panel-body">
-    <img src="@url" class="news-image" alt="" />
-    <p>
-        @Html.DisplayFor(modelItem => Model.Content)
-    </p>
+    <img src="@thumb" itemprop="thumbnail" alt="" />
 </div>

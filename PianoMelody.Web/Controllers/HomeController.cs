@@ -12,6 +12,8 @@
     using Extensions;
     using System.Configuration;
     using I18N;
+    using System.Net;
+    using System;
 
     public class HomeController : BaseController
     {
@@ -159,6 +161,19 @@
 
             this.AddNotification("The request is sent successfully", NotificationType.SUCCESS);
             return this.RedirectToAction("Contact");
+        }
+
+        // GET NotFound
+        public ActionResult NotFound()
+        {
+            Response.StatusCode = (int)HttpStatusCode.NotFound;
+            return this.View("NotFound");
+        }
+
+        // GET TestServerError
+        public ActionResult TestServerError()
+        {
+            throw new Exception();
         }
     }
 }

@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = Resources.Gallery;
-    var videos = Model.Where(m => m.Type == MultimediaType.VideoElement).ToArray();
+    var videos = Model.Where(m => m.Type == MultimediaType.VideoElement).OrderBy(m => m.Id).ToArray();
     bool isOdd = videos.Length % 2 == 1;
 }
 
@@ -18,7 +18,7 @@
 <div class="row">
     @for (int i = 0; i < videos.Length; i++)
     {
-        if (i == videos.Length - 1 && isOdd)
+        if (i == 0 && isOdd)
         {
             <div class="col-lg-8 col-lg-offset-2">
                 @Html.Partial("_Video", videos[i])

@@ -14,7 +14,7 @@
 
 @foreach (var item in Model)
 {
-    <article class="panel panel-default col-lg-6">
+    <article class="panel panel-default">
         @Html.Partial("_Carousel", item)
 
         @if (User.IsInRole("Admin"))

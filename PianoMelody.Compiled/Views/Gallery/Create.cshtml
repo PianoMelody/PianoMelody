@@ -97,6 +97,8 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/image-preview")
     <script>
+        $("#type option:first").attr("selected", true);
+
         $("#type").change(function () {
             if (this.value === '0') {
                 $("#create-photo").attr('class', 'show');

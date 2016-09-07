@@ -34,6 +34,7 @@ namespace PianoMelody.Web.Models.BindingModels
         public string BgDescription { get; set; }
 
         [Display(Name = "Price", ResourceType = typeof(Resources))]
+        [RegularExpression(@"^\d*(\.|,|(\.\d{1,2})|(,\d{1,2}))?$", ErrorMessage = "Invalid price")]
         public decimal? Price { get; set; }
 
         [Display(Name = "_Photo", ResourceType = typeof(Resources))]

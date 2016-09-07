@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Internal server error";
+    ViewBag.Title = "Page not found";
 }
 
 <div class="container">
@@ -10,10 +10,10 @@
                     Oops!
                 </h1>
                 <h2>
-                    500 Internal server error
+                    404 Page not found
                 </h2>
                 <div class="error-details">
-                    Sorry, an error has occured. Please contact us for more information.
+                    Sorry, an error has occured. Requested page not found!
                 </div>
                 <div class="error-actions">
                     <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-lg">
@@ -25,3 +25,4 @@
         </div>
     </div>
 </div>
+

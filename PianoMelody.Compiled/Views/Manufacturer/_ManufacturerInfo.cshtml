@@ -2,9 +2,13 @@
 
 @{
     var url = "/Images/no_image.jpg";
+    var thumb = url;
+
     if (Model != null && Model.Multimedia != null)
     {
         url = Model.Multimedia.Url;
+        var thumbElements = url.Split('/');
+        thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
     }
 }
 
@@ -12,8 +16,7 @@
     @Html.DisplayFor(modelItem => Model.Name)
 </div>
 <div class="panel-body">
-    <img src="@url" class="news-image" alt="" />
     <p>
-        <a href="@Model.UrlAddress" target="_blank" rel="nofollow">@Model.UrlAddress</a>
+        <a href="@Model.UrlAddress" target="_blank" rel="alternate"><img src="@thumb" itemprop="thumbnail" alt="" /></a>
     </p>
 </div>

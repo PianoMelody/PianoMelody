@@ -19,10 +19,10 @@
 
         @if (User.IsInRole("Admin"))
         {
-        <div class="panel-footer">
-            @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
-            @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id }, new { @class= "btn btn-danger" }) 
-        </div>
+            <div class="panel-footer">
+                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </div>
         }
     </article>
 }

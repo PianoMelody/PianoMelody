@@ -12,6 +12,17 @@
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRouteLowercase(
+                name: "NotFound",
+                url: "not-found",
+                defaults: new
+                {
+                    culture = CultureHelper.GetDefaultCulture(),
+                    controller = "Home",
+                    action = "NotFound"
+                }
+            );
+
+            routes.MapRouteLowercase(
                 name: "Admin",
                 url: "{culture}/admin",
                 defaults: new
@@ -50,17 +61,6 @@
                 defaults: new
                 {
                     culture = CultureHelper.GetDefaultCulture(),
-                    controller = "Home",
-                    action = "Index",
-                    id = UrlParameter.Optional
-                }
-            );
-
-            routes.MapRouteLowercase(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new
-                {
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional
