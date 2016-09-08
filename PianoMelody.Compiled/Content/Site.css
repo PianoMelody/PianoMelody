@@ -6,12 +6,8 @@ body {
     padding-top: 100px;
     padding-bottom: 20px;
     font-size: 16px;
-    /*font-family: 'Marmelad', sans-serif;*/
+    font-family: 'Marmelad', sans-serif;
     -webkit-backface-visibility: hidden;
-}
-
-.panel-heading {
-    font-weight: bold;
 }
 
 .panel-body {
@@ -124,10 +120,9 @@ h4 {
 }
 
 .bold {
-    font-weight: bold;
-    /*text-shadow:*/
-            /*1px 0 0 #000,*/
-            /*0 1px 0 #000;*/
+    text-shadow:
+            1px 0 0 #000,
+            0 1px 0 #000;
 }
 
 .margin-right-20 {
@@ -201,9 +196,8 @@ figure > a {
 .block {
     display: inline-block;
     vertical-align: top;
-    width: 100%;
-    /*width: 48%;*/
-    /*height: 331.5px;*/
+    width: 48%;
+    height: 331.5px;
 }
 
 .block .panel-heading {
@@ -450,9 +444,6 @@ footer .dropdown-menu a.active {
     }
     .gallery-photo+p {
         height: auto;
-    }
-    .block p {
-        padding-right: 15px;
     }
     footer .links {
         width: 30%;

@@ -4,9 +4,9 @@
     <title>@ViewBag.Title - @Resources.Logo</title>
     <meta charset="utf-8" lang="@CultureHelper.GetCurrentNeutralCulture()" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="@ViewBag.Keyword" />
     <meta name="description" content="@ViewBag.Description" />
-    <link rel="alternate" hreflang="@CultureHelper.GetCurrentNeutralCulture()" href="/" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <link rel="alternate" hreflang="@CultureHelper.GetCurrentNeutralCulture()" href="@Request.Url" />
     <link href="https://fonts.googleapis.com/css?family=Philosopher:700|Marmelad" rel="stylesheet">
 
     @Styles.Render("~/Content/css")

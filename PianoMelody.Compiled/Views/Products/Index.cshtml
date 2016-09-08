@@ -1,7 +1,40 @@
 ﻿@model PianoMelody.Web.Models.ViewModels.ProductsWithPager
 
 @{
-    ViewBag.Title = Resources.Products;
+    string group = Request.QueryString["group"] as string;
+    switch (group)
+    {
+        case "1":
+            ViewBag.Title = Resources.AcousticPianos;
+            ViewBag.Description = Resources.AcousticPianosDescription;
+            ViewBag.Keywords = Resources.AcousticPianosKeywords;
+            break;
+        case "2":
+            ViewBag.Title = Resources.DigitalPianos;
+            ViewBag.Description = Resources.DigitalPianosDescription;
+            ViewBag.Keywords = Resources.DigitalPianosKeywords;
+            break;
+        case "3":
+            ViewBag.Title = Resources.Royals;
+            ViewBag.Description = Resources.RoyalsDescription;
+            ViewBag.Keywords = Resources.RoyalsKeywords;
+            break;
+        case "4":
+            ViewBag.Title = Resources.Accordions;
+            ViewBag.Description = Resources.AccordionsDescription;
+            ViewBag.Keywords = Resources.AccordionsKeywords;
+            break;
+        case "5":
+            ViewBag.Title = Resources.Accessories;
+            ViewBag.Description = Resources.AccessoriesDescription;
+            ViewBag.Keywords = Resources.AccessoriesKeywords;
+            break;
+        default:
+            ViewBag.Title = Resources.Products;
+            ViewBag.Description = Resources.ProductsDescription;
+            ViewBag.Keywords = Resources.ProductsKeywords;
+            break;
+    }
 }
 
 @if (User.IsInRole("Admin"))
@@ -15,7 +48,7 @@
     @using (Html.BeginForm("Index", "Products", FormMethod.Get))
     {
         <div class="form-horizontal">
-            @Html.Hidden("group", Request.QueryString["group"])
+            @Html.Hidden("group", group)
 
             <div class="col-md-4 bottom-space">
                 @Html.DropDownList("manufacturer", (IEnumerable<SelectListItem>)ViewBag.Manufacturers, Resources._Manufacturer, new { @class = "form-control" })

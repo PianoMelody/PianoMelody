@@ -3,6 +3,8 @@
 
 @{
     ViewBag.Title = Resources.Gallery;
+    ViewBag.Description = Resources.GalleryDescription;
+    ViewBag.Keywords = Resources.GalleryKeywords;
     var videos = Model.Where(m => m.Type == MultimediaType.VideoElement).OrderBy(m => m.Id).ToArray();
     bool isOdd = videos.Length % 2 == 1;
 }
