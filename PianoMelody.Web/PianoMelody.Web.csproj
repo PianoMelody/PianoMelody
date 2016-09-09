@@ -253,7 +253,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\menu.css" />
     <Content Include="Content\OwlCarousel\AjaxLoader.gif" />
     <Content Include="Content\OwlCarousel\grabbing.png" />
     <Content Include="Content\OwlCarousel\owl.carousel.css" />
