@@ -4,16 +4,40 @@
     ViewBag.Keywords = Resources.AboutKeywords;
 }
 
-<div class="row">
-    <div class="col-lg-12">
-        @if (User.IsInRole("Admin"))
-        {
-            <p>
-                @Html.ActionLink(Resources._Edit, "Edit", new { html = "_EditAbout", returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-            </p>
-            <hr />
-        }
+@*<div class="row">
+        <div class="col-lg-12">
+            @if (User.IsInRole("Admin"))
+            {
+                <p>
+                    @Html.ActionLink(Resources._Edit, "Edit", new { html = "_EditAbout", returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+                </p>
+                <hr />
+            }
 
-        @Html.Raw(Resources._EditAbout)
-    </div>
-</div>
+            @Html.Raw(Resources._EditAbout)
+        </div>
+</div>*@
+
+<h3>1998г. - Създаване на пиано салон "МЕЛОДИЯ"</h3>
+<img src="../Images/IMG_0037.jpg" alt="photo" width="500" class="float-right" />
+<p>Създадохме <span class="bold">пиано салон "Мелодия"</span> преди близо 2 десетилетия през 1998 г., с идеята да предложим на българския пазар качествени <span class="bold">пиана</span> и <span class="bold">рояли</span> и компетентно и професионално обслужване. От тогава и до днес работим с голямо желание, упорит труд и уважение към клиентите. Тази наша политика ни изведе на водеща позиция и ни утвърди като <span class="bold">БЕЗСПОРЕН ЛИДЕР</span> в търговията с <span class="bold">пиана</span> и <span class="bold">рояли</span> в България.</p>
+<p>Ние сме известни с това, че сме единственият магазин в България, където <span class="bold">ВИНАГИ</span> могат да бъдат намерени качествени <span class="bold">пиана</span> и <span class="bold">рояли</span>, както НОВИ така и употребявани от най-реномирани световни марки в перфектно състояние.</p>
+<p>Предлагаме любезно и професионално обслужване от <span class="bold">консултанти</span> с <span class="bold">висше</span> музикално образование - специалност <span class="bold">пиано</span>.</p>
+<p>Разполагаме със собствен магазин в центъра на София и склад.</p>
+<p><span class="bold">Продаваме</span> и транспортираме <span class="bold">пиана</span> и <span class="bold">рояли</span> на територията на <span class="bold">цялата страна</span> и Европа.</p>
+<p>Вече 18 години развиваме успешна дейност, както в страната така и в чужбина. Имаме над <span class="bold">15 годишен опит</span> във вноса на <span class="bold">пиана</span> и <span class="bold">рояли</span> от <span class="bold">Германия</span>, <span class="bold">Чехия</span> и <span class="bold">Белгия</span> и износ за страни като <span class="bold">Гърция</span>, <span class="bold">Македония</span>, <span class="bold">Албания</span> и др.</p>
+<p>Заслужихме признанието и доверието и на чуждестранните си партньори и сме горди да бъдем официални представители и партньори на <span class="bold">най-реномираните</span> световни производители на <span class="bold">пиана</span> и <span class="bold">рояли</span> - <span class="bold">С.BECHSTEIN</span>, <span class="bold">PETROF</span>, </span><span class="bold">SAUTER</span>, <span class="bold">SEILER</span>, <span class="bold">SAMICK</span> и др.</p>
+<p>Ние сме единствената фирма в България, която има споразумение със световния лидер - <span class="bold">STEINWAY & SONS</span> за внос и обслужване на произвежданите от тях <span class="bold">висок клас пиана</span> и <span class="bold">рояли</span> на територията на <span class="bold">Република България</span>.</p>
+<p>Да се развиваме и да сме информирани за новото в бизнеса е важно за нас! Ето защо всяка година посещаваме <span class="bold">Световния музикален панаир</span> във <span class="bold">Франкфурт</span>, запознаваме се с новостите в музикалния бизнес, поддържаме добрите си бизнес взаимоотношения с нашите партньори и разширяваме сферата си на дейност.</p>
+<img src="../Images/RIM 5.2009 078.jpg" alt="photo" width="430" class="float-left" />
+<h3>Защо да изберете нас?</h3>
+<p>Защото сме:</p>
+<ul class="about-li">
+    <li>&#10004; <span class="bold">коректни</span></li>
+    <li>&#10004; <span class="bold">продаваме само проверени и качествени пиана и рояли - както нови, така и употребявани</span></li>
+    <li>&#10004; <span class="bold">няма да Ви подведем за качеството на инструментите, които предлагаме, както и за страната производител</span></li>
+    <li>&#10004; <span class="bold">ще бъдем любезни и ще отговоим на всички Ваши въпроси</span></li>
+    <li>&#10004; <span class="bold">ще спазим уговорения срок за доставка</span></li>
+    <li>&#10004; <span class="bold">ще продължим да се развиваме, защото нашите клиенти заслужават да получат най-качествените инструменти и най-добро обслужване</span></li>
+    <li>&#10004; <span class="bold">защото от 18 години сме на пазара, доказахме се и продължаваме да бъдем безспорен лидер в търговията с пиана и рояли в България</span></li>
+</ul> 
