@@ -1,8 +1,12 @@
 ﻿@model PianoMelody.Web.Models.ViewModels.ProductViewModel
 
-@{ 
-    var controller = this.ViewContext.RouteData.Values["controller"] as string;
-    var action = this.ViewContext.RouteData.Values["action"] as string;
+@using PianoMelody.Web.Extensions
+
+@{
+    string controller = this.ViewContext.RouteData.Values["controller"] as string;
+    string action = this.ViewContext.RouteData.Values["action"] as string;
+    string look = this.Session["look"] as string;
+    string desc = Model.Description.ToFixedLenght(12);
 }
 
 <div class="panel-heading piano-keys">
@@ -22,6 +26,11 @@
                 <dd>@Model.Price BGN</dd>
             }
         }
+        else
+        {
+            <dt>&nbsp</dt>
+            <dd>&nbsp</dd>
+        }
 
         <dt>@Resources._Manufacturer:</dt>
         <dd>@Model.ManufacturerName</dd>
@@ -40,8 +49,16 @@
             <dd>@Resources._SecondHand</dd>
         }
 
-        <dt>@Resources._Description:</dt>
-        <dd>@Model.Description</dd>
+        @if (look == "grid")
+        {
+            <dt>@Resources._Description:</dt>
+            <dd>@desc</dd>
+        }
+        else
+        {
+            <dt>@Resources._Description:</dt>
+            <dd>@Model.Description</dd>
+        }
     </dl>
 
     <p>
@@ -57,14 +74,17 @@
                 var thumbElements = multimedia.Url.Split('/');
                 var thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
 
-                <figure class="col-lg-3 padding-left-0" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <figure class="padding-left-0" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                     <a href="@multimedia.Url" itemprop="contentUrl" data-size="@multimedia.DataSize">
                         <img src="@thumb" itemprop="thumbnail" alt="@multimedia.Content" />
                     </a>
+
+
                     <figcaption itemprop="caption description">@multimedia.Content</figcaption>
+
                 </figure>
 
-                if (controller == "Home" && action == "Index")
+                if ((controller == "Home" && action == "Index") || look == "grid")
                 {
                     break;
                 }
