@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ReferencesController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\Pager.cs" />
     <Compile Include="Models\BindingModels\CarouselBindingModel.cs" />
     <Compile Include="Models\BindingModels\EmailBindingModel.cs" />
@@ -872,6 +873,8 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Products\_ProductAdmin.cshtml" />
+    <Content Include="Views\Products\_ProductsFilter.cshtml" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

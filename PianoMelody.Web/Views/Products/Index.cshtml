@@ -2,6 +2,8 @@
 
 @{
     string group = Request.QueryString["group"] as string;
+    string look = this.Session["look"] as string;
+
     switch (group)
     {
         case "1":
@@ -37,72 +39,29 @@
     }
 }
 
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        @Html.ActionLink(Resources._CreateNew, "Create", new { returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-    </p>
-    <hr />
-}
+@Html.Partial("_ProductsFilter")
+
 <div class="row">
-    @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+    @foreach (var product in Model.Products)
     {
-        <div class="form-horizontal">
-            @Html.Hidden("group", group)
-
-            <div class="col-md-4 bottom-space">
-                @Html.DropDownList("manufacturer", (IEnumerable<SelectListItem>)ViewBag.Manufacturers, Resources._Manufacturer, new { @class = "form-control" })
-            </div>
-
-            <div class="col-md-4 bottom-space">
-                @Html.DropDownList("condition", (IEnumerable<SelectListItem>)ViewBag.Condition, Resources._Condition, new { @class = "form-control" })
-            </div>
-
-            <div class="col-md-2 bottom-space">
-                <input type="submit" value="@Resources._Filter" class="btn btn-primary form-control" />
-            </div>
-
-            <div class="col-md-2 bottom-space">
-                @Html.ActionLink(Resources._Clear, "Index", new { }, new { @class = "btn btn-default form-control" })
-            </div>
-        </div>
-    }
-</div>
-<hr />
-@foreach (var item in Model.Products)
-{
-    <article class="panel panel-default">
-        @Html.Partial("_ProductInfo", item)
-
-        @if (User.IsInRole("Admin"))
-                {
-            <div class="panel-footer">
-                @using (Html.BeginForm("Up", "Products", new { id = item.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
-                    {
-                    @Html.AntiForgeryToken()
-
-                    <button type="submit" class="btn btn-success btn-inline">
-                        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-                        @item.Position
-                    </button>
-                }
-
-                @using (Html.BeginForm("Down", "Products", new { id = item.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
-                    {
-                    @Html.AntiForgeryToken()
-
-                    <button type="submit" class="btn btn-warning btn-inline">
-                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                        @item.Position
-                    </button>
-                }
-
-                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
+        if (look != "grid")
+        {
+            <article class="panel panel-default">
+                @Html.Partial("_ProductInfo", product)
+                @Html.Partial("_ProductAdmin", product)
+            </article>
+        }
+        else
+        {
+            <div class="col-lg-4 col-md-4">
+                <article class="panel panel-default">
+                    @Html.Partial("_ProductInfo", product)
+                    @Html.Partial("_ProductAdmin", product)
+                </article>
             </div>
         }
-    </article>
-}
+    }
+</div>
 
 <div class="row">
     @Html.Partial("_Pager", Model.Pager)
