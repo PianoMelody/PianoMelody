@@ -1,0 +1,29 @@
+﻿@model PianoMelody.Web.Models.ViewModels.ProductViewModel
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="panel-footer">
+        @using (Html.BeginForm("Up", "Products", new { id = Model.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <button type="submit" class="btn btn-success btn-inline">
+                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                @Model.Position
+            </button>
+        }
+
+        @using (Html.BeginForm("Down", "Products", new { id = Model.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <button type="submit" class="btn btn-warning btn-inline">
+                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                @Model.Position
+            </button>
+        }
+
+        @Html.ActionLink(Resources._Edit, "Edit", new { id = Model.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(Resources._Delete, "Delete", new { id = Model.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
+    </div>
+}

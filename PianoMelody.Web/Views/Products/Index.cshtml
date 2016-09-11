@@ -1,75 +1,67 @@
 ﻿@model PianoMelody.Web.Models.ViewModels.ProductsWithPager
 
 @{
-    ViewBag.Title = Resources.Products;
-}
+    string group = Request.QueryString["group"] as string;
+    string look = this.Session["look"] as string;
 
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        @Html.ActionLink(Resources._CreateNew, "Create", new { returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-    </p>
-    <hr />
-}
-<div class="row">
-    @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+    switch (group)
     {
-        <div class="form-horizontal">
-            @Html.Hidden("group", Request.QueryString["group"])
-
-            <div class="col-md-4 bottom-space">
-                @Html.DropDownList("manufacturer", (IEnumerable<SelectListItem>)ViewBag.Manufacturers, Resources._Manufacturer, new { @class = "form-control" })
-            </div>
-
-            <div class="col-md-4 bottom-space">
-                @Html.DropDownList("condition", (IEnumerable<SelectListItem>)ViewBag.Condition, Resources._Condition, new { @class = "form-control" })
-            </div>
-
-            <div class="col-md-2 bottom-space">
-                <input type="submit" value="@Resources._Filter" class="btn btn-primary form-control" />
-            </div>
-
-            <div class="col-md-2 bottom-space">
-                @Html.ActionLink(Resources._Clear, "Index", new { }, new { @class = "btn btn-default form-control" })
-            </div>
-        </div>
+        case "1":
+            ViewBag.Title = Resources.AcousticPianos;
+            ViewBag.Description = Resources.AcousticPianosDescription;
+            ViewBag.Keywords = Resources.AcousticPianosKeywords;
+            break;
+        case "2":
+            ViewBag.Title = Resources.DigitalPianos;
+            ViewBag.Description = Resources.DigitalPianosDescription;
+            ViewBag.Keywords = Resources.DigitalPianosKeywords;
+            break;
+        case "3":
+            ViewBag.Title = Resources.Royals;
+            ViewBag.Description = Resources.RoyalsDescription;
+            ViewBag.Keywords = Resources.RoyalsKeywords;
+            break;
+        case "4":
+            ViewBag.Title = Resources.Accordions;
+            ViewBag.Description = Resources.AccordionsDescription;
+            ViewBag.Keywords = Resources.AccordionsKeywords;
+            break;
+        case "5":
+            ViewBag.Title = Resources.Accessories;
+            ViewBag.Description = Resources.AccessoriesDescription;
+            ViewBag.Keywords = Resources.AccessoriesKeywords;
+            break;
+        default:
+            ViewBag.Title = Resources.Products;
+            ViewBag.Description = Resources.ProductsDescription;
+            ViewBag.Keywords = Resources.ProductsKeywords;
+            break;
     }
-</div>
-<hr />
-@foreach (var item in Model.Products)
-{
-    <article class="panel panel-default">
-        @Html.Partial("_ProductInfo", item)
+}
 
-        @if (User.IsInRole("Admin"))
-                {
-            <div class="panel-footer">
-                @using (Html.BeginForm("Up", "Products", new { id = item.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
-                    {
-                    @Html.AntiForgeryToken()
+@Html.Partial("_ProductsFilter")
 
-                    <button type="submit" class="btn btn-success btn-inline">
-                        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-                        @item.Position
-                    </button>
-                }
-
-                @using (Html.BeginForm("Down", "Products", new { id = item.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
-                    {
-                    @Html.AntiForgeryToken()
-
-                    <button type="submit" class="btn btn-warning btn-inline">
-                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                        @item.Position
-                    </button>
-                }
-
-                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
+<div class="row">
+    @foreach (var product in Model.Products)
+    {
+        if (look != "grid")
+        {
+            <article class="panel panel-default">
+                @Html.Partial("_ProductInfo", product)
+                @Html.Partial("_ProductAdmin", product)
+            </article>
+        }
+        else
+        {
+            <div class="col-lg-4 col-md-4">
+                <article class="panel panel-default">
+                    @Html.Partial("_ProductInfo", product)
+                    @Html.Partial("_ProductAdmin", product)
+                </article>
             </div>
         }
-    </article>
-}
+    }
+</div>
 
 <div class="row">
     @Html.Partial("_Pager", Model.Pager)

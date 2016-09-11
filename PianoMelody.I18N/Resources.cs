@@ -715,6 +715,105 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Melodia</summary>
+        public static string AboutDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AboutDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Melodia</summary>
+        public static string AboutKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AboutKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Accessories</summary>
+        public static string Accessories 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("Accessories", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Accessories, stools and metronoms</summary>
+        public static string AccessoriesDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AccessoriesDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>accessories,stools,metronoms</summary>
+        public static string AccessoriesKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AccessoriesKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Accordions</summary>
+        public static string Accordions 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("Accordions", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Accordions new and second hand</summary>
+        public static string AccordionsDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AccordionsDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>accordion,accordions</summary>
+        public static string AccordionsKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AccordionsKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Acoustic pianos</summary>
+        public static string AcousticPianos 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AcousticPianos", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Acoustic pianos</summary>
+        public static string AcousticPianosDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AcousticPianosDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>акустични,пиана</summary>
+        public static string AcousticPianosKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("AcousticPianosKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>All</summary>
         public static string All 
         {
@@ -733,6 +832,51 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Address, contacts and working time</summary>
+        public static string ContactsDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("ContactsDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>address,contact,contacts,working time</summary>
+        public static string ContactsKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("ContactsKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Digital pianos</summary>
+        public static string DigitalPianos 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("DigitalPianos", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Digital pianos</summary>
+        public static string DigitalPianosDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("DigitalPianosDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>digital,pianos</summary>
+        public static string DigitalPianosKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("DigitalPianosKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Gallery</summary>
         public static string Gallery 
         {
@@ -742,12 +886,48 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Home</summary>
+        /// <summary>Video and photo content about us</summary>
+        public static string GalleryDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("GalleryDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>video,photo,multimedia,content</summary>
+        public static string GalleryKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("GalleryKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Piano salon</summary>
         public static string Home 
         {
             get 
             {
                 return (string) resourceProvider.GetResource("Home", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Melody piano lounge, sale of pianos, new and used</summary>
+        public static string HomeDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("HomeDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Melody piano lounge, piano, grand piano, royals, used piano, music, music store, metronomes, guitar, accordion, music, piano bar, stools</summary>
+        public static string HomeKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("HomeKeywords", CultureInfo.CurrentUICulture.Name);
             }
         }
             
@@ -760,7 +940,25 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Piano</summary>
+        /// <summary>Useful information</summary>
+        public static string InfoDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("InfoDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>useful,information,info,about,pianos</summary>
+        public static string InfoKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("InfoKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Melodia</summary>
         public static string Logo 
         {
             get 
@@ -775,6 +973,24 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("News", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Our news</summary>
+        public static string NewsDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("NewsDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>news,media</summary>
+        public static string NewsKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("NewsKeywords", CultureInfo.CurrentUICulture.Name);
             }
         }
             
@@ -796,12 +1012,48 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Our products are pianos, royals and accessoaries</summary>
+        public static string ProductsDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("ProductsDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>products,pianos,royals,accessoaries</summary>
+        public static string ProductsKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("ProductsKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Promotions</summary>
         public static string Promotions 
         {
             get 
             {
                 return (string) resourceProvider.GetResource("Promotions", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Promotions pianos, royals and accessories</summary>
+        public static string PromotionsDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("PromotionsDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>promotion,promotions</summary>
+        public static string PromotionsKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("PromotionsKeywords", CultureInfo.CurrentUICulture.Name);
             }
         }
             
@@ -814,12 +1066,75 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Our references </summary>
+        public static string ReferencesDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("ReferencesDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>References</summary>
+        public static string ReferencesKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("ReferencesKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Royals</summary>
+        public static string Royals 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("Royals", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Royals new and second hand</summary>
+        public static string RoyalsDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("RoyalsDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>royals,grand pianos</summary>
+        public static string RoyalsKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("RoyalsKeywords", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Services</summary>
         public static string Services 
         {
             get 
             {
                 return (string) resourceProvider.GetResource("Services", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Piano lessons</summary>
+        public static string ServicesDescription 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("ServicesDescription", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Lessons</summary>
+        public static string ServicesKeywords 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("ServicesKeywords", CultureInfo.CurrentUICulture.Name);
             }
         }
 

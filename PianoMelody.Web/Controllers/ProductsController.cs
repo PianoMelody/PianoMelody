@@ -58,6 +58,38 @@ namespace PianoMelody.Web.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
+        public ActionResult Promotions(int? manufacturer, int? condition)
+        {
+            this.LoadFilterLists(null, condition);
+
+            var products = this.Data.Products.GetAll().Where(p => p.PromoPrice != null);
+
+            if (manufacturer != null)
+            {
+                products = products.Where(p => p.Manufacturer.Id == manufacturer);
+            }
+
+            if (condition != null)
+            {
+                bool isNew = condition != 0;
+                products = products.Where(p => p.IsNew == isNew);
+            }
+
+            var productsView = products.OrderBy(a => a.Position)
+                                       .ProjectTo<ProductViewModel>()
+                                       .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
+
+            return View(productsView);
+        }
+
+        [AllowAnonymous]
+        public ActionResult SetView(string look, string returnUrl)
+        {
+            this.Session["look"] = look;
+            return Redirect(returnUrl);
+        }
+
         [ChildActionOnly]
         [AllowAnonymous]
         public ActionResult Menu()
@@ -72,17 +104,6 @@ namespace PianoMelody.Web.Controllers
         {
             this.LoadDropdownLists();
             return View();
-        }
-
-        [AllowAnonymous]
-        public ActionResult Promotions()
-        {
-            var productsView = this.Data.Products.GetAll().Where(p => p.PromoPrice != null)
-                                                          .OrderBy(a => a.Position)
-                                                          .ProjectTo<ProductViewModel>()
-                                                          .Localize(this.CurrentCulture, a => a.Name, a => a.Description, a => a.ArticleGroupName, a => a.ManufacturerName);
-
-            return View(productsView);
         }
 
         [HttpPost]

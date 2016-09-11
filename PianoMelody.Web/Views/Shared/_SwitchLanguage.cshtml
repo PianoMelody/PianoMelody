@@ -14,27 +14,10 @@
     string languageImage = "/Images/" + CultureHelper.GetCurrentNeutralCulture() + ".png";
 }
 
-<ul class="nav navbar-nav float-right">
-    <li class="dropup">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="@languageImage" alt="@CultureHelper.GetCurrentNeutralCulture()" />
-            @switch (@CultureHelper.GetCurrentNeutralCulture())
-            {
-                case "bg":
-                    <span>Български</span>
-                    break;
-                case "en":
-                    <span>English</span>
-                    break;
-                case "ru":
-                    <span>Русский</span>
-                    break;
-                default:
-                    break;
-            }
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="@languageImage" alt="@CultureHelper.GetCurrentNeutralCulture()" /><span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
             <li>
                 <a href='@BgUrl'>
                     <img src='@Url.Content("~/Images/bg.png")' /> Български
