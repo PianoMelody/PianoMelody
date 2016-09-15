@@ -327,18 +327,18 @@ if (typeof jQuery === 'undefined') {
     this.options.pause == 'hover' && !('ontouchstart' in document.documentElement) && this.$element
       .on('mouseenter.bs.carousel', $.proxy(this.pause, this))
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
-  }
+  };
 
-  Carousel.VERSION  = '3.3.7'
+  Carousel.VERSION  = '3.3.7';
 
-  Carousel.TRANSITION_DURATION = 600
+  Carousel.TRANSITION_DURATION = 200;
 
   Carousel.DEFAULTS = {
-    interval: 5000,
+    interval: 100,
     pause: 'hover',
     wrap: true,
     keyboard: true
-  }
+  };
 
   Carousel.prototype.keydown = function (e) {
     if (/input|textarea/i.test(e.target.tagName)) return
