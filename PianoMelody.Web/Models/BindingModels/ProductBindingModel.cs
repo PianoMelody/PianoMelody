@@ -46,6 +46,9 @@ namespace PianoMelody.Web.Models.BindingModels
         [Display(Name = "_IsNew", ResourceType = typeof(Resources))]
         public bool IsNew { get; set; }
 
+        [Display(Name = "_IsSold", ResourceType = typeof(Resources))]
+        public bool IsSold { get; set; }
+
         [Display(Name = "_ArticleGroup", ResourceType = typeof(Resources))]
         public int? ArticleGroupId { get; set; }
 

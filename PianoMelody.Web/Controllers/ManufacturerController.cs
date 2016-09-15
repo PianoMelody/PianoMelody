@@ -60,6 +60,7 @@ namespace PianoMelody.Web.Controllers
                 var manufacturer = new Manufacturer()
                 {
                     Name = JsonHelper.Serialize(manufacturerBindingModel.EnName, manufacturerBindingModel.RuName, manufacturerBindingModel.BgName),
+                    AreWeAgent = manufacturerBindingModel.AreWeAgent,
                     UrlAddress = manufacturerBindingModel.UrlAddress,
                     Multimedia = multimedia
                 };
@@ -90,6 +91,7 @@ namespace PianoMelody.Web.Controllers
                 EnName = nameLocs[0].v,
                 RuName = nameLocs[1].v,
                 BgName = nameLocs[2].v,
+                AreWeAgent = currentManufacturer.AreWeAgent,
                 UrlAddress = currentManufacturer.UrlAddress
             };
 
@@ -130,6 +132,7 @@ namespace PianoMelody.Web.Controllers
                 }
 
                 currentManufacturer.Name = JsonHelper.Serialize(manufacturerBindingModel.EnName, manufacturerBindingModel.RuName, manufacturerBindingModel.BgName);
+                currentManufacturer.AreWeAgent = manufacturerBindingModel.AreWeAgent;
                 currentManufacturer.UrlAddress = manufacturerBindingModel.UrlAddress;
 
                 this.Data.SaveChanges();

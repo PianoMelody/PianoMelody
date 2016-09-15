@@ -13,6 +13,8 @@ namespace PianoMelody.Web.Models.ViewModels
         [Localized]
         public string Name { get; set; }
 
+        public bool AreWeAgent { get; set; }
+
         public string UrlAddress { get; set; }
 
         public Multimedia Multimedia { get; set; }

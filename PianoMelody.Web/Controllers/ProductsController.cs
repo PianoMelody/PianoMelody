@@ -126,6 +126,7 @@ namespace PianoMelody.Web.Controllers
                     Price = productBindingModel.Price,
                     PromoPrice = productBindingModel.PromoPrice,
                     IsNew = productBindingModel.IsNew,
+                    IsSold = productBindingModel.IsSold,
                     ArticleGroupId = productBindingModel.ArticleGroupId,
                     ManufacturerId = productBindingModel.ManufacturerId
                 };
@@ -175,6 +176,7 @@ namespace PianoMelody.Web.Controllers
                 Price = currentProduct.Price,
                 PromoPrice = currentProduct.PromoPrice,
                 IsNew = currentProduct.IsNew,
+                IsSold = currentProduct.IsSold,
                 ArticleGroupId = currentProduct.ArticleGroupId,
                 ManufacturerId = currentProduct.ManufacturerId,
             };
@@ -207,6 +209,7 @@ namespace PianoMelody.Web.Controllers
                 currentProduct.Price = productBindingModel.Price;
                 currentProduct.PromoPrice = productBindingModel.PromoPrice;
                 currentProduct.IsNew = productBindingModel.IsNew;
+                currentProduct.IsSold = productBindingModel.IsSold;
                 currentProduct.ArticleGroupId = productBindingModel.ArticleGroupId;
                 currentProduct.ManufacturerId = productBindingModel.ManufacturerId;
 

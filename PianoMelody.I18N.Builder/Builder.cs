@@ -12,7 +12,7 @@
         static void Main()
         {
             var builder = new ResourceBuilder();
-            var resourceProvider = new DbResourceProvider(@"Data Source=.;Initial Catalog=PianoMelody;Integrated Security=True;Pooling=False");
+            var resourceProvider = new DbResourceProvider(@"Data Source=.;Initial Catalog=piano_462;Integrated Security=True;Pooling=False");
             string path = Directory.GetCurrentDirectory().Replace(".Builder\\bin\\Debug", "\\Resources.cs");
             string filePath = builder.Create(resourceProvider, filePath: path, summaryCulture: "en");
             Console.WriteLine("Resource file {0} created.", filePath);

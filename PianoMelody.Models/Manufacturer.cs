@@ -17,6 +17,8 @@ namespace PianoMelody.Models
 
         public string Name { get; set; }
 
+        public bool AreWeAgent { get; set; }
+
         public string UrlAddress { get; set; }
 
         public virtual Multimedia Multimedia { get; set; }
