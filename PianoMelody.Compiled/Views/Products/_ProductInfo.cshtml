@@ -49,6 +49,17 @@
             <dd>@Resources._SecondHand</dd>
         }
 
+        @if (Model.IsSold)
+        {
+            <dt>@Resources._Availability:</dt>
+            <dd>@Resources._SoldOut</dd>
+        }
+        else
+        {
+            <dt>@Resources._Availability:</dt>
+            <dd>@Resources._InStock</dd>
+        }
+
         @if (look == "grid")
         {
             <dt>@Resources._Description:</dt>

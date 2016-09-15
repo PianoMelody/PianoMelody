@@ -18,6 +18,9 @@ namespace PianoMelody.Web.Models.BindingModels
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
         public string BgName { get; set; }
 
+        [Display(Name = "_AreWeAgent", ResourceType = typeof(Resources))]
+        public bool AreWeAgent { get; set; }
+
         [Display(Name = "_UrlAddress", ResourceType = typeof(Resources))]
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
         public string UrlAddress { get; set; }

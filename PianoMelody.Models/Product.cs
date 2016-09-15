@@ -27,6 +27,8 @@ namespace PianoMelody.Models
 
         public bool IsNew { get; set; }
 
+        public bool IsSold { get; set; }
+
         public int? ArticleGroupId { get; set; }
 
         public virtual ArticleGroup ArtilceGroup { get; set; }

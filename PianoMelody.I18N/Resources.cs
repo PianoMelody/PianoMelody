@@ -49,6 +49,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Are we agent</summary>
+        public static string _AreWeAgent 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_AreWeAgent", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Are you sure you want to delete this?</summary>
         public static string _AreYouSure 
         {
@@ -82,6 +91,15 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("_AskAbout", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Availability</summary>
+        public static string _Availability 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_Availability", CultureInfo.CurrentUICulture.Name);
             }
         }
             
@@ -382,12 +400,30 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>In stock</summary>
+        public static string _InStock 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_InStock", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>New</summary>
         public static string _IsNew 
         {
             get 
             {
                 return (string) resourceProvider.GetResource("_IsNew", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Is sold</summary>
+        public static string _IsSold 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_IsSold", CultureInfo.CurrentUICulture.Name);
             }
         }
             
@@ -658,6 +694,15 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("_Service", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Sold out</summary>
+        public static string _SoldOut 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_SoldOut", CultureInfo.CurrentUICulture.Name);
             }
         }
             

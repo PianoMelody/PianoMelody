@@ -25,6 +25,8 @@ namespace PianoMelody.Web.Models.ViewModels
 
         public bool IsNew { get; set; }
 
+        public bool IsSold { get; set; }
+
         [Localized]
         public string ArticleGroupName { get; set; }
 
