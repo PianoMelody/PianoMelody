@@ -7,7 +7,7 @@
 @if (User.IsInRole("Admin"))
 {
     <p>
-        @Html.ActionLink(Resources._CreateNew, "Create", new { }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(Resources._CreateNew, "Create", new { returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
     </p>
     <hr />
 }
@@ -19,8 +19,8 @@
         {
             <div class="panel-body">
                 <p>@Html.DisplayFor(modelItem => item.Name)</p>
-                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
             </div>
         }
     </article>

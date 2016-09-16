@@ -4,11 +4,11 @@
     using System.Web;
     using System.Web.Mvc;
 
-    using Extensions;
-    using Models.ViewModels;
-
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
+
+    using Extensions;
+    using Models.ViewModels;
 
     [Authorize(Roles = "Admin")]
     public class ProfileController : BaseController

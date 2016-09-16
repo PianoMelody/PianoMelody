@@ -9,7 +9,7 @@
 }
 <h2>@Resources._Edit @Resources._Manufacturer</h2>
 <hr />
-@using (Html.BeginForm("Edit", "Manufacturer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Manufacturer", new { returnUrl = this.Request.QueryString["returnUrl"] }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

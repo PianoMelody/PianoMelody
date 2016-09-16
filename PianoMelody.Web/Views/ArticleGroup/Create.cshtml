@@ -7,7 +7,7 @@
 <h2>@Resources._CreateNew @Resources._ArticleGroup</h2>
 <hr />
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "ArticleGroup", new { returnUrl = this.Request.QueryString["returnUrl"] }, FormMethod.Post, new { }))
 {
     @Html.AntiForgeryToken()
     

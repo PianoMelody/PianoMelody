@@ -1,17 +1,20 @@
-﻿using AutoMapper.QueryableExtensions;
-using OrangeJetpack.Localization;
-using PianoMelody.Web.Models.BindingModels;
-using PianoMelody.Web.Models.ViewModels;
-using System.Linq;
-using System.Web.Mvc;
-using PianoMelody.Web.Helpers;
-using PianoMelody.Models.Enumetations;
-using PianoMelody.Web.Extensions;
-using System;
-using PianoMelody.Models;
-
-namespace PianoMelody.Web.Controllers
+﻿namespace PianoMelody.Web.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using OrangeJetpack.Localization;
+
+    using Extensions;
+    using Helpers;
+    using Models.BindingModels;
+    using Models.ViewModels;
+
+    using PianoMelody.Models;
+    using PianoMelody.Models.Enumetations;
+
     [Authorize(Roles = "Admin")]
     public class GalleryController : BaseController
     {
@@ -35,54 +38,47 @@ namespace PianoMelody.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(GalleryBindingModel galleryBindingModel)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                if (!this.ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var content = JsonHelper.Serialize(galleryBindingModel.EnContent, galleryBindingModel.RuContent, galleryBindingModel.BgContent);
-
-                Multimedia multimedia = null;
-
-                if (galleryBindingModel.Multimedia != null)
-                {
-                    multimedia = MultimediaHelper.CreateSingle
-                    (
-                        this.Server,
-                        galleryBindingModel.Multimedia,
-                        this.GetBaseUrl(),
-                        MultimediaType.PhotoElement,
-                        content
-                    );
-                }
-                else if (galleryBindingModel.Url != null)
-                {
-                    multimedia = new Multimedia
-                    {
-                        Created = DateTime.Now,
-                        Type = MultimediaType.VideoElement,
-                        Content = content,
-                        Url = galleryBindingModel.Url
-                    };
-                }
-
-                if (multimedia == null)
-                {
-                    this.AddNotification(I18N.Resources._ErrSelectMultimedia, NotificationType.ERROR);
-                    return this.View();
-                }
-
-                this.Data.Multimedia.Add(multimedia);
-                this.Data.SaveChanges();
-                
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var content = JsonHelper.Serialize(galleryBindingModel.EnContent, galleryBindingModel.RuContent, galleryBindingModel.BgContent);
+
+            Multimedia multimedia = null;
+
+            if (galleryBindingModel.Multimedia != null)
             {
-                return View();
+                multimedia = MultimediaHelper.CreateSingle
+                (
+                    this.Server,
+                    galleryBindingModel.Multimedia,
+                    this.GetBaseUrl(),
+                    MultimediaType.PhotoElement,
+                    content
+                );
             }
+            else if (galleryBindingModel.Url != null)
+            {
+                multimedia = new Multimedia
+                {
+                    Created = DateTime.Now,
+                    Type = MultimediaType.VideoElement,
+                    Content = content,
+                    Url = galleryBindingModel.Url
+                };
+            }
+
+            if (multimedia == null)
+            {
+                this.AddNotification(I18N.Resources._ErrSelectMultimedia, NotificationType.ERROR);
+                return this.View();
+            }
+
+            this.Data.Multimedia.Add(multimedia);
+            this.Data.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)
@@ -111,52 +107,45 @@ namespace PianoMelody.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, GalleryBindingModel galleryBindingModel)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                if (!this.ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var currentGalleryElement = this.Data.Multimedia.Find(id);
-                if (currentGalleryElement == null)
-                {
-                    return this.View();
-                }
-
-                currentGalleryElement.Content = JsonHelper.Serialize(galleryBindingModel.EnContent, galleryBindingModel.RuContent, galleryBindingModel.BgContent);
-
-                if (galleryBindingModel.Type == MultimediaType.PhotoElement)
-                {
-                    if (galleryBindingModel.Multimedia != null)
-                    {
-                        MultimediaHelper.DeleteSingle(this.Server, currentGalleryElement);
-
-                        var multimedia = MultimediaHelper.CreateSingle
-                            (
-                                this.Server,
-                                galleryBindingModel.Multimedia,
-                                this.GetBaseUrl(),
-                                MultimediaType.PhotoElement,
-                                currentGalleryElement.Content
-                            );
-
-                        currentGalleryElement.Url = multimedia.Url;
-                    }
-                }
-                else if (galleryBindingModel.Type == MultimediaType.VideoElement)
-                {
-                    currentGalleryElement.Url = galleryBindingModel.Url;
-                }
-
-                this.Data.SaveChanges();
-
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var currentGalleryElement = this.Data.Multimedia.Find(id);
+            if (currentGalleryElement == null)
             {
-                return View();
+                return this.View();
             }
+
+            currentGalleryElement.Content = JsonHelper.Serialize(galleryBindingModel.EnContent, galleryBindingModel.RuContent, galleryBindingModel.BgContent);
+
+            if (galleryBindingModel.Type == MultimediaType.PhotoElement)
+            {
+                if (galleryBindingModel.Multimedia != null)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentGalleryElement);
+
+                    var multimedia = MultimediaHelper.CreateSingle
+                        (
+                            this.Server,
+                            galleryBindingModel.Multimedia,
+                            this.GetBaseUrl(),
+                            MultimediaType.PhotoElement,
+                            currentGalleryElement.Content
+                        );
+
+                    currentGalleryElement.Url = multimedia.Url;
+                }
+            }
+            else if (galleryBindingModel.Type == MultimediaType.VideoElement)
+            {
+                currentGalleryElement.Url = galleryBindingModel.Url;
+            }
+
+            this.Data.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
@@ -176,33 +165,26 @@ namespace PianoMelody.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, GalleryViewModel galleryViewModel)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                if (!this.ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var currentGalleryElement = this.Data.Multimedia.Find(id);
-                if (currentGalleryElement == null)
-                {
-                    return this.View();
-                }
-
-                if (currentGalleryElement.Type == MultimediaType.PhotoElement)
-                {
-                    MultimediaHelper.DeleteSingle(this.Server, currentGalleryElement);
-                }
-
-                this.Data.Multimedia.Delete(currentGalleryElement);
-                this.Data.SaveChanges();
-
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var currentGalleryElement = this.Data.Multimedia.Find(id);
+            if (currentGalleryElement == null)
             {
-                return View();
+                return this.View();
             }
+
+            if (currentGalleryElement.Type == MultimediaType.PhotoElement)
+            {
+                MultimediaHelper.DeleteSingle(this.Server, currentGalleryElement);
+            }
+
+            this.Data.Multimedia.Delete(currentGalleryElement);
+            this.Data.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

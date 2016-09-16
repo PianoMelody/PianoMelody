@@ -7,7 +7,7 @@
 <h2>@Resources._CreateNew @Resources._Manufacturer</h2>
 <hr />
 
-@using (Html.BeginForm("Create", "Manufacturer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Manufacturer", new { returnUrl = this.Request.QueryString["returnUrl"] }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

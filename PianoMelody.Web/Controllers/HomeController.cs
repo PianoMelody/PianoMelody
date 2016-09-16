@@ -1,19 +1,22 @@
 ﻿namespace PianoMelody.Web.Controllers
 {
-    using System.Web.Mvc;
+    using System;
+    using System.Configuration;
     using System.Linq;
-    using PianoMelody.Models.Enumetations;
-    using Models.ViewModels;
+    using System.Net;
+    using System.Text;
+    using System.Web.Mvc;
+
     using AutoMapper.QueryableExtensions;
     using OrangeJetpack.Localization;
-    using Models.BindingModels;
-    using Helpers;
-    using System.Text;
+
     using Extensions;
-    using System.Configuration;
+    using Helpers;
     using I18N;
-    using System.Net;
-    using System;
+    using Models.BindingModels;
+    using Models.ViewModels;
+
+    using PianoMelody.Models.Enumetations;
 
     public class HomeController : BaseController
     {
@@ -51,7 +54,7 @@
                                                                  .ToArray();
 
             homeViewModel.Manufacturers = this.Data.Manufacturers.GetAll()
-                                                                 .Where(m => m.Multimedia != null)
+                                                                 .Where(m => m.AreWeAgent && m.Multimedia != null)
                                                                  .ProjectTo<ManufacturerViewModel>()
                                                                  .Localize(this.CurrentCulture, m => m.Name);
 
@@ -71,7 +74,7 @@
         {
             if (about != null)
             {
-                return this.View(new EmailBindingModel {  Message = string.Format("{0} {1} - ", Resources._AskAbout, about) });
+                return this.View(new EmailBindingModel { Message = string.Format("{0} {1} - ", Resources._AskAbout, about) });
             }
 
             return this.View();

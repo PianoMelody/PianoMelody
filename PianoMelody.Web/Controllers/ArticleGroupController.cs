@@ -1,16 +1,18 @@
-﻿using AutoMapper.QueryableExtensions;
-using OrangeJetpack.Localization;
-using PianoMelody.Helpers;
-using PianoMelody.Models;
-using PianoMelody.Web.Helpers;
-using PianoMelody.Web.Models.BindingModels;
-using PianoMelody.Web.Models.ViewModels;
-using System;
-using System.Linq;
-using System.Web.Mvc;
-
-namespace PianoMelody.Web.Controllers
+﻿namespace PianoMelody.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using OrangeJetpack.Localization;
+
+    using Helpers;
+    using Models.BindingModels;
+    using Models.ViewModels;
+
+    using PianoMelody.Helpers;
+    using PianoMelody.Models;
+
     [Authorize(Roles = "Admin")]
     public class ArticleGroupController : BaseController
     {
@@ -35,43 +37,36 @@ namespace PianoMelody.Web.Controllers
             return View(model);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(string returnUrl)
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(ArticleGroupBindingModel articleGroupBindingModel)
+        public ActionResult Create(string returnUrl, ArticleGroupBindingModel articleGroupBindingModel)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var articleGroup = new ArticleGroup()
-                {
-                    Name = JsonHelper.Serialize(articleGroupBindingModel.EnName, articleGroupBindingModel.RuName, articleGroupBindingModel.BgName)
-                };
-
-                this.Data.ArticleGroups.Add(articleGroup);
-                this.Data.SaveChanges();
-
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var articleGroup = new ArticleGroup()
             {
-                return View();
-            }
+                Name = JsonHelper.Serialize(articleGroupBindingModel.EnName, articleGroupBindingModel.RuName, articleGroupBindingModel.BgName)
+            };
+
+            this.Data.ArticleGroups.Add(articleGroup);
+            this.Data.SaveChanges();
+
+            return Redirect(returnUrl);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string returnUrl)
         {
             var currentArticleGroup = this.Data.ArticleGroups.Find(id);
             if (currentArticleGroup == null)
             {
-                return this.RedirectToAction("Index");
+                return Redirect(returnUrl);
             }
 
             var nameLocs = JsonHelper.Deserialize(currentArticleGroup.Name);
@@ -87,70 +82,56 @@ namespace PianoMelody.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, ArticleGroupBindingModel articleGroupBindingModel)
+        public ActionResult Edit(int id, string returnUrl, ArticleGroupBindingModel articleGroupBindingModel)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var articleGroup = this.Data.ArticleGroups.Find(id);
-                if (articleGroup == null)
-                {
-                    return this.View();
-                }
-
-                articleGroup.Name = JsonHelper.Serialize(articleGroupBindingModel.EnName, articleGroupBindingModel.RuName, articleGroupBindingModel.BgName);
-                this.Data.SaveChanges();
-
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var articleGroup = this.Data.ArticleGroups.Find(id);
+            if (articleGroup == null)
             {
-                return View();
+                return this.View();
             }
+
+            articleGroup.Name = JsonHelper.Serialize(articleGroupBindingModel.EnName, articleGroupBindingModel.RuName, articleGroupBindingModel.BgName);
+            this.Data.SaveChanges();
+
+            return Redirect(returnUrl);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string returnUrl)
         {
             var deleteArticleGroup = this.Data.ArticleGroups.GetAll().ProjectTo<ArticleGroupViewModel>()
                                                                      .FirstOrDefault(ag => ag.Id == id)
                                                                      .Localize(this.CurrentCulture, ag => ag.Name);
             if (deleteArticleGroup == null)
             {
-                return this.RedirectToAction("Index");
+                return Redirect(returnUrl);
             }
 
             return View(deleteArticleGroup);
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, ArticleGroupViewModel articleGroupViewModel)
+        public ActionResult Delete(int id, string returnUrl, ArticleGroupViewModel articleGroupViewModel)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                if (!this.ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var currentArticleGroup = this.Data.ArticleGroups.Find(id);
-                if (currentArticleGroup == null)
-                {
-                    return this.View();
-                }
-
-                this.Data.ArticleGroups.Delete(currentArticleGroup);
-                this.Data.SaveChanges();
-
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var currentArticleGroup = this.Data.ArticleGroups.Find(id);
+            if (currentArticleGroup == null)
             {
-                return View();
+                return this.View();
             }
+
+            this.Data.ArticleGroups.Delete(currentArticleGroup);
+            this.Data.SaveChanges();
+
+            return Redirect(returnUrl);
         }
     }
 }

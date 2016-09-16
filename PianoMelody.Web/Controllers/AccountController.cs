@@ -4,12 +4,12 @@
     using System.Web;
     using System.Web.Mvc;
 
-    using Extensions;
-    using Models.ViewModels;
-
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
+
+    using Extensions;
+    using Models.ViewModels;
 
     using PianoMelody.Models;
 
@@ -110,10 +110,10 @@
             if (this.ModelState.IsValid)
             {
                 var user = new User
-                    {
-                        UserName = model.Email,
-                        Email = model.Email,
-                    };
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                };
 
                 var result = await this.UserManager.CreateAsync(user, model.Password);
 

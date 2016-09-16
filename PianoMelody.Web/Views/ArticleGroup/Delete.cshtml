@@ -13,12 +13,11 @@
         <div class="panel-body">
             <p>@Html.DisplayFor(modelItem => Model.Name)</p>
 
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Delete", "ArticleGroup", new { returnUrl = this.Request.QueryString["returnUrl"] }, FormMethod.Post, new { }))
             {
                 @Html.AntiForgeryToken()
                 <div class="form-actions no-color">
                     <input type="submit" value="@Resources._Delete" class="btn btn-danger" />
-                    @Html.ActionLink(Resources._Cancel, "Index", new { }, new { @class = "btn btn-default" })
                 </div>
             }
         </div>

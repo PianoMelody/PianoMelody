@@ -1,16 +1,19 @@
-﻿using AutoMapper.QueryableExtensions;
-using OrangeJetpack.Localization;
-using PianoMelody.Models;
-using PianoMelody.Web.Models.BindingModels;
-using PianoMelody.Web.Models.ViewModels;
-using System.Linq;
-using System.Web.Mvc;
-using System;
-using PianoMelody.Web.Helpers;
-using PianoMelody.Helpers;
-
-namespace PianoMelody.Web.Controllers
+﻿namespace PianoMelody.Web.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using OrangeJetpack.Localization;
+
+    using Helpers;
+    using Models.BindingModels;
+    using Models.ViewModels;
+
+    using PianoMelody.Helpers;
+    using PianoMelody.Models;
+
     [Authorize(Roles = "Admin")]
     public class ReferencesController : BaseController
     {
@@ -36,54 +39,47 @@ namespace PianoMelody.Web.Controllers
             return View(model);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(string returnUrl)
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ReferenceBindingModel referenceBindingModel)
+        public ActionResult Create(string returnUrl, ReferenceBindingModel referenceBindingModel)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                if (!this.ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
-                if (multimedia != null)
-                {
-                    this.Data.Multimedia.Add(multimedia);
-                }
-
-                var reference = new Reference()
-                {
-                    Created = DateTime.Now,
-                    Title = JsonHelper.Serialize(referenceBindingModel.EnTitle, referenceBindingModel.RuTitle, referenceBindingModel.BgTitle),
-                    Content = JsonHelper.Serialize(referenceBindingModel.EnContent, referenceBindingModel.RuContent, referenceBindingModel.BgContent),
-                    Multimedia = multimedia
-                };
-
-                this.Data.References.Add(reference);
-
-                this.Data.SaveChanges();
-
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
+            if (multimedia != null)
             {
-                return View();
+                this.Data.Multimedia.Add(multimedia);
             }
+
+            var reference = new Reference()
+            {
+                Created = DateTime.Now,
+                Title = JsonHelper.Serialize(referenceBindingModel.EnTitle, referenceBindingModel.RuTitle, referenceBindingModel.BgTitle),
+                Content = JsonHelper.Serialize(referenceBindingModel.EnContent, referenceBindingModel.RuContent, referenceBindingModel.BgContent),
+                Multimedia = multimedia
+            };
+
+            this.Data.References.Add(reference);
+
+            this.Data.SaveChanges();
+
+            return Redirect(returnUrl);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string returnUrl)
         {
             var currentReference = this.Data.References.Find(id);
             if (currentReference == null)
             {
-                return this.RedirectToAction("Index");
+                return Redirect(returnUrl);
             }
 
             var titleLocs = JsonHelper.Deserialize(currentReference.Title);
@@ -109,53 +105,46 @@ namespace PianoMelody.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ReferenceBindingModel referenceBindingModel)
+        public ActionResult Edit(int id, string returnUrl, ReferenceBindingModel referenceBindingModel)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                if (!this.ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var currentReference = this.Data.References.Find(id);
-                if (currentReference == null)
-                {
-                    return this.View();
-                }
-
-                if (referenceBindingModel.Multimedia != null)
-                {
-                    if (currentReference.Multimedia != null)
-                    {
-                        MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
-                        this.Data.Multimedia.Delete(currentReference.Multimedia);
-                    }
-
-                    currentReference.Multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
-                }
-
-                currentReference.Title = JsonHelper.Serialize(referenceBindingModel.EnTitle, referenceBindingModel.RuTitle, referenceBindingModel.BgTitle);
-                currentReference.Content = JsonHelper.Serialize(referenceBindingModel.EnContent, referenceBindingModel.RuContent, referenceBindingModel.BgContent);
-
-                this.Data.SaveChanges();
-
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var currentReference = this.Data.References.Find(id);
+            if (currentReference == null)
             {
-                return View();
+                return this.View();
             }
+
+            if (referenceBindingModel.Multimedia != null)
+            {
+                if (currentReference.Multimedia != null)
+                {
+                    MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
+                    this.Data.Multimedia.Delete(currentReference.Multimedia);
+                }
+
+                currentReference.Multimedia = MultimediaHelper.CreateSingle(this.Server, referenceBindingModel.Multimedia, this.GetBaseUrl());
+            }
+
+            currentReference.Title = JsonHelper.Serialize(referenceBindingModel.EnTitle, referenceBindingModel.RuTitle, referenceBindingModel.BgTitle);
+            currentReference.Content = JsonHelper.Serialize(referenceBindingModel.EnContent, referenceBindingModel.RuContent, referenceBindingModel.BgContent);
+
+            this.Data.SaveChanges();
+
+            return Redirect(returnUrl);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string returnUrl)
         {
             var deleteReference = this.Data.References.GetAll().ProjectTo<ReferenceViewModel>()
                                                                .FirstOrDefault(r => r.Id == id)
                                                                .Localize(this.CurrentCulture, r => r.Title, r => r.Content);
             if (deleteReference == null)
             {
-                return this.RedirectToAction("Index");
+                return Redirect(returnUrl);
             }
 
             return View(deleteReference);
@@ -163,37 +152,30 @@ namespace PianoMelody.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, ReferenceViewModel referenceViewModel)
+        public ActionResult Delete(int id, string returnUrl, ReferenceViewModel referenceViewModel)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                if (!this.ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var currentReference = this.Data.References.Find(id);
-                if (currentReference == null)
-                {
-                    return this.View();
-                }
-
-                if (currentReference.Multimedia != null)
-                {
-                    MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
-                    this.Data.Multimedia.Delete(currentReference.Multimedia);
-                }
-
-                this.Data.References.Delete(currentReference);
-
-                this.Data.SaveChanges();
-
-                return RedirectToAction("Index");
+                return this.View();
             }
-            catch (Exception ex)
+
+            var currentReference = this.Data.References.Find(id);
+            if (currentReference == null)
             {
-                return View();
+                return this.View();
             }
+
+            if (currentReference.Multimedia != null)
+            {
+                MultimediaHelper.DeleteSingle(this.Server, currentReference.Multimedia);
+                this.Data.Multimedia.Delete(currentReference.Multimedia);
+            }
+
+            this.Data.References.Delete(currentReference);
+
+            this.Data.SaveChanges();
+
+            return Redirect(returnUrl);
         }
     }
 }

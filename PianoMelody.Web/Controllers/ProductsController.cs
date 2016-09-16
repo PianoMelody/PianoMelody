@@ -1,18 +1,20 @@
-﻿using AutoMapper.QueryableExtensions;
-using OrangeJetpack.Localization;
-using PianoMelody.Models;
-using PianoMelody.Web.Models.BindingModels;
-using PianoMelody.Web.Models.ViewModels;
-using System.Linq;
-using System.Web.Mvc;
-using PianoMelody.Web.Helpers;
-using System.Web.UI.WebControls;
-using System;
-using System.Collections.Generic;
-using PianoMelody.Helpers;
-
-namespace PianoMelody.Web.Controllers
+﻿namespace PianoMelody.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using System.Web.UI.WebControls;
+    using System.Collections.Generic;
+
+    using AutoMapper.QueryableExtensions;
+    using OrangeJetpack.Localization;
+
+    using Helpers;
+    using Models.BindingModels;
+    using Models.ViewModels;
+
+    using PianoMelody.Helpers;
+    using PianoMelody.Models;
+
     [Authorize(Roles = "Admin")]
     public class ProductsController : BaseController
     {
@@ -110,48 +112,40 @@ namespace PianoMelody.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string returnUrl, ProductBindingModel productBindingModel)
         {
-            try
-            {
-                if (!this.ModelState.IsValid)
-                {
-                    this.LoadDropdownLists();
-                    return this.View();
-                }
-
-                var product = new Product()
-                {
-                    Position = this.Data.Products.GetAll().Count() + 1,
-                    Name = JsonHelper.Serialize(productBindingModel.EnName, productBindingModel.RuName, productBindingModel.BgName),
-                    Description = JsonHelper.Serialize(productBindingModel.EnDescription, productBindingModel.RuDescription, productBindingModel.BgDescription),
-                    Price = productBindingModel.Price,
-                    PromoPrice = productBindingModel.PromoPrice,
-                    IsNew = productBindingModel.IsNew,
-                    IsSold = productBindingModel.IsSold,
-                    ArticleGroupId = productBindingModel.ArticleGroupId,
-                    ManufacturerId = productBindingModel.ManufacturerId
-                };
-
-                this.Data.Products.Add(product);
-
-                var multimedias = MultimediaHelper.CreateMultiple(this.Server, productBindingModel.Multimedias, this.GetBaseUrl());
-                if (multimedias != null)
-                {
-                    foreach (var multimedia in multimedias)
-                    {
-                        multimedia.ProductId = product.Id;
-                        this.Data.Multimedia.Add(multimedia);
-                    }
-                }
-
-                this.Data.SaveChanges();
-
-                return Redirect(returnUrl);
-            }
-            catch (Exception ex)
+            if (!this.ModelState.IsValid)
             {
                 this.LoadDropdownLists();
-                return View();
+                return this.View();
             }
+
+            var product = new Product()
+            {
+                Position = this.Data.Products.GetAll().Count() + 1,
+                Name = JsonHelper.Serialize(productBindingModel.EnName, productBindingModel.RuName, productBindingModel.BgName),
+                Description = JsonHelper.Serialize(productBindingModel.EnDescription, productBindingModel.RuDescription, productBindingModel.BgDescription),
+                Price = productBindingModel.Price,
+                PromoPrice = productBindingModel.PromoPrice,
+                IsNew = productBindingModel.IsNew,
+                IsSold = productBindingModel.IsSold,
+                ArticleGroupId = productBindingModel.ArticleGroupId,
+                ManufacturerId = productBindingModel.ManufacturerId
+            };
+
+            this.Data.Products.Add(product);
+
+            var multimedias = MultimediaHelper.CreateMultiple(this.Server, productBindingModel.Multimedias, this.GetBaseUrl());
+            if (multimedias != null)
+            {
+                foreach (var multimedia in multimedias)
+                {
+                    multimedia.ProductId = product.Id;
+                    this.Data.Multimedia.Add(multimedia);
+                }
+            }
+
+            this.Data.SaveChanges();
+
+            return Redirect(returnUrl);
         }
 
         public ActionResult Edit(int id, string returnUrl)
@@ -189,60 +183,52 @@ namespace PianoMelody.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, string returnUrl, ProductBindingModel productBindingModel)
         {
-            try
-            {
-                if (!this.ModelState.IsValid)
-                {
-                    this.LoadDropdownLists();
-                    return this.View();
-                }
-
-                var currentProduct = this.Data.Products.Find(id);
-                if (currentProduct == null)
-                {
-                    this.LoadDropdownLists();
-                    return this.View();
-                }
-
-                currentProduct.Name = JsonHelper.Serialize(productBindingModel.EnName, productBindingModel.RuName, productBindingModel.BgName);
-                currentProduct.Description = JsonHelper.Serialize(productBindingModel.EnDescription, productBindingModel.RuDescription, productBindingModel.BgDescription);
-                currentProduct.Price = productBindingModel.Price;
-                currentProduct.PromoPrice = productBindingModel.PromoPrice;
-                currentProduct.IsNew = productBindingModel.IsNew;
-                currentProduct.IsSold = productBindingModel.IsSold;
-                currentProduct.ArticleGroupId = productBindingModel.ArticleGroupId;
-                currentProduct.ManufacturerId = productBindingModel.ManufacturerId;
-
-                if (productBindingModel.Multimedias != null && productBindingModel.Multimedias.ElementAt(0) != null)
-                {
-                    // Delete old multimedias if any
-                    if (currentProduct.Multimedias.Count > 0)
-                    {
-                        MultimediaHelper.DeleteMultiple(this.Server, currentProduct.Multimedias);
-                        foreach (var multimedia in currentProduct.Multimedias.ToList())
-                        {
-                            this.Data.Multimedia.Delete(multimedia);
-                        }
-                    }
-
-                    // Create new multimedias
-                    var multimedias = MultimediaHelper.CreateMultiple(this.Server, productBindingModel.Multimedias, this.GetBaseUrl());
-                    foreach (var multimedia in multimedias)
-                    {
-                        multimedia.ProductId = currentProduct.Id;
-                        this.Data.Multimedia.Add(multimedia);
-                    }
-                }
-
-                this.Data.SaveChanges();
-
-                return Redirect(returnUrl);
-            }
-            catch (Exception ex)
+            if (!this.ModelState.IsValid)
             {
                 this.LoadDropdownLists();
-                return View();
+                return this.View();
             }
+
+            var currentProduct = this.Data.Products.Find(id);
+            if (currentProduct == null)
+            {
+                this.LoadDropdownLists();
+                return this.View();
+            }
+
+            currentProduct.Name = JsonHelper.Serialize(productBindingModel.EnName, productBindingModel.RuName, productBindingModel.BgName);
+            currentProduct.Description = JsonHelper.Serialize(productBindingModel.EnDescription, productBindingModel.RuDescription, productBindingModel.BgDescription);
+            currentProduct.Price = productBindingModel.Price;
+            currentProduct.PromoPrice = productBindingModel.PromoPrice;
+            currentProduct.IsNew = productBindingModel.IsNew;
+            currentProduct.IsSold = productBindingModel.IsSold;
+            currentProduct.ArticleGroupId = productBindingModel.ArticleGroupId;
+            currentProduct.ManufacturerId = productBindingModel.ManufacturerId;
+
+            if (productBindingModel.Multimedias != null && productBindingModel.Multimedias.ElementAt(0) != null)
+            {
+                // Delete old multimedias if any
+                if (currentProduct.Multimedias.Count > 0)
+                {
+                    MultimediaHelper.DeleteMultiple(this.Server, currentProduct.Multimedias);
+                    foreach (var multimedia in currentProduct.Multimedias.ToList())
+                    {
+                        this.Data.Multimedia.Delete(multimedia);
+                    }
+                }
+
+                // Create new multimedias
+                var multimedias = MultimediaHelper.CreateMultiple(this.Server, productBindingModel.Multimedias, this.GetBaseUrl());
+                foreach (var multimedia in multimedias)
+                {
+                    multimedia.ProductId = currentProduct.Id;
+                    this.Data.Multimedia.Add(multimedia);
+                }
+            }
+
+            this.Data.SaveChanges();
+
+            return Redirect(returnUrl);
         }
 
         public ActionResult Delete(int id, string returnUrl)
@@ -264,39 +250,32 @@ namespace PianoMelody.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, string returnUrl, ProductViewModel productViewModel)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                if (!this.ModelState.IsValid)
-                {
-                    return this.View();
-                }
-
-                var currentProduct = this.Data.Products.Find(id);
-                if (currentProduct == null)
-                {
-                    return this.View();
-                }
-
-                if (currentProduct.Multimedias.Count > 0)
-                {
-                    MultimediaHelper.DeleteMultiple(this.Server, currentProduct.Multimedias);
-                    foreach (var multimadia in currentProduct.Multimedias.ToList())
-                    {
-                        this.Data.Multimedia.Delete(multimadia);
-                    }
-                }
-
-                this.Data.Products.Delete(currentProduct);
-                this.Data.SaveChanges();
-
-                this.RePositionProducts();
-
-                return Redirect(returnUrl);
+                return this.View();
             }
-            catch (Exception ex)
+
+            var currentProduct = this.Data.Products.Find(id);
+            if (currentProduct == null)
             {
-                return View();
+                return this.View();
             }
+
+            if (currentProduct.Multimedias.Count > 0)
+            {
+                MultimediaHelper.DeleteMultiple(this.Server, currentProduct.Multimedias);
+                foreach (var multimadia in currentProduct.Multimedias.ToList())
+                {
+                    this.Data.Multimedia.Delete(multimadia);
+                }
+            }
+
+            this.Data.Products.Delete(currentProduct);
+            this.Data.SaveChanges();
+
+            this.RePositionProducts();
+
+            return Redirect(returnUrl);
         }
 
         [HttpPost]
