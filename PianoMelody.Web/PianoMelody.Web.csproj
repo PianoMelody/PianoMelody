@@ -250,8 +250,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\OwlCarousel\AjaxLoader.gif" />
@@ -267,11 +265,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\background.jpg" />
     <Content Include="Images\bg.png" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\google-plus.png" />
     <Content Include="Images\IMG_0037.jpg" />
+    <Content Include="Images\keys.png" />
+    <Content Include="Images\notepage_by_cecilia_of_sweden.jpg" />
     <Content Include="Images\no_image.jpg" />
+    <Content Include="Images\piano-keys200.png" />
     <Content Include="Images\pinterest.png" />
     <Content Include="Images\RIM 5.2009 078.jpg" />
     <Content Include="Images\ru.png" />
@@ -622,8 +624,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
@@ -897,6 +897,7 @@
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Products\_ProductAdmin.cshtml" />
     <Content Include="Views\Products\_ProductsFilter.cshtml" />
+    <Content Include="Views\Shared\_ProductModal.cshtml" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

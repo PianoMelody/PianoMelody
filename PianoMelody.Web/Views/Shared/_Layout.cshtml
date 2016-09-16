@@ -7,7 +7,7 @@
     <meta name="description" content="@ViewBag.Description" />
     <meta name="keywords" content="@ViewBag.Keywords" />
     <link rel="alternate" hreflang="@CultureHelper.GetCurrentNeutralCulture()" href="@Request.Url" />
-    <link href="https://fonts.googleapis.com/css?family=Philosopher:700|Marmelad" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Philosopher:400,700|Marmelad|Arimo:400,700|Comfortaa:400,700|Didact+Gothic|Lora:400,700|Tenor+Sans" rel="stylesheet"">
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -26,7 +26,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     @Html.Partial("_SwitchLanguage")
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav menu-primary">
                         <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Resources.Products <span class="caret"></span></a>
@@ -56,7 +56,7 @@
         </div>
     </header>
 
-    <main class="cd-main-content container body-content">
+    <main class="cd-main-content container body-content background">
         @Html.Partial("_Notifications")
         @RenderBody()
     </main>
@@ -77,7 +77,6 @@
                 <a href="https://plus.google.com/105912479979767940315" rel="alternate" target="_blank"><img src="~/Images/google-plus.png" class="social-icon" /></a>
                 <a href="https://twitter.com/melodiaeood" rel="alternate" target="_blank"><img src="~/Images/twitter.png" class="social-icon" /></a>
                 <a href="https://www.pinterest.com/pin/147563325269810817/" rel="alternate" target="_blank"><img src="~/Images/pinterest.png" class="social-icon" /></a>
-                <a id="viber"><img src="~/Images/viber.png" class="social-icon" /></a>
             </div>
             <div class="col-lg-4 text-center language">
                 <div class="row">

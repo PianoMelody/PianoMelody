@@ -1,0 +1,94 @@
+﻿@model PianoMelody.Web.Models.ViewModels.ProductViewModel
+
+<!-- Modal -->
+<div class="modal fade" id="@string.Format("product-{0}", Model.Id)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">@Model.Name</h4>
+            </div>
+            <div class="modal-body">
+                <dl class="dl-horizontal">
+                    @if (Model.Price != null)
+                    {
+                        <dt>@Resources.Price:</dt>
+                        if (Model.PromoPrice != null)
+                        {
+                            <dd><strike class="text-danger">@Model.Price BGN</strike> @Model.PromoPrice BGN</dd>
+                        }
+                        else
+                        {
+                            <dd>@Model.Price BGN</dd>
+                        }
+                    }
+                    else
+                    {
+                        <dt>&nbsp</dt>
+                        <dd>&nbsp</dd>
+                    }
+
+                    <dt>@Resources._Manufacturer:</dt>
+                    <dd>@Model.ManufacturerName</dd>
+
+                    <dt>@Resources._Type:</dt>
+                    <dd>@Model.ArticleGroupName</dd>
+
+                    @if (Model.IsNew)
+                    {
+                        <dt>@Resources._Condition:</dt>
+                        <dd>@Resources._New</dd>
+                    }
+                    else
+                    {
+                        <dt>@Resources._Condition:</dt>
+                        <dd>@Resources._SecondHand</dd>
+                    }
+
+                    @if (Model.IsSold)
+                    {
+                        <dt>@Resources._Availability:</dt>
+                        <dd>@Resources._SoldOut</dd>
+                    }
+                    else
+                    {
+                        <dt>@Resources._Availability:</dt>
+                        <dd>@Resources._InStock</dd>
+                    }
+
+                    <dt>@Resources._Description:</dt>
+                    <dd>@Model.Description</dd>
+                </dl>
+
+                <p>
+                    @Html.ActionLink(Resources._AskAbout, "Contact", "Home", null, null, "contact-form", new { about = Model.Name }, new { @class = "btn btn-default" })
+                </p>
+
+                @if (Model.Multimedias != null)
+                {
+                    <div class="my-gallery products" itemscope itemtype="http://schema.org/ImageGallery">
+
+                        @foreach (var multimedia in Model.Multimedias)
+                        {
+                            var thumbElements = multimedia.Url.Split('/');
+                            var thumb = string.Format("/{0}/thumbs/{1}", thumbElements[1], thumbElements[2]);
+
+                            <figure class="padding-left-0" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                <a href="@multimedia.Url" itemprop="contentUrl" data-size="@multimedia.DataSize">
+                                    <img src="@thumb" itemprop="thumbnail" alt="@multimedia.Content" />
+                                </a>
+
+
+                                <figcaption itemprop="caption description">@multimedia.Content</figcaption>
+
+                            </figure>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

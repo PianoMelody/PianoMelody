@@ -79,10 +79,12 @@
                     @foreach (var product in Model.PromoProducts)
                     {
                         <div class="col-lg-4">
-                            <div class="panel panel-default">
+                            <div class="panel panel-default" onclick="$('@string.Format("#product-{0}", product.Id)').appendTo('body').modal('show')">
                                 @Html.Partial("~/Views/Products/_ProductInfo.cshtml", product)
                             </div>
                         </div>
+
+                        @Html.Partial("_ProductModal", product)
                     }
                 </div>
             </div>

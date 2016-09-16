@@ -1106,7 +1106,7 @@ a {
 a:hover,
 a:focus {
   /*color: #008cba;*/
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
 a:focus {
   outline: 5px auto -webkit-focus-ring-color;
@@ -4517,7 +4517,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #ffffff;
+  /*color: #ffffff;*/
   background-color: #272727;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -6248,9 +6248,9 @@ button.close {
 .carousel-inner > .item {
   display: none;
   position: relative;
-  -webkit-transition: 0.6s ease-in-out left;
-  -o-transition: 0.6s ease-in-out left;
-  transition: 0.6s ease-in-out left;
+  -webkit-transition: 0.5s ease-in-out left;
+  -o-transition: 0.5s ease-in-out left;
+  transition: 0.5s ease-in-out left;
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -6263,8 +6263,8 @@ button.close {
     transition: transform 0.6s ease-in-out;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
+    -webkit-perspective: 100px;
+    perspective: 100px;
   }
   .carousel-inner > .item.next,
   .carousel-inner > .item.active.right {
@@ -6758,8 +6758,8 @@ button.close {
 }
 .navbar {
   border: none;
-  font-size: 13px;
-  font-weight: 300;
+  /*font-size: 13px;*/
+  /*font-weight: 300;*/
 }
 .navbar .navbar-toggle:hover .icon-bar {
   background-color: #b3b3b3;
@@ -6791,8 +6791,8 @@ button.close {
 .navbar .dropdown-menu > li > a,
 .navbar .dropdown-menu > li > a:focus {
   background-color: transparent;
-  font-size: 13px;
-  font-weight: 300;
+  /*font-size: 13px;*/
+  /*font-weight: 300;*/
 }
 .navbar .dropdown-header {
   color: rgba(255, 255, 255, 0.5);
