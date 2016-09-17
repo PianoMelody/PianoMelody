@@ -76,10 +76,6 @@ h4,
     padding-top: 30px;
 }
 
-.menu-primary {
-    float: right;
-}
-
 header {
     margin-bottom: 40px;
 }
@@ -441,9 +437,9 @@ footer .btn-default:active:hover {
     outline: none;
 }
 
-.social {
-    margin-top: 30px;
-    padding-left: 50px;
+.twitter-follow-button {
+    margin: 30px 0 5px 0;
+    padding: 0;
 }
 
 .social a {
@@ -520,6 +516,49 @@ footer .dropdown-menu a.active {
     margin-bottom: 15px;
 }
 
+.scroll-button{
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  bottom: 20px;
+  visibility: visible;
+  filter: alpha(opacity=50);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 1.2s;
+  -webkit-transition: all 1.2s;
+  -moz-transition: all 1.2s;
+  -ms-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  background: #ba995c;
+  border: solid 2px #4c4c4c;
+  color: #4c4c4c;
+  border-radius: 0%;
+  position: fixed;
+}
+
+.scroll-button:hover{
+  filter: alpha(opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+.scroll-button--hidden{
+  filter: alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-button > span {
+    font-size: 30px;
+}
+
 @media screen and (max-width: 1200px) {
     .carousel-caption {
         bottom: 90px;
@@ -552,7 +591,7 @@ footer .dropdown-menu a.active {
         width: 30%;
         display: inline-block;
     }
-    .social {
+    /*.social {
         width: 295px;
         display: inline-block;
         vertical-align: top;
@@ -560,7 +599,7 @@ footer .dropdown-menu a.active {
         padding-left: 0;
         margin-right: 0;
         text-align: center;
-    }
+    }*/
     .language {
         display: inline-block;
         width: 25%;
@@ -577,9 +616,9 @@ footer .dropdown-menu a.active {
     .carousel-indicators {
         bottom: 15px;
     }
-    .social {
+    /*.social {
         width: 300px;
-    }
+    }*/
     .language {
         width: 160px;
     }
@@ -625,7 +664,7 @@ footer .dropdown-menu a.active {
     }
     .social {
         /*padding-left: 5px;*/
-        text-align: center;
+        /*text-align: center;*/
     }
     .language {
         margin-left: 0;
@@ -679,10 +718,10 @@ footer .dropdown-menu a.active {
     .carousel-indicators {
         bottom: 5px;
     }
-    .social {
+    /*.social {
         width: 320px;
         padding-left: 10px;
-    }
+    }*/
 }
 
 @media screen and (max-width: 480px) {
