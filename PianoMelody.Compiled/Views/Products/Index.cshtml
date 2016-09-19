@@ -54,7 +54,7 @@
         else
         {
             <div class="col-lg-4 col-md-4">
-                <article class="panel panel-default" onclick="$('@string.Format("#product-{0}", product.Id)').appendTo('body').modal('show')">
+                <article class="panel panel-default pointer" onclick="$('@string.Format("#product-{0}", product.Id)').appendTo('body').modal('show')">
                     @Html.Partial("_ProductInfo", product)
                     @Html.Partial("_ProductAdmin", product)
                 </article>

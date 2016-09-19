@@ -6,10 +6,10 @@
     string controller = this.ViewContext.RouteData.Values["controller"] as string;
     string action = this.ViewContext.RouteData.Values["action"] as string;
     string look = this.Session["look"] as string;
-    string desc = Model.Description.ToFixedLenght(12);
+    string desc = Model.Description.ToFixedLenght(64);
 }
 
-<div class="panel-heading piano-keys">
+<div class="panel-heading">
     @Model.Name
 </div>
 <div class="panel-body">

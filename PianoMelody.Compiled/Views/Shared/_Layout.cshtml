@@ -7,12 +7,21 @@
     <meta name="description" content="@ViewBag.Description" />
     <meta name="keywords" content="@ViewBag.Keywords" />
     <link rel="alternate" hreflang="@CultureHelper.GetCurrentNeutralCulture()" href="@Request.Url" />
-    <link href="https://fonts.googleapis.com/css?family=Philosopher:400,700|Marmelad|Arimo:400,700|Comfortaa:400,700|Didact+Gothic|Lora:400,700|Tenor+Sans" rel="stylesheet"">
-
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Tenor+Sans" rel="stylesheet" ">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=1063382997006782";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <header>
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -25,8 +34,7 @@
                     @Html.ActionLink(Resources.Logo, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
-                    @Html.Partial("_SwitchLanguage")
-                    <ul class="nav navbar-nav menu-primary">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Resources.Products <span class="caret"></span></a>
@@ -50,6 +58,7 @@
                             </ul>
                         </li>
                         <li><a href="@Url.Action("Contact", "Home")">@Resources.Contacts <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></a></li>
+                        @Html.Partial("_SwitchLanguage")
                     </ul>
                 </div>
             </div>
@@ -72,11 +81,20 @@
                     <li>@Html.ActionLink(Resources.Contacts, "Contact", "Home")</li>
                 </ul>
             </div>
-            <div class="col-lg-4 social">
-                <a href="https://www.facebook.com/%D0%9F%D0%B8%D0%B0%D0%BD%D0%BE-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-%D0%9C%D0%95%D0%9B%D0%9E%D0%94%D0%98%D0%AF-%D0%9F%D0%98%D0%90%D0%9D%D0%90-%D0%B8-%D0%A0%D0%9E%D0%AF%D0%9B%D0%98-Piano-store-Melody-119361421463741/" rel="alternate" target="_blank"><img src="~/Images/facebook.png" class="social-icon" /></a>
-                <a href="https://plus.google.com/105912479979767940315" rel="alternate" target="_blank"><img src="~/Images/google-plus.png" class="social-icon" /></a>
-                <a href="https://twitter.com/melodiaeood" rel="alternate" target="_blank"><img src="~/Images/twitter.png" class="social-icon" /></a>
-                <a href="https://www.pinterest.com/pin/147563325269810817/" rel="alternate" target="_blank"><img src="~/Images/pinterest.png" class="social-icon" /></a>
+            <div class="col-lg-4 text-center ">
+                <div>
+                    <div class="fb-like" data-href="https://www.facebook.com/%D0%9F%D0%B8%D0%B0%D0%BD%D0%BE-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-%D0%9C%D0%95%D0%9B%D0%9E%D0%94%D0%98%D0%AF-%D0%9F%D0%98%D0%90%D0%9D%D0%90-%D0%B8-%D0%A0%D0%9E%D0%AF%D0%9B%D0%98-Piano-store-Melody-119361421463741/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                </div>
+                <div>
+                    <a href="https://twitter.com/melodiaeood" class="twitter-follow-button" data-show-count="false">Follow @@melodiaeood</a>
+                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com/%D0%9F%D0%B8%D0%B0%D0%BD%D0%BE-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-%D0%9C%D0%95%D0%9B%D0%9E%D0%94%D0%98%D0%AF-%D0%9F%D0%98%D0%90%D0%9D%D0%90-%D0%B8-%D0%A0%D0%9E%D0%AF%D0%9B%D0%98-Piano-store-Melody-119361421463741/" rel="alternate" target="_blank"><img src="~/Images/facebook.png" class="social-icon" /></a>
+                    <a href="https://twitter.com/melodiaeood" rel="alternate" target="_blank"><img src="~/Images/twitter.png" class="social-icon" /></a>
+                    <a href="https://plus.google.com/105912479979767940315" rel="alternate" target="_blank"><img src="~/Images/google-plus.png" class="social-icon" /></a>
+                    <a href="https://www.pinterest.com/pin/147563325269810817/" rel="alternate" target="_blank"><img src="~/Images/pinterest.png" class="social-icon" /></a>
+                </div>
             </div>
             <div class="col-lg-4 text-center language">
                 <div class="row">
