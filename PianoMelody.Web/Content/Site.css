@@ -243,12 +243,6 @@ figure > a {
     width: 100%;
 }
 
-/*.panel:hover .piano-keys {*/
-    /*background: #ddd url("../Images/keys.png") no-repeat 353px;*/
-    /*opacity: 0.7;*/
-    /*color: #fadeac;*/
-/*}*/
-
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #fadeac;
@@ -625,6 +619,15 @@ footer .dropdown-menu a.active {
 }
 
 @media screen and (max-width: 768px) {
+    /*to be deleted when placed image*/
+    .navbar > .container .navbar-brand {
+        padding-top: 15px;
+    }
+
+    .navbar-collapse { 
+        max-height: 100% !important; 
+    }
+
     .carousel-inner {
         height: 366px;
     }
