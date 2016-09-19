@@ -165,12 +165,8 @@ h4 {
     border-bottom: 1px solid #000;
 }
 
-.products-line {
-    background-color: red;
-}
-
 .gallery-photo {
-    float: left;
+    /*float: left;*/
 }
 
 .social-icon {
