@@ -7,7 +7,7 @@
     public class RegistrationViewModel
     {
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
-        [EmailAddress(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrInvalidEmail")]
+        [EmailAddress]
         [Display(Name = "_Email", ResourceType = typeof(Resources))]
         public string Email { get; set; }
 
