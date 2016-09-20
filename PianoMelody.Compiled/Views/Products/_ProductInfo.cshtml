@@ -6,7 +6,7 @@
     string controller = this.ViewContext.RouteData.Values["controller"] as string;
     string action = this.ViewContext.RouteData.Values["action"] as string;
     string look = this.Session["look"] as string;
-    string desc = Model.Description.ToFixedLenght(64);
+    string desc = Model.Description.ToFixedLenght(25);
 }
 
 <div class="panel-heading">
