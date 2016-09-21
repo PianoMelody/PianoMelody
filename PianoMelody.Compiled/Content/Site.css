@@ -266,6 +266,11 @@ figure > a {
     margin-right: 15px;
 }
 
+.btn-inline{
+    float: left;
+    margin-right: 5px;
+}
+
 .height-283 {
     height: 283px;
 }

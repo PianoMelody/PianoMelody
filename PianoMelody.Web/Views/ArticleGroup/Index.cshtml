@@ -12,15 +12,36 @@
     <hr />
 }
 
-@foreach (var item in Model.ArticleGroups)
+@foreach (var articleGroup in Model.ArticleGroups)
 {
     <article class="panel panel-default">
         @if (User.IsInRole("Admin"))
         {
             <div class="panel-body">
-                <p>@Html.DisplayFor(modelItem => item.Name)</p>
-                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
+                <p>@Html.DisplayFor(modelItem => articleGroup.Name)</p>
+
+                @using (Html.BeginForm("Up", "ArticleGroup", new { id = articleGroup.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <button type="submit" class="btn btn-success btn-inline">
+                        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                        @articleGroup.Position
+                    </button>
+                }
+
+                @using (Html.BeginForm("Down", "ArticleGroup", new { id = articleGroup.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <button type="submit" class="btn btn-warning btn-inline">
+                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        @articleGroup.Position
+                    </button>
+                }
+
+                @Html.ActionLink(Resources._Edit, "Edit", new { id = articleGroup.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Resources._Delete, "Delete", new { id = articleGroup.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
             </div>
         }
     </article>

@@ -15,6 +15,8 @@ namespace PianoMelody.Models
         [Key]
         public int Id { get; set; }
 
+        public int Position { get; set; }
+
         public string Name { get; set; }
 
         public bool AreWeAgent { get; set; }

@@ -29,7 +29,7 @@
             model.Pager = pager;
 
             var services = this.Data.Services.GetAll()
-                                             .OrderBy(s => s.Id)
+                                             .OrderBy(s => s.Position)
                                              .Skip((pager.CurrentPage - 1) * pager.PageSize)
                                              .Take(pager.PageSize)
                                              .ProjectTo<ServiceViewModel>()
@@ -175,7 +175,63 @@
             this.Data.Services.Delete(currentService);
             this.Data.SaveChanges();
 
+            this.RePosition();
+
             return Redirect(returnUrl);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Up(int id, string returnUrl)
+        {
+            var up = this.Data.Services.Find(id);
+            if (up != null)
+            {
+                var down = this.Data.Services.GetAll().FirstOrDefault(p => p.Position == up.Position - 1);
+                if (down != null)
+                {
+                    int temp = up.Position;
+                    up.Position = down.Position;
+                    down.Position = temp;
+
+                    this.Data.SaveChanges();
+                }
+            }
+
+            return this.Redirect(returnUrl);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Down(int id, string returnUrl)
+        {
+            var down = this.Data.Services.Find(id);
+            if (down != null)
+            {
+                var up = this.Data.Services.GetAll().FirstOrDefault(p => p.Position == down.Position + 1);
+                if (up != null)
+                {
+                    int temp = up.Position;
+                    up.Position = down.Position;
+                    down.Position = temp;
+
+                    this.Data.SaveChanges();
+                }
+            }
+
+            return this.Redirect(returnUrl);
+        }
+
+        private void RePosition()
+        {
+            var services = this.Data.Services.GetAll().OrderBy(a => a.Position).ToList();
+
+            for (int i = 0; i < services.Count; i++)
+            {
+                services[i].Position = i + 1;
+            }
+
+            this.Data.SaveChanges();
         }
     }
 }

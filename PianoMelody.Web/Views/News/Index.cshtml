@@ -14,16 +14,16 @@
     <hr />
 }
 
-@foreach (var item in Model.News)
+@foreach (var news in Model.News)
 {
     <article class="panel panel-default block">
-        @Html.Partial("_NewsInfo", item)
+        @Html.Partial("_NewsInfo", news)
 
         @if (User.IsInRole("Admin"))
         {
             <div class="panel-footer">
-                @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
+                @Html.ActionLink(Resources._Edit, "Edit", new { id = news.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Resources._Delete, "Delete", new { id = news.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-danger" })
             </div>
         }
     </article>

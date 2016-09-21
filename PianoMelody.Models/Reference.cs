@@ -8,6 +8,8 @@ namespace PianoMelody.Models
         [Key]
         public int Id { get; set; }
 
+        public int Position { get; set; }
+
         public DateTime Created { get; set; }
 
         public string Title { get; set; }

@@ -14,16 +14,36 @@
     <hr />
 }
 
-@foreach (var item in Model.Services)
+@foreach (var service in Model.Services)
 {
     <article class="panel panel-default">
-        @Html.Partial("_ServiceInfo", item)
+        @Html.Partial("_ServiceInfo", service)
 
         @if (User.IsInRole("Admin"))
         {
         <div class="panel-footer">
-            @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-            @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class= "btn btn-danger" }) 
+            @using (Html.BeginForm("Up", "Services", new { id = service.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-success btn-inline">
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                    @service.Position
+                </button>
+            }
+
+            @using (Html.BeginForm("Down", "Services", new { id = service.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-warning btn-inline">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    @service.Position
+                </button>
+            }
+
+            @Html.ActionLink(Resources._Edit, "Edit", new { id = service.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+            @Html.ActionLink(Resources._Delete, "Delete", new { id = service.Id, returnUrl = Request.RawUrl }, new { @class= "btn btn-danger" }) 
         </div>
         }
     </article>

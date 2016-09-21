@@ -11,6 +11,8 @@ namespace PianoMelody.Web.Models.ViewModels
     {
         public int Id { get; set; }
 
+        public int Position { get; set; }
+
         public DateTime Created { get; set; }
 
         [Localized]

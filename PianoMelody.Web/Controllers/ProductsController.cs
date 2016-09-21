@@ -96,7 +96,8 @@
         [AllowAnonymous]
         public ActionResult Menu()
         {
-            var articleGroups = this.Data.ArticleGroups.GetAll().ProjectTo<ArticleGroupViewModel>()
+            var articleGroups = this.Data.ArticleGroups.GetAll().OrderBy(ag => ag.Position)
+                                                                .ProjectTo<ArticleGroupViewModel>()
                                                                 .Localize(this.CurrentCulture, ag => ag.Name);
 
             return this.View(articleGroups);
@@ -273,7 +274,7 @@
             this.Data.Products.Delete(currentProduct);
             this.Data.SaveChanges();
 
-            this.RePositionProducts();
+            this.RePosition();
 
             return Redirect(returnUrl);
         }
@@ -282,15 +283,15 @@
         [ValidateAntiForgeryToken]
         public ActionResult Up(int id, string returnUrl)
         {
-            var upProduct = this.Data.Products.Find(id);
-            if (upProduct != null)
+            var up = this.Data.Products.Find(id);
+            if (up != null)
             {
-                var downProduct = this.Data.Products.GetAll().FirstOrDefault(p => p.Position == upProduct.Position - 1);
-                if (downProduct != null)
+                var down = this.Data.Products.GetAll().FirstOrDefault(p => p.Position == up.Position - 1);
+                if (down != null)
                 {
-                    int temp = upProduct.Position;
-                    upProduct.Position = downProduct.Position;
-                    downProduct.Position = temp;
+                    int temp = up.Position;
+                    up.Position = down.Position;
+                    down.Position = temp;
 
                     this.Data.SaveChanges();
                 }
@@ -303,15 +304,15 @@
         [ValidateAntiForgeryToken]
         public ActionResult Down(int id, string returnUrl)
         {
-            var downProduct = this.Data.Products.Find(id);
-            if (downProduct != null)
+            var down = this.Data.Products.Find(id);
+            if (down != null)
             {
-                var upProduct = this.Data.Products.GetAll().FirstOrDefault(p => p.Position == downProduct.Position + 1);
-                if (upProduct != null)
+                var up = this.Data.Products.GetAll().FirstOrDefault(p => p.Position == down.Position + 1);
+                if (up != null)
                 {
-                    int temp = upProduct.Position;
-                    upProduct.Position = downProduct.Position;
-                    downProduct.Position = temp;
+                    int temp = up.Position;
+                    up.Position = down.Position;
+                    down.Position = temp;
 
                     this.Data.SaveChanges();
                 }
@@ -320,7 +321,7 @@
             return this.Redirect(returnUrl);
         }
 
-        private void RePositionProducts()
+        private void RePosition()
         {
             var products = this.Data.Products.GetAll().OrderBy(a => a.Position).ToList();
 

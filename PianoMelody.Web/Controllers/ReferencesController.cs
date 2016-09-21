@@ -30,7 +30,7 @@
             model.Pager = pager;
 
             var references = this.Data.References.GetAll()
-                                                 .OrderByDescending(r => r.Created)
+                                                 .OrderBy(r => r.Position)
                                                  .Skip((pager.CurrentPage - 1) * pager.PageSize)
                                                  .Take(pager.PageSize)
                                                  .ProjectTo<ReferenceViewModel>()
@@ -175,7 +175,63 @@
 
             this.Data.SaveChanges();
 
+            this.RePosition();
+
             return Redirect(returnUrl);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Up(int id, string returnUrl)
+        {
+            var up = this.Data.References.Find(id);
+            if (up != null)
+            {
+                var down = this.Data.References.GetAll().FirstOrDefault(p => p.Position == up.Position - 1);
+                if (down != null)
+                {
+                    int temp = up.Position;
+                    up.Position = down.Position;
+                    down.Position = temp;
+
+                    this.Data.SaveChanges();
+                }
+            }
+
+            return this.Redirect(returnUrl);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Down(int id, string returnUrl)
+        {
+            var down = this.Data.References.Find(id);
+            if (down != null)
+            {
+                var up = this.Data.References.GetAll().FirstOrDefault(p => p.Position == down.Position + 1);
+                if (up != null)
+                {
+                    int temp = up.Position;
+                    up.Position = down.Position;
+                    down.Position = temp;
+
+                    this.Data.SaveChanges();
+                }
+            }
+
+            return this.Redirect(returnUrl);
+        }
+
+        private void RePosition()
+        {
+            var references = this.Data.References.GetAll().OrderBy(a => a.Position).ToList();
+
+            for (int i = 0; i < references.Count; i++)
+            {
+                references[i].Position = i + 1;
+            }
+
+            this.Data.SaveChanges();
         }
     }
 }

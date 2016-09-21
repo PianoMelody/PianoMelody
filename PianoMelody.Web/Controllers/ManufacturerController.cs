@@ -28,7 +28,7 @@
             model.Pager = pager;
 
             var manufacturers = this.Data.Manufacturers.GetAll()
-                                                       .OrderBy(m => m.Name)
+                                                       .OrderBy(m => m.Position)
                                                        .Skip((pager.CurrentPage - 1) * pager.PageSize)
                                                        .Take(pager.PageSize)
                                                        .ProjectTo<ManufacturerViewModel>()
@@ -171,7 +171,63 @@
 
             this.Data.SaveChanges();
 
+            this.RePosition();
+
             return Redirect(returnUrl);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Up(int id, string returnUrl)
+        {
+            var up = this.Data.Manufacturers.Find(id);
+            if (up != null)
+            {
+                var down = this.Data.Manufacturers.GetAll().FirstOrDefault(p => p.Position == up.Position - 1);
+                if (down != null)
+                {
+                    int temp = up.Position;
+                    up.Position = down.Position;
+                    down.Position = temp;
+
+                    this.Data.SaveChanges();
+                }
+            }
+
+            return this.Redirect(returnUrl);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Down(int id, string returnUrl)
+        {
+            var down = this.Data.Manufacturers.Find(id);
+            if (down != null)
+            {
+                var up = this.Data.Manufacturers.GetAll().FirstOrDefault(p => p.Position == down.Position + 1);
+                if (up != null)
+                {
+                    int temp = up.Position;
+                    up.Position = down.Position;
+                    down.Position = temp;
+
+                    this.Data.SaveChanges();
+                }
+            }
+
+            return this.Redirect(returnUrl);
+        }
+
+        private void RePosition()
+        {
+            var manufacturers = this.Data.Manufacturers.GetAll().OrderBy(a => a.Position).ToList();
+
+            for (int i = 0; i < manufacturers.Count; i++)
+            {
+                manufacturers[i].Position = i + 1;
+            }
+
+            this.Data.SaveChanges();
         }
     }
 }

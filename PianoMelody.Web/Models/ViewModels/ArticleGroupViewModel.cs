@@ -10,6 +10,8 @@ namespace PianoMelody.Web.Models.ViewModels
     {
         public int Id { get; set; }
 
+        public int Position { get; set; }
+
         [Localized]
         public string Name { get; set; }
     }

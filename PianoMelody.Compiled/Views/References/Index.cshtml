@@ -14,16 +14,36 @@
     <hr />
 }
 
-@foreach (var item in Model.References)
+@foreach (var reference in Model.References)
 {
     <article class="panel panel-default block">
-        @Html.Partial("_ReferenceInfo", item)
+        @Html.Partial("_ReferenceInfo", reference)
 
         @if (User.IsInRole("Admin"))
         {
         <div class="panel-footer">
-            @Html.ActionLink(Resources._Edit, "Edit", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
-            @Html.ActionLink(Resources._Delete, "Delete", new { id = item.Id, returnUrl = Request.RawUrl }, new { @class= "btn btn-danger" }) 
+            @using (Html.BeginForm("Up", "References", new { id = reference.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-success btn-inline">
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                    @reference.Position
+                </button>
+            }
+
+            @using (Html.BeginForm("Down", "References", new { id = reference.Id, returnUrl = Request.RawUrl }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-warning btn-inline">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    @reference.Position
+                </button>
+            }
+
+            @Html.ActionLink(Resources._Edit, "Edit", new { id = reference.Id, returnUrl = Request.RawUrl }, new { @class = "btn btn-primary" })
+            @Html.ActionLink(Resources._Delete, "Delete", new { id = reference.Id, returnUrl = Request.RawUrl }, new { @class= "btn btn-danger" }) 
         </div>
         }
     </article>
