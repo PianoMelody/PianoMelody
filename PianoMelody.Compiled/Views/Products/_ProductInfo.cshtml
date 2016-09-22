@@ -1,7 +1,6 @@
-﻿@model PianoMelody.Web.Models.ViewModels.ProductViewModel
+﻿@using PianoMelody.Web.Extensions
 
-@using PianoMelody.Web.Extensions
-
+@model PianoMelody.Web.Models.ViewModels.ProductViewModel
 @{
     string controller = this.ViewContext.RouteData.Values["controller"] as string;
     string action = this.ViewContext.RouteData.Values["action"] as string;
@@ -87,7 +86,7 @@
 
                 <figure class="padding-left-0" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                     <a href="@multimedia.Url" itemprop="contentUrl" data-size="@multimedia.DataSize">
-                        <img src="@thumb" itemprop="thumbnail" alt="@multimedia.Content" />
+                        <img src="@thumb" itemprop="thumbnail" alt="@Model.Name" />
                     </a>
 
 

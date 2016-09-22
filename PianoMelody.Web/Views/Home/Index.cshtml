@@ -1,4 +1,6 @@
-﻿@model PianoMelody.Web.Models.ViewModels.HomeViewModel
+﻿@using PianoMelody.Web.Extensions
+
+@model PianoMelody.Web.Models.ViewModels.HomeViewModel
 @{
     ViewBag.Title = Resources.Home;
     ViewBag.Description = Resources.HomeDescription;
@@ -103,6 +105,8 @@
                 <div class="row margin-right-15">
                     @foreach (var news in Model.LastNews)
                     {
+                        string newsContent = news.Content.ToFixedLenght(200);
+
                         <div class="col-lg-4 padding-right-0 width-100">
                             <div class="panel panel-default height-283" onclick="$('@string.Format("#reference-{0}", news.Id)').appendTo('body').modal('show')">
                                 <div class="panel-heading">
@@ -112,7 +116,7 @@
                                     <div class="row">
                                         <div class="col-lg-8">
                                             <p class="ellipsis">
-                                                @news.Content
+                                                @newsContent
                                             </p>
                                         </div>
                                     </div>
