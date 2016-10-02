@@ -202,6 +202,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Contact form enquery</summary>
+        public static string _ContactFormSubject 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_ContactFormSubject", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Date created</summary>
         public static string _Created 
         {
@@ -298,6 +307,15 @@ namespace PianoMelody.I18N
             get 
             {
                 return (string) resourceProvider.GetResource("_Email", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
+        /// <summary>Your enquery has been sent successfully</summary>
+        public static string _EmailSentSuccessfully 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_EmailSentSuccessfully", CultureInfo.CurrentUICulture.Name);
             }
         }
             
@@ -1075,7 +1093,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Promotions</summary>
+        /// <summary>Sale</summary>
         public static string Promotions 
         {
             get 
@@ -1084,7 +1102,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Promotions pianos, royals and accessories</summary>
+        /// <summary>Sales pianos, grand pianos and accessories</summary>
         public static string PromotionsDescription 
         {
             get 
@@ -1129,7 +1147,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Royals</summary>
+        /// <summary>Grand pianos</summary>
         public static string Royals 
         {
             get 

@@ -266,9 +266,16 @@ figure > a {
     margin-right: 15px;
 }
 
+.video-embed {
+    margin:0;
+    padding:0;
+}
+
 .btn-inline{
     float: left;
     margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .height-283 {
@@ -547,7 +554,7 @@ footer .dropdown-menu a.active {
         padding-right: 15px;
     }
     footer .links {
-        width: 30%;
+        /*width: 30%;*/
         display: inline-block;
     }
     .language {
@@ -575,10 +582,6 @@ footer .dropdown-menu a.active {
     /*to be deleted when placed image*/
     .navbar > .container .navbar-brand {
         padding-top: 15px;
-    }
-
-    .navbar-collapse { 
-        max-height: 100% !important; 
     }
 
     .carousel-inner {

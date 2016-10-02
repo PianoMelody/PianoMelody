@@ -4,18 +4,21 @@
     using System.Net;
     using System.Net.Mail;
 
-    // TODO: Get existing email and password
     public class EmailHelper
     {
-        private readonly string host = "mail.piano.bg";
+        private readonly string host = ConfigurationManager.AppSettings["host"];
 
-        private readonly int port = 587; // 465, 587;
+        private readonly int port = int.Parse(ConfigurationManager.AppSettings["port"]);
 
-        private readonly bool ssl = false;
+        private readonly bool ssl = bool.Parse(ConfigurationManager.AppSettings["ssl"]);
 
         private readonly string user = ConfigurationManager.AppSettings["user"];
 
         private readonly string pass = ConfigurationManager.AppSettings["pass"];
+
+        public string Name { get; set; }
+
+        public string Email { get; set; }
 
         public string Recipient { get; set; }
 
@@ -36,6 +39,7 @@
 
                 using (var message = new MailMessage(this.user, this.Recipient))
                 {
+                    message.From = new MailAddress(this.Email);
                     message.Subject = this.Subject;
                     message.Body = this.Body;
                     message.IsBodyHtml = true;

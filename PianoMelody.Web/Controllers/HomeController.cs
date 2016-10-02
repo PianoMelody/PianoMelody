@@ -1,6 +1,5 @@
 ﻿namespace PianoMelody.Web.Controllers
 {
-    using System;
     using System.Configuration;
     using System.Linq;
     using System.Net;
@@ -149,34 +148,22 @@
 
             if (ebm.Phone != null)
             {
-                emailBody.AppendFormat("{0}<br />", ebm.Phone);
+                emailBody.AppendFormat("{0}<br /><br />", ebm.Phone);
             }
 
             emailBody.AppendFormat("{0}<br />", ebm.Message);
 
             var email = new EmailHelper();
-            email.Recipient = ConfigurationManager.AppSettings["user"];
-            email.Subject = "Contact form enquery";
+            email.Name = ebm.Name;
+            email.Email = ebm.Email;
+            email.Recipient = ConfigurationManager.AppSettings["recipient"];
+            email.Subject = Resources._ContactFormSubject;
             email.Body = emailBody.ToString();
 
-            //// Mailbox unavailable. The server response was: Access denied - Invalid HELO name (See RFC2821 4.1.1.1)
-            //email.Send();
+            email.Send();
 
-            this.AddNotification("The request is sent successfully", NotificationType.SUCCESS);
+            this.AddNotification(Resources._EmailSentSuccessfully, NotificationType.SUCCESS);
             return this.RedirectToAction("Contact");
-        }
-
-        // GET NotFound
-        public ActionResult NotFound()
-        {
-            Response.StatusCode = (int)HttpStatusCode.NotFound;
-            return this.View("NotFound");
-        }
-
-        // GET TestServerError
-        public ActionResult TestServerError()
-        {
-            throw new Exception();
         }
     }
 }
