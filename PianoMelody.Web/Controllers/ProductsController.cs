@@ -119,9 +119,11 @@
                 return this.View();
             }
 
+            ReorderPosition(productBindingModel.Position);
+
             var product = new Product()
             {
-                Position = this.Data.Products.GetAll().Count() + 1,
+                Position = productBindingModel.Position,
                 Name = JsonHelper.Serialize(productBindingModel.EnName, productBindingModel.RuName, productBindingModel.BgName),
                 Description = JsonHelper.Serialize(productBindingModel.EnDescription, productBindingModel.RuDescription, productBindingModel.BgDescription),
                 Price = productBindingModel.Price,
@@ -168,6 +170,7 @@
                 EnDescription = descriptionLocs[0].v,
                 RuDescription = descriptionLocs[1].v,
                 BgDescription = descriptionLocs[2].v,
+                Position = currentProduct.Position,
                 Price = currentProduct.Price,
                 PromoPrice = currentProduct.PromoPrice,
                 IsNew = currentProduct.IsNew,
@@ -197,12 +200,15 @@
                 return this.View();
             }
 
+            ReorderPosition(productBindingModel.Position);
+
             currentProduct.Name = JsonHelper.Serialize(productBindingModel.EnName, productBindingModel.RuName, productBindingModel.BgName);
             currentProduct.Description = JsonHelper.Serialize(productBindingModel.EnDescription, productBindingModel.RuDescription, productBindingModel.BgDescription);
             currentProduct.Price = productBindingModel.Price;
             currentProduct.PromoPrice = productBindingModel.PromoPrice;
             currentProduct.IsNew = productBindingModel.IsNew;
             currentProduct.IsSold = productBindingModel.IsSold;
+            currentProduct.Position = productBindingModel.Position;
             currentProduct.ArticleGroupId = productBindingModel.ArticleGroupId;
             currentProduct.ManufacturerId = productBindingModel.ManufacturerId;
 
@@ -228,6 +234,8 @@
             }
 
             this.Data.SaveChanges();
+
+            this.RePosition();
 
             return Redirect(returnUrl);
         }
@@ -321,9 +329,26 @@
             return this.Redirect(returnUrl);
         }
 
+        private void ReorderPosition(int newPosition)
+        {
+            var products = this.Data.Products.GetAll().ToArray();
+
+            for (int i = 0; i < products.Length; i++)
+            {
+                if (products[i].Position == newPosition)
+                {
+                    products[i].Position = newPosition + 1;
+                    newPosition += 1;
+                }
+            }
+        }
+
         private void RePosition()
         {
-            var products = this.Data.Products.GetAll().OrderBy(a => a.Position).ToList();
+            var products = this.Data.Products.GetAll()
+                .OrderBy(a => a.Position)
+                .ThenByDescending(a => a.Id)
+                .ToList();
 
             for (int i = 0; i < products.Count; i++)
             {

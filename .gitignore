@@ -252,3 +252,4 @@ paket-files/
 *.sln.iml
 /PianoMelody.Web/Web.Release.config
 /PianoMelody.Compiled/bin/*.pdb
+/PianoMelody.Web/Multimedia

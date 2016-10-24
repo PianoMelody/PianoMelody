@@ -35,6 +35,9 @@ namespace PianoMelody.Web.Models.BindingModels
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "_ErrRequired")]
         public string BgDescription { get; set; }
 
+        [Display(Name = "_Position", ResourceType = typeof(Resources))]
+        public int Position { get; set; }
+
         [Display(Name = "Price", ResourceType = typeof(Resources))]
         [RegularExpression(@"^\d*(\.|,|(\.\d{1,2})|(,\d{1,2}))?$", ErrorMessage = "Invalid price")]
         public decimal? Price { get; set; }

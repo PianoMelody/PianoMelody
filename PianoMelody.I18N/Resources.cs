@@ -616,6 +616,15 @@ namespace PianoMelody.I18N
             }
         }
             
+        /// <summary>Position</summary>
+        public static string _Position 
+        {
+            get 
+            {
+                return (string) resourceProvider.GetResource("_Position", CultureInfo.CurrentUICulture.Name);
+            }
+        }
+            
         /// <summary>Product</summary>
         public static string _Product 
         {
@@ -814,7 +823,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>accessories,stools,metronoms</summary>
+        /// <summary>accessories, stools, piano benches, metronoms, lamps</summary>
         public static string AccessoriesKeywords 
         {
             get 
@@ -868,7 +877,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>акустични,пиана</summary>
+        /// <summary>piano, pianos, grand piano, acoustic</summary>
         public static string AcousticPianosKeywords 
         {
             get 
@@ -904,7 +913,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>address,contact,contacts,working time</summary>
+        /// <summary>address, contact, contacts, working time</summary>
         public static string ContactsKeywords 
         {
             get 
@@ -931,7 +940,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>digital,pianos</summary>
+        /// <summary>digital, pianos, Piano</summary>
         public static string DigitalPianosKeywords 
         {
             get 
@@ -967,7 +976,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Piano salon</summary>
+        /// <summary>Piano shop</summary>
         public static string Home 
         {
             get 
@@ -976,7 +985,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Melody piano lounge, sale of pianos, new and used</summary>
+        /// <summary>Piano shop Melody, sale of pianos and grand pianos. Import and export of new and second hand pianos. Exclusive representative for PETROF, C.BECHSTEIN and others for BULGARIA.</summary>
         public static string HomeDescription 
         {
             get 
@@ -1111,7 +1120,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>promotion,promotions</summary>
+        /// <summary>sale, promotion, promotions</summary>
         public static string PromotionsKeywords 
         {
             get 
@@ -1156,7 +1165,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Royals new and second hand</summary>
+        /// <summary>Grand pianos new and second hand</summary>
         public static string RoyalsDescription 
         {
             get 
@@ -1165,7 +1174,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>royals,grand pianos</summary>
+        /// <summary>grand piano, grand pianos</summary>
         public static string RoyalsKeywords 
         {
             get 
@@ -1183,7 +1192,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Piano lessons</summary>
+        /// <summary>Transport and delivery of piano and grand piano. Rental of pianos and grand pianos. Restoration and tuning. Piano lessons.</summary>
         public static string ServicesDescription 
         {
             get 
@@ -1192,7 +1201,7 @@ namespace PianoMelody.I18N
             }
         }
             
-        /// <summary>Lessons</summary>
+        /// <summary>Transportation, handling, piano, rental, tuning, restoration, lessons</summary>
         public static string ServicesKeywords 
         {
             get 
