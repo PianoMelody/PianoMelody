@@ -33,17 +33,23 @@
             {
                 var filePath = path + file;
 
-                Image imgPhoto = Image.FromFile(filePath);
+                using (Image imgPhoto = Image.FromFile(filePath))
+                {
+                    int sourceWidth = imgPhoto.Width;
+                    int sourceHeight = imgPhoto.Height;
 
-                int sourceWidth = imgPhoto.Width;
-                int sourceHeight = imgPhoto.Height;
+                    imgPhoto.RotateFlip(RotateFlipType.Rotate180FlipX);
+                    imgPhoto.RotateFlip(RotateFlipType.Rotate180FlipX);
 
-                int calcHeight = sourceHeight * newWidth / sourceWidth;
+                    float ratio = 0;
+                    ratio = (float)sourceWidth / sourceHeight;
+                    int calcHeight = (int)(newWidth / ratio);
 
-                imgPhoto = imgPhoto.GetThumbnailImage(newWidth, calcHeight, () => false, IntPtr.Zero);
-
-                imgPhoto.Save(path + "thumbs\\" + file);
-                imgPhoto.Dispose();
+                    using (Image thumbnail = imgPhoto.GetThumbnailImage(newWidth, calcHeight, () => false, IntPtr.Zero))
+                    {
+                        thumbnail.Save(path + "thumbs\\" + file);
+                    }
+                }
             }
 
             Console.WriteLine("Thumbnails has been updated.");

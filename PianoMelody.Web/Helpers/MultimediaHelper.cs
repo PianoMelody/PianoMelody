@@ -133,7 +133,13 @@ namespace PianoMelody.Web.Helpers
             {
                 int sourceWidth = imgPhoto.Width;
                 int sourceHeight = imgPhoto.Height;
-                int calcHeight = sourceHeight * width / sourceWidth;
+
+                imgPhoto.RotateFlip(RotateFlipType.Rotate180FlipX);
+                imgPhoto.RotateFlip(RotateFlipType.Rotate180FlipX);
+
+                float ratio = 0;
+                ratio = (float)sourceWidth / sourceHeight;
+                int calcHeight = (int)(width / ratio);              
 
                 using (Image thumbnail = imgPhoto.GetThumbnailImage(width, calcHeight, () => false, IntPtr.Zero))
                 {
