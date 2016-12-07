@@ -123,10 +123,5 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/shared")
     @RenderSection("scripts", required: false)
-    <script>
-        var buttonID = "viber";
-        var text = "";
-        document.getElementById(buttonID).setAttribute('href', "viber://forward?text=" + encodeURIComponent(text + " " + window.location.href));
-    </script>
 </body>
 </html>
