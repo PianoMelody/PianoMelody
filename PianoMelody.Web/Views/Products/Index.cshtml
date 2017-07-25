@@ -3,6 +3,7 @@
 @{
     string group = Request.QueryString["group"] as string;
     string look = this.Session["look"] as string;
+    int rowCount = 0;
 
     switch (group)
     {
@@ -53,12 +54,20 @@
         }
         else
         {
+            if (rowCount != 0 && rowCount % 3 == 0)
+            {
+                @:</div>
+                @:<div class="row">
+            }
+
             <div class="col-lg-4 col-md-4">
                 <article class="panel panel-default pointer" onclick="$('@string.Format("#product-{0}", product.Id)').appendTo('body').modal('show')">
                     @Html.Partial("_ProductInfo", product)
                     @Html.Partial("_ProductAdmin", product)
                 </article>
             </div>
+
+            rowCount++;
 
             @Html.Partial("_ProductModal", product)
         }
