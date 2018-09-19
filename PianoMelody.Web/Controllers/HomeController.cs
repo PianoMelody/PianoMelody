@@ -16,6 +16,7 @@
     using Models.ViewModels;
 
     using PianoMelody.Models.Enumetations;
+    using reCAPTCHA.MVC;
 
     public class HomeController : BaseController
     {
@@ -131,7 +132,8 @@
         // GET /SendEmail
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SendEmail(EmailBindingModel ebm)
+        [CaptchaValidator]
+        public ActionResult SendEmail(EmailBindingModel ebm, bool captchaValid)
         {
             if (!ModelState.IsValid)
             {

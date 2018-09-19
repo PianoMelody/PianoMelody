@@ -1,4 +1,5 @@
 ﻿@model PianoMelody.Web.Models.BindingModels.EmailBindingModel
+@using reCAPTCHA.MVC
 
 @{
     ViewBag.Title = Resources.Contacts;
@@ -24,45 +25,54 @@
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="@Resources._Send" class="btn btn-default" />
-                    </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Are you robot?</label>
+                <div class="col-md-10">
+                    @Html.Recaptcha()
+                    <br />
+                    <span class="field-validation-error text-danger">@Html.ValidationMessage("ReCaptcha")</span>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 50px;">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="@Resources._Send" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
         }
     </div>
 
@@ -78,7 +88,7 @@
 
         @Html.Raw(Resources._EditAddress)
 
-        <iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=%D0%A3%D0%BB.%22%D0%A1%D0%B2.%20%D0%98%D0%B2%D0%B0%D0%BD%20%D0%A0%D0%B8%D0%BB%D1%81%D0%BA%D0%B8%22%20%E2%84%96%2014%20%D0%93%D1%80.%20%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%201606&key=AIzaSyCPZx4SKBUO8HE60L1IfT11peH1Y18_PMw" allowfullscreen></iframe>
+        <iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=%D0%A3%D0%BB.%22%D0%A1%D0%B2.%20%D0%98%D0%B2%D0%B0%D0%BD%20%D0%A0%D0%B8%D0%BB%D1%81%D0%BA%D0%B8%22%20%E2%84%96%2014%20%D0%93%D1%80.%20%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%201606&key=AIzaSyDLN5B1RzAKKqZGSHdEA7dbGId7jFw34KQ" allowfullscreen></iframe>
     </div>
 </div>
 
